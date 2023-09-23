@@ -12,9 +12,7 @@ const Home = () => {
           <h3>We can make your work easy. Kindly register for your customised business whatsapp</h3>
         </div>
       </div>
-      <div>
-        div*
-      </div>
+      <div></div>
     </div>
   )
 }
