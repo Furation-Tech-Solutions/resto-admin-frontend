@@ -1,0 +1,65 @@
+.outerBoxAdminDashboard{
+    border: 1px solid black;
+    padding-top: 100px;
+    width: 100%;
+}
+.innerBoxAdminDashboard{
+    display: flex;
+    justify-content: space-between;
+}
+.leftBoxAdminDashboard{
+    border-right: 1px solid black;
+    width: 20%;
+}
+.profileBoxAdminDashboard{
+    border-bottom: 1px solid black;
+}
+.profileImageAdminDashboard{
+    width: 150px;
+}
+.titleBoxAdminDashboard{
+    border-bottom: 0px solid black;
+}
+.leftInnerBoxAdminDashboard{
+    border-bottom: 1px solid black;
+}
+.rightBoxAdminDashboard{
+    border: 1px solid black;
+    width: 80%;
+}
+
+.firstrightboxon{
+    display: flex;
+}
+.firstrightboxoff{
+    display: none;
+}
+.secondrightboxon{
+    display: flex;
+}
+.secondInnerboxAdminDashboard{
+    border: 1px solid gray;
+    width: 50%;
+    margin: auto;
+    margin-top: 100px;
+    padding: 30px;
+}
+.inputSecondboxAdminDashboard{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.secondrightboxoff{
+    display: none;
+}
+.thirdrightboxon{
+    display: flex;
+}
+.thirdrightboxoff{
+    display: none;
+}
+.fourthrightboxon{
+    display: flex;
+}
+.fourthrightboxoff{
+    display: none;
+}

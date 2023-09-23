@@ -1,0 +1,16 @@
+.outerBox {
+    width: 100%;
+}
+.innerBox {
+    width: 90%;
+    margin: auto;
+}
+.banner {
+    width: 100%;
+    position: relative;
+}
+.floatBox {
+    position: absolute;
+    top: 10%;
+    left: 15%;
+}

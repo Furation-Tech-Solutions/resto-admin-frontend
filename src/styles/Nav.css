@@ -1,0 +1,36 @@
+.outerBoxScroll {
+    width: 100%;
+    background-color: rgb(233, 228, 228);
+    position: fixed;
+    z-index: 100;
+}
+.outerBox {
+    width: 100%;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    position: fixed;
+    z-index: 100;
+}
+.innerBox {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0px;
+}
+.linksbox {
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.link {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 400;
+    color: black;
+}
+.logo {
+    width: 180px;
+}

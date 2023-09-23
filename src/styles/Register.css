@@ -1,0 +1,29 @@
+.outerBoxRegister {
+    width: 100%;
+    padding-top: 100px;
+}
+.innerBoxRegister {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    width: 40%;
+    margin: auto;
+    padding: 30px;
+}
+.inputregister {
+    width: 40%;
+    margin: auto;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.registerButton {
+    margin-top: 10px;
+    padding: 5px 20px;
+    font-size: 17px;
+    border-radius: 20px;
+    background-color: blueviolet;
+    color: white;
+}
+.registerButton:hover {
+    background-color: rgb(196, 148, 241);
+    color: rgb(0, 0, 0);
+}
