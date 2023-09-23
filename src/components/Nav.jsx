@@ -30,6 +30,7 @@ const Nav = () => {
         <div className='linksbox'>
             <Link className='link' to="/register">Register</Link>
             <Link className='link' to="/login">Login</Link>
+            <Link className='link' to="/admindashboard">Admin Dashboard</Link>
             <Link className='link' to="/about">About us</Link>
             <Link className='link' to="/contact">Contact us</Link>
         </div>
