@@ -1,10 +1,30 @@
 import React, { useState, useEffect } from 'react'
 import "../styles/AdminDashboard.css"
 import { TextareaAutosize } from '@material-ui/core';
+import { BarChart } from '@material-ui/icons';
 
 const AdminDashboard = () => {
 
   const [boxnum, setBoxnum]= useState("firstbox");
+  const [chartData, setChartData] = useState({
+    labels: ['Red', 'Orange', 'Blue'],
+    datasets: [
+      {
+        label: 'Weekly unique interactions',
+        data: [55, 23, 96, 34, 86, 23, 56],
+        backgroundColor: [
+          'rgba(255, 255, 255, 0.6)',
+          'rgba(255, 255, 255, 0.6)',
+          'rgba(255, 255, 255, 0.6)',
+          'rgba(255, 255, 255, 0.6)',
+          'rgba(255, 255, 255, 0.6)',
+          'rgba(255, 255, 255, 0.6)',
+          'rgba(255, 255, 255, 0.6)',
+        ],
+        borderWidth: 1,
+      }
+  ]
+  });
 
 
   return (
@@ -37,7 +57,10 @@ const AdminDashboard = () => {
                 <h3>Daily Interactions:- </h3>
                 <h3>Total Interactions:- </h3>
               </div>
-              <div>Weekly Interactions</div>
+              <div>
+                <h3>Weekly Interactions</h3>
+                <BarChart chartData={chartData} />
+              </div>
             </div>
           </div>
           <div className={boxnum==="secondbox"? "secondrightboxon" : "secondrightboxoff" }>
