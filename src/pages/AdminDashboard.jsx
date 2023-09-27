@@ -1,30 +1,27 @@
 import React, { useState, useEffect } from 'react'
 import "../styles/AdminDashboard.css"
 import { TextareaAutosize } from '@material-ui/core';
-import { BarChart } from '@material-ui/icons';
+import Chart from "chart.js/auto";
+import { Bar } from "react-chartjs-2";
 
 const AdminDashboard = () => {
 
   const [boxnum, setBoxnum]= useState("firstbox");
-  const [chartData, setChartData] = useState({
-    labels: ['Red', 'Orange', 'Blue'],
+
+  const [dailyInteraction, setDailyInteraction] = useState(0);
+
+  const labels = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+  const data = {
+    labels: labels,
     datasets: [
       {
-        label: 'Weekly unique interactions',
-        data: [55, 23, 96, 34, 86, 23, 56],
-        backgroundColor: [
-          'rgba(255, 255, 255, 0.6)',
-          'rgba(255, 255, 255, 0.6)',
-          'rgba(255, 255, 255, 0.6)',
-          'rgba(255, 255, 255, 0.6)',
-          'rgba(255, 255, 255, 0.6)',
-          'rgba(255, 255, 255, 0.6)',
-          'rgba(255, 255, 255, 0.6)',
-        ],
-        borderWidth: 1,
-      }
-  ]
-  });
+        label: "Unique users this week",
+        backgroundColor: "teal",
+        borderColor: "white",
+        data: [45, 10, 5, 26, 20, 30, 45, 56],
+      },
+    ],
+  }
 
 
   return (
@@ -36,16 +33,16 @@ const AdminDashboard = () => {
             <h3>Pritam da dhaba</h3>
           </div>
           <div className='titleBoxAdminDashboard'>
-            <div onClick={(e)=>setBoxnum("firstbox")} name="firstbox" className='leftInnerBoxAdminDashboard'>
+            <div onClick={(e)=>setBoxnum("firstbox")} name="firstbox" className={boxnum==="firstbox"? "leftInnerBoxfirstAdminDashboard" : "leftInnerBoxfirstAdminDashboardoff" }>
               <h4>Interactions</h4>
             </div>
-            <div onClick={(e)=>setBoxnum("secondbox")} name="secondbox" className='leftInnerBoxAdminDashboard'>
+            <div onClick={(e)=>setBoxnum("secondbox")} name="secondbox" className={boxnum==="secondbox"? "leftInnerBoxsecondAdminDashboard" : "leftInnerBoxsecondAdminDashboardoff" }>
               <h4>Send message</h4>
             </div>
-            <div onClick={(e)=>setBoxnum("thirdbox")} name="thirdbox" className='leftInnerBoxAdminDashboard'>
+            <div onClick={(e)=>setBoxnum("thirdbox")} name="thirdbox" className={boxnum==="thirdbox"? "leftInnerBoxthirdAdminDashboard" : "leftInnerBoxthirdAdminDashboardoff" }>
               <h4>Send Bulk Message</h4>
             </div>
-            <div onClick={(e)=>setBoxnum("fourthbox")} name="fourthbox" className='leftInnerBoxAdminDashboard'>
+            <div onClick={(e)=>setBoxnum("fourthbox")} name="fourthbox" className={boxnum==="fourthbox"? "leftInnerBoxfourthAdminDashboard" : "leftInnerBoxfourthAdminDashboardoff" }>
               <h4>Festive Wishes</h4>
             </div>
           </div>
@@ -59,7 +56,7 @@ const AdminDashboard = () => {
               </div>
               <div>
                 <h3>Weekly Interactions</h3>
-                <BarChart chartData={chartData} />
+                <Bar data={data} />
               </div>
             </div>
           </div>

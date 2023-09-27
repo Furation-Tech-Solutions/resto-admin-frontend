@@ -1,5 +1,4 @@
 .outerBoxAdminDashboard{
-    border: 1px solid black;
     padding-top: 100px;
     width: 100%;
 }
@@ -20,11 +19,35 @@
 .titleBoxAdminDashboard{
     border-bottom: 0px solid black;
 }
-.leftInnerBoxAdminDashboard{
+.leftInnerBoxfirstAdminDashboard{
+    background-color: rgb(190, 190, 190);
+    border: 1px solid black;
+}
+.leftInnerBoxsecondAdminDashboard{
+    background-color: rgb(190, 190, 190);
+    border: 1px solid black;
+}
+.leftInnerBoxthirdAdminDashboard{
+    background-color: rgb(190, 190, 190);
+    border: 1px solid black;
+}
+.leftInnerBoxfourthAdminDashboard{
+    background-color: rgb(190, 190, 190);
+    border: 1px solid black;
+}
+.leftInnerBoxfirstAdminDashboardoff{
+    border-bottom: 1px solid black;
+}
+.leftInnerBoxsecondAdminDashboardoff{
+    border-bottom: 1px solid black;
+}
+.leftInnerBoxthirdAdminDashboardoff{
+    border-bottom: 1px solid black;
+}
+.leftInnerBoxfourthAdminDashboardoff{
     border-bottom: 1px solid black;
 }
 .rightBoxAdminDashboard{
-    border: 1px solid black;
     width: 80%;
 }
 
@@ -38,10 +61,9 @@
     display: flex;
 }
 .secondInnerboxAdminDashboard{
-    border: 1px solid gray;
     width: 50%;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 20px;
     padding: 30px;
 }
 .inputSecondboxAdminDashboard{

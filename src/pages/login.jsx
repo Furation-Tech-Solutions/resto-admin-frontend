@@ -8,8 +8,6 @@ import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { login } from "../Redux/AuthData/action";
-import { Label } from '@material-ui/icons';
-import { InputLabel } from '@material-ui/core';
 
 const Login = () => {
 
@@ -45,8 +43,8 @@ const Login = () => {
           <Input className='inputlogin' onChange={(e)=>setPassword(e.target.value)} value={password} type={ispassword? 'text' : 'password'} placeholder='Enter password' endAdornment={
                     <InputAdornment position="end">
                         <IconButton
-                            onClick={handleClickShowPassword}
-                            onMouseDown={handleMouseDownPassword}
+                            onClick={()=>handleClickShowPassword()}
+                            onMouseDown={()=>handleMouseDownPassword()}
                         >
                             {ispassword ? <Visibility /> : <VisibilityOff />}
                         </IconButton>

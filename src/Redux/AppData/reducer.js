@@ -1,25 +1,52 @@
 import * as types from "./actionTypes"
 
 const initialState= {
-    books: [],
-    isLoading: false,
-    isError: false,
+    paymentHistory: [],
+    uniqueUser: 0,
+    totalUniqueUser: 0,
+    weeklyniqueUser: 0,
+    isLoadingpayment: false,
+    isErrorpayment: false
 }
 
 const reducer= (oldState= initialState, action)=>{
     const {type, payload}= action;
     switch(type){
-        case types.GET_BOOKS_REQUEST: 
+        case types.GET_PAYMENTHISTORY_REQUEST: 
             return {
-                ...oldState, isLoading:true
+                ...oldState, isLoadingpayment:true
             }
-        case types.GET_BOOKS_SUCCESS: 
+        case types.GET_PAYMENTHISTORY_SUCCESS: 
             return {
-                ...oldState, isLoading:false, books:payload
+                ...oldState, isLoadingpayment:false, paymentHistory:payload
             }
-        case types.GET_BOOKS_ERROR: 
+        case types.GET_PAYMENTHISTORY_ERROR: 
             return {
-                ...oldState, isLoading:false, isError:true
+                ...oldState, isLoadingpayment:false, isError:true
+            }
+        case types.GET_UNIQUEUSER_SUCCESS: 
+            return {
+                ...oldState, uniqueUser:payload
+            }
+        case types.GET_UNIQUEUSER_ERROR: 
+            return {
+                ...oldState, uniqueUser:0
+            }
+        case types.GET_TOTALUNIQUEUSER_SUCCESS: 
+            return {
+                ...oldState, totalUniqueUser:payload
+            }
+        case types.GET_TOTALUNIQUEUSER_ERROR: 
+            return {
+                ...oldState, totalUniqueUser:0
+            }
+        case types.GET_WEEKLYUNIQUEUSER_SUCCESS: 
+            return {
+                ...oldState, weeklyniqueUser:payload
+            }
+        case types.GET_WEEKLYUNIQUEUSER_ERROR: 
+            return {
+                ...oldState, weeklyniqueUser:0
             }
         default : return oldState
     }
