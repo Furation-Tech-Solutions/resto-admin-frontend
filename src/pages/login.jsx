@@ -44,7 +44,7 @@ const Login = () => {
                     <InputAdornment position="end">
                         <IconButton
                             onClick={()=>handleClickShowPassword()}
-                            onMouseDown={()=>handleMouseDownPassword()}
+                            onMouseDown={(event)=>handleMouseDownPassword(event)}
                         >
                             {ispassword ? <Visibility /> : <VisibilityOff />}
                         </IconButton>

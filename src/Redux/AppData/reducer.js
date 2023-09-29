@@ -5,6 +5,7 @@ const initialState= {
     uniqueUser: 0,
     totalUniqueUser: 0,
     weeklyniqueUser: 0,
+    monthlyniqueUser: 0,
     isLoadingpayment: false,
     isErrorpayment: false
 }
@@ -47,6 +48,14 @@ const reducer= (oldState= initialState, action)=>{
         case types.GET_WEEKLYUNIQUEUSER_ERROR: 
             return {
                 ...oldState, weeklyniqueUser:0
+            }
+        case types.GET_MONTHLYUNIQUEUSER_SUCCESS: 
+            return {
+                ...oldState, monthlyniqueUser:payload
+            }
+        case types.GET_MONTHLYUNIQUEUSER_ERROR: 
+            return {
+                ...oldState, monthlyniqueUser:0
             }
         default : return oldState
     }

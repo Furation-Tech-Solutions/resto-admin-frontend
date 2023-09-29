@@ -1,5 +1,5 @@
 // import axios from "axios"
-import { GET_PAYMENTHISTORY_ERROR, GET_PAYMENTHISTORY_REQUEST, GET_PAYMENTHISTORY_SUCCESS, GET_TOTALUNIQUEUSER_ERROR, GET_TOTALUNIQUEUSER_SUCCESS, GET_UNIQUEUSER_ERROR, GET_UNIQUEUSER_SUCCESS, GET_WEEKLYUNIQUEUSER_ERROR, GET_WEEKLYUNIQUEUSER_SUCCESS } from "./actionTypes"
+import { GET_MONTHLYUNIQUEUSER_ERROR, GET_MONTHLYUNIQUEUSER_SUCCESS, GET_PAYMENTHISTORY_ERROR, GET_PAYMENTHISTORY_REQUEST, GET_PAYMENTHISTORY_SUCCESS, GET_TOTALUNIQUEUSER_ERROR, GET_TOTALUNIQUEUSER_SUCCESS, GET_UNIQUEUSER_ERROR, GET_UNIQUEUSER_SUCCESS, GET_WEEKLYUNIQUEUSER_ERROR, GET_WEEKLYUNIQUEUSER_SUCCESS } from "./actionTypes"
 
 
 const getPaymentHistoryRequest= ()=>{
@@ -52,6 +52,18 @@ const getWeeklyUniqueUserError= ()=>{
     }
 }
 
+const getMonthlyUniqueUserSuccess= ()=>{
+    return {
+        type: GET_MONTHLYUNIQUEUSER_SUCCESS
+    }
+}
+const getMonthlyUniqueUserError= ()=>{
+    return {
+        type: GET_MONTHLYUNIQUEUSER_ERROR
+    }
+}
+
+
 const getPaymentHistory= (params)=>(dispatch)=>{
     dispatch(getPaymentHistoryRequest());
     return axios.get(`https://restaurant-bot-admin.onrender.com/api/v1/payment`, params)
@@ -64,7 +76,7 @@ const getPaymentHistory= (params)=>(dispatch)=>{
 }
 
 const getUniqueUser= ()=>(dispatch)=>{
-    return axios.get(`https://restaurant-bot-admin.onrender.com/api/v1/payment`)
+    return axios.get(`https://worrisome-newt-twill.cyclic.cloud/dailyuser`)
     .then((res)=>{
         dispatch(getUniqueUserSuccess(res.data))
     })
@@ -74,7 +86,7 @@ const getUniqueUser= ()=>(dispatch)=>{
 }
 
 const getTotalUniqueUser= ()=>(dispatch)=>{
-    return axios.get(`https://restaurant-bot-admin.onrender.com/api/v1/payment`)
+    return axios.get(`https://worrisome-newt-twill.cyclic.cloud/totaluser`)
     .then((res)=>{
         dispatch(getTotalUniqueUserSuccess(res.data))
     })
@@ -84,7 +96,7 @@ const getTotalUniqueUser= ()=>(dispatch)=>{
 }
 
 const getWeeklyUniqueUser= ()=>(dispatch)=>{
-    return axios.get(`https://restaurant-bot-admin.onrender.com/api/v1/payment`)
+    return axios.get(`https://worrisome-newt-twill.cyclic.cloud/weeklyuser`)
     .then((res)=>{
         dispatch(getWeeklyUniqueUserSuccess(res.data))
     })
@@ -93,4 +105,14 @@ const getWeeklyUniqueUser= ()=>(dispatch)=>{
     })
 }
 
-export {getPaymentHistory, getUniqueUser, getTotalUniqueUser, getWeeklyUniqueUser};
+const getMonthlyUniqueUser= ()=>(dispatch)=>{
+    return axios.get(`https://worrisome-newt-twill.cyclic.cloud/monthlyuser`)
+    .then((res)=>{
+        dispatch(getMonthlyUniqueUserSuccess(res.data))
+    })
+    .catch((error)=>{
+        dispatch(getMonthlyUniqueUserError())
+    })
+}
+
+export {getPaymentHistory, getUniqueUser, getTotalUniqueUser, getWeeklyUniqueUser, getMonthlyUniqueUser};

@@ -8,6 +8,23 @@ const AdminDashboard = () => {
 
   const [boxnum, setBoxnum]= useState("firstbox");
 
+  const [sendMessage, setSendMessage]= useState({
+    number: "",
+    messsage: "",
+    image: ""
+  });
+
+  const [bulkMessage, setBulkMessage]= useState({
+    excel: "",
+    messsage: "",
+    image: ""
+  });
+
+  const [announcement, setAnnouncement]= useState({
+    messsage: "",
+    image: ""
+  });
+
   const [dailyInteraction, setDailyInteraction] = useState(0);
 
   const labels = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
@@ -18,7 +35,7 @@ const AdminDashboard = () => {
         label: "Unique users this week",
         backgroundColor: "teal",
         borderColor: "white",
-        data: [45, 10, 5, 26, 20, 30, 45, 56],
+        data: [45, 10, 5, 26, 20, 30, 45, 56]
       },
     ],
   }
@@ -51,8 +68,8 @@ const AdminDashboard = () => {
           <div className={boxnum==="firstbox"? "firstrightboxon" : "firstrightboxoff" }>
             <div className='secondInnerboxAdminDashboard'>
               <div>
-                <h3>Daily Interactions:- </h3>
-                <h3>Total Interactions:- </h3>
+                <h3>Daily Interactions:- 4</h3>
+                <h3>Total Interactions:- 12</h3>
               </div>
               <div>
                 <h3>Weekly Interactions</h3>
@@ -63,25 +80,35 @@ const AdminDashboard = () => {
           <div className={boxnum==="secondbox"? "secondrightboxon" : "secondrightboxoff" }>
             <div className='secondInnerboxAdminDashboard' >
               <h2>Send message to Client</h2>
-              <input className='inputSecondboxAdminDashboard' type="number" name="" placeholder="Enter client's number" /><br/>
-              <TextareaAutosize className='inputSecondboxAdminDashboard' /><br/>
+              <label>Number: </label>
+              <input className='inputSecondboxAdminDashboard' type="number" placeholder="Enter client's number" /><br/>
+              <label>Image: </label>
+              <input className='inputSecondboxAdminDashboard' type="file" /><br/>
+              <label>Message: </label>
+              <input className='inputSecondboxAdminDashboard' type='text' placeholder="Enter your message" /><br/>
               <button className='buttonSecondboxAdminDashboard'>Send Message</button>
             </div>
           </div>
           <div className={boxnum==="thirdbox"? "thirdrightboxon" : "thirdrightboxoff" }>
             <div className='secondInnerboxAdminDashboard' >
-                <h2>Send Bulk message to Client</h2>
-                <input className='inputSecondboxAdminDashboard' type="number" name="" placeholder="Enter client's number" /><br/>
-                <TextareaAutosize className='inputSecondboxAdminDashboard' /><br/>
-                <button className='buttonSecondboxAdminDashboard'>Send Bulk Message</button>
+              <h2>Send Bulk message to Client</h2>
+              <label>Excel: </label>
+              <input className='inputSecondboxAdminDashboard' type="file" placeholder="Enter client's number" /><br/>
+              <label>Image: </label>
+              <input className='inputSecondboxAdminDashboard' type="file" /><br/>
+              <label>Message: </label>
+              <input className='inputSecondboxAdminDashboard' type='text' placeholder="Enter your message" /><br/>
+              <button className='buttonSecondboxAdminDashboard'>Send Bulk Message</button>
             </div>
           </div>
           <div className={boxnum==="fourthbox"? "fourthrightboxon" : "fourthrightboxoff" }>
             <div className='secondInnerboxAdminDashboard' >
-                <h2>Festive Wish</h2>
-                <input className='inputSecondboxAdminDashboard' type="number" name="" placeholder="Enter client's number" /><br/>
-                <TextareaAutosize className='inputSecondboxAdminDashboard' /><br/>
-                <button className='buttonSecondboxAdminDashboard'>Festive Wish</button>
+              <h2>Festive Wish</h2>
+              <label>Image: </label>
+              <input className='inputSecondboxAdminDashboard' type="file" /><br/>
+              <label>Message: </label>
+              <input className='inputSecondboxAdminDashboard' type='text' placeholder="Enter your message" /><br/>
+              <button className='buttonSecondboxAdminDashboard'>Festive Wish</button>
             </div>
           </div>
         </div>
