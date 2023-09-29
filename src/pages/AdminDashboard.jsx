@@ -3,10 +3,13 @@ import "../styles/AdminDashboard.css"
 import { TextareaAutosize } from '@material-ui/core';
 import Chart from "chart.js/auto";
 import { Bar } from "react-chartjs-2";
+import { getUniqueUser } from '../Redux/AppData/action';
+import { useDispatch, useSelector } from 'react-redux';
 
 const AdminDashboard = () => {
 
   const [boxnum, setBoxnum]= useState("firstbox");
+  const dispatch= useDispatch();
 
   const [sendMessage, setSendMessage]= useState({
     number: "",
@@ -25,7 +28,19 @@ const AdminDashboard = () => {
     image: ""
   });
 
-  const [dailyInteraction, setDailyInteraction] = useState(0);
+  // const [dailyInteraction, setDailyInteraction] = useState(0);
+  const dailyInteraction= useSelector((store)=>store.AppReducer.uniqueUser);
+  console.log(dailyInteraction);
+  const totalInteraction= useSelector((store)=>store.AppReducer.totalUniqueUser);
+  console.log(totalInteraction);
+  const weeklyInteraction= useSelector((store)=>store.AppReducer.monthlyniqueUser);
+  const monthlyInteraction= useSelector((store)=>store.AppReducer.uniqueUser);
+
+  // const [totalInteraction, setTotalInteraction] = useState(0);
+
+  // const [weeklyInteraction, setWeeklyInteraction] = useState(0);
+
+  // const [monthlyInteraction, setMOnthlyInteraction] = useState(0);
 
   const labels = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
   const data = {
@@ -39,6 +54,13 @@ const AdminDashboard = () => {
       },
     ],
   }
+
+  // useEffect(()=>{
+  //   dispatch(getUniqueUser()).then((r)=>{
+  //     console.log(r);
+  //     setDailyInteraction(r)
+  //   });
+  // }, [])
 
 
   return (
@@ -68,11 +90,11 @@ const AdminDashboard = () => {
           <div className={boxnum==="firstbox"? "firstrightboxon" : "firstrightboxoff" }>
             <div className='secondInnerboxAdminDashboard'>
               <div>
-                <h3>Daily Interactions:- 4</h3>
-                <h3>Total Interactions:- 12</h3>
+                <h3>Daily Interactions:- {dailyInteraction}</h3>
+                <h3>Total Interactions:- {totalInteraction}</h3>
               </div>
               <div>
-                <h3>Weekly Interactions</h3>
+                <h3>Weekly Interactions :- {weeklyInteraction}</h3>
                 <Bar data={data} />
               </div>
             </div>

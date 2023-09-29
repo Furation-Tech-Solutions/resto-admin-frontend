@@ -1,6 +1,6 @@
 // import axios from "axios"
 import { GET_MONTHLYUNIQUEUSER_ERROR, GET_MONTHLYUNIQUEUSER_SUCCESS, GET_PAYMENTHISTORY_ERROR, GET_PAYMENTHISTORY_REQUEST, GET_PAYMENTHISTORY_SUCCESS, GET_TOTALUNIQUEUSER_ERROR, GET_TOTALUNIQUEUSER_SUCCESS, GET_UNIQUEUSER_ERROR, GET_UNIQUEUSER_SUCCESS, GET_WEEKLYUNIQUEUSER_ERROR, GET_WEEKLYUNIQUEUSER_SUCCESS } from "./actionTypes"
-
+import axios from "axios";
 
 const getPaymentHistoryRequest= ()=>{
     return {
@@ -19,9 +19,10 @@ const getPaymentHistoryError= ()=>{
     }
 }
 
-const getUniqueUserSuccess= ()=>{
+const getUniqueUserSuccess= (payload)=>{
     return {
-        type: GET_UNIQUEUSER_SUCCESS
+        type: GET_UNIQUEUSER_SUCCESS,
+        payload
     }
 }
 const getUniqueUserError= ()=>{
@@ -30,9 +31,10 @@ const getUniqueUserError= ()=>{
     }
 }
 
-const getTotalUniqueUserSuccess= ()=>{
+const getTotalUniqueUserSuccess= (payload)=>{
     return {
-        type: GET_TOTALUNIQUEUSER_SUCCESS
+        type: GET_TOTALUNIQUEUSER_SUCCESS,
+        payload
     }
 }
 const getTotalUniqueUserError= ()=>{
@@ -41,9 +43,10 @@ const getTotalUniqueUserError= ()=>{
     }
 }
 
-const getWeeklyUniqueUserSuccess= ()=>{
+const getWeeklyUniqueUserSuccess= (payload)=>{
     return {
-        type: GET_WEEKLYUNIQUEUSER_SUCCESS
+        type: GET_WEEKLYUNIQUEUSER_SUCCESS,
+        payload
     }
 }
 const getWeeklyUniqueUserError= ()=>{
@@ -52,9 +55,10 @@ const getWeeklyUniqueUserError= ()=>{
     }
 }
 
-const getMonthlyUniqueUserSuccess= ()=>{
+const getMonthlyUniqueUserSuccess= (payload)=>{
     return {
-        type: GET_MONTHLYUNIQUEUSER_SUCCESS
+        type: GET_MONTHLYUNIQUEUSER_SUCCESS,
+        payload
     }
 }
 const getMonthlyUniqueUserError= ()=>{

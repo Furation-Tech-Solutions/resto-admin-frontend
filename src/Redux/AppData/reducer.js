@@ -2,10 +2,10 @@ import * as types from "./actionTypes"
 
 const initialState= {
     paymentHistory: [],
-    uniqueUser: 0,
-    totalUniqueUser: 0,
-    weeklyniqueUser: 0,
-    monthlyniqueUser: 0,
+    uniqueUser: [],
+    totalUniqueUser: [],
+    weeklyniqueUser: [],
+    monthlyniqueUser: [],
     isLoadingpayment: false,
     isErrorpayment: false
 }
