@@ -8,7 +8,7 @@ import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { login } from "../Redux/AuthData/action";
-import furationlogo from "../utils/Images/furationlogo.svg";
+import furationlogo from "../utils/Images/login/furationlogo.svg";
 
 const Login = () => {
 
