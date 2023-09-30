@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import "../styles/AdminDashboard.css"
-import { TextareaAutosize } from '@material-ui/core';
-import Chart from "chart.js/auto";
 import { Bar } from "react-chartjs-2";
-import { getUniqueUser } from '../Redux/AppData/action';
 import { useDispatch, useSelector } from 'react-redux';
 
 const AdminDashboard = () => {
@@ -28,19 +25,12 @@ const AdminDashboard = () => {
     image: ""
   });
 
-  // const [dailyInteraction, setDailyInteraction] = useState(0);
   const dailyInteraction= useSelector((store)=>store.AppReducer.uniqueUser);
   console.log(dailyInteraction);
   const totalInteraction= useSelector((store)=>store.AppReducer.totalUniqueUser);
   console.log(totalInteraction);
   const weeklyInteraction= useSelector((store)=>store.AppReducer.monthlyniqueUser);
   const monthlyInteraction= useSelector((store)=>store.AppReducer.uniqueUser);
-
-  // const [totalInteraction, setTotalInteraction] = useState(0);
-
-  // const [weeklyInteraction, setWeeklyInteraction] = useState(0);
-
-  // const [monthlyInteraction, setMOnthlyInteraction] = useState(0);
 
   const labels = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
   const data = {

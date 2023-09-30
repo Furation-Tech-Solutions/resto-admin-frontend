@@ -1,27 +1,87 @@
 .outerBoxLogin {
+    display: flex;
     width: 100%;
-    padding-top: 100px;
+    margin-top: 40px;
+    justify-content: center;
+    align-items: center;
 }
 .innerBoxLogin {
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-    width: 40%;
-    margin: auto;
+    width: 538px;
+    height: 470px;
+    flex-shrink: 0;
+    border-radius: 16px;
+    border: 1px solid #CECECE;
+    background: #FBF8FF;
     padding: 30px;
 }
+.loginlogo{
+    width: 119px;
+    height: 119px;
+    flex-shrink: 0;
+}
+.loginheading{
+    color: #000000;
+    font-family: Poppins;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.formbox {
+    width: 80%;
+    text-align: left;
+    margin:auto
+}
+.loginforgotpassword{
+    width: 100%;
+    text-align: right;
+    margin-top: -10px;
+}
 .inputlogin {
-    width: 50%;
+    width: 100%;
+    background-color: white;
     margin: auto;
-    margin-bottom: 10px;
+    border: 0.5px solid rgb(228, 219, 219);
+    border-radius: 4px;
+    outline: none;
+    margin-bottom: 15px;
+    text-align: left;
+    font-size: 12px;
+    padding: 3px;
+    padding-left: 10px;
+    margin-top: 6px;
+    color: #B6B6B6;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.loginlabels{
+    color: #000;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 .loginButton {
-    margin-top: 10px;
-    padding: 5px 20px;
-    font-size: 17px;
-    border-radius: 20px;
-    background-color: blueviolet;
-    color: white;
-}
-.loginButton:hover {
-    background-color: rgb(196, 148, 241);
-    color: rgb(0, 0, 0);
+    display: flex;
+    width: 422px;
+    height: 48px;
+    padding: 14px 174px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    background: linear-gradient(287deg, #7200FF 15.07%, #FC57FF 88.56%), #000;
+    border: none;
+    margin-top: 17px;
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 }

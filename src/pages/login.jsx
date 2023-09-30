@@ -8,6 +8,7 @@ import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { login } from "../Redux/AuthData/action";
+import furationlogo from "../utils/Images/furationlogo.svg";
 
 const Login = () => {
 
@@ -37,10 +38,13 @@ const Login = () => {
   return (
     <div className='outerBoxLogin'>
       <div className='innerBoxLogin'>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbECbhYiXFmPbfgIayn2StJjfmLf03mW4tvX7tFtZM0NGz3GUKgXsoNKcuMLzRo3GKWss&usqp=CAU" alt="" />
-        <div>
-          <Input className='inputlogin' label="Number" onChange={(e)=>{if(e.target.value.length<=10){(setPhone(e.target.value))}}} type="text" value={phone} placeholder='Enter your Number' /><br/>
-          <Input className='inputlogin' onChange={(e)=>setPassword(e.target.value)} value={password} type={ispassword? 'text' : 'password'} placeholder='Enter password' endAdornment={
+        <img className='loginlogo' src={furationlogo} alt="" />
+        <div className='formbox'>
+          <h2 className='loginheading'>Welcome!</h2>
+          <label className='loginlabels'>Enter your email or  phone number</label><br/>
+          <Input className='inputlogin' label="Outlined" onChange={(e)=>{if(e.target.value.length<=10){(setPhone(e.target.value))}}} type="text" value={phone} placeholder='Enter your Email or Number' /><br/>
+          <label className='loginlabels'>Enter your password</label><br/>
+          <Input className='inputlogin' onChange={(e)=>setPassword(e.target.value)} label="Outlined" value={password} type={ispassword? 'text' : 'password'} placeholder='Enter password' endAdornment={
                     <InputAdornment position="end">
                         <IconButton
                             onClick={()=>handleClickShowPassword()}
@@ -50,8 +54,9 @@ const Login = () => {
                         </IconButton>
                     </InputAdornment>
                 } /><br/>
-          <Link to="/register">Forgot password?</Link>
-          <p>Not registered yet? <span><Link to="/register">Register</Link></span> here</p>
+          <div className='loginforgotpassword'>
+            <Link to="/register">Forgot password?</Link>
+          </div>
           <button onClick={()=>handleLogin()} className='loginButton'>Login</button>
         </div>
       </div>
