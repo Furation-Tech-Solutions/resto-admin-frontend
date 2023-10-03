@@ -187,7 +187,7 @@
     line-height: 20px; /* 142.857% */
     letter-spacing: 0.1px;
     margin: auto;
-    margin-top: 55%;
+    margin-top: 45%;
 }
 .leftthirdBoxfirstAdmin{
     color: #FFF;
@@ -215,6 +215,7 @@
     letter-spacing: 0.1px;
     margin: auto;
     margin-top: 20px;
+    color: #FFF;
 }
 .rightBoxAdmin{
     border: 1px solid black;
@@ -227,7 +228,7 @@
     display: flex;
     justify-content:space-between;
     align-items: center;
-    padding: 10px;
+    padding: 0px 10px;
 }
 .textrightfirstBoxAdmin{
     text-align: left;
@@ -266,21 +267,22 @@
     font-weight: 400;
     line-height: normal;
     margin-right: 10px;
+    margin-top: 15px;
     align-items: flex-end;
 }
 .countdownrightfirstRoundOuter{
     border: 0px solid #FC57FF;
     border-radius: 50%;
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     background: linear-gradient(287deg, #7200FF 15.07%, #FC57FF 88.56%), #000;
     padding: 13px;
     margin: auto;
 }
 .countdownrightfirstRoundInner{
     border: 1px solid#FC57FF;
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     justify-content: center;
     align-items: center;
@@ -292,4 +294,165 @@
 .countdownrightfirstRoundInner > p{
     margin: 0px;
     margin-top: 7px;
+}
+.rightsecondBoxAdmin{
+    display: flex;
+    justify-content: space-around;
+    align-items:stretch;
+    padding: 0px 10px;
+}
+.weeklyChartAdmin{
+    width: 420px;
+    height: 241px;
+    padding: 10px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    border: 1px solid #CACACA;
+    background: #FBF8FF;
+}
+.monthlyChartAdmin{
+    width: 411px;
+    height: 241px;
+    padding: 10px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    border: 1px solid #CACACA;
+    background: #FBF8FF;
+}
+.rightsecondBoxCount{
+    height: 100%;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+}
+.rightsecondBoxCountOuter{
+    width: 152px;
+    height: 111px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    border: 1px solid #CACACA;
+    background: #FBF8FF;
+    padding: 5px 10px;
+}
+.rightsecondBoxCountText{
+    height: 10%;
+    color: #2E2A2A;
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 1px;
+    text-align: left;
+}
+.rightsecondBoxCountNumber{
+    height: 55%;
+    color: #AF26FD;
+    font-family: Poppins;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0px;
+    text-align: right;
+}
+.weeklyChartAdminText{
+    color: #2E2A2A;
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 1px;
+    text-align: left;
+}
+.weeklyChartAdminText > p{
+    margin: 4px 0px;
+}
+.monthlyChartAdminText{
+    color: #2E2A2A;
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 1px;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+}
+.monthlyChartAdminText > p{
+    margin: 4px 0px;
+}
+.monthlyChartAdminSelect{
+    border: none;
+    height: 21px;
+    flex-shrink: 0;
+    color: #000;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.rightthirdBoxAdmin{
+    width: 97%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    margin-top: 8px;
+}
+.rightthirdBoxAdmin > input {
+    width: 78%;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 6px;
+    border: 1px solid #9ca1a3;
+    padding: 0px 10px;
+    outline: none;
+}
+.rightthirdBoxAdmin > select {
+    width: 17%;
+    height: 43px;
+    padding: 0px 10px;
+    flex-shrink: 0;
+    border-radius: 6px;
+    border: 1.5px solid #7200FF;
+    outline: none;
+}
+.rightfourthBoxAdmin{
+    width: 97%;
+    margin: auto;
+    height: 358px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    border: 1px solid #CACACA;
+    background: #FFF;
+    margin-top: 10px;
+}
+.userTableAdmin{
+    width: 97%;
+    margin: auto;
+    padding: 10px;
+}
+.userTableAdminHead{
+    color: #000;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.userTableAdminBody{
+    color: #4F4F4F;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
