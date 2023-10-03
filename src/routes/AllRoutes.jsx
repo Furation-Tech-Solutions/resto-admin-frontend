@@ -6,7 +6,7 @@ import About from '../pages/About'
 import Login from '../pages/Login'
 import Register from '../pages/Register'
 import AdminDashboard from '../pages/AdminDashboard'
-import SuperAdmin from '../pages/SuperAdmin'
+import Admin from '../pages/Admin'
 
 const AllRoutes = () => {
   return (
@@ -17,7 +17,7 @@ const AllRoutes = () => {
       <Route path='/about' element={<About/>}></Route>
       <Route path='/contact' element={<Contact/>}></Route>
       <Route path='/admindashboard' element={<AdminDashboard/>}></Route>
-      <Route path='/superadmin' element={<SuperAdmin/>}></Route>
+      <Route path='/admin' element={<Admin/>}></Route>
     </Routes>
   )
 }

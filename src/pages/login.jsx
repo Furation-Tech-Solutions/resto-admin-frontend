@@ -38,7 +38,7 @@ const Login = () => {
   return (
     <div className='outerBoxLogin'>
       <div className='innerBoxLogin'>
-        <img className='loginlogo' src={furationlogo} alt="" />
+        <img className='loginlogo' src={furationlogo} alt="furationlogo" />
         <div className='formbox'>
           <h2 className='loginheading'>Welcome!</h2>
           <label className='loginlabels'>Enter your email or  phone number</label><br/>
@@ -49,7 +49,7 @@ const Login = () => {
                         <IconButton
                             onClick={()=>handleClickShowPassword()}
                             onMouseDown={(event)=>handleMouseDownPassword(event)}
-                        >
+                            >
                             {ispassword ? <Visibility /> : <VisibilityOff />}
                         </IconButton>
                     </InputAdornment>

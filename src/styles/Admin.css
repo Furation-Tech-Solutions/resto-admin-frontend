@@ -1,0 +1,295 @@
+.outerBoxAdmin{
+    width: 100%;
+    background: #FFF;
+}
+.innerBoxAdmin{
+    width: 100%;
+    background: #FFF;
+    display: flex;
+    justify-content: space-between;
+}
+.leftBoxAdmin{
+    width: 246px;
+    height: 619px;
+    flex-shrink: 0;
+    position: fixed;
+    background: linear-gradient(178deg, #434343 0%, #080808 44.71%);
+}
+.leftfirstBoxAdmin{
+    padding: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.leftfirstBoxAdmin > img {
+    width: 57px;
+    height: 57px;
+    flex-shrink: 0;
+}
+.leftfirstBoxAdmin > p{
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.leftsecondBoxAdmin{
+    padding: 10px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+.leftsecondfirstAdmin {
+    display: flex;
+    width: 152px;
+    padding: 13px 0px 13px 10px;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 0.1px;
+}
+.leftsecondfirstAdminOn {
+    display: flex;
+    width: 152px;
+    padding: 13px 0px 13px 10px;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    background: #FFF;
+    color: #000;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 0.1px;
+}
+.leftsecondsecondAdmin {
+    display: flex;
+    width: 152px;
+    padding: 13px 0px 13px 10px;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 0.1px;
+}
+.leftsecondsecondAdminOn{
+    display: flex;
+    width: 152px;
+    padding: 13px 0px 13px 10px;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    background: #FFF;
+    color: #000;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 0.1px;
+}
+.leftsecondthirdAdmin {
+    display: flex;
+    width: 152px;
+    padding: 13px 0px 13px 10px;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 0.1px;
+}
+.leftsecondthirdAdminOn {
+    display: flex;
+    width: 152px;
+    padding: 13px 0px 13px 10px;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    background: #FFF;
+    color: #000;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 0.1px;
+}
+.leftsecondfourthAdmin {
+    display: flex;
+    width: 152px;
+    padding: 13px 0px 13px 10px;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 0.1px;
+}
+.leftsecondfourthAdminOn {
+    display: flex;
+    width: 152px;
+    padding: 13px 0px 13px 10px;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    background: #FFF;
+    color: #000;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 0.1px;
+}
+.leftthirdBoxAdmin{
+    width: 100%;
+    padding: 10px 20px 10px 0px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 0.1px;
+    margin: auto;
+    margin-top: 55%;
+}
+.leftthirdBoxfirstAdmin{
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 0.1px;
+}
+.leftthirdBoxsecondAdmin{
+    width: 162px;
+    padding: 10px 1px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    border: 1px solid #717171;
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 0.1px;
+    margin: auto;
+    margin-top: 20px;
+}
+.rightBoxAdmin{
+    border: 1px solid black;
+    width: 1101px;
+    height: 1024px;
+    flex-shrink: 0;
+    padding-left: 246px;
+}
+.rightfirstBoxAdmin{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    padding: 10px;
+}
+.textrightfirstBoxAdmin{
+    text-align: left;
+}
+.textrightfirstBoxAdmin :nth-child(1){
+    color: #000;
+    font-family: Poppins;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 90.909% */
+    letter-spacing: 0.1px;
+}
+.textrightfirstBoxAdmin :nth-child(2){
+    color: #707070;
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.textrightfirstBoxAdmin :nth-child(3){
+    color: #B0B0B0;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.countdownrightfirstBoxAdmin{
+    color: #707070;
+    text-align: right;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-right: 10px;
+    align-items: flex-end;
+}
+.countdownrightfirstRoundOuter{
+    border: 0px solid #FC57FF;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(287deg, #7200FF 15.07%, #FC57FF 88.56%), #000;
+    padding: 13px;
+    margin: auto;
+}
+.countdownrightfirstRoundInner{
+    border: 1px solid#FC57FF;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 22px;
+    background-color: white;
+    text-align: center;
+}
+.countdownrightfirstRoundInner > p{
+    margin: 0px;
+    margin-top: 7px;
+}
