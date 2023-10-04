@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../styles/Admin.css";
 import logo from "../utils/Images/Admin/logo.svg";
+import closeicon from "../utils/Images/Admin/closeicon.png"
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -8,11 +9,12 @@ import {
   PointElement,
   LineElement,
   BarElement,
+  ArcElement,
   Title,
   Tooltip,
   Legend,
 } from 'chart.js';
-import { Line,  Bar  } from 'react-chartjs-2';
+import { Line,  Bar, Doughnut } from 'react-chartjs-2';
 
 
 const Admin = () => {
@@ -23,12 +25,13 @@ const Admin = () => {
     PointElement,
     LineElement,
     BarElement,
+    ArcElement,
     Title,
     Tooltip,
     Legend
   );
   
-  const [barnum, setBarnum] = useState(1);
+  const [barnum, setBarnum] = useState(0);
 
   // const date = new Date();
 
@@ -134,6 +137,60 @@ const Admin = () => {
     },
   ];
 
+  const subscriptionData = [
+    {
+      plan: "123456789",
+      type: "User name",
+      price: 100,
+      invoice: "1234",
+      startdate: "05/09/2023",
+      enddate: "04/10/2023",
+      status: true
+    },
+    {
+      plan: "123456789",
+      type: "User name",
+      price: 100,
+      invoice: "1234",
+      startdate: "05/09/2023",
+      enddate: "04/10/2023",
+      status: false
+    },
+    {
+      plan: "123456789",
+      type: "User name",
+      price: 100,
+      invoice: "1234",
+      startdate: "05/09/2023",
+      enddate: "04/10/2023",
+      status: false
+    },
+    {
+      plan: "123456789",
+      type: "User name",
+      price: 100,
+      invoice: "1234",
+      startdate: "05/09/2023",
+      enddate: "04/10/2023",
+      status: false
+    },
+  ];
+
+  const doughnutdata = {
+    labels: [],
+    datasets: [
+      {
+        label: '# of Votes',
+        data: [5, 25],
+        backgroundColor: [
+          'white',
+          '#7200FF'
+        ],
+        borderWidth: 1,
+      },
+    ],
+  };
+
   return (
     <div className="outerBoxAdmin">
       <div className="innerBoxAdmin">
@@ -149,35 +206,46 @@ const Admin = () => {
                 barnum === 1 ? "leftsecondfirstAdminOn" : "leftsecondfirstAdmin"
               }
             >
-              Dashboard
+              <p>Dashboard</p>
             </div>
             <div
-              onClick={() => setBarnum(2)}
+              onClick={() => {
+                if(barnum===2){
+                  setBarnum(1);
+                }else{
+                  setBarnum(2);
+                }
+              }}
               className={
                 barnum === 2
                   ? "leftsecondsecondAdminOn"
                   : "leftsecondsecondAdmin"
               }
             >
-              Message
+              <p>Message</p>
+              <div className={barnum===2? "leftsecondseconddivAdmin" : "leftsecondseconddivAdminOff"}>
+                <p className={barnum===3? "leftsendMessageAdmin" : "leftsendMessageAdminOff"} onClick={() => setBarnum(3)}>Send Messages</p><br/><br/>
+                <p className={barnum===4? "leftsendBulkMessageAdmin" : "leftsendBulkMessageAdminOff"} onClick={() => setBarnum(4)}>Send Bulk messages</p><br/><br/>
+                <p className={barnum===5? "leftannouncementAdmin" : "leftannouncementAdminOff"} onClick={() => setBarnum(5)}>Announcement</p><br/><br/>
+              </div>
             </div>
             <div
-              onClick={() => setBarnum(3)}
+              onClick={() => setBarnum(6)}
               className={
-                barnum === 3 ? "leftsecondthirdAdminOn" : "leftsecondthirdAdmin"
+                barnum === 6 ? "leftsecondthirdAdminOn" : "leftsecondthirdAdmin"
               }
             >
-              Feedback
+              <p>Feedback</p>
             </div>
             <div
-              onClick={() => setBarnum(4)}
+              onClick={() => setBarnum(7)}
               className={
-                barnum === 4
+                barnum === 7
                   ? "leftsecondfourthAdminOn"
                   : "leftsecondfourthAdmin"
               }
             >
-              Subscription History
+              <p>Subscription History</p>
             </div>
           </div>
           <div className="leftthirdBoxAdmin">
@@ -286,7 +354,26 @@ const Admin = () => {
           </div>
           <div
             className={
-              barnum === 3
+              barnum === 3 ? "sendMessageBoxAdmin" : "sendMessageBoxAdminOff"
+            }
+          >
+            <div>
+              <p>Send Message</p>
+            </div>
+            <div>
+              <input type="text" placeholder="Enter phone no" />
+              <button>Add</button>
+            </div>
+            <div></div>
+            <div>
+              <button></button>
+              <input type="text" />
+              <button>Send</button>
+            </div>
+          </div>
+          <div
+            className={
+              barnum === 6
                 ? "rightFeedbackBoxAdmin"
                 : "rightFeedbackBoxAdminOff"
             }
@@ -315,11 +402,81 @@ const Admin = () => {
           </div>
           <div
             className={
-              barnum === 4
+              barnum === 7
                 ? "rightSubscriptionBoxAdmin"
                 : "rightSubscriptionBoxAdminOff"
             }
-          ></div>
+          >
+            <div className="rightSubscriptionBoxAdminInner">
+              <p className="SubscriptionTextAdmin">Subscription & Payment History</p>
+              <table className="SubscriptionTableAdmin">
+                <tr>
+                  <th className="SubscriptionTableHeadAdmin">Sr. No.</th>
+                  <th className="SubscriptionTableHeadAdmin">Plan</th>
+                  <th className="SubscriptionTableHeadAdmin">Type</th>
+                  <th className="SubscriptionTableHeadAdmin">Price</th>
+                  <th className="SubscriptionTableHeadAdmin">Invoice</th>
+                  <th className="SubscriptionTableHeadAdmin">Start Date</th>
+                  <th className="SubscriptionTableHeadAdmin">End Date</th>
+                  <th className="SubscriptionTableHeadAdmin">Status</th>
+                </tr>
+                {subscriptionData && subscriptionData.map((subscription, i)=>{
+                  return <tr>
+                    <td className="SubscriptionTableBodyAdmin">{i+1}</td>
+                    <td className="SubscriptionTableBodyAdmin">{subscription.plan}</td>
+                    <td className="SubscriptionTableBodyAdmin">{subscription.type}</td>
+                    <td className="SubscriptionTableBodyAdmin">{subscription.price}</td>
+                    <td className="SubscriptionTableBodyAdmin">{subscription.invoice}</td>
+                    <td className="SubscriptionTableBodyAdmin">{subscription.startdate}</td>
+                    <td className="SubscriptionTableBodyAdmin">{subscription.enddate}</td>
+                    <td className={subscription.status?"SubscriptionTableBodyAdmintrue" : "SubscriptionTableBodyAdmin"}>{subscription.status? "Active" : "Expired"}</td>
+                  </tr>
+                })}
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="currentSubscriptionAdmin">
+        <div className="currentSubscriptionCloseAdmin">
+          <img src={closeicon} alt="" />
+        </div>
+        <p className="currentSubscriptionTextAdmin">Current Subscription</p>
+        <div className="currentSubscriptionInnerBoxAdmin">
+          <div className="currentSubscriptionDoughnutOuterAdmin">
+            <div className="currentSubscriptionDoughnutInnerAdmin">
+              <Doughnut data={doughnutdata} /><br/>
+            </div>
+            <p>25/30 days left</p>
+          </div>
+          <div className="currentSubscriptionTextBoxAdmin">
+            <p>Plan :- Plan A</p>
+            <p>Status :- Active</p>
+            <p>Start Date :- 01/10/2023</p>
+            <p>End Date :- 30/10/2023</p>
+          </div>
+          <div className="currentSubscriptionviewallAdmin" onClick={()=>setBarnum(7)}>View all subscriptions</div>
+        </div>
+      </div>
+      <div className="newSubscriptionAdmin">
+        <div className="newSubscriptionCloseAdmin">
+          <img src={closeicon} alt="" />
+        </div>
+        <p className="newSubscriptionTextAdmin">Current Subscription</p>
+        <div className="newSubscriptionInnerBoxAdmin">
+          <div className="newSubscriptionDoughnutOuterAdmin">
+            <div className="newSubscriptionDoughnutInnerAdmin">
+              <Doughnut data={doughnutdata} /><br/>
+            </div>
+            <p>25/30 days left</p>
+          </div>
+          <div className="newSubscriptionTextBoxAdmin">
+            <p>Plan :- Plan A</p>
+            <p>Status :- Active</p>
+            <p>Start Date :- 01/10/2023</p>
+            <p>End Date :- 30/10/2023</p>
+          </div>
+          <div className="newSubscriptionviewallAdmin" onClick={()=>setBarnum(7)}>View all subscriptions</div>
         </div>
       </div>
     </div>
