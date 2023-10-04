@@ -28,7 +28,7 @@
 }
 .leftfirstBoxAdmin > p{
     color: #FFF;
-    font-family: Poppins;
+    /* font-family: Poppins; */
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
@@ -50,7 +50,7 @@
     gap: 10px;
     border-radius: 8px;
     color: #FFF;
-    font-family: Poppins;
+    /* font-family: Poppins; */
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -67,7 +67,7 @@
     border-radius: 8px;
     background: #FFF;
     color: #000;
-    font-family: Poppins;
+    /* font-family: Poppins; */
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -83,7 +83,7 @@
     gap: 10px;
     border-radius: 8px;
     color: #FFF;
-    font-family: Poppins;
+    /* font-family: Poppins; */
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -100,7 +100,7 @@
     border-radius: 8px;
     background: #FFF;
     color: #000;
-    font-family: Poppins;
+    /* font-family: Poppins; */
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -116,7 +116,7 @@
     gap: 10px;
     border-radius: 8px;
     color: #FFF;
-    font-family: Poppins;
+    /* font-family: Poppins; */
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -133,7 +133,7 @@
     border-radius: 8px;
     background: #FFF;
     color: #000;
-    font-family: Poppins;
+    /* font-family: Poppins; */
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -149,7 +149,7 @@
     gap: 10px;
     border-radius: 8px;
     color: #FFF;
-    font-family: Poppins;
+    /* font-family: Poppins; */
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -166,7 +166,7 @@
     border-radius: 8px;
     background: #FFF;
     color: #000;
-    font-family: Poppins;
+    /* font-family: Poppins; */
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -180,7 +180,7 @@
     align-items: center;
     gap: 10px;
     color: #FFF;
-    font-family: Poppins;
+    /* font-family: Poppins; */
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -191,7 +191,7 @@
 }
 .leftthirdBoxfirstAdmin{
     color: #FFF;
-    font-family: Poppins;
+    /* font-family: Poppins; */
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -207,7 +207,7 @@
     border-radius: 8px;
     border: 1px solid #717171;
     color: #FFF;
-    font-family: Poppins;
+    /* font-family: Poppins; */
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -218,9 +218,8 @@
     color: #FFF;
 }
 .rightBoxAdmin{
-    border: 1px solid black;
     width: 1101px;
-    height: 1024px;
+    height: 617px;
     flex-shrink: 0;
     padding-left: 246px;
 }
@@ -235,7 +234,7 @@
 }
 .textrightfirstBoxAdmin :nth-child(1){
     color: #000;
-    font-family: Poppins;
+    /* font-family: Poppins; */
     font-size: 22px;
     font-style: normal;
     font-weight: 500;
@@ -244,7 +243,7 @@
 }
 .textrightfirstBoxAdmin :nth-child(2){
     color: #707070;
-    font-family: Poppins;
+    /* font-family: Poppins; */
     font-size: 18px;
     font-style: normal;
     font-weight: 500;
@@ -252,7 +251,7 @@
 }
 .textrightfirstBoxAdmin :nth-child(3){
     color: #B0B0B0;
-    font-family: Poppins;
+    /* font-family: Poppins; */
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -261,7 +260,7 @@
 .countdownrightfirstBoxAdmin{
     color: #707070;
     text-align: right;
-    font-family: Poppins;
+    /* font-family: Poppins; */
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -333,12 +332,12 @@
     border-radius: 8px;
     border: 1px solid #CACACA;
     background: #FBF8FF;
-    padding: 5px 10px;
+    padding: 3px 10px;
 }
 .rightsecondBoxCountText{
-    height: 10%;
+    height: 2%;
     color: #2E2A2A;
-    font-family: Poppins;
+    /* font-family: Poppins; */
     font-size: 18px;
     font-style: normal;
     font-weight: 600;
@@ -347,9 +346,9 @@
     text-align: left;
 }
 .rightsecondBoxCountNumber{
-    height: 55%;
+    height: 10%;
     color: #AF26FD;
-    font-family: Poppins;
+    /* font-family: Poppins; */
     font-size: 60px;
     font-style: normal;
     font-weight: 600;
@@ -359,7 +358,7 @@
 }
 .weeklyChartAdminText{
     color: #2E2A2A;
-    font-family: Poppins;
+    /* font-family: Poppins; */
     font-size: 18px;
     font-style: normal;
     font-weight: 600;
@@ -372,7 +371,7 @@
 }
 .monthlyChartAdminText{
     color: #2E2A2A;
-    font-family: Poppins;
+    /* font-family: Poppins; */
     font-size: 18px;
     font-style: normal;
     font-weight: 600;
@@ -393,7 +392,7 @@
     flex-shrink: 0;
     color: #000;
     text-align: center;
-    font-family: Poppins;
+    /* font-family: Poppins; */
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -428,31 +427,37 @@
 .rightfourthBoxAdmin{
     width: 97%;
     margin: auto;
-    height: 358px;
+    height: 150px;
     flex-shrink: 0;
     border-radius: 8px;
     border: 1px solid #CACACA;
     background: #FFF;
     margin-top: 10px;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 .userTableAdmin{
-    width: 97%;
-    margin: auto;
-    padding: 10px;
+    width: 100%;
+    margin: 8px;
+    padding: 0px 0px 0px 10px;
 }
 .userTableAdminHead{
     color: #000;
-    font-family: Poppins;
+    /* font-family: Poppins; */
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    text-align: left;
+    padding: 8px;
 }
 .userTableAdminBody{
     color: #4F4F4F;
-    font-family: Poppins;
+    /* font-family: Poppins; */
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    text-align: left;
+    padding: 8px;
 }

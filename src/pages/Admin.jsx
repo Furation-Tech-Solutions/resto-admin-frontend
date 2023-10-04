@@ -96,22 +96,22 @@ const Admin = () => {
   const userData = [
     {
       phone: "123456789",
-      name: "san",
+      name: "Sanghamitra",
       messeage_count: 12,
     },
     {
       phone: "123456789",
-      name: "san",
+      name: "Sanghamitra",
       messeage_count: 12,
     },
     {
       phone: "123456789",
-      name: "san",
+      name: "Sanghamitra",
       messeage_count: 12,
     },
     {
       phone: "123456789",
-      name: "san",
+      name: "Sanghamitra",
       messeage_count: 12,
     },
   ];
@@ -239,20 +239,20 @@ const Admin = () => {
             </div>
             <div className="rightfourthBoxAdmin">
               <table className="userTableAdmin">
-                <tr className="userTableAdminHead">
-                  <th>Sr. No.</th>
-                  <th>Name</th>
-                  <th>Phone Number</th>
-                  <th>Message Count</th>
+                <tr>
+                  <th className="userTableAdminHead">Sr.No.</th>
+                  <th className="userTableAdminHead">Name</th>
+                  <th className="userTableAdminHead">Phone Number</th>
+                  <th className="userTableAdminHead">Message Count</th>
                 </tr>
                 {userData &&
                   userData.map((user, i) => {
                     return (
-                      <tr className="userTableAdminBody">
-                        <td>{i + 1}</td>
-                        <td>{user.name}</td>
-                        <td>{user.phone}</td>
-                        <td>{user.messeage_count}</td>
+                      <tr>
+                        <td className="userTableAdminBody">{i + 1}</td>
+                        <td className="userTableAdminBody">{user.name}</td>
+                        <td className="userTableAdminBody">{user.phone}</td>
+                        <td className="userTableAdminBody">{user.messeage_count}</td>
                       </tr>
                     );
                   })}
