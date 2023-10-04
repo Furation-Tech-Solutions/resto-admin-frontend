@@ -32,15 +32,7 @@ const Admin = () => {
 
   // const date = new Date();
 
-  const weeklylabels = [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-    "Sunday",
-  ];
+  const weeklylabels = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
   const weeklydata = {
     labels: weeklylabels,
     datasets: [
@@ -113,6 +105,32 @@ const Admin = () => {
       phone: "123456789",
       name: "Sanghamitra",
       messeage_count: 12,
+    },
+  ];
+  const feedbackData = [
+    {
+      phone: "123456789",
+      name: "User name",
+      message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      date: "04/10/2023"
+    },
+    {
+      phone: "123456789",
+      name: "User name",
+      message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      date: "04/10/2023"
+    },
+    {
+      phone: "123456789",
+      name: "User name",
+      message: "1Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.2",
+      date: "04/10/2023"
+    },
+    {
+      phone: "123456789",
+      name: "User name",
+      message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      date: "04/10/2023"
     },
   ];
 
@@ -263,14 +281,38 @@ const Admin = () => {
             className={
               barnum === 2 ? "rightMessageBoxAdmin" : "rightMessageBoxAdminOff"
             }
-          ></div>
+          >
+            <div></div>
+          </div>
           <div
             className={
               barnum === 3
                 ? "rightFeedbackBoxAdmin"
                 : "rightFeedbackBoxAdminOff"
             }
-          ></div>
+          >
+            <div className="rightFeedbackBoxAdminInner">
+              <p className="FeedbackTextAdmin">Feedback</p>
+              <table className="FeedbackTableAdmin">
+                <tr>
+                  <th className="FeedbackTableHeadAdmin">Sr. No.</th>
+                  <th className="FeedbackTableHeadAdmin">Name</th>
+                  <th className="FeedbackTableHeadAdmin">Phone Number</th>
+                  <th className="FeedbackTableHeadAdmin">Feedback</th>
+                  <th className="FeedbackTableHeadAdmin">Date</th>
+                </tr>
+                {feedbackData && feedbackData.map((feed, i)=>{
+                  return <tr>
+                    <td className="FeedbackTableBodyAdmin">{i+1}</td>
+                    <td className="FeedbackTableBodyAdmin">{feed.name}</td>
+                    <td className="FeedbackTableBodyAdmin">{feed.phone}</td>
+                    <td className="FeedbackTableBodyAdmin">{feed.message}</td>
+                    <td className="FeedbackTableBodyAdmin">{feed.date}</td>
+                  </tr>
+                })}
+              </table>
+            </div>
+          </div>
           <div
             className={
               barnum === 4

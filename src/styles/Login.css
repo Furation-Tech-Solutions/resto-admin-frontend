@@ -21,7 +21,7 @@
 }
 .loginheading{
     color: #000000;
-    font-family: Poppins;
+    font-family: "Poppins", Arial, sans-serif;
     font-size: 30px;
     font-style: normal;
     font-weight: 500;
@@ -51,7 +51,7 @@
     padding-left: 10px;
     margin-top: 6px;
     color: #B6B6B6;
-    font-family: Poppins;
+    font-family: "Poppins", Arial, sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -59,7 +59,7 @@
 }
 .loginlabels{
     color: #000;
-    font-family: Poppins;
+    font-family: "Poppins", Arial, sans-serif;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -79,7 +79,7 @@
     border: none;
     margin-top: 17px;
     color: #FFF;
-    font-family: Poppins;
+    font-family: "Poppins", Arial, sans-serif;
     font-size: 18px;
     font-style: normal;
     font-weight: 500;

@@ -28,7 +28,7 @@
 }
 .leftfirstBoxAdmin > p{
     color: #FFF;
-    /* font-family: Poppins; */
+    font-family: "Poppins", Arial, sans-serif;
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
@@ -50,7 +50,7 @@
     gap: 10px;
     border-radius: 8px;
     color: #FFF;
-    /* font-family: Poppins; */
+    font-family: "Poppins", Arial, sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -67,7 +67,7 @@
     border-radius: 8px;
     background: #FFF;
     color: #000;
-    /* font-family: Poppins; */
+    font-family: "Poppins", Arial, sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -83,7 +83,7 @@
     gap: 10px;
     border-radius: 8px;
     color: #FFF;
-    /* font-family: Poppins; */
+    font-family: "Poppins", Arial, sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -100,7 +100,7 @@
     border-radius: 8px;
     background: #FFF;
     color: #000;
-    /* font-family: Poppins; */
+    font-family: "Poppins", Arial, sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -116,7 +116,7 @@
     gap: 10px;
     border-radius: 8px;
     color: #FFF;
-    /* font-family: Poppins; */
+    font-family: "Poppins", Arial, sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -133,7 +133,7 @@
     border-radius: 8px;
     background: #FFF;
     color: #000;
-    /* font-family: Poppins; */
+    font-family: "Poppins", Arial, sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -149,7 +149,7 @@
     gap: 10px;
     border-radius: 8px;
     color: #FFF;
-    /* font-family: Poppins; */
+    font-family: "Poppins", Arial, sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -166,7 +166,7 @@
     border-radius: 8px;
     background: #FFF;
     color: #000;
-    /* font-family: Poppins; */
+    font-family: "Poppins", Arial, sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -180,7 +180,7 @@
     align-items: center;
     gap: 10px;
     color: #FFF;
-    /* font-family: Poppins; */
+    font-family: "Poppins", Arial, sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -191,7 +191,7 @@
 }
 .leftthirdBoxfirstAdmin{
     color: #FFF;
-    /* font-family: Poppins; */
+    font-family: "Poppins", Arial, sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -207,7 +207,7 @@
     border-radius: 8px;
     border: 1px solid #717171;
     color: #FFF;
-    /* font-family: Poppins; */
+    font-family: "Poppins", Arial, sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -223,6 +223,12 @@
     flex-shrink: 0;
     padding-left: 246px;
 }
+.rightDashboardBoxAdmin{
+    display: inline;
+}
+.rightDashboardBoxAdminOff{
+    display: none;
+}
 .rightfirstBoxAdmin{
     display: flex;
     justify-content:space-between;
@@ -234,7 +240,7 @@
 }
 .textrightfirstBoxAdmin :nth-child(1){
     color: #000;
-    /* font-family: Poppins; */
+    font-family: "Poppins", Arial, sans-serif;
     font-size: 22px;
     font-style: normal;
     font-weight: 500;
@@ -243,7 +249,7 @@
 }
 .textrightfirstBoxAdmin :nth-child(2){
     color: #707070;
-    /* font-family: Poppins; */
+    font-family: "Poppins", Arial, sans-serif;
     font-size: 18px;
     font-style: normal;
     font-weight: 500;
@@ -251,7 +257,7 @@
 }
 .textrightfirstBoxAdmin :nth-child(3){
     color: #B0B0B0;
-    /* font-family: Poppins; */
+    font-family: "Poppins", Arial, sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -260,7 +266,7 @@
 .countdownrightfirstBoxAdmin{
     color: #707070;
     text-align: right;
-    /* font-family: Poppins; */
+    font-family: "Poppins", Arial, sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -337,7 +343,7 @@
 .rightsecondBoxCountText{
     height: 2%;
     color: #2E2A2A;
-    /* font-family: Poppins; */
+    font-family: "Poppins", Arial, sans-serif;
     font-size: 18px;
     font-style: normal;
     font-weight: 600;
@@ -348,7 +354,7 @@
 .rightsecondBoxCountNumber{
     height: 10%;
     color: #AF26FD;
-    /* font-family: Poppins; */
+    font-family: "Poppins", Arial, sans-serif;
     font-size: 60px;
     font-style: normal;
     font-weight: 600;
@@ -358,7 +364,7 @@
 }
 .weeklyChartAdminText{
     color: #2E2A2A;
-    /* font-family: Poppins; */
+    font-family: "Poppins", Arial, sans-serif;
     font-size: 18px;
     font-style: normal;
     font-weight: 600;
@@ -371,7 +377,7 @@
 }
 .monthlyChartAdminText{
     color: #2E2A2A;
-    /* font-family: Poppins; */
+    font-family: "Poppins", Arial, sans-serif;
     font-size: 18px;
     font-style: normal;
     font-weight: 600;
@@ -392,7 +398,7 @@
     flex-shrink: 0;
     color: #000;
     text-align: center;
-    /* font-family: Poppins; */
+    font-family: "Poppins", Arial, sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -443,7 +449,7 @@
 }
 .userTableAdminHead{
     color: #000;
-    /* font-family: Poppins; */
+    font-family: "Poppins", Arial, sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
@@ -453,11 +459,71 @@
 }
 .userTableAdminBody{
     color: #4F4F4F;
-    /* font-family: Poppins; */
+    font-family: "Poppins", Arial, sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     text-align: left;
     padding: 8px;
+}
+.rightMessageBoxAdmin{
+    display: inline;
+}
+.rightMessageBoxAdminOff{
+    display: none;
+}
+.rightFeedbackBoxAdmin{
+    display: inline;
+}
+.rightFeedbackBoxAdminOff{
+    display: none;
+}
+.rightFeedbackBoxAdminInner{
+    text-align: left;
+    padding: 15px;
+}
+.FeedbackTextAdmin{
+    color: #000;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 90.909% */
+    letter-spacing: 0.1px;
+}
+.FeedbackTableAdmin{
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #C2C2C2;
+}
+.FeedbackTableHeadAdmin{
+    color: #000;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-align: left;
+    padding: 8px;
+}
+.FeedbackTableAdmin :nth-child(4){
+    width: 400px;
+}
+.FeedbackTableBodyAdmin{
+    color: #000;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: justify;
+    padding: 8px;
+}
+.rightSubscriptionBoxAdmin{
+    display: inline;
+}
+.rightSubscriptionBoxAdminOff{
+    display: none;
 }
