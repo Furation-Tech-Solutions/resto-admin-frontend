@@ -225,7 +225,7 @@
     line-height: 20px; /* 142.857% */
     letter-spacing: 0.1px;
     margin: auto;
-    margin-top: 45%;
+    margin-top: 40%;
 }
 .leftthirdBoxfirstAdmin{
     color: #FFF;
@@ -511,6 +511,20 @@
 .sendMessageBoxAdminOff{
     display: none;
 }
+
+.sendBulkMessageBoxAdmin{
+    display: inline;
+}
+.sendBulkMessageBoxAdminOff{
+    display: none;
+}
+
+.announcementBoxAdmin{
+    display: inline;
+}
+.announcementBoxAdminOff{
+    display: none;
+}
 .rightFeedbackBoxAdmin{
     display: inline;
 }
@@ -635,7 +649,7 @@
 }
 .currentSubscriptionTextAdmin{
     color: #000;
-    font-family: Poppins;
+    font-family: "Poppins", Arial, sans-serif;
     font-size: 22px;
     font-style: normal;
     font-weight: 500;
@@ -672,7 +686,7 @@
     border: 1px solid black;
     color: #707070;
     text-align: right;
-    font-family: Poppins;
+    font-family: "Poppins", Arial, sans-serif;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -691,7 +705,7 @@
 }
 .currentSubscriptionviewallAdmin{
     color: #9114FF;
-    font-family: Poppins;
+    font-family: "Poppins", Arial, sans-serif;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -720,7 +734,7 @@
 }
 .newSubscriptionTextAdmin{
     color: #000;
-    font-family: Poppins;
+    font-family: "Poppins", Arial, sans-serif;
     font-size: 22px;
     font-style: normal;
     font-weight: 500;
@@ -757,7 +771,7 @@
     border: 1px solid black;
     color: #707070;
     text-align: right;
-    font-family: Poppins;
+    font-family: "Poppins", Arial, sans-serif;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -776,11 +790,332 @@
 }
 .newSubscriptionviewallAdmin{
     color: #9114FF;
-    font-family: Poppins;
+    font-family: "Poppins", Arial, sans-serif;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     text-decoration-line: underline;
     margin-top: 30px;
+}
+.sendMessageBoxAdminText{
+    width: 97%;
+    margin: auto;
+    text-align: left;
+    color: #000;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 90.909% */
+    letter-spacing: 0.1px;
+}
+.sendMessageBoxAdminaddcontact{
+    width: 97%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.sendMessageBoxAdminaddcontact > input{
+    width: 90%;
+    height: 35px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    border: 1px solid #C2C2C2;
+    background: #FFF;
+    color: #A9A9A9;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-left: 10px;
+    outline: none;
+}
+.sendMessageBoxAdminaddcontact > button {
+    display: flex;
+    width: 82px;
+    height: 38px;
+    padding: 14px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    background: linear-gradient(287deg, #7200FF 15.07%, #FC57FF 88.56%);
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border: none;
+}
+.sendMessageBoxAdminmessagebox{
+    width: 95%;
+    margin: auto;
+    padding: 10px;
+    background: url("https://i.postimg.cc/G3Y5ZyLb/chatbg.png");
+    height: 431px;
+    margin-top: 10px;
+}
+.sendMessageBoxAdminkeyboard{
+    width: 97%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.sendMessageBoxAdminkeyboard > img{
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+}
+.sendMessageBoxAdminkeyboard > div{
+    width: 86%;
+    height: 35px;
+    border-radius: 26px;
+    border: 1px solid #C2C2C2;
+    flex-shrink: 0;
+    background: #FFF;
+    margin-right: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 8px 0px 0px;
+    align-items: center;
+}
+.sendMessageBoxAdminkeyboard > div >input{
+    width: 100%;
+    height: 80%;
+    border: none;
+    border-radius: 26px;
+    background: #FFF;
+    color: #A9A9A9;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-left: 10px;
+    outline: none;
+}
+.sendMessageBoxAdminkeyboard > button {
+    display: flex;
+    width: 82px;
+    height: 38px;
+    padding: 14px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    background: linear-gradient(287deg, #7200FF 15.07%, #FC57FF 88.56%);
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border: none;
+}
+
+
+.sendBulkMessageBoxAdminText{
+    width: 97%;
+    margin: auto;
+    text-align: left;
+    color: #000;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 90.909% */
+    letter-spacing: 0.1px;
+}
+.sendBulkMessageBoxAdminaddcontact{
+    width: 97%;
+    margin: auto;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    border-radius: 4px;
+    border: 1px solid #C2C2C2;
+}
+.sendBulkMessageBoxAdminaddcontactInput{
+    width: 89%;
+    height: 30px;
+    flex-shrink: 0;
+    background: #FFF;
+    border: none;
+    border-radius: 4px;
+    color: #A9A9A9;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-left: 10px;
+    outline: none;
+}
+.sendBulkMessageBoxAdminaddcontactFile{
+    width: 90px;
+    height: 35px;
+    flex-shrink: 0;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-left: 10px;
+    outline: none;
+    display: inline-block;
+    margin-top: 10px;
+}
+.sendBulkMessageBoxAdminmessagebox{
+    width: 95%;
+    margin: auto;
+    padding: 10px;
+    background: url("https://i.postimg.cc/G3Y5ZyLb/chatbg.png");
+    height: 423px;
+    margin-top: 10px;
+}
+.sendBulkMessageBoxAdminkeyboard{
+    width: 97%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.sendBulkMessageBoxAdminkeyboard > img{
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+}
+.sendBulkMessageBoxAdminkeyboard > div{
+    width: 86%;
+    height: 35px;
+    border-radius: 26px;
+    border: 1px solid #C2C2C2;
+    flex-shrink: 0;
+    background: #FFF;
+    margin-right: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 8px 0px 0px;
+    align-items: center;
+}
+.sendBulkMessageBoxAdminkeyboard > div >input{
+    width: 100%;
+    height: 80%;
+    border: none;
+    border-radius: 26px;
+    background: #FFF;
+    color: #A9A9A9;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-left: 10px;
+    outline: none;
+}
+.sendBulkMessageBoxAdminkeyboard > button {
+    display: flex;
+    width: 82px;
+    height: 38px;
+    padding: 14px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    background: linear-gradient(287deg, #7200FF 15.07%, #FC57FF 88.56%);
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border: none;
+}
+
+.announcementBoxAdminText{
+    width: 97%;
+    margin: auto;
+    text-align: left;
+    color: #000;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 90.909% */
+    letter-spacing: 0.1px;
+}
+.announcementBoxAdminmessagebox{
+    width: 95%;
+    margin: auto;
+    padding: 10px;
+    background: url("https://i.postimg.cc/G3Y5ZyLb/chatbg.png");
+    height: 480px;
+    margin-top: 10px;
+}
+.announcementBoxAdminkeyboard{
+    width: 97%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.announcementBoxAdminkeyboard > img{
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+}
+.announcementBoxAdminkeyboard > div{
+    width: 86%;
+    height: 35px;
+    border-radius: 26px;
+    border: 1px solid #C2C2C2;
+    flex-shrink: 0;
+    background: #FFF;
+    margin-right: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 8px 0px 0px;
+    align-items: center;
+}
+.announcementBoxAdminkeyboard > div >input{
+    width: 100%;
+    height: 80%;
+    border: none;
+    border-radius: 26px;
+    background: #FFF;
+    color: #A9A9A9;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-left: 10px;
+    outline: none;
+}
+.announcementBoxAdminkeyboard > button {
+    display: flex;
+    width: 82px;
+    height: 38px;
+    padding: 14px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    background: linear-gradient(287deg, #7200FF 15.07%, #FC57FF 88.56%);
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border: none;
 }

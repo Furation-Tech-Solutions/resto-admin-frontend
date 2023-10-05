@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import "../styles/Admin.css";
 import logo from "../utils/Images/Admin/logo.svg";
-import closeicon from "../utils/Images/Admin/closeicon.png"
+import emoji from "../utils/Images/Admin/emoji.svg";
+import closeicon from "../utils/Images/Admin/closeicon.png";
+import { AiOutlinePaperClip } from 'react-icons/ai';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -209,21 +211,21 @@ const Admin = () => {
               <p>Dashboard</p>
             </div>
             <div
-              onClick={() => {
+              className={
+                barnum === 2 || barnum===3 || barnum===4 || barnum===5
+                  ? "leftsecondsecondAdminOn"
+                  : "leftsecondsecondAdmin"
+              }
+            >
+              <p onClick={() => {
                 if(barnum===2){
                   setBarnum(1);
                 }else{
                   setBarnum(2);
                 }
               }}
-              className={
-                barnum === 2
-                  ? "leftsecondsecondAdminOn"
-                  : "leftsecondsecondAdmin"
-              }
-            >
-              <p>Message</p>
-              <div className={barnum===2? "leftsecondseconddivAdmin" : "leftsecondseconddivAdminOff"}>
+              >Message</p>
+              <div className={barnum===2 || barnum===3 || barnum===4 || barnum===5? "leftsecondseconddivAdmin" : "leftsecondseconddivAdminOff"}>
                 <p className={barnum===3? "leftsendMessageAdmin" : "leftsendMessageAdminOff"} onClick={() => setBarnum(3)}>Send Messages</p><br/><br/>
                 <p className={barnum===4? "leftsendBulkMessageAdmin" : "leftsendBulkMessageAdminOff"} onClick={() => setBarnum(4)}>Send Bulk messages</p><br/><br/>
                 <p className={barnum===5? "leftannouncementAdmin" : "leftannouncementAdminOff"} onClick={() => setBarnum(5)}>Announcement</p><br/><br/>
@@ -357,17 +359,60 @@ const Admin = () => {
               barnum === 3 ? "sendMessageBoxAdmin" : "sendMessageBoxAdminOff"
             }
           >
-            <div>
+            <div className="sendMessageBoxAdminText">
               <p>Send Message</p>
             </div>
-            <div>
+            <div className="sendMessageBoxAdminaddcontact">
               <input type="text" placeholder="Enter phone no" />
               <button>Add</button>
             </div>
-            <div></div>
-            <div>
-              <button></button>
-              <input type="text" />
+            <div className="sendMessageBoxAdminmessagebox"></div>
+            <div className="sendMessageBoxAdminkeyboard">
+              <img src={emoji} alt="emoji face" />
+              <div>
+                <input type="text" placeholder="Type message here..." />
+                <AiOutlinePaperClip size={"25px"} color="#878787"/>
+              </div>
+              <button>Send</button>
+            </div>
+          </div>
+          <div
+            className={
+              barnum === 4 ? "sendBulkMessageBoxAdmin" : "sendBulkMessageBoxAdminOff"
+            }
+          >
+            <div className="sendBulkMessageBoxAdminText">
+              <p>Send Bulk Message</p>
+            </div>
+            <div className="sendBulkMessageBoxAdminaddcontact">
+              <input className="sendBulkMessageBoxAdminaddcontactInput" type="text" placeholder="Upload Excel file" />
+              <input className="sendBulkMessageBoxAdminaddcontactFile" type="file" placeholder="Choose File" />
+            </div>
+            <div className="sendBulkMessageBoxAdminmessagebox"></div>
+            <div className="sendBulkMessageBoxAdminkeyboard">
+              <img src={emoji} alt="emoji face" />
+              <div>
+                <input type="text" placeholder="Type message here..." />
+                <AiOutlinePaperClip size={"25px"} color="#878787"/>
+              </div>
+              <button>Send</button>
+            </div>
+          </div>
+          <div
+            className={
+              barnum === 5 ? "announcementBoxAdmin" : "announcementBoxAdminOff"
+            }
+          >
+            <div className="announcementBoxAdminText">
+              <p>Announcement</p>
+            </div>
+            <div className="announcementBoxAdminmessagebox"></div>
+            <div className="announcementBoxAdminkeyboard">
+              <img src={emoji} alt="emoji face" />
+              <div>
+                <input type="text" placeholder="Type message here..." />
+                <AiOutlinePaperClip size={"25px"} color="#878787"/>
+              </div>
               <button>Send</button>
             </div>
           </div>
