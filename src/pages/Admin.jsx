@@ -3,6 +3,8 @@ import "../styles/Admin.css";
 import logo from "../utils/Images/Admin/logo.svg";
 import emoji from "../utils/Images/Admin/emoji.svg";
 import closeicon from "../utils/Images/Admin/closeicon.png";
+import calendar from "../utils/Images/Admin/Calendar.svg";
+import checkcircle from '../utils/Images/Admin/checkcircle.svg'
 import { AiOutlinePaperClip } from 'react-icons/ai';
 import {
   Chart as ChartJS,
@@ -507,21 +509,30 @@ const Admin = () => {
         <div className="newSubscriptionCloseAdmin">
           <img src={closeicon} alt="" />
         </div>
-        <p className="newSubscriptionTextAdmin">Current Subscription</p>
+        <p className="newSubscriptionTextAdmin">Subscription plans & pricing</p>
         <div className="newSubscriptionInnerBoxAdmin">
           <div className="newSubscriptionDoughnutOuterAdmin">
-            <div className="newSubscriptionDoughnutInnerAdmin">
-              <Doughnut data={doughnutdata} /><br/>
+            <p>Monthly Subscription</p>
+            <div>
+              <img src={calendar} alt="" />
             </div>
-            <p>25/30 days left</p>
+            <p>₹ 4000 <span>/ month</span></p>
           </div>
-          <div className="newSubscriptionTextBoxAdmin">
-            <p>Plan :- Plan A</p>
-            <p>Status :- Active</p>
-            <p>Start Date :- 01/10/2023</p>
-            <p>End Date :- 30/10/2023</p>
+          <div className="newSubscriptionbenifitsBoxAdmin">
+            <div>
+              <img src={checkcircle} alt="" />
+              <p>Premium Membership- <span>Unlock Exclusive Benefits Every Month</span></p>
+            </div>
+            <div>
+              <img src={checkcircle} alt="" />
+              <p>Monthly Subscription- <span>Your Gateway to Ongoing Rewards</span></p>
+            </div>
+            <div>
+              <img src={checkcircle} alt="" />
+              <p>Save with Our Monthly Membership</p>
+            </div>
           </div>
-          <div className="newSubscriptionviewallAdmin" onClick={()=>setBarnum(7)}>View all subscriptions</div>
+          <button className="newSubscriptionsubscribebuttonAdmin">Subscribe</button>
         </div>
       </div>
     </div>
