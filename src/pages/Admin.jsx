@@ -6,18 +6,7 @@ import closeicon from "../utils/Images/Admin/closeicon.png";
 import calendar from "../utils/Images/Admin/Calendar.svg";
 import checkcircle from '../utils/Images/Admin/checkcircle.svg'
 import { AiOutlinePaperClip } from 'react-icons/ai';
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  BarElement,
-  ArcElement,
-  Title,
-  Tooltip,
-  Legend,
-} from 'chart.js';
+import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, BarElement, ArcElement, Title, Tooltip, Legend } from 'chart.js';
 import { Line,  Bar, Doughnut } from 'react-chartjs-2';
 
 
@@ -34,8 +23,13 @@ const Admin = () => {
     Tooltip,
     Legend
   );
+
+  const [ currentSubscriptionopen, setCurrentSubscriptionopen ]= useState(false);
+
+  const [isSubscribed, setIsSubscribed]= useState(true);
+
   
-  const [barnum, setBarnum] = useState(0);
+  const [barnum, setBarnum] = useState(1);
 
   // const date = new Date();
 
@@ -184,10 +178,10 @@ const Admin = () => {
     labels: [],
     datasets: [
       {
-        label: '# of Votes',
+        label: 'days left',
         data: [5, 25],
         backgroundColor: [
-          'white',
+          '#CACACA',
           '#7200FF'
         ],
         borderWidth: 1,
@@ -220,7 +214,7 @@ const Admin = () => {
               }
             >
               <p onClick={() => {
-                if(barnum===2){
+                if(barnum===2 || barnum===3 ||barnum===4 ||barnum===5){
                   setBarnum(1);
                 }else{
                   setBarnum(2);
@@ -272,12 +266,18 @@ const Admin = () => {
                 <p>13 June, 2023 Tuesday</p>
               </div>
               <div className="countdownrightfirstBoxAdmin">
-                <div className="countdownrightfirstRoundOuter">
+                {/* <div className="countdownrightfirstRoundOuter">
                   <div className="countdownrightfirstRoundInner">
                     <p>25</p>
                   </div>
+                </div> */}
+                <div className="currentSubscriptionDoughnutOuterAdmin">
+                  <div onClick={()=>setCurrentSubscriptionopen(true)} className="currentSubscriptionDoughnutInnerAdmin">
+                    <Doughnut data={doughnutdata} /><br/>
+                    <div className="currentSubscriptionDoughnutInnerAdminNumber">25</div>
+                  </div>
+                  <p>25/30 days left</p>
                 </div>
-                <p>25/30 days left of Plan A</p>
               </div>
             </div>
             <div className="rightsecondBoxAdmin">
@@ -387,8 +387,13 @@ const Admin = () => {
               <p>Send Bulk Message</p>
             </div>
             <div className="sendBulkMessageBoxAdminaddcontact">
-              <input className="sendBulkMessageBoxAdminaddcontactInput" type="text" placeholder="Upload Excel file" />
-              <input className="sendBulkMessageBoxAdminaddcontactFile" type="file" placeholder="Choose File" />
+              {/* <input className="sendBulkMessageBoxAdminaddcontactInput" type="text" placeholder="Upload Excel file" />
+              <input className="sendBulkMessageBoxAdminaddcontactFile" type="file" placeholder="Choose File" /> */}
+              <label class="fileinputwrapperAdmin">
+                  <span class="file-input-textAdmin">Upload Excel file</span>
+                  <input type="file" id="myfileAdmin" name="myfile" multiple />
+                  <span class="file-input-buttonAdmin">Choose File</span>
+              </label>
             </div>
             <div className="sendBulkMessageBoxAdminmessagebox"></div>
             <div className="sendBulkMessageBoxAdminkeyboard">
@@ -484,57 +489,123 @@ const Admin = () => {
           </div>
         </div>
       </div>
-      <div className="currentSubscriptionAdmin">
-        <div className="currentSubscriptionCloseAdmin">
-          <img src={closeicon} alt="" />
-        </div>
-        <p className="currentSubscriptionTextAdmin">Current Subscription</p>
-        <div className="currentSubscriptionInnerBoxAdmin">
-          <div className="currentSubscriptionDoughnutOuterAdmin">
-            <div className="currentSubscriptionDoughnutInnerAdmin">
-              <Doughnut data={doughnutdata} /><br/>
-            </div>
-            <p>25/30 days left</p>
+      {/* <Modal onClose={onClose} isOpen={isOpen} isCentered>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader className="currentSubscriptionTextAdmin">Current Subscription</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <Box className="currentSubscriptionInnerBoxAdmin">
+              <Box className="currentSubscriptionDoughnutOuterAdmin">
+                <Box className="currentSubscriptionDoughnutInnerAdmin">
+                  <Doughnut data={doughnutdata} /><br/>
+                  <Box className="currentSubscriptionDoughnutInnerAdminNumber">25</Box>
+                </Box>
+                <Text>25/30 days left</Text>
+              </Box>
+              <Box className="currentSubscriptionTextBoxAdmin">
+                <Text>Plan :- Plan A</Text>
+                <Text>Status :- Active</Text>
+                <Text>Start Date :- 01/10/2023</Text>
+                <Text>End Date :- 30/10/2023</Text>
+              </Box>
+              <Box className="currentSubscriptionviewallAdmin" onClick={()=>setBarnum(7)}>View all subscriptions</Box>
+            </Box>
+          </ModalBody>
+          <ModalFooter>
+            <Button display='none' onClick={onClose}>Close</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+      <Modal onClose={onClose} isOpen={isOpen} isCentered>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader className="newSubscriptionTextAdmin">Subscription plans & pricing</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <Box border='1px solid black' className="newSubscriptionInnerBoxAdmin">
+              <Box border='1px solid black' className="newSubscriptionDoughnutOuterAdmin">
+                <Box border='1px solid black' className="newSubscriptionbenifitsBoxAdmin">
+                  <Image border='1px solid black' src={calendar} alt="" />
+                </Box>
+                <Text border='1px solid black'>₹ 4000 <span>/ month</span></Text>
+              </Box>
+              <Box className="currentSubscriptionTextBoxAdmin">
+                <Box>
+                  <Image src={checkcircle} alt="" />
+                  <Text>Premium Membership- <span>Unlock Exclusive Benefits Every Month</span></Text>
+                </Box>
+                <Box>
+                  <Image src={checkcircle} alt="" />
+                  <Text>Monthly Subscription- <span>Your Gateway to Ongoing Rewards</span></Text>
+                </Box>
+                <Box>
+                  <Image src={checkcircle} alt="" />
+                  <Text>Save with Our Monthly Membership</Text>
+                </Box>
+              </Box>
+              <Button className="newSubscriptionsubscribebuttonAdmin">Subscribe</Button>
+            </Box>
+          </ModalBody>
+          <ModalFooter>
+            <Button display='none' onClick={onClose}>Close</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal> */}
+      {isSubscribed===true && <div className={ currentSubscriptionopen? "currentSubscriptionAdmin" : "currentSubscriptionAdminOff"}>
+          <div className="currentSubscriptionCloseAdmin">
+            <img onClick={()=>setCurrentSubscriptionopen(false)} src={closeicon} alt="" />
           </div>
-          <div className="currentSubscriptionTextBoxAdmin">
-            <p>Plan :- Plan A</p>
-            <p>Status :- Active</p>
-            <p>Start Date :- 01/10/2023</p>
-            <p>End Date :- 30/10/2023</p>
+          <p className="currentSubscriptionTextAdmin">Current Subscription</p>
+          <div className="currentSubscriptionInnerBoxAdmin">
+            <div className="currentSubscriptionDoughnutOuterAdmin">
+              <div className="currentSubscriptionDoughnutInnerAdmin">
+                <Doughnut data={doughnutdata} /><br/>
+                <div className="currentSubscriptionDoughnutInnerAdminNumber">25</div>
+              </div>
+              <p>25/30 days left</p>
+            </div>
+            <div className="currentSubscriptionTextBoxAdmin">
+              <p>Plan :- Plan A</p>
+              <p>Status :- Active</p>
+              <p>Start Date :- 01/10/2023</p>
+              <p>End Date :- 30/10/2023</p>
+            </div>
+            <div className="currentSubscriptionviewallAdmin" onClick={()=>setBarnum(7)}>View all subscriptions</div>
           </div>
-          <div className="currentSubscriptionviewallAdmin" onClick={()=>setBarnum(7)}>View all subscriptions</div>
         </div>
-      </div>
-      <div className="newSubscriptionAdmin">
-        <div className="newSubscriptionCloseAdmin">
-          <img src={closeicon} alt="" />
-        </div>
-        <p className="newSubscriptionTextAdmin">Subscription plans & pricing</p>
-        <div className="newSubscriptionInnerBoxAdmin">
-          <div className="newSubscriptionDoughnutOuterAdmin">
-            <p>Monthly Subscription</p>
-            <div>
-              <img src={calendar} alt="" />
-            </div>
-            <p>₹ 4000 <span>/ month</span></p>
+      }
+      {isSubscribed===false && <div className={ currentSubscriptionopen? "newSubscriptionAdmin" : "newSubscriptionAdminOff"}>
+          <div className="newSubscriptionCloseAdmin">
+            <img onClick={()=>setCurrentSubscriptionopen(false)} src={closeicon} alt="" />
           </div>
-          <div className="newSubscriptionbenifitsBoxAdmin">
-            <div>
-              <img src={checkcircle} alt="" />
-              <p>Premium Membership- <span>Unlock Exclusive Benefits Every Month</span></p>
+          <p className="newSubscriptionTextAdmin">Subscription plans & pricing</p>
+          <div className="newSubscriptionInnerBoxAdmin">
+            <div className="newSubscriptionDoughnutOuterAdmin">
+              <p>Monthly Subscription</p>
+              <div>
+                <img src={calendar} alt="" />
+              </div>
+              <p>₹ 4000 <span>/ month</span></p>
             </div>
-            <div>
-              <img src={checkcircle} alt="" />
-              <p>Monthly Subscription- <span>Your Gateway to Ongoing Rewards</span></p>
+            <div className="newSubscriptionbenifitsBoxAdmin">
+              <div>
+                <img src={checkcircle} alt="" />
+                <p>Premium Membership- <span>Unlock Exclusive Benefits Every Month</span></p>
+              </div>
+              <div>
+                <img src={checkcircle} alt="" />
+                <p>Monthly Subscription- <span>Your Gateway to Ongoing Rewards</span></p>
+              </div>
+              <div>
+                <img src={checkcircle} alt="" />
+                <p>Save with Our Monthly Membership</p>
+              </div>
             </div>
-            <div>
-              <img src={checkcircle} alt="" />
-              <p>Save with Our Monthly Membership</p>
-            </div>
+            <button className="newSubscriptionsubscribebuttonAdmin">Subscribe</button>
           </div>
-          <button className="newSubscriptionsubscribebuttonAdmin">Subscribe</button>
         </div>
-      </div>
+      }
     </div>
   );
 };
