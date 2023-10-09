@@ -269,6 +269,18 @@ const Superadmin = () => {
       <button className='addadminbutton'>Add Admin</button><br/>
       <button onClick={()=>setIsAddAdmin(false)} className='addadmincancelbutton'>Cancel</button>
     </div>
+    <div className={ isAddAdmin? "togglesubscription" : "togglesubscriptionOff"}>
+      <p className='togglesubscriptiontext'>Are you sure you want to deactivate the subsciption?</p>
+      <div>
+        <label className='togglesubscriptionlabel'>Type DEACTIVATE to confirm</label><br/>
+        <input className='togglesubscriptioninput' type="text" /><br/>
+        <p className='togglesubscriptionerror'>Sorry, please enter the text exactly as displayed to confirm.</p>
+      </div>
+      <div className='togglesubscriptionbuttonBox'>
+        <button className='togglesubscriptionbutton'>Deactivate</button><br/>
+        <button onClick={()=>setIsAddAdmin(false)} className='togglesubscriptioncancelbutton'>Cancel</button>
+      </div>
+    </div>
   </div>
   )
 }

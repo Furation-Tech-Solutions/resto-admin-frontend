@@ -441,3 +441,113 @@
     letter-spacing: 0.1px;
     background: none;
 }
+
+
+.togglesubscriptionOff{
+    display: none;
+}
+.togglesubscription{
+    display: inline;
+    position: absolute;
+    top: 18%;
+    left: 35%;
+    width: 32%;
+    height: 220px;
+    padding: 50px;
+    text-align: left;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.togglesubscriptiontext{
+    color: #000;
+    font-family: "Poppins", Arial, sans-serif;
+    letter-spacing: 0.1px;
+    margin-top: 0px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-bottom: 30px;
+}
+.togglesubscriptionlabel{
+    color: #000;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.togglesubscriptioninput{
+    width: 96%;
+    height: 38px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    border: 1px solid #C2C2C2;
+    background: #FFF;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 8px;
+    outline: none;
+    padding-left: 10px;
+}
+.togglesubscriptionerror{
+    color: #FF1521;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 166.667% */
+    letter-spacing: 0.25px;
+}
+.togglesubscriptionbuttonBox{
+    display: flex;
+    width: 75%;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+}
+.togglesubscriptionbutton{
+    display: flex;
+    width: 160px;
+    height: 42px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    background: linear-gradient(287deg, #7200FF 15.07%, #FC57FF 88.56%);
+    color: #FFF;
+    text-align: center;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 125% */
+    letter-spacing: 0.1px;
+    border: none;
+}
+.togglesubscriptioncancelbutton{
+    display: flex;
+    width: 140px;
+    height: 42px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    border: 1px solid #7200FF;
+    color: #AF26FD;
+    text-align: center;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 125% */
+    letter-spacing: 0.1px;
+    background: none;
+}
