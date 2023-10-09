@@ -9,7 +9,8 @@ const Superadmin = () => {
   const [barnum, setBarnum]= useState(1);
   const dispatch= useDispatch();
 
-  const [ isAddAdmin, setIsAddAdmin ] = useState(true);
+  const [ isAddAdmin, setIsAddAdmin ] = useState(false);
+  const [ istoggle, setIstoggle ] = useState(false);
 
   const userData= [
     {
@@ -269,7 +270,7 @@ const Superadmin = () => {
       <button className='addadminbutton'>Add Admin</button><br/>
       <button onClick={()=>setIsAddAdmin(false)} className='addadmincancelbutton'>Cancel</button>
     </div>
-    <div className={ isAddAdmin? "togglesubscription" : "togglesubscriptionOff"}>
+    <div className={ istoggle? "togglesubscription" : "togglesubscriptionOff"}>
       <p className='togglesubscriptiontext'>Are you sure you want to deactivate the subsciption?</p>
       <div>
         <label className='togglesubscriptionlabel'>Type DEACTIVATE to confirm</label><br/>
@@ -278,7 +279,7 @@ const Superadmin = () => {
       </div>
       <div className='togglesubscriptionbuttonBox'>
         <button className='togglesubscriptionbutton'>Deactivate</button><br/>
-        <button onClick={()=>setIsAddAdmin(false)} className='togglesubscriptioncancelbutton'>Cancel</button>
+        <button onClick={()=>setIstoggle(false)} className='togglesubscriptioncancelbutton'>Cancel</button>
       </div>
     </div>
   </div>
