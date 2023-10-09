@@ -3,8 +3,17 @@ import "../styles/Superadmin.css"
 import logo from "../utils/Images/Admin/logo.svg";
 import { useDispatch, useSelector } from 'react-redux';
 import { AiOutlinePlus, AiOutlineSearch } from 'react-icons/ai';
+import axios from 'axios';
 
 const Superadmin = () => {
+
+  const [userData, setUserData] = useState([]);
+
+  useEffect(()=>{
+    axios.get(`https://restaurant-bot-admin.onrender.com/api/v1/admin`)
+    .then((r)=>setUserData(r.data));
+  }, [])
+  console.log(userData);
 
   const [barnum, setBarnum]= useState(1);
   const dispatch= useDispatch();
@@ -12,92 +21,92 @@ const Superadmin = () => {
   const [ isAddAdmin, setIsAddAdmin ] = useState(false);
   const [ istoggle, setIstoggle ] = useState(false);
 
-  const userData= [
-    {
-      businessname: 'abcd',
-      email :'abc@gmail.com',
-      phone: 1234567890,
-      subsciption:'9days left'
-    },
-    {
-      businessname: 'abcd',
-      email :'abc@gmail.com',
-      phone: 1234567890,
-      subsciption:'9days left'
-    },
-    {
-      businessname: 'abcd',
-      email :'abc@gmail.com',
-      phone: 1234567890,
-      subsciption:'9days left'
-    },
-    {
-      businessname: 'abcd',
-      email :'abc@gmail.com',
-      phone: 1234567890,
-      subsciption:'9days left'
-    },
-    {
-      businessname: 'abcd',
-      email :'abc@gmail.com',
-      phone: 1234567890,
-      subsciption:'9days left'
-    },
-    {
-      businessname: 'abcd',
-      email :'abc@gmail.com',
-      phone: 1234567890,
-      subsciption:'9days left'
-    },
-    {
-      businessname: 'abcd',
-      email :'abc@gmail.com',
-      phone: 1234567890,
-      subsciption:'9days left'
-    },
-    {
-      businessname: 'abcd',
-      email :'abc@gmail.com',
-      phone: 1234567890,
-      subsciption:'9days left'
-    },
-    {
-      businessname: 'abcd',
-      email :'abc@gmail.com',
-      phone: 1234567890,
-      subsciption:'9days left'
-    },
-    {
-      businessname: 'abcd',
-      email :'abc@gmail.com',
-      phone: 1234567890,
-      subsciption:'9days left'
-    },
-    {
-      businessname: 'abcd',
-      email :'abc@gmail.com',
-      phone: 1234567890,
-      subsciption:'9days left'
-    },
-    {
-      businessname: 'abcd',
-      email :'abc@gmail.com',
-      phone: 1234567890,
-      subsciption:'9days left'
-    },
-    {
-      businessname: 'abcd',
-      email :'abc@gmail.com',
-      phone: 1234567890,
-      subsciption:'9days left'
-    },
-    {
-      businessname: 'abcd',
-      email :'abc@gmail.com',
-      phone: 1234567890,
-      subsciption:'9days left'
-    }
-  ]
+  // const userData= [
+  //   {
+  //     businessname: 'abcd',
+  //     email :'abc@gmail.com',
+  //     phone: 1234567890,
+  //     subsciption:'9days left'
+  //   },
+  //   {
+  //     businessname: 'abcd',
+  //     email :'abc@gmail.com',
+  //     phone: 1234567890,
+  //     subsciption:'9days left'
+  //   },
+  //   {
+  //     businessname: 'abcd',
+  //     email :'abc@gmail.com',
+  //     phone: 1234567890,
+  //     subsciption:'9days left'
+  //   },
+  //   {
+  //     businessname: 'abcd',
+  //     email :'abc@gmail.com',
+  //     phone: 1234567890,
+  //     subsciption:'9days left'
+  //   },
+  //   {
+  //     businessname: 'abcd',
+  //     email :'abc@gmail.com',
+  //     phone: 1234567890,
+  //     subsciption:'9days left'
+  //   },
+  //   {
+  //     businessname: 'abcd',
+  //     email :'abc@gmail.com',
+  //     phone: 1234567890,
+  //     subsciption:'9days left'
+  //   },
+  //   {
+  //     businessname: 'abcd',
+  //     email :'abc@gmail.com',
+  //     phone: 1234567890,
+  //     subsciption:'9days left'
+  //   },
+  //   {
+  //     businessname: 'abcd',
+  //     email :'abc@gmail.com',
+  //     phone: 1234567890,
+  //     subsciption:'9days left'
+  //   },
+  //   {
+  //     businessname: 'abcd',
+  //     email :'abc@gmail.com',
+  //     phone: 1234567890,
+  //     subsciption:'9days left'
+  //   },
+  //   {
+  //     businessname: 'abcd',
+  //     email :'abc@gmail.com',
+  //     phone: 1234567890,
+  //     subsciption:'9days left'
+  //   },
+  //   {
+  //     businessname: 'abcd',
+  //     email :'abc@gmail.com',
+  //     phone: 1234567890,
+  //     subsciption:'9days left'
+  //   },
+  //   {
+  //     businessname: 'abcd',
+  //     email :'abc@gmail.com',
+  //     phone: 1234567890,
+  //     subsciption:'9days left'
+  //   },
+  //   {
+  //     businessname: 'abcd',
+  //     email :'abc@gmail.com',
+  //     phone: 1234567890,
+  //     subsciption:'9days left'
+  //   },
+  //   {
+  //     businessname: 'abcd',
+  //     email :'abc@gmail.com',
+  //     phone: 1234567890,
+  //     subsciption:'9days left'
+  //   }
+  // ]
 
   const feedbackData = [
     {
@@ -209,7 +218,7 @@ const Superadmin = () => {
               {userData && userData.map((user, i)=>{
                 return <tr>
                   <td className="userTableBodySuperAdmin">{i+1}</td>
-                  <td className="userTableBodySuperAdmin">{user.businessname}</td>
+                  <td className="userTableBodySuperAdmin">{user.businessName}</td>
                   <td className="userTableBodySuperAdmin">{user.email}</td>
                   <td className="userTableBodySuperAdmin">{user.phone}</td>
                   <td className="userTableBodySuperAdmin">{user.subsciption}</td>
