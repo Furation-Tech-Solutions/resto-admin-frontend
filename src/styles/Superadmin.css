@@ -1,0 +1,443 @@
+*{
+    font-family: "Poppins", Arial, sans-serif;
+}.outerBoxSuperAdmin{
+    width: 100%;
+    background: #FFF;
+    position: relative;
+}
+.innerBoxSuperAdmin{
+    width: 100%;
+    background: #FFF;
+    display: flex;
+    justify-content: space-between;
+}
+.leftBoxSuperAdmin{
+    width: 246px;
+    height: 619px;
+    flex-shrink: 0;
+    /* position: fixed; */
+    background: linear-gradient(178deg, #434343 0%, #080808 44.71%);
+}
+.leftfirstBoxSuperAdmin{
+    padding: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.leftfirstBoxSuperAdmin > img {
+    width: 57px;
+    height: 57px;
+    flex-shrink: 0;
+}
+.leftfirstBoxSuperAdmin > p{
+    color: #FFF;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.leftsecondBoxSuperAdmin{
+    padding: 10px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+.leftsecondfirstSuperAdmin {
+    display: flex;
+    width: 152px;
+    padding: 0px 8px;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    color: #FFF;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 0.1px;
+}
+.leftsecondfirstSuperAdminOn {
+    display: flex;
+    width: 152px;
+    padding: 0px 8px;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    background: #FFF;
+    color: #000;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 0.1px;
+}
+.leftsecondthirdSuperAdmin {
+    display: flex;
+    width: 152px;
+    padding: 0px 8px;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    color: #FFF;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 0.1px;
+}
+.leftsecondthirdSuperAdminOn {
+    display: flex;
+    width: 152px;
+    padding: 0px 8px;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    background: #FFF;
+    color: #000;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 0.1px;
+}
+.leftthirdBoxSuperAdmin{
+    width: 100%;
+    padding: 10px 20px 10px 0px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: #FFF;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 0.1px;
+    margin: auto;
+    margin-top: 90%;
+}
+.leftthirdBoxfirstSuperAdmin{
+    width: 162px;
+    padding: 10px 1px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    border: 1px solid #717171;
+    color: #FFF;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 0.1px;
+    margin: auto;
+    margin-top: 20px;
+    color: #FFF;
+}
+.rightBoxSuperAdmin{
+    width: 1100px;
+    height: 617px;
+    flex-shrink: 0;
+}
+.rightBoxSuperAdminDashboard{
+    display: inline;
+}
+.rightBoxSuperAdminDashboardOff{
+    display: none;
+}
+.rightfirstBoxSuperadmin{
+    width: 97%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.rightfirstBoxSuperadminText{
+    text-align: left;
+}
+.rightfirstBoxSuperadminText :nth-child(1){
+    color: #000;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 90.909% */
+    letter-spacing: 0.1px;
+    margin-bottom: 5px;
+}
+.rightfirstBoxSuperadminText :nth-child(2){
+    color: #B0B0B0;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 0px;
+}
+.addadminbuttonSuperadmin{
+    display: flex;
+    border: none;
+    width: 130px;
+    height: 38px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    background: linear-gradient(287deg, #7200FF 15.07%, #FC57FF 88.56%), #000;
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 125% */
+    letter-spacing: 0.1px;
+}
+.rightsecondBoxSuperadmin{
+    width: 97%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0px;
+    margin-top: 20px;
+}
+.rightsecondBoxSuperadminInputBox{
+    width: 880px;
+    height: 20px;
+    flex-shrink: 0;
+    border-radius: 6px;
+    border: 1px solid #586266;
+    display: flex;
+    align-items: center;
+    padding: 10px 0px 10px 10px;
+}
+.rightsecondBoxSuperadminInput{
+    width: 95%;
+    height: 23.16px;
+    flex-shrink: 0;
+    color: #B6B6B6;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border: none;
+    outline: none;
+}
+.rightsecondBoxSuperadminSelect{
+    width: 162px;
+    height: 43px;
+    flex-shrink: 0;
+    border-radius: 6px;
+    border: 1.5px solid #7200FF;
+    color: #AF26FD;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 7px;
+}
+.rightthirdBoxSuperadmin{
+    width: 97%;
+    margin: auto;
+    flex-shrink: 0;
+    border-radius: 8px;
+    border: 1px solid #C2C2C2;
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 450px;
+    margin-top: 10px;
+}
+.userTableSuperAdmin{
+    width: 100%;
+    margin: 8px;
+    padding: 0px 0px 0px 10px;
+}
+.userTableHeadSuperAdmin{
+    color: #000;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-align: left;
+    padding: 8px;
+}
+.userTableBodySuperAdmin{
+    color: #4F4F4F;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: left;
+    padding: 8px;
+}
+.rightBoxSuperAdminSupportText{
+    width: 97%;
+    margin: auto;
+    color: #000;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 90.909% */
+    letter-spacing: 0.1px;
+    text-align: left;
+}
+.rightBoxSuperAdminSupport{
+    display: inline;
+}
+.rightBoxSuperAdminSupportOff{
+    display: none;
+}
+.rightthirdBoxSuperadminSupport{
+    width: 97%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    height: 460px;
+    align-items: center;
+    padding: 10px 0px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-radius: 8px;
+    border: 1px solid #C2C2C2;
+}
+
+.feedbackTableSuperAdmin{
+    width: 100%;
+    margin: 8px;
+    padding: 0px 0px 0px 10px;
+}
+.feedbackTableHeadSuperAdmin{
+    color: #000;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-align: left;
+    padding: 8px;
+}
+.feedbackTableBodySuperAdmin{
+    color: #4F4F4F;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: justify;
+    padding: 8px;
+}
+.feedbackTableSuperAdmin :nth-child(4){
+    width: 400px;
+}
+.addadminOff{
+    display: none;
+}
+.addadmin{
+    display: inline;
+    position: absolute;
+    top: 4%;
+    left: 35%;
+    width: 30%;
+    height: 470px;
+    padding: 50px;
+    text-align: left;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.addadmintext{
+    color: #000;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 90.909% */
+    letter-spacing: 0.1px;
+    margin-top: 0px;
+}
+.addadminlabel{
+    color: #000;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.addadmininput{
+    width: 96%;
+    height: 38px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    border: 1px solid #C2C2C2;
+    background: #FFF;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 8px;
+    margin-bottom: 13px;
+    outline: none;
+    padding-left: 10px;
+}
+.addadminbutton{
+    display: flex;
+    width: 100%;
+    height: 42px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    background: linear-gradient(287deg, #7200FF 15.07%, #FC57FF 88.56%);
+    color: #FFF;
+    text-align: center;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 125% */
+    letter-spacing: 0.1px;
+    border: none;
+    margin-top: 25px;
+}
+.addadmincancelbutton{
+    display: flex;
+    width: 100%;
+    height: 42px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    border: 1px solid #7200FF;
+    color: #AF26FD;
+    text-align: center;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 125% */
+    letter-spacing: 0.1px;
+    background: none;
+}
