@@ -4,10 +4,13 @@ import logo from "../utils/Images/Admin/logo.svg";
 import { useDispatch, useSelector } from 'react-redux';
 import { AiOutlinePlus, AiOutlineSearch } from 'react-icons/ai';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Superadmin = () => {
 
   const [userData, setUserData] = useState([]);
+
+  const navigate= useNavigate();
 
   useEffect(()=>{
     axios.get(`https://restaurant-bot-admin.onrender.com/api/v1/admin`)
@@ -216,12 +219,12 @@ const Superadmin = () => {
                   <th className="userTableHeadSuperAdmin">Action</th>
                 </tr>
                 {userData && userData.map((user, i)=>{
-                  return <tr>
+                  return <tr onClick={()=>navigate(`/:${user._id}`)}>
                     <td className="userTableBodySuperAdmin">{i+1}</td>
                     <td className="userTableBodySuperAdmin">{user.businessName}</td>
                     <td className="userTableBodySuperAdmin">{user.email}</td>
                     <td className="userTableBodySuperAdmin">{user.phone}</td>
-                    <td className="userTableBodySuperAdmin">{user.subsciption}</td>
+                    <td className="userTableBodySuperAdmin">{user.botrunning? '9days left' : 'Renewal pending'}</td>
                     <td className="userTableBodySuperAdmin">Edit</td>
                   </tr>
                 })}

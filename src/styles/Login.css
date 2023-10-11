@@ -6,7 +6,7 @@
     align-items: center;
 }
 .innerBoxLogin {
-    width: 538px;
+    width: 40%;
     height: 470px;
     flex-shrink: 0;
     border-radius: 16px;
@@ -15,8 +15,8 @@
     padding: 30px;
 }
 .loginlogo{
-    width: 119px;
-    height: 119px;
+    width: 30%;
+    height: 30%;
     flex-shrink: 0;
 }
 .loginheading{
@@ -38,7 +38,7 @@
     margin-top: -10px;
 }
 .inputlogin {
-    width: 100%;
+    width: 97%;
     background-color: white;
     margin: auto;
     border: 0.5px solid rgb(228, 219, 219);
@@ -47,15 +47,42 @@
     margin-bottom: 15px;
     text-align: left;
     font-size: 12px;
-    padding: 3px;
-    padding-left: 10px;
+    padding: 12px;
     margin-top: 6px;
-    color: #B6B6B6;
     font-family: "Poppins", Arial, sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.inputlogindiv {
+    width: 97%;
+    background-color: white;
+    margin: auto;
+    border: 0.5px solid rgb(228, 219, 219);
+    border-radius: 4px;
+    outline: none;
+    margin-bottom: 15px;
+    text-align: left;
+    padding: 10px;
+    margin-top: 6px;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.inputlogindiv > input {
+    width: 85%;
+    font-size: 14px;
+    border: none;
+    outline: none;
 }
 .loginlabels{
     color: #000;
@@ -67,9 +94,9 @@
 }
 .loginButton {
     display: flex;
-    width: 422px;
+    width: 100%;
     height: 48px;
-    padding: 14px 174px;
+    padding: 14px 20px;
     justify-content: center;
     align-items: center;
     gap: 10px;
@@ -84,4 +111,85 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+}
+
+
+
+
+
+
+@media all and (min-width:481px) and (max-width:786px){
+    .outerBoxLogin{
+        margin-top: 30px;
+    }
+    .innerBoxLogin{
+        width: 60%;
+        height: 420px;
+    }
+    .loginlogo{
+        width: 22%;
+        height: 22%;
+    }
+    .loginheading{
+        font-size: 27px;
+    }
+    .loginlabels{
+        font-size: 15px;
+    }
+    .inputlogin{
+        padding: 9px;
+        margin-bottom: 5px;
+    }
+    .inputlogindiv{
+        padding: 6px 9px;
+    }
+    .loginforgotpassword{
+        font-size: 14px;
+    }
+    .loginButton{
+        height: 45px;
+        font-size: 17px;
+    }
+}
+
+
+
+
+
+
+@media all and (min-width:180px) and (max-width:480px){
+    .outerBoxLogin{
+        margin-top: 20px;
+    }
+    .formbox{
+        width: 90%;
+    }
+    .innerBoxLogin{
+        width: 70%;
+        height: 420px;
+    }
+    .loginlogo{
+        width: 20%;
+        height: 20%;
+    }
+    .loginheading{
+        font-size: 27px;
+    }
+    .loginlabels{
+        font-size: 14px;
+    }
+    .inputlogin{
+        padding: 7px;
+        margin-bottom: 5px;
+    }
+    .inputlogindiv{
+        padding: 6px 9px;
+    }
+    .loginforgotpassword{
+        font-size: 15px;
+    }
+    .loginButton{
+        height: 42px;
+        font-size: 16px;
+    }
 }

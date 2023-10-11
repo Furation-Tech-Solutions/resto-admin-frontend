@@ -12,10 +12,9 @@
     justify-content: space-between;
 }
 .leftBoxAdmin{
-    width: 246px;
+    width: 250px;
     height: 619px;
     flex-shrink: 0;
-    position: fixed;
     background: linear-gradient(178deg, #434343 0%, #080808 44.71%);
 }
 .leftfirstBoxAdmin{
@@ -259,10 +258,9 @@
     color: #FFF;
 }
 .rightBoxAdmin{
-    width: 1101px;
+    width: 1110px;
     height: 617px;
     flex-shrink: 0;
-    padding-left: 246px;
 }
 .rightDashboardBoxAdmin{
     display: inline;
@@ -271,10 +269,11 @@
     display: none;
 }
 .rightfirstBoxAdmin{
+    width: 98%;
+    margin: auto;
     display: flex;
     justify-content:space-between;
     align-items: center;
-    padding: 0px 10px;
 }
 .textrightfirstBoxAdmin{
     text-align: left;
@@ -287,6 +286,7 @@
     font-weight: 500;
     line-height: 20px; /* 90.909% */
     letter-spacing: 0.1px;
+    margin: 0px;
 }
 .textrightfirstBoxAdmin :nth-child(2){
     color: #707070;
@@ -313,7 +313,6 @@
     font-weight: 400;
     line-height: normal;
     margin-right: 10px;
-    margin-top: 15px;
     align-items: flex-end;
 }
 /* .countdownrightfirstRoundOuter{
@@ -680,13 +679,15 @@
 .currentSubscriptionDoughnutOuterAdmin{
     border-bottom: 1px solid #E7E7E7;
     width: 90%;
-    height: 158.501px;
+    height: 140px;
     margin: auto;
     font-size: 15px;
     font-family: "Poppins", Arial, sans-serif;
 }
-.currentSubscriptionDoughnutOuterAdmin > Text{
+.currentSubscriptionDoughnutOuterAdmin > p{
     text-align: center;
+    margin: 0px;
+    margin-top: 10px;
 }
 .currentSubscriptionDoughnutInnerAdmin{
     width: 108.501px;
@@ -1274,4 +1275,12 @@
 }
 #myfileAdmin::-webkit-file-upload-buttonAdmin {
     visibility: hidden;
+}
+
+@media all and (min-width:481px) and (max-width:680px){
+
+}
+
+@media all and (min-width:180px) and (max-width:480px){
+
 }
