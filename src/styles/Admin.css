@@ -4,6 +4,8 @@
     width: 100%;
     background: #FFF;
     position: relative;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 .innerBoxAdmin{
     width: 100%;
@@ -12,8 +14,8 @@
     justify-content: space-between;
 }
 .leftBoxAdmin{
-    width: 250px;
-    height: 619px;
+    width: 19%;
+    height: 100vh;
     flex-shrink: 0;
     background: linear-gradient(178deg, #434343 0%, #080808 44.71%);
 }
@@ -24,8 +26,8 @@
     align-items: center;
 }
 .leftfirstBoxAdmin > img {
-    width: 57px;
-    height: 57px;
+    width: 30%;
+    height: 30%;
     flex-shrink: 0;
 }
 .leftfirstBoxAdmin > p{
@@ -45,7 +47,7 @@
 }
 .leftsecondfirstAdmin {
     display: flex;
-    width: 152px;
+    width: 95%;
     padding: 0px 8px;
     justify-content: left;
     align-items: center;
@@ -61,7 +63,7 @@
 }
 .leftsecondfirstAdminOn {
     display: flex;
-    width: 152px;
+    width: 95%;
     padding: 0px 8px;
     justify-content: left;
     align-items: center;
@@ -78,7 +80,7 @@
 }
 .leftsecondsecondAdmin {
     display: inline;
-    width: 152px;
+    width: 95%;
     height: 50px;
     padding: 0px 8px;
     justify-content: left;
@@ -96,7 +98,7 @@
 }
 .leftsecondsecondAdminOn{
     display: inline;
-    width: 152px;
+    width: 95%;
     padding: 0px 8px;
     justify-content: left;
     align-items: center;
@@ -114,7 +116,7 @@
 }
 .leftsecondseconddivAdmin {
     display: inline;
-    width: 152px;
+    width: 95%;
     justify-content: left;
     align-items: center;
     color: #000;
@@ -149,7 +151,7 @@
 }
 .leftsecondthirdAdmin {
     display: flex;
-    width: 152px;
+    width: 95%;
     padding: 0px 8px;
     justify-content: left;
     align-items: center;
@@ -165,7 +167,7 @@
 }
 .leftsecondthirdAdminOn {
     display: flex;
-    width: 152px;
+    width: 95%;
     padding: 0px 8px;
     justify-content: left;
     align-items: center;
@@ -182,7 +184,7 @@
 }
 .leftsecondfourthAdmin {
     display: flex;
-    width: 152px;
+    width: 95%;
     padding: 0px 8px;
     justify-content: left;
     align-items: center;
@@ -198,7 +200,7 @@
 }
 .leftsecondfourthAdminOn {
     display: flex;
-    width: 152px;
+    width: 95%;
     padding: 0px 8px;
     justify-content: left;
     align-items: center;
@@ -239,7 +241,7 @@
     letter-spacing: 0.1px;
 }
 .leftthirdBoxsecondAdmin{
-    width: 162px;
+    width: 60%;
     padding: 10px 1px;
     justify-content: center;
     align-items: center;
@@ -258,8 +260,8 @@
     color: #FFF;
 }
 .rightBoxAdmin{
-    width: 1110px;
-    height: 617px;
+    width: 82%;
+    height: 100vh;
     flex-shrink: 0;
 }
 .rightDashboardBoxAdmin{
@@ -315,31 +317,6 @@
     margin-right: 10px;
     align-items: flex-end;
 }
-/* .countdownrightfirstRoundOuter{
-    border: 0px solid #FC57FF;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    background: linear-gradient(287deg, #7200FF 15.07%, #FC57FF 88.56%), #000;
-    padding: 13px;
-    margin: auto;
-} */
-/* .countdownrightfirstRoundInner{
-    border: 1px solid#FC57FF;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    justify-content: center;
-    align-items: center;
-    font-weight: 600;
-    font-size: 22px;
-    background-color: white;
-    text-align: center;
-}
-.countdownrightfirstRoundInner > p{
-    margin: 0px;
-    margin-top: 7px;
-} */
 .rightsecondBoxAdmin{
     display: flex;
     justify-content: space-around;
@@ -347,8 +324,8 @@
     padding: 0px 10px;
 }
 .weeklyChartAdmin{
-    width: 420px;
-    height: 241px;
+    width: 38%;
+    height: 230px;
     padding: 10px;
     flex-shrink: 0;
     border-radius: 8px;
@@ -356,8 +333,8 @@
     background: #FBF8FF;
 }
 .monthlyChartAdmin{
-    width: 411px;
-    height: 241px;
+    width: 38%;
+    height: 230px;
     padding: 10px;
     flex-shrink: 0;
     border-radius: 8px;
@@ -373,7 +350,7 @@
 }
 .rightsecondBoxCountOuter{
     width: 152px;
-    height: 111px;
+    height: 110px;
     flex-shrink: 0;
     border-radius: 8px;
     border: 1px solid #CACACA;
@@ -1277,9 +1254,100 @@
     visibility: hidden;
 }
 
-@media all and (min-width:481px) and (max-width:680px){
 
+
+
+
+
+@media all and (min-width:481px) and (max-width:786px){
+    .leftfirstBoxAdmin{
+        padding: 20px;
+    }
+    .leftfirstBoxAdmin > p{
+        font-size: 13px;
+    }
+    .leftfirstBoxAdmin > img {
+        width: 25%;
+        height: 25%;
+        flex-shrink: 0;
+    }
+    .leftsecondfirstAdmin{
+        font-size: 11px;
+        width: 85%;
+        padding: 0px 5px;
+    }
+    .leftsecondfirstAdminOn{
+        font-size: 11px;
+        width: 85%;
+        padding: 0px 5px;
+    }
+    .leftsecondsecondAdmin{
+        font-size: 11px;
+        width: 85%;
+        padding: 0px 5px;
+    }
+    .leftsecondsecondAdminOn{
+        font-size: 11px;
+        width: 85%;
+        padding: 0px 5px;
+    }
+    .leftsecondseconddivAdmin{
+        font-size: 11px;
+    }
+    .leftsecondthirdAdmin{
+        font-size: 11px;
+        width: 85%;
+        padding: 0px 5px;
+    }
+    .leftsecondthirdAdminOn{
+        font-size: 11px;
+        width: 85%;
+        padding: 0px 5px;
+    }
+    .leftsecondfourthAdmin{
+        font-size: 11px;
+        width: 98%;
+        padding: 0px 5px;
+        text-align: left;
+    }
+    .leftsecondfourthAdminOn{
+        font-size: 11px;
+        width: 95%;
+        padding: 0px 5px;
+        text-align: left;
+    }
+    .FeedbackTextAdmin{
+        font-size: 20px;
+    }
+    .FeedbackTableAdmin :nth-child(4){
+        width: 280px;
+    }
+    .FeedbackTableHeadAdmin{
+        font-size: 13px;
+    }
+    .FeedbackTableBodyAdmin{
+        font-size: 13px;
+    }
+    .SubscriptionTextAdmin{
+        font-size: 20px;
+    }
+    .SubscriptionTableAdmin{
+        width: 95%;
+    }
+    .SubscriptionTableHeadAdmin{
+        font-size: 11px;
+        padding: 5px;
+    }
+    .SubscriptionTableBodyAdmin{
+        font-size: 11px;
+        padding: 5px;
+    }
 }
+
+
+
+
+
 
 @media all and (min-width:180px) and (max-width:480px){
 

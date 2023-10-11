@@ -571,7 +571,10 @@ const Admin = () => {
               <p>Start Date :- 01/10/2023</p>
               <p>End Date :- 30/10/2023</p>
             </div>
-            <div className="currentSubscriptionviewallAdmin" onClick={()=>setBarnum(7)}>View all subscriptions</div>
+            <div className="currentSubscriptionviewallAdmin" onClick={()=>{
+              setBarnum(7)
+              setCurrentSubscriptionopen(false)
+            }}>View all subscriptions</div>
           </div>
         </div>
       }
