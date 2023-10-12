@@ -112,25 +112,67 @@ const Admin = () => {
     {
       phone: "123456789",
       name: "User name",
-      message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       date: "04/10/2023"
     },
     {
       phone: "123456789",
       name: "User name",
-      message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       date: "04/10/2023"
     },
     {
       phone: "123456789",
       name: "User name",
-      message: "1Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.2",
+      message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       date: "04/10/2023"
     },
     {
       phone: "123456789",
       name: "User name",
-      message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      date: "04/10/2023"
+    },
+    {
+      phone: "123456789",
+      name: "User name",
+      message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      date: "04/10/2023"
+    },
+    {
+      phone: "123456789",
+      name: "User name",
+      message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      date: "04/10/2023"
+    },
+    {
+      phone: "123456789",
+      name: "User name",
+      message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      date: "04/10/2023"
+    },
+    {
+      phone: "123456789",
+      name: "User name",
+      message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      date: "04/10/2023"
+    },
+    {
+      phone: "123456789",
+      name: "User name",
+      message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      date: "04/10/2023"
+    },
+    {
+      phone: "123456789",
+      name: "User name",
+      message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      date: "04/10/2023"
+    },
+    {
+      phone: "123456789",
+      name: "User name",
+      message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       date: "04/10/2023"
     },
   ];
@@ -172,6 +214,168 @@ const Admin = () => {
       enddate: "04/10/2023",
       status: false
     },
+    {
+      plan: "123456789",
+      type: "User name",
+      price: 100,
+      invoice: "1234",
+      startdate: "05/09/2023",
+      enddate: "04/10/2023",
+      status: false
+    },
+    {
+      plan: "123456789",
+      type: "User name",
+      price: 100,
+      invoice: "1234",
+      startdate: "05/09/2023",
+      enddate: "04/10/2023",
+      status: false
+    },
+    {
+      plan: "123456789",
+      type: "User name",
+      price: 100,
+      invoice: "1234",
+      startdate: "05/09/2023",
+      enddate: "04/10/2023",
+      status: false
+    },
+    {
+      plan: "123456789",
+      type: "User name",
+      price: 100,
+      invoice: "1234",
+      startdate: "05/09/2023",
+      enddate: "04/10/2023",
+      status: false
+    },
+    {
+      plan: "123456789",
+      type: "User name",
+      price: 100,
+      invoice: "1234",
+      startdate: "05/09/2023",
+      enddate: "04/10/2023",
+      status: false
+    },
+    {
+      plan: "123456789",
+      type: "User name",
+      price: 100,
+      invoice: "1234",
+      startdate: "05/09/2023",
+      enddate: "04/10/2023",
+      status: false
+    },
+    {
+      plan: "123456789",
+      type: "User name",
+      price: 100,
+      invoice: "1234",
+      startdate: "05/09/2023",
+      enddate: "04/10/2023",
+      status: false
+    },
+    {
+      plan: "123456789",
+      type: "User name",
+      price: 100,
+      invoice: "1234",
+      startdate: "05/09/2023",
+      enddate: "04/10/2023",
+      status: false
+    },
+    {
+      plan: "123456789",
+      type: "User name",
+      price: 100,
+      invoice: "1234",
+      startdate: "05/09/2023",
+      enddate: "04/10/2023",
+      status: false
+    },
+    {
+      plan: "123456789",
+      type: "User name",
+      price: 100,
+      invoice: "1234",
+      startdate: "05/09/2023",
+      enddate: "04/10/2023",
+      status: false
+    },
+    {
+      plan: "123456789",
+      type: "User name",
+      price: 100,
+      invoice: "1234",
+      startdate: "05/09/2023",
+      enddate: "04/10/2023",
+      status: false
+    },
+    {
+      plan: "123456789",
+      type: "User name",
+      price: 100,
+      invoice: "1234",
+      startdate: "05/09/2023",
+      enddate: "04/10/2023",
+      status: false
+    },
+    {
+      plan: "123456789",
+      type: "User name",
+      price: 100,
+      invoice: "1234",
+      startdate: "05/09/2023",
+      enddate: "04/10/2023",
+      status: false
+    },
+    {
+      plan: "123456789",
+      type: "User name",
+      price: 100,
+      invoice: "1234",
+      startdate: "05/09/2023",
+      enddate: "04/10/2023",
+      status: false
+    },
+    {
+      plan: "123456789",
+      type: "User name",
+      price: 100,
+      invoice: "1234",
+      startdate: "05/09/2023",
+      enddate: "04/10/2023",
+      status: false
+    },
+    {
+      plan: "123456789",
+      type: "User name",
+      price: 100,
+      invoice: "1234",
+      startdate: "05/09/2023",
+      enddate: "04/10/2023",
+      status: false
+    },
+    {
+      plan: "123456789",
+      type: "User name",
+      price: 100,
+      invoice: "1234",
+      startdate: "05/09/2023",
+      enddate: "04/10/2023",
+      status: false
+    },
+    {
+      plan: "123456789",
+      type: "User name",
+      price: 100,
+      invoice: "1234",
+      startdate: "05/09/2023",
+      enddate: "04/10/2023",
+      status: false
+    }
   ];
 
   const doughnutdata = {
@@ -271,12 +475,13 @@ const Admin = () => {
                     <p>25</p>
                   </div>
                 </div> */}
-                <div className="currentSubscriptionDoughnutOuterAdmin">
-                  <div onClick={()=>setCurrentSubscriptionopen(true)} className="currentSubscriptionDoughnutInnerAdmin">
+                <div></div>
+                <div className="countdownrightDoughnutOuterAdminFirstBox">
+                  <div onClick={()=>setCurrentSubscriptionopen(true)} className="countdownrightDoughnutInnerAdminFirstBox">
                     <Doughnut data={doughnutdata} /><br/>
-                    <div className="currentSubscriptionDoughnutInnerAdminNumber">25</div>
+                    <div className="countdownrightDoughnutInnerAdminNumberFirstBox">25</div>
                   </div>
-                  <p>25/30 days left</p>
+                  <p className="countdownrightText">25/30 days left</p>
                 </div>
               </div>
             </div>
@@ -358,7 +563,7 @@ const Admin = () => {
           </div>
           <div
             className={
-              barnum === 3 ? "sendMessageBoxAdmin" : "sendMessageBoxAdminOff"
+              barnum === 2 || barnum === 3 ? "sendMessageBoxAdmin" : "sendMessageBoxAdminOff"
             }
           >
             <div className="sendMessageBoxAdminText">
@@ -373,7 +578,7 @@ const Admin = () => {
               <img src={emoji} alt="emoji face" />
               <div>
                 <input type="text" placeholder="Type message here..." />
-                <AiOutlinePaperClip size={"25px"} color="#878787"/>
+                <AiOutlinePaperClip size={"23px"} color="#878787"/>
               </div>
               <button>Send</button>
             </div>
@@ -432,24 +637,26 @@ const Admin = () => {
           >
             <div className="rightFeedbackBoxAdminInner">
               <p className="FeedbackTextAdmin">Feedback</p>
-              <table className="FeedbackTableAdmin">
-                <tr>
-                  <th className="FeedbackTableHeadAdmin">Sr. No.</th>
-                  <th className="FeedbackTableHeadAdmin">Name</th>
-                  <th className="FeedbackTableHeadAdmin">Phone Number</th>
-                  <th className="FeedbackTableHeadAdmin">Feedback</th>
-                  <th className="FeedbackTableHeadAdmin">Date</th>
-                </tr>
-                {feedbackData && feedbackData.map((feed, i)=>{
-                  return <tr>
-                    <td className="FeedbackTableBodyAdmin">{i+1}</td>
-                    <td className="FeedbackTableBodyAdmin">{feed.name}</td>
-                    <td className="FeedbackTableBodyAdmin">{feed.phone}</td>
-                    <td className="FeedbackTableBodyAdmin">{feed.message}</td>
-                    <td className="FeedbackTableBodyAdmin">{feed.date}</td>
+              <div className="feedbacktableholder">
+                <table className="FeedbackTableAdmin">
+                  <tr>
+                    <th className="FeedbackTableHeadAdmin">Sr. No.</th>
+                    <th className="FeedbackTableHeadAdmin">Name</th>
+                    <th className="FeedbackTableHeadAdmin">Phone Number</th>
+                    <th className="FeedbackTableHeadAdmin">Feedback</th>
+                    <th className="FeedbackTableHeadAdmin">Date</th>
                   </tr>
-                })}
-              </table>
+                  {feedbackData && feedbackData.map((feed, i)=>{
+                    return <tr>
+                      <td className="FeedbackTableBodyAdmin">{i+1}</td>
+                      <td className="FeedbackTableBodyAdmin">{feed.name}</td>
+                      <td className="FeedbackTableBodyAdmin">{feed.phone}</td>
+                      <td className="FeedbackTableBodyAdmin">{feed.message}</td>
+                      <td className="FeedbackTableBodyAdmin">{feed.date}</td>
+                    </tr>
+                  })}
+                </table>
+              </div>
             </div>
           </div>
           <div
@@ -461,30 +668,32 @@ const Admin = () => {
           >
             <div className="rightSubscriptionBoxAdminInner">
               <p className="SubscriptionTextAdmin">Subscription & Payment History</p>
-              <table className="SubscriptionTableAdmin">
-                <tr>
-                  <th className="SubscriptionTableHeadAdmin">Sr. No.</th>
-                  <th className="SubscriptionTableHeadAdmin">Plan</th>
-                  <th className="SubscriptionTableHeadAdmin">Type</th>
-                  <th className="SubscriptionTableHeadAdmin">Price</th>
-                  <th className="SubscriptionTableHeadAdmin">Invoice</th>
-                  <th className="SubscriptionTableHeadAdmin">Start Date</th>
-                  <th className="SubscriptionTableHeadAdmin">End Date</th>
-                  <th className="SubscriptionTableHeadAdmin">Status</th>
-                </tr>
-                {subscriptionData && subscriptionData.map((subscription, i)=>{
-                  return <tr>
-                    <td className="SubscriptionTableBodyAdmin">{i+1}</td>
-                    <td className="SubscriptionTableBodyAdmin">{subscription.plan}</td>
-                    <td className="SubscriptionTableBodyAdmin">{subscription.type}</td>
-                    <td className="SubscriptionTableBodyAdmin">{subscription.price}</td>
-                    <td className="SubscriptionTableBodyAdmin">{subscription.invoice}</td>
-                    <td className="SubscriptionTableBodyAdmin">{subscription.startdate}</td>
-                    <td className="SubscriptionTableBodyAdmin">{subscription.enddate}</td>
-                    <td className={subscription.status?"SubscriptionTableBodyAdmintrue" : "SubscriptionTableBodyAdmin"}>{subscription.status? "Active" : "Expired"}</td>
+              <div className="subscriptiontableholder">
+                <table className="SubscriptionTableAdmin">
+                  <tr>
+                    <th className="SubscriptionTableHeadAdmin">Sr. No.</th>
+                    <th className="SubscriptionTableHeadAdmin">Plan</th>
+                    <th className="SubscriptionTableHeadAdmin">Type</th>
+                    <th className="SubscriptionTableHeadAdmin">Price</th>
+                    <th className="SubscriptionTableHeadAdmin">Invoice</th>
+                    <th className="SubscriptionTableHeadAdmin">Start Date</th>
+                    <th className="SubscriptionTableHeadAdmin">End Date</th>
+                    <th className="SubscriptionTableHeadAdmin">Status</th>
                   </tr>
-                })}
-              </table>
+                  {subscriptionData && subscriptionData.map((subscription, i)=>{
+                    return <tr>
+                      <td className="SubscriptionTableBodyAdmin">{i+1}</td>
+                      <td className="SubscriptionTableBodyAdmin">{subscription.plan}</td>
+                      <td className="SubscriptionTableBodyAdmin">{subscription.type}</td>
+                      <td className="SubscriptionTableBodyAdmin">{subscription.price}</td>
+                      <td className="SubscriptionTableBodyAdmin">{subscription.invoice}</td>
+                      <td className="SubscriptionTableBodyAdmin">{subscription.startdate}</td>
+                      <td className="SubscriptionTableBodyAdmin">{subscription.enddate}</td>
+                      <td className={subscription.status?"SubscriptionTableBodyAdmintrue" : "SubscriptionTableBodyAdmin"}>{subscription.status? "Active" : "Expired"}</td>
+                    </tr>
+                  })}
+                </table>
+              </div>
             </div>
           </div>
         </div>
