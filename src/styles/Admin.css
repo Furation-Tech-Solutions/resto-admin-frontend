@@ -2,7 +2,7 @@
     font-family: "Poppins", Arial, sans-serif;
 }.outerBoxAdmin{
     width: 100%;
-    background: #FFF;
+    background: hsl(0, 0%, 100%);
     position: relative;
     overflow-x: hidden;
     overflow-y: hidden;
@@ -1420,6 +1420,14 @@
     }
     .rightsecondBoxCountNumber{
         font-size: 40px;
+    }
+    .weeklyChartAdmin{
+        width: 35%;
+        height: 90%;
+    }
+    .monthlyChartAdmin{
+        width: 35%;
+        height: 90%;
     }
     .weeklyChartAdminText{
         font-size: 16px;

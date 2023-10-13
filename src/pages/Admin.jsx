@@ -5,8 +5,8 @@ import emoji from "../utils/Images/Admin/emoji.svg";
 import closeicon from "../utils/Images/Admin/closeicon.png";
 import calendar from "../utils/Images/Admin/Calendar.svg";
 import checkcircle from '../utils/Images/Admin/checkcircle.svg'
-import { AiOutlinePaperClip } from 'react-icons/ai';
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, BarElement, ArcElement, Title, Tooltip, Legend } from 'chart.js';
+import { AiOutlinePaperClip, AiOutlineCheck } from 'react-icons/ai';
+import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, Filler, LineElement, BarElement, ArcElement, Title, Tooltip, Legend } from 'chart.js';
 import { Line,  Bar, Doughnut } from 'react-chartjs-2';
 
 
@@ -19,11 +19,12 @@ const Admin = () => {
     LineElement,
     BarElement,
     ArcElement,
+    Filler,
     Title,
     Tooltip,
     Legend
   );
-
+  
   const [ currentSubscriptionopen, setCurrentSubscriptionopen ]= useState(false);
 
   const [isSubscribed, setIsSubscribed]= useState(true);
@@ -33,7 +34,8 @@ const Admin = () => {
 
   // const date = new Date();
 
-  const weeklylabels = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+
+  const weeklylabels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
   const weeklydata = {
     labels: weeklylabels,
     datasets: [
@@ -46,6 +48,18 @@ const Admin = () => {
     ],
   };
   const lineOptions = {
+    scales: {
+      x: {
+        grid: {
+          display: false, // Hide x-axis grid lines
+        },
+      },
+      y: {
+        grid: {
+          display: true, // Hide y-axis grid lines
+        },
+      },
+    },
     responsive: true,
     plugins: {
       legend: {
@@ -59,6 +73,18 @@ const Admin = () => {
   };
 
   const barOptions = {
+    scales: {
+      x: {
+        grid: {
+          display: false, // Hide x-axis grid lines
+        },
+      },
+      y: {
+        grid: {
+          display: true, // Hide y-axis grid lines
+        },
+      },
+    },
     responsive: true,
     plugins: {
       legend: {
@@ -76,9 +102,18 @@ const Admin = () => {
     labels: monthlylabels,
     datasets: [
       {
+        fill: true,
         label: "Unique users this month",
         backgroundColor: "#AF26FD",
         borderColor: "#AF26FD",
+        borderWidth: 1.5,
+        pointRadius: 0.5,
+        pointHoverRadius: 5,
+        customCanvasBackgroundColor: 'blue',
+        fill: {
+          target: 'origin',
+          below: '#AF26FD'
+        },
         data: [
           14, 42, 23, 64, 45, 16, 34, 58, 25, 44, 33, 24, 45, 24, 32, 21, 32, 54, 64, 22, 43, 75, 21, 54, 34, 23, 54, 13, 54, 34,
         ]
@@ -426,9 +461,9 @@ const Admin = () => {
               }}
               >Message</p>
               <div className={barnum===2 || barnum===3 || barnum===4 || barnum===5? "leftsecondseconddivAdmin" : "leftsecondseconddivAdminOff"}>
-                <p className={barnum===2 || barnum===3? "leftsendMessageAdmin" : "leftsendMessageAdminOff"} onClick={() => setBarnum(3)}>Send Messages</p><br/><br/>
-                <p className={barnum===4? "leftsendBulkMessageAdmin" : "leftsendBulkMessageAdminOff"} onClick={() => setBarnum(4)}>Send Bulk messages</p><br/><br/>
-                <p className={barnum===5? "leftannouncementAdmin" : "leftannouncementAdminOff"} onClick={() => setBarnum(5)}>Announcement</p><br/><br/>
+                <p className={barnum===2 || barnum===3? "leftsendMessageAdmin" : "leftsendMessageAdminOff"} onClick={() => setBarnum(3)}>Send Message{barnum === 2 &&<AiOutlineCheck/> || barnum === 3 &&<AiOutlineCheck/>} </p><br/><br/>
+                <p className={barnum===4? "leftsendBulkMessageAdmin" : "leftsendBulkMessageAdminOff"} onClick={() => setBarnum(4)}>Bulk message{barnum ===4 && <AiOutlineCheck/>}</p><br/><br/>
+                <p className={barnum===5? "leftannouncementAdmin" : "leftannouncementAdminOff"} onClick={() => setBarnum(5)}>Announcement{barnum ===5 && <AiOutlineCheck/>}</p><br/><br/>
               </div>
             </div>
             <div
