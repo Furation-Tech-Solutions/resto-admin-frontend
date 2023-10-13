@@ -3,9 +3,12 @@ import "../styles/Admin.css";
 import logo from "../utils/Images/Admin/logo.svg";
 import emoji from "../utils/Images/Admin/emoji.svg";
 import closeicon from "../utils/Images/Admin/closeicon.png";
+import menu from "../utils/Images/Admin/menu.svg";
+import filter from "../utils/Images/Admin/filter.svg";
 import calendar from "../utils/Images/Admin/Calendar.svg";
 import checkcircle from '../utils/Images/Admin/checkcircle.svg'
 import { AiOutlinePaperClip, AiOutlineCheck } from 'react-icons/ai';
+import { FiSearch } from 'react-icons/fi';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, Filler, LineElement, BarElement, ArcElement, Title, Tooltip, Legend } from 'chart.js';
 import { Line,  Bar, Doughnut } from 'react-chartjs-2';
 
@@ -112,6 +115,7 @@ const Admin = () => {
         customCanvasBackgroundColor: 'blue',
         fill: {
           target: 'origin',
+          opacity: 0.5,
           below: '#AF26FD'
         },
         data: [
@@ -421,7 +425,7 @@ const Admin = () => {
         data: [5, 25],
         backgroundColor: [
           '#CACACA',
-          '#7200FF'
+          '#AF26FD'
         ],
         borderWidth: 1,
       },
@@ -554,12 +558,15 @@ const Admin = () => {
               </div>
             </div>
             <div className="rightthirdBoxAdmin">
-              <input
-                type="text"
-                name=""
-                id=""
-                placeholder="Search by name or phone number"
-              />
+              <div className="rightthirdBoxAdminSearchBox">
+                <FiSearch />
+                <input
+                  type="text"
+                  name=""
+                  id=""
+                  placeholder="Search by name or phone number"
+                />
+              </div>
               <select name="" id="">
                 <option value="">Today</option>
                 <option value="">Last 7 Days</option>
@@ -733,69 +740,133 @@ const Admin = () => {
           </div>
         </div>
       </div>
-      {/* <Modal onClose={onClose} isOpen={isOpen} isCentered>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader className="currentSubscriptionTextAdmin">Current Subscription</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            <Box className="currentSubscriptionInnerBoxAdmin">
-              <Box className="currentSubscriptionDoughnutOuterAdmin">
-                <Box className="currentSubscriptionDoughnutInnerAdmin">
-                  <Doughnut data={doughnutdata} /><br/>
-                  <Box className="currentSubscriptionDoughnutInnerAdminNumber">25</Box>
-                </Box>
-                <Text>25/30 days left</Text>
-              </Box>
-              <Box className="currentSubscriptionTextBoxAdmin">
-                <Text>Plan :- Plan A</Text>
-                <Text>Status :- Active</Text>
-                <Text>Start Date :- 01/10/2023</Text>
-                <Text>End Date :- 30/10/2023</Text>
-              </Box>
-              <Box className="currentSubscriptionviewallAdmin" onClick={()=>setBarnum(7)}>View all subscriptions</Box>
-            </Box>
-          </ModalBody>
-          <ModalFooter>
-            <Button display='none' onClick={onClose}>Close</Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
-      <Modal onClose={onClose} isOpen={isOpen} isCentered>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader className="newSubscriptionTextAdmin">Subscription plans & pricing</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            <Box border='1px solid black' className="newSubscriptionInnerBoxAdmin">
-              <Box border='1px solid black' className="newSubscriptionDoughnutOuterAdmin">
-                <Box border='1px solid black' className="newSubscriptionbenifitsBoxAdmin">
-                  <Image border='1px solid black' src={calendar} alt="" />
-                </Box>
-                <Text border='1px solid black'>₹ 4000 <span>/ month</span></Text>
-              </Box>
-              <Box className="currentSubscriptionTextBoxAdmin">
-                <Box>
-                  <Image src={checkcircle} alt="" />
-                  <Text>Premium Membership- <span>Unlock Exclusive Benefits Every Month</span></Text>
-                </Box>
-                <Box>
-                  <Image src={checkcircle} alt="" />
-                  <Text>Monthly Subscription- <span>Your Gateway to Ongoing Rewards</span></Text>
-                </Box>
-                <Box>
-                  <Image src={checkcircle} alt="" />
-                  <Text>Save with Our Monthly Membership</Text>
-                </Box>
-              </Box>
-              <Button className="newSubscriptionsubscribebuttonAdmin">Subscribe</Button>
-            </Box>
-          </ModalBody>
-          <ModalFooter>
-            <Button display='none' onClick={onClose}>Close</Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal> */}
+      <div className="innerBoxPhoneAdmin">
+        <div className="innerBoxPhoneAdminContent">
+          <div className="navPhoneAdmin">
+            <div className="menuIconAdminBox">
+              <img src={menu} alt="menu" />
+            </div>
+            <div className="logoAdminBox">
+              <img src={logo} alt="logo" />
+            </div>
+          </div>
+          <div className="firstBoxAdminPhone">
+            <div className="firstBoxTextAdminPhone">
+              <p>Hello, Admin!</p>
+              <p>Users Overview</p>
+              <p>13 June, 2023 Tuesday</p>
+            </div>
+            <div onClick={()=>setCurrentSubscriptionopen(true)} className="countdownrAdminBoxPhone">
+              <Doughnut data={doughnutdata} /><br/>
+              <div className="countdownrAdminBoxPhoneNumber">25</div>
+            </div>
+          </div>
+          <div className="secondBoxAdminPhone">
+            <div className="secondBoxInnerAdminPhone">
+              <div className="secondBoxInnerAdminPhoneText">Today</div>
+              <div className="secondBoxInnerAdminPhoneNumber">12</div>
+            </div>
+            <div className="secondBoxInnerAdminPhone">
+              <div className="secondBoxInnerAdminPhoneText">Total</div>
+              <div className="secondBoxInnerAdminPhoneNumber">42</div>
+            </div>
+          </div>
+          <div className="thirdBoxAdminPhone">
+            <p className="thirdBoxAdminPhoneText">This Week</p>
+            <Bar data={weeklydata} options={barOptions} />
+          </div>
+          <div className="fourthBoxAdminPhone">
+            <div className="fourthBoxAdminPhoneInputBox">
+              <FiSearch />
+              <input
+                type="text"
+                name=""
+                id=""
+                placeholder="Search by name or phone number"
+              />
+            </div>
+            <div className="fourthBoxAdminPhoneButton">
+              <img src={filter} alt="filtericon" />
+            </div>
+          </div>
+          <div className="fifthBoxAdminPhone">
+            <table className="userTableAdminPhone">
+              <tr>
+                <th className="userTableAdminHeadPhone">Sr.No.</th>
+                <th className="userTableAdminHeadPhone">Name</th>
+                <th className="userTableAdminHeadPhone">Phone Number</th>
+                <th className="userTableAdminHeadPhone">Message Count</th>
+              </tr>
+              {userData && userData.map((user, i) => {
+                return (
+                  <tr>
+                    <td className="userTableAdminBodyPhone">{i + 1}</td>
+                    <td className="userTableAdminBodyPhone">{user.name}</td>
+                    <td className="userTableAdminBodyPhone">{user.phone}</td>
+                    <td className="userTableAdminBodyPhone">{user.messeage_count}</td>
+                  </tr>
+                );
+              })}
+            </table>
+          </div>
+        </div>
+        <div className="sideBarPhoneAdmin">
+          <div className="FirstBoxsideBarPhoneAdmin">
+            <img src={logo} alt="logo" />
+            <p>Furation Tech</p>
+          </div>
+          <div className="SecondBoxsideBarPhoneAdmin">
+            <div
+              onClick={() => setBarnum(1)}
+              className={
+                barnum === 1 ? "sidesecondfirstPhoneAdminOn" : "sidesecondfirstPhoneAdmin"
+              }
+            >
+              <p>Dashboard</p>
+            </div>
+            <div
+              className={
+                barnum === 2 || barnum===3 || barnum===4 || barnum===5
+                  ? "sidesecondsecondPhoneAdminOn"
+                  : "sidesecondsecondPhoneAdmin"
+              }
+            >
+              <p onClick={() => {
+                if(barnum===2 || barnum===3 ||barnum===4 ||barnum===5){
+                  setBarnum(1);
+                }else{
+                  setBarnum(2);
+                }
+              }}
+              >Message</p>
+              <div className={barnum===2 || barnum===3 || barnum===4 || barnum===5? "sidesecondseconddivPhoneAdmin" : "sidesecondseconddivPhoneAdminOff"}>
+                <p className={barnum===2 || barnum===3? "sidesendMessagePhoneAdmin" : "sidesendMessagePhoneAdminOff"} onClick={() => setBarnum(3)}>Send Message {barnum === 2 &&<AiOutlineCheck/> || barnum === 3 &&<AiOutlineCheck/>} </p><br/><br/>
+                <p className={barnum===4? "sidesendBulkMessagePhoneAdmin" : "sidesendBulkMessagePhoneAdminOff"} onClick={() => setBarnum(4)}>Bulk message {barnum ===4 && <AiOutlineCheck/>}</p><br/><br/>
+                <p className={barnum===5? "sideannouncementPhoneAdmin" : "sideannouncementPhoneAdminOff"} onClick={() => setBarnum(5)}>Announcement {barnum ===5 && <AiOutlineCheck/>}</p><br/><br/>
+              </div>
+            </div>
+            <div
+              onClick={() => setBarnum(6)}
+              className={
+                barnum === 6 ? "sidesecondthirdPhoneAdminOn" : "sidesecondthirdPhoneAdmin"
+              }
+            >
+              <p>Feedback</p>
+            </div>
+            <div
+              onClick={() => setBarnum(7)}
+              className={
+                barnum === 7
+                  ? "sidesecondfourthPhoneAdminOn"
+                  : "sidesecondfourthPhoneAdmin"
+              }
+            >
+              <p>Subscription History</p>
+            </div>
+          </div>
+          <div className="ThirdBoxsideBarPhoneAdmin"></div>
+        </div>
+      </div>
       {isSubscribed===true && <div className={ currentSubscriptionopen? "currentSubscriptionAdmin" : "currentSubscriptionAdminOff"}>
           <div className="currentSubscriptionCloseAdmin">
             <img onClick={()=>setCurrentSubscriptionopen(false)} src={closeicon} alt="" />
@@ -858,3 +929,71 @@ const Admin = () => {
 };
 
 export default Admin;
+
+
+
+
+
+{/* <Modal onClose={onClose} isOpen={isOpen} isCentered>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader className="currentSubscriptionTextAdmin">Current Subscription</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <Box className="currentSubscriptionInnerBoxAdmin">
+              <Box className="currentSubscriptionDoughnutOuterAdmin">
+                <Box className="currentSubscriptionDoughnutInnerAdmin">
+                  <Doughnut data={doughnutdata} /><br/>
+                  <Box className="currentSubscriptionDoughnutInnerAdminNumber">25</Box>
+                </Box>
+                <Text>25/30 days left</Text>
+              </Box>
+              <Box className="currentSubscriptionTextBoxAdmin">
+                <Text>Plan :- Plan A</Text>
+                <Text>Status :- Active</Text>
+                <Text>Start Date :- 01/10/2023</Text>
+                <Text>End Date :- 30/10/2023</Text>
+              </Box>
+              <Box className="currentSubscriptionviewallAdmin" onClick={()=>setBarnum(7)}>View all subscriptions</Box>
+            </Box>
+          </ModalBody>
+          <ModalFooter>
+            <Button display='none' onClick={onClose}>Close</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+      <Modal onClose={onClose} isOpen={isOpen} isCentered>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader className="newSubscriptionTextAdmin">Subscription plans & pricing</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <Box border='1px solid black' className="newSubscriptionInnerBoxAdmin">
+              <Box border='1px solid black' className="newSubscriptionDoughnutOuterAdmin">
+                <Box border='1px solid black' className="newSubscriptionbenifitsBoxAdmin">
+                  <Image border='1px solid black' src={calendar} alt="" />
+                </Box>
+                <Text border='1px solid black'>₹ 4000 <span>/ month</span></Text>
+              </Box>
+              <Box className="currentSubscriptionTextBoxAdmin">
+                <Box>
+                  <Image src={checkcircle} alt="" />
+                  <Text>Premium Membership- <span>Unlock Exclusive Benefits Every Month</span></Text>
+                </Box>
+                <Box>
+                  <Image src={checkcircle} alt="" />
+                  <Text>Monthly Subscription- <span>Your Gateway to Ongoing Rewards</span></Text>
+                </Box>
+                <Box>
+                  <Image src={checkcircle} alt="" />
+                  <Text>Save with Our Monthly Membership</Text>
+                </Box>
+              </Box>
+              <Button className="newSubscriptionsubscribebuttonAdmin">Subscribe</Button>
+            </Box>
+          </ModalBody>
+          <ModalFooter>
+            <Button display='none' onClick={onClose}>Close</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal> */}
