@@ -6,6 +6,10 @@ import closeicon from "../utils/Images/Admin/closeicon.png";
 import menu from "../utils/Images/Admin/menu.svg";
 import filter from "../utils/Images/Admin/filter.svg";
 import calendar from "../utils/Images/Admin/Calendar.svg";
+import chevronleft from "../utils/Images/Admin/chevron-right.svg";
+import chevronrightdisable from "../utils/Images/Admin/chevron-right-disable.svg";
+import chevronright from "../utils/Images/Admin/chevron-left.svg";
+import chevronleftdisable from "../utils/Images/Admin/chevron-left-disable.svg";
 import checkcircle from '../utils/Images/Admin/checkcircle.svg'
 import { AiOutlinePaperClip, AiOutlineCheck } from 'react-icons/ai';
 import { FiSearch } from 'react-icons/fi';
@@ -31,6 +35,10 @@ const Admin = () => {
   const [ currentSubscriptionopen, setCurrentSubscriptionopen ]= useState(false);
 
   const [isSubscribed, setIsSubscribed]= useState(true);
+
+  const [ isSidebarPhone, setIsSidebarPhone ]= useState(true);
+
+  const [ chartnumphone, setchartnumphone ]= useState(1);
 
   
   const [barnum, setBarnum] = useState(1);
@@ -105,7 +113,6 @@ const Admin = () => {
     labels: monthlylabels,
     datasets: [
       {
-        fill: true,
         label: "Unique users this month",
         backgroundColor: "#AF26FD",
         borderColor: "#AF26FD",
@@ -465,7 +472,7 @@ const Admin = () => {
               }}
               >Message</p>
               <div className={barnum===2 || barnum===3 || barnum===4 || barnum===5? "leftsecondseconddivAdmin" : "leftsecondseconddivAdminOff"}>
-                <p className={barnum===2 || barnum===3? "leftsendMessageAdmin" : "leftsendMessageAdminOff"} onClick={() => setBarnum(3)}>Send Message{barnum === 2 &&<AiOutlineCheck/> || barnum === 3 &&<AiOutlineCheck/>} </p><br/><br/>
+                <p className={barnum===2 || barnum===3? "leftsendMessageAdmin" : "leftsendMessageAdminOff"} onClick={() => setBarnum(3)}>Send Message{(barnum === 2 || barnum === 3) &&<AiOutlineCheck/>} </p><br/><br/>
                 <p className={barnum===4? "leftsendBulkMessageAdmin" : "leftsendBulkMessageAdminOff"} onClick={() => setBarnum(4)}>Bulk message{barnum ===4 && <AiOutlineCheck/>}</p><br/><br/>
                 <p className={barnum===5? "leftannouncementAdmin" : "leftannouncementAdminOff"} onClick={() => setBarnum(5)}>Announcement{barnum ===5 && <AiOutlineCheck/>}</p><br/><br/>
               </div>
@@ -576,23 +583,27 @@ const Admin = () => {
             </div>
             <div className="rightfourthBoxAdmin">
               <table className="userTableAdmin">
-                <tr>
-                  <th className="userTableAdminHead">Sr.No.</th>
-                  <th className="userTableAdminHead">Name</th>
-                  <th className="userTableAdminHead">Phone Number</th>
-                  <th className="userTableAdminHead">Message Count</th>
-                </tr>
-                {userData &&
-                  userData.map((user, i) => {
-                    return (
-                      <tr>
-                        <td className="userTableAdminBody">{i + 1}</td>
-                        <td className="userTableAdminBody">{user.name}</td>
-                        <td className="userTableAdminBody">{user.phone}</td>
-                        <td className="userTableAdminBody">{user.messeage_count}</td>
-                      </tr>
-                    );
-                  })}
+                <thead>
+                  <tr>
+                    <th className="userTableAdminHead">Sr.No.</th>
+                    <th className="userTableAdminHead">Name</th>
+                    <th className="userTableAdminHead">Phone Number</th>
+                    <th className="userTableAdminHead">Message Count</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {userData &&
+                    userData.map((user, i) => {
+                      return (
+                        <tr>
+                          <td className="userTableAdminBody">{i + 1}</td>
+                          <td className="userTableAdminBody">{user.name}</td>
+                          <td className="userTableAdminBody">{user.phone}</td>
+                          <td className="userTableAdminBody">{user.messeage_count}</td>
+                        </tr>
+                      );
+                    })}
+                </tbody>
               </table>
             </div>
           </div>
@@ -636,10 +647,10 @@ const Admin = () => {
             <div className="sendBulkMessageBoxAdminaddcontact">
               {/* <input className="sendBulkMessageBoxAdminaddcontactInput" type="text" placeholder="Upload Excel file" />
               <input className="sendBulkMessageBoxAdminaddcontactFile" type="file" placeholder="Choose File" /> */}
-              <label class="fileinputwrapperAdmin">
-                  <span class="file-input-textAdmin">Upload Excel file</span>
+              <label className="fileinputwrapperAdmin">
+                  <span className="file-input-textAdmin">Upload Excel file</span>
                   <input type="file" id="myfileAdmin" name="myfile" multiple />
-                  <span class="file-input-buttonAdmin">Choose File</span>
+                  <span className="file-input-buttonAdmin">Choose File</span>
               </label>
             </div>
             <div className="sendBulkMessageBoxAdminmessagebox"></div>
@@ -681,22 +692,26 @@ const Admin = () => {
               <p className="FeedbackTextAdmin">Feedback</p>
               <div className="feedbacktableholder">
                 <table className="FeedbackTableAdmin">
-                  <tr>
-                    <th className="FeedbackTableHeadAdmin">Sr. No.</th>
-                    <th className="FeedbackTableHeadAdmin">Name</th>
-                    <th className="FeedbackTableHeadAdmin">Phone Number</th>
-                    <th className="FeedbackTableHeadAdmin">Feedback</th>
-                    <th className="FeedbackTableHeadAdmin">Date</th>
-                  </tr>
-                  {feedbackData && feedbackData.map((feed, i)=>{
-                    return <tr>
-                      <td className="FeedbackTableBodyAdmin">{i+1}</td>
-                      <td className="FeedbackTableBodyAdmin">{feed.name}</td>
-                      <td className="FeedbackTableBodyAdmin">{feed.phone}</td>
-                      <td className="FeedbackTableBodyAdmin">{feed.message}</td>
-                      <td className="FeedbackTableBodyAdmin">{feed.date}</td>
+                  <thead>
+                    <tr>
+                      <th className="FeedbackTableHeadAdmin">Sr. No.</th>
+                      <th className="FeedbackTableHeadAdmin">Name</th>
+                      <th className="FeedbackTableHeadAdmin">Phone Number</th>
+                      <th className="FeedbackTableHeadAdmin">Feedback</th>
+                      <th className="FeedbackTableHeadAdmin">Date</th>
                     </tr>
-                  })}
+                  </thead>
+                  <tbody>
+                    {feedbackData && feedbackData.map((feed, i)=>{
+                      return <tr>
+                        <td className="FeedbackTableBodyAdmin">{i+1}</td>
+                        <td className="FeedbackTableBodyAdmin">{feed.name}</td>
+                        <td className="FeedbackTableBodyAdmin">{feed.phone}</td>
+                        <td className="FeedbackTableBodyAdmin">{feed.message}</td>
+                        <td className="FeedbackTableBodyAdmin">{feed.date}</td>
+                      </tr>
+                    })}
+                  </tbody>
                 </table>
               </div>
             </div>
@@ -712,28 +727,32 @@ const Admin = () => {
               <p className="SubscriptionTextAdmin">Subscription & Payment History</p>
               <div className="subscriptiontableholder">
                 <table className="SubscriptionTableAdmin">
-                  <tr>
-                    <th className="SubscriptionTableHeadAdmin">Sr. No.</th>
-                    <th className="SubscriptionTableHeadAdmin">Plan</th>
-                    <th className="SubscriptionTableHeadAdmin">Type</th>
-                    <th className="SubscriptionTableHeadAdmin">Price</th>
-                    <th className="SubscriptionTableHeadAdmin">Invoice</th>
-                    <th className="SubscriptionTableHeadAdmin">Start Date</th>
-                    <th className="SubscriptionTableHeadAdmin">End Date</th>
-                    <th className="SubscriptionTableHeadAdmin">Status</th>
-                  </tr>
-                  {subscriptionData && subscriptionData.map((subscription, i)=>{
-                    return <tr>
-                      <td className="SubscriptionTableBodyAdmin">{i+1}</td>
-                      <td className="SubscriptionTableBodyAdmin">{subscription.plan}</td>
-                      <td className="SubscriptionTableBodyAdmin">{subscription.type}</td>
-                      <td className="SubscriptionTableBodyAdmin">{subscription.price}</td>
-                      <td className="SubscriptionTableBodyAdmin">{subscription.invoice}</td>
-                      <td className="SubscriptionTableBodyAdmin">{subscription.startdate}</td>
-                      <td className="SubscriptionTableBodyAdmin">{subscription.enddate}</td>
-                      <td className={subscription.status?"SubscriptionTableBodyAdmintrue" : "SubscriptionTableBodyAdmin"}>{subscription.status? "Active" : "Expired"}</td>
+                  <thead>
+                    <tr>
+                      <th className="SubscriptionTableHeadAdmin">Sr. No.</th>
+                      <th className="SubscriptionTableHeadAdmin">Plan</th>
+                      <th className="SubscriptionTableHeadAdmin">Type</th>
+                      <th className="SubscriptionTableHeadAdmin">Price</th>
+                      <th className="SubscriptionTableHeadAdmin">Invoice</th>
+                      <th className="SubscriptionTableHeadAdmin">Start Date</th>
+                      <th className="SubscriptionTableHeadAdmin">End Date</th>
+                      <th className="SubscriptionTableHeadAdmin">Status</th>
                     </tr>
-                  })}
+                  </thead>
+                  <tbody>
+                    {subscriptionData && subscriptionData.map((subscription, i)=>{
+                      return <tr>
+                        <td className="SubscriptionTableBodyAdmin">{i+1}</td>
+                        <td className="SubscriptionTableBodyAdmin">{subscription.plan}</td>
+                        <td className="SubscriptionTableBodyAdmin">{subscription.type}</td>
+                        <td className="SubscriptionTableBodyAdmin">{subscription.price}</td>
+                        <td className="SubscriptionTableBodyAdmin">{subscription.invoice}</td>
+                        <td className="SubscriptionTableBodyAdmin">{subscription.startdate}</td>
+                        <td className="SubscriptionTableBodyAdmin">{subscription.enddate}</td>
+                        <td className={subscription.status?"SubscriptionTableBodyAdmintrue" : "SubscriptionTableBodyAdmin"}>{subscription.status? "Active" : "Expired"}</td>
+                      </tr>
+                    })}
+                  </tbody>
                 </table>
               </div>
             </div>
@@ -744,7 +763,7 @@ const Admin = () => {
         <div className="innerBoxPhoneAdminContent">
           <div className="navPhoneAdmin">
             <div className="menuIconAdminBox">
-              <img src={menu} alt="menu" />
+              <img onClick={()=>setIsSidebarPhone(!isSidebarPhone)} src={menu} alt="menu" />
             </div>
             <div className="logoAdminBox">
               <img src={logo} alt="logo" />
@@ -772,8 +791,31 @@ const Admin = () => {
             </div>
           </div>
           <div className="thirdBoxAdminPhone">
-            <p className="thirdBoxAdminPhoneText">This Week</p>
-            <Bar data={weeklydata} options={barOptions} />
+            <div className="thirdBoxAdminChartBoxPhone">
+              {chartnumphone===1 && <div className="thirdBoxAdminWeeklyBoxPhone">
+                <p className="thirdBoxAdminWeeklyBoxPhoneText">This Week</p>
+                <Bar data={weeklydata} options={barOptions} />
+              </div>}
+              {chartnumphone===2 && <div className="thirdBoxAdminMonthlyBoxPhone">
+                <div className="thirdBoxAdminMonthlyBoxPhoneText">
+                  <p>last 30 days</p>
+                  <select className="monthlyChartAdminSelect" name="" id="">
+                    <option value="">Current month</option>
+                    <option value="">Previous month</option>
+                    <option value="">Last month</option>
+                  </select>
+                </div>
+                <Line data={monthlydata} options={lineOptions} />
+              </div>}
+            </div>
+            <div className="thirdBoxAdminChartNavPhone">
+              <img onClick={()=>setchartnumphone(1)} src={chartnumphone===1? chevronleftdisable : chevronright} alt="" />
+              <div>
+                <div onClick={()=>setchartnumphone(1)} className={chartnumphone===1? "weeklycirclephonediv" : "weeklycirclephonedivOff"}></div>
+                <div onClick={()=>setchartnumphone(2)} className={chartnumphone===2? "monthlycirclephonediv" : "monthlycirclephonedivOff"}></div>
+              </div>
+              <img onClick={()=>setchartnumphone(2)} src={chartnumphone===1? chevronleft : chevronrightdisable} alt="" />
+            </div>
           </div>
           <div className="fourthBoxAdminPhone">
             <div className="fourthBoxAdminPhoneInputBox">
@@ -791,81 +833,92 @@ const Admin = () => {
           </div>
           <div className="fifthBoxAdminPhone">
             <table className="userTableAdminPhone">
-              <tr>
-                <th className="userTableAdminHeadPhone">Sr.No.</th>
-                <th className="userTableAdminHeadPhone">Name</th>
-                <th className="userTableAdminHeadPhone">Phone Number</th>
-                <th className="userTableAdminHeadPhone">Message Count</th>
-              </tr>
-              {userData && userData.map((user, i) => {
-                return (
-                  <tr>
-                    <td className="userTableAdminBodyPhone">{i + 1}</td>
-                    <td className="userTableAdminBodyPhone">{user.name}</td>
-                    <td className="userTableAdminBodyPhone">{user.phone}</td>
-                    <td className="userTableAdminBodyPhone">{user.messeage_count}</td>
-                  </tr>
-                );
-              })}
+              <thead>
+                <tr>
+                  <th className="userTableAdminHeadPhone">Sr.No.</th>
+                  <th className="userTableAdminHeadPhone">Name</th>
+                  <th className="userTableAdminHeadPhone">Phone Number</th>
+                  <th className="userTableAdminHeadPhone">Message Count</th>
+                </tr>
+              </thead>
+              <tbody>
+                {userData && userData.map((user, i) => {
+                  return (
+                    <tr>
+                      <td className="userTableAdminBodyPhone">{i + 1}</td>
+                      <td className="userTableAdminBodyPhone">{user.name}</td>
+                      <td className="userTableAdminBodyPhone">{user.phone}</td>
+                      <td className="userTableAdminBodyPhone">{user.messeage_count}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
             </table>
           </div>
         </div>
-        <div className="sideBarPhoneAdmin">
-          <div className="FirstBoxsideBarPhoneAdmin">
-            <img src={logo} alt="logo" />
-            <p>Furation Tech</p>
+
+        <div className={isSidebarPhone? "sideBarPhoneAdmin" : "sideBarPhoneAdminOff"}>
+          <div className="menudivsidePhone">
+            <div className="menudivsidePhoneBox">
+              <img onClick={()=>setIsSidebarPhone(!isSidebarPhone)} src={menu} alt="menu" />
+            </div>
           </div>
+          {/* <div className="FirstBoxsideBarPhoneAdmin">
+              <img src={logo} alt="logo" />
+              <p>Furation Tech</p>
+          </div> */}
           <div className="SecondBoxsideBarPhoneAdmin">
-            <div
-              onClick={() => setBarnum(1)}
-              className={
-                barnum === 1 ? "sidesecondfirstPhoneAdminOn" : "sidesecondfirstPhoneAdmin"
-              }
-            >
-              <p>Dashboard</p>
-            </div>
-            <div
-              className={
-                barnum === 2 || barnum===3 || barnum===4 || barnum===5
-                  ? "sidesecondsecondPhoneAdminOn"
-                  : "sidesecondsecondPhoneAdmin"
-              }
-            >
-              <p onClick={() => {
-                if(barnum===2 || barnum===3 ||barnum===4 ||barnum===5){
-                  setBarnum(1);
-                }else{
-                  setBarnum(2);
+              <div
+                onClick={() => setBarnum(1)}
+                className={
+                  barnum === 1 ? "sidesecondfirstPhoneAdminOn" : "sidesecondfirstPhoneAdmin"
                 }
-              }}
-              >Message</p>
-              <div className={barnum===2 || barnum===3 || barnum===4 || barnum===5? "sidesecondseconddivPhoneAdmin" : "sidesecondseconddivPhoneAdminOff"}>
-                <p className={barnum===2 || barnum===3? "sidesendMessagePhoneAdmin" : "sidesendMessagePhoneAdminOff"} onClick={() => setBarnum(3)}>Send Message {barnum === 2 &&<AiOutlineCheck/> || barnum === 3 &&<AiOutlineCheck/>} </p><br/><br/>
-                <p className={barnum===4? "sidesendBulkMessagePhoneAdmin" : "sidesendBulkMessagePhoneAdminOff"} onClick={() => setBarnum(4)}>Bulk message {barnum ===4 && <AiOutlineCheck/>}</p><br/><br/>
-                <p className={barnum===5? "sideannouncementPhoneAdmin" : "sideannouncementPhoneAdminOff"} onClick={() => setBarnum(5)}>Announcement {barnum ===5 && <AiOutlineCheck/>}</p><br/><br/>
+              >
+                <p>Dashboard</p>
               </div>
-            </div>
-            <div
-              onClick={() => setBarnum(6)}
-              className={
-                barnum === 6 ? "sidesecondthirdPhoneAdminOn" : "sidesecondthirdPhoneAdmin"
-              }
-            >
-              <p>Feedback</p>
-            </div>
-            <div
-              onClick={() => setBarnum(7)}
-              className={
-                barnum === 7
-                  ? "sidesecondfourthPhoneAdminOn"
-                  : "sidesecondfourthPhoneAdmin"
-              }
-            >
-              <p>Subscription History</p>
-            </div>
+              <div
+                className={
+                  barnum === 2 || barnum===3 || barnum===4 || barnum===5
+                    ? "sidesecondsecondPhoneAdminOn"
+                    : "sidesecondsecondPhoneAdmin"
+                }
+              >
+                <p onClick={() => {
+                  if(barnum===2 || barnum===3 ||barnum===4 ||barnum===5){
+                    setBarnum(1);
+                  }else{
+                    setBarnum(2);
+                  }
+                }}
+                >Message</p>
+                <div className={barnum===2 || barnum===3 || barnum===4 || barnum===5? "sidesecondseconddivPhoneAdmin" : "sidesecondseconddivPhoneAdminOff"}>
+                  <p className={barnum===2 || barnum===3? "sidesendMessagePhoneAdmin" : "sidesendMessagePhoneAdminOff"} onClick={() => setBarnum(3)}>Send Message {(barnum === 2 || barnum === 3) && <AiOutlineCheck/>} </p><br/><br/>
+                  <p className={barnum===4? "sidesendBulkMessagePhoneAdmin" : "sidesendBulkMessagePhoneAdminOff"} onClick={() => setBarnum(4)}>Bulk message {barnum ===4 && <AiOutlineCheck/>}</p><br/><br/>
+                  <p className={barnum===5? "sideannouncementPhoneAdmin" : "sideannouncementPhoneAdminOff"} onClick={() => setBarnum(5)}>Announcement {barnum ===5 && <AiOutlineCheck/>}</p><br/><br/>
+                </div>
+              </div>
+              <div
+                onClick={() => setBarnum(6)}
+                className={
+                  barnum === 6 ? "sidesecondthirdPhoneAdminOn" : "sidesecondthirdPhoneAdmin"
+                }
+              >
+                <p>Feedback</p>
+              </div>
+              <div
+                onClick={() => setBarnum(7)}
+                className={
+                  barnum === 7
+                    ? "sidesecondfourthPhoneAdminOn"
+                    : "sidesecondfourthPhoneAdmin"
+                }
+              >
+                <p>Subscription History</p>
+              </div>
           </div>
           <div className="ThirdBoxsideBarPhoneAdmin"></div>
         </div>
+      
       </div>
       {isSubscribed===true && <div className={ currentSubscriptionopen? "currentSubscriptionAdmin" : "currentSubscriptionAdminOff"}>
           <div className="currentSubscriptionCloseAdmin">

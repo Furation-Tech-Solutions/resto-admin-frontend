@@ -218,7 +218,7 @@ const Superadmin = () => {
                   <th className="userTableHeadSuperAdmin">Action</th>
                 </tr>
                 {userData && userData.map((user, i)=>{
-                  return <tr onClick={()=>navigate(`/:${user._id}`)}>
+                  return <tr onClick={()=>navigate(`/superadmin/:${user._id}`)}>
                     <td className="userTableBodySuperAdmin">{i+1}</td>
                     <td className="userTableBodySuperAdmin">{user.businessName}</td>
                     <td className="userTableBodySuperAdmin">{user.email}</td>

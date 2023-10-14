@@ -5,6 +5,7 @@ import Login from '../pages/Login'
 import Admin from '../pages/Admin'
 import Forgotpassword from '../pages/Forgotpassword'
 import Superadmin from '../pages/Superadmin'
+import SingleAdmin from '../pages/SingleAdmin'
 
 const AllRoutes = () => {
   return (
@@ -13,6 +14,7 @@ const AllRoutes = () => {
       <Route path='/login' element={<Login/>}></Route>
       <Route path='/forgotpassword' element={<Forgotpassword/>}></Route>
       <Route path='/superadmin' element={<Superadmin/>}></Route>
+      <Route path='/superadmin/:id' element={<SingleAdmin/>}></Route>
       <Route path='/admin' element={<Admin/>}></Route>
     </Routes>
   )
