@@ -209,24 +209,28 @@ const Superadmin = () => {
             </div>
             <div className='rightthirdBoxSuperadmin'>
               <table className="userTableSuperAdmin">
-                <tr>
-                  <th className="userTableHeadSuperAdmin">Sr. No.</th>
-                  <th className="userTableHeadSuperAdmin">Business Name</th>
-                  <th className="userTableHeadSuperAdmin">Email Address</th>
-                  <th className="userTableHeadSuperAdmin">Phone Number</th>
-                  <th className="userTableHeadSuperAdmin">Subscription</th>
-                  <th className="userTableHeadSuperAdmin">Action</th>
-                </tr>
-                {userData && userData.map((user, i)=>{
-                  return <tr onClick={()=>navigate(`/superadmin/:${user._id}`)}>
-                    <td className="userTableBodySuperAdmin">{i+1}</td>
-                    <td className="userTableBodySuperAdmin">{user.businessName}</td>
-                    <td className="userTableBodySuperAdmin">{user.email}</td>
-                    <td className="userTableBodySuperAdmin">{user.phone}</td>
-                    <td className="userTableBodySuperAdmin">{user.botrunning? '9days left' : 'Renewal pending'}</td>
-                    <td className="userTableBodySuperAdmin">Edit</td>
+                <thead>
+                  <tr>
+                    <th className="userTableHeadSuperAdmin">Sr. No.</th>
+                    <th className="userTableHeadSuperAdmin">Business Name</th>
+                    <th className="userTableHeadSuperAdmin">Email Address</th>
+                    <th className="userTableHeadSuperAdmin">Phone Number</th>
+                    <th className="userTableHeadSuperAdmin">Subscription</th>
+                    <th className="userTableHeadSuperAdmin">Action</th>
                   </tr>
-                })}
+                </thead>
+                <tbody>
+                  {userData && userData.map((user, i)=>{
+                    return <tr key={user._id} onClick={()=>navigate(`/superadmin/:${user._id}`)}>
+                      <td className="userTableBodySuperAdmin">{i+1}</td>
+                      <td className="userTableBodySuperAdmin">{user.businessName}</td>
+                      <td className="userTableBodySuperAdmin">{user.email}</td>
+                      <td className="userTableBodySuperAdmin">{user.phone}</td>
+                      <td className="userTableBodySuperAdmin">{user.botrunning? '9days left' : 'Renewal pending'}</td>
+                      <td className="userTableBodySuperAdmin">Edit</td>
+                    </tr>
+                  })}
+                </tbody>
               </table>
             </div>
           </div>
@@ -245,22 +249,26 @@ const Superadmin = () => {
             </div>
             <div className='rightthirdBoxSuperadmin'>
               <table className="feedbackTableSuperAdmin">
-                <tr>
-                  <th className="feedbackTableHeadSuperAdmin">Sr. No.</th>
-                  <th className="feedbackTableHeadSuperAdmin">Name</th>
-                  <th className="feedbackTableHeadSuperAdmin">Phone Number</th>
-                  <th className="feedbackTableHeadSuperAdmin">Feedback</th>
-                  <th className="feedbackTableHeadSuperAdmin">Date</th>
-                </tr>
-                {feedbackData && feedbackData.map((feedback, i)=>{
-                  return <tr>
-                    <td className="feedbackTableBodySuperAdmin">{i+1}</td>
-                    <td className="feedbackTableBodySuperAdmin">{feedback.name}</td>
-                    <td className="feedbackTableBodySuperAdmin">{feedback.phone}</td>
-                    <td className="feedbackTableBodySuperAdmin">{feedback.message}</td>
-                    <td className="feedbackTableBodySuperAdmin">{feedback.date}</td>
+                <thead>
+                  <tr>
+                    <th className="feedbackTableHeadSuperAdmin">Sr. No.</th>
+                    <th className="feedbackTableHeadSuperAdmin">Name</th>
+                    <th className="feedbackTableHeadSuperAdmin">Phone Number</th>
+                    <th className="feedbackTableHeadSuperAdmin">Feedback</th>
+                    <th className="feedbackTableHeadSuperAdmin">Date</th>
                   </tr>
-                })}
+                </thead>
+                <tbody>
+                  {feedbackData && feedbackData.map((feedback, i)=>{
+                    return <tr key={feedback._id}>
+                      <td className="feedbackTableBodySuperAdmin">{i+1}</td>
+                      <td className="feedbackTableBodySuperAdmin">{feedback.name}</td>
+                      <td className="feedbackTableBodySuperAdmin">{feedback.phone}</td>
+                      <td className="feedbackTableBodySuperAdmin">{feedback.message}</td>
+                      <td className="feedbackTableBodySuperAdmin">{feedback.date}</td>
+                    </tr>
+                  })}
+                </tbody>
               </table>
             </div>
           </div>

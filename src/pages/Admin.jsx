@@ -15,6 +15,7 @@ import { AiOutlinePaperClip, AiOutlineCheck } from 'react-icons/ai';
 import { FiSearch } from 'react-icons/fi';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, Filler, LineElement, BarElement, ArcElement, Title, Tooltip, Legend } from 'chart.js';
 import { Line,  Bar, Doughnut } from 'react-chartjs-2';
+import CurrentSubscripton from "../components/CurrentSubscripton";
 
 
 const Admin = () => {
@@ -36,7 +37,7 @@ const Admin = () => {
 
   const [isSubscribed, setIsSubscribed]= useState(true);
 
-  const [ isSidebarPhone, setIsSidebarPhone ]= useState(true);
+  const [ isSidebarPhone, setIsSidebarPhone ]= useState(false);
 
   const [ chartnumphone, setchartnumphone ]= useState(1);
 
@@ -595,7 +596,7 @@ const Admin = () => {
                   {userData &&
                     userData.map((user, i) => {
                       return (
-                        <tr>
+                        <tr key={user._id}>
                           <td className="userTableAdminBody">{i + 1}</td>
                           <td className="userTableAdminBody">{user.name}</td>
                           <td className="userTableAdminBody">{user.phone}</td>
@@ -703,7 +704,7 @@ const Admin = () => {
                   </thead>
                   <tbody>
                     {feedbackData && feedbackData.map((feed, i)=>{
-                      return <tr>
+                      return <tr key={feed._id}>
                         <td className="FeedbackTableBodyAdmin">{i+1}</td>
                         <td className="FeedbackTableBodyAdmin">{feed.name}</td>
                         <td className="FeedbackTableBodyAdmin">{feed.phone}</td>
@@ -741,7 +742,7 @@ const Admin = () => {
                   </thead>
                   <tbody>
                     {subscriptionData && subscriptionData.map((subscription, i)=>{
-                      return <tr>
+                      return <tr key={subscription._id}>
                         <td className="SubscriptionTableBodyAdmin">{i+1}</td>
                         <td className="SubscriptionTableBodyAdmin">{subscription.plan}</td>
                         <td className="SubscriptionTableBodyAdmin">{subscription.type}</td>
@@ -844,7 +845,7 @@ const Admin = () => {
               <tbody>
                 {userData && userData.map((user, i) => {
                   return (
-                    <tr>
+                    <tr key={user._id}>
                       <td className="userTableAdminBodyPhone">{i + 1}</td>
                       <td className="userTableAdminBodyPhone">{user.name}</td>
                       <td className="userTableAdminBodyPhone">{user.phone}</td>
@@ -920,31 +921,7 @@ const Admin = () => {
         </div>
       
       </div>
-      {isSubscribed===true && <div className={ currentSubscriptionopen? "currentSubscriptionAdmin" : "currentSubscriptionAdminOff"}>
-          <div className="currentSubscriptionCloseAdmin">
-            <img onClick={()=>setCurrentSubscriptionopen(false)} src={closeicon} alt="" />
-          </div>
-          <p className="currentSubscriptionTextAdmin">Current Subscription</p>
-          <div className="currentSubscriptionInnerBoxAdmin">
-            <div className="currentSubscriptionDoughnutOuterAdmin">
-              <div className="currentSubscriptionDoughnutInnerAdmin">
-                <Doughnut data={doughnutdata} /><br/>
-                <div className="currentSubscriptionDoughnutInnerAdminNumber">25</div>
-              </div>
-              <p>25/30 days left</p>
-            </div>
-            <div className="currentSubscriptionTextBoxAdmin">
-              <p>Plan :- Plan A</p>
-              <p>Status :- Active</p>
-              <p>Start Date :- 01/10/2023</p>
-              <p>End Date :- 30/10/2023</p>
-            </div>
-            <div className="currentSubscriptionviewallAdmin" onClick={()=>{
-              setBarnum(7)
-              setCurrentSubscriptionopen(false)
-            }}>View all subscriptions</div>
-          </div>
-        </div>
+      {isSubscribed===true && <CurrentSubscripton />
       }
       {isSubscribed===false && <div className={ currentSubscriptionopen? "newSubscriptionAdmin" : "newSubscriptionAdminOff"}>
           <div className="newSubscriptionCloseAdmin">
