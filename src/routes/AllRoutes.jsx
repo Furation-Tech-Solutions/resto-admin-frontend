@@ -1,11 +1,11 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Home from '../pages/Home'
-import Login from '../pages/Login'
 import Admin from '../pages/Admin'
 import Forgotpassword from '../pages/Forgotpassword'
 import Superadmin from '../pages/Superadmin'
 import SingleAdmin from '../pages/SingleAdmin'
+import Login from '../pages/Login'
 
 const AllRoutes = () => {
   return (

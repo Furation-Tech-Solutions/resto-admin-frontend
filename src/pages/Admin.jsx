@@ -522,7 +522,6 @@ const Admin = () => {
                     <p>25</p>
                   </div>
                 </div> */}
-                <div></div>
                 <div className="countdownrightDoughnutOuterAdminFirstBox">
                   <div onClick={()=>setCurrentSubscriptionopen(true)} className="countdownrightDoughnutInnerAdminFirstBox">
                     <Doughnut data={doughnutdata} /><br/>
