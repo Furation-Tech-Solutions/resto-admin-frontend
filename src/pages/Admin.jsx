@@ -5,6 +5,7 @@ import emoji from "../utils/Images/Admin/emoji.svg";
 import closeicon from "../utils/Images/Admin/closeicon.png";
 import menu from "../utils/Images/Admin/menu.svg";
 import filter from "../utils/Images/Admin/filter.svg";
+import send from "../utils/Images/Admin/Send.svg";
 import calendar from "../utils/Images/Admin/Calendar.svg";
 import chevronleft from "../utils/Images/Admin/chevron-right.svg";
 import chevronrightdisable from "../utils/Images/Admin/chevron-right-disable.svg";
@@ -109,7 +110,7 @@ const Admin = () => {
     },
   };
   const monthlylabels = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19",
-    "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"];
+    "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"];
   const monthlydata = {
     labels: monthlylabels,
     datasets: [
@@ -448,58 +449,60 @@ const Admin = () => {
             <img src={logo} alt="applogo" />
             <p>Furation Tech</p>
           </div>
-          <div className="leftsecondBoxAdmin">
-            <div
-              onClick={() => setBarnum(1)}
-              className={
-                barnum === 1 ? "leftsecondfirstAdminOn" : "leftsecondfirstAdmin"
-              }
-            >
-              <p>Dashboard</p>
-            </div>
-            <div
-              className={
-                barnum === 2 || barnum===3 || barnum===4 || barnum===5
-                  ? "leftsecondsecondAdminOn"
-                  : "leftsecondsecondAdmin"
-              }
-            >
-              <p onClick={() => {
-                if(barnum===2 || barnum===3 ||barnum===4 ||barnum===5){
-                  setBarnum(1);
-                }else{
-                  setBarnum(2);
+          <div className="ContentBoxSideBarrPhoneAdmin">
+            <div className="leftsecondBoxAdmin">
+              <div
+                onClick={() => setBarnum(1)}
+                className={
+                  barnum === 1 ? "leftsecondfirstAdminOn" : "leftsecondfirstAdmin"
                 }
-              }}
-              >Message</p>
-              <div className={barnum===2 || barnum===3 || barnum===4 || barnum===5? "leftsecondseconddivAdmin" : "leftsecondseconddivAdminOff"}>
-                <p className={barnum===2 || barnum===3? "leftsendMessageAdmin" : "leftsendMessageAdminOff"} onClick={() => setBarnum(3)}>Send Message{(barnum === 2 || barnum === 3) &&<AiOutlineCheck/>} </p><br/><br/>
-                <p className={barnum===4? "leftsendBulkMessageAdmin" : "leftsendBulkMessageAdminOff"} onClick={() => setBarnum(4)}>Bulk message{barnum ===4 && <AiOutlineCheck/>}</p><br/><br/>
-                <p className={barnum===5? "leftannouncementAdmin" : "leftannouncementAdminOff"} onClick={() => setBarnum(5)}>Announcement{barnum ===5 && <AiOutlineCheck/>}</p><br/><br/>
+              >
+                <p>Dashboard</p>
+              </div>
+              <div
+                className={
+                  barnum === 2 || barnum===3 || barnum===4 || barnum===5
+                    ? "leftsecondsecondAdminOn"
+                    : "leftsecondsecondAdmin"
+                }
+              >
+                <p onClick={() => {
+                  if(barnum===2 || barnum===3 ||barnum===4 ||barnum===5){
+                    setBarnum(1);
+                  }else{
+                    setBarnum(2);
+                  }
+                }}
+                >Message</p>
+                <div className={barnum===2 || barnum===3 || barnum===4 || barnum===5? "leftsecondseconddivAdmin" : "leftsecondseconddivAdminOff"}>
+                  <p className={barnum===2 || barnum===3? "leftsendMessageAdmin" : "leftsendMessageAdminOff"} onClick={() => setBarnum(3)}>Send Message{(barnum === 2 || barnum === 3) &&<AiOutlineCheck/>} </p><br/><br/>
+                  <p className={barnum===4? "leftsendBulkMessageAdmin" : "leftsendBulkMessageAdminOff"} onClick={() => setBarnum(4)}>Bulk message{barnum ===4 && <AiOutlineCheck/>}</p><br/><br/>
+                  <p className={barnum===5? "leftannouncementAdmin" : "leftannouncementAdminOff"} onClick={() => setBarnum(5)}>Announcement{barnum ===5 && <AiOutlineCheck/>}</p><br/><br/>
+                </div>
+              </div>
+              <div
+                onClick={() => setBarnum(6)}
+                className={
+                  barnum === 6 ? "leftsecondthirdAdminOn" : "leftsecondthirdAdmin"
+                }
+              >
+                <p>Feedback</p>
+              </div>
+              <div
+                onClick={() => setBarnum(7)}
+                className={
+                  barnum === 7
+                    ? "leftsecondfourthAdminOn"
+                    : "leftsecondfourthAdmin"
+                }
+              >
+                <p>Subscription History</p>
               </div>
             </div>
-            <div
-              onClick={() => setBarnum(6)}
-              className={
-                barnum === 6 ? "leftsecondthirdAdminOn" : "leftsecondthirdAdmin"
-              }
-            >
-              <p>Feedback</p>
+            <div className="leftthirdBoxAdmin">
+              <div className="leftthirdBoxfirstAdmin">Request Support</div>
+              <div className="leftthirdBoxsecondAdmin">Logout</div>
             </div>
-            <div
-              onClick={() => setBarnum(7)}
-              className={
-                barnum === 7
-                  ? "leftsecondfourthAdminOn"
-                  : "leftsecondfourthAdmin"
-              }
-            >
-              <p>Subscription History</p>
-            </div>
-          </div>
-          <div className="leftthirdBoxAdmin">
-            <div className="leftthirdBoxfirstAdmin">Request Support</div>
-            <div className="leftthirdBoxsecondAdmin">Logout</div>
           </div>
         </div>
         <div className="rightBoxAdmin">
@@ -546,22 +549,32 @@ const Admin = () => {
                   <div className="rightsecondBoxCountNumber">42</div>
                 </div>
               </div>
-              <div className="weeklyChartAdmin">
-                <div className="weeklyChartAdminText">
-                  <p>last 7 days</p>
+              <div className="AdminTabChartWrapper">
+                <div className={chartnumphone===1? "weeklyChartAdmin" : "weeklyChartAdminHide"}>
+                  <div className="weeklyChartAdminText">
+                    <p>last 7 days</p>
+                  </div>
+                  <Bar data={weeklydata} options={barOptions} />
                 </div>
-                <Bar data={weeklydata} options={barOptions} />
+                <div className={chartnumphone===2? "monthlyChartAdmin" : "monthlyChartAdminHide"}>
+                  <div className="monthlyChartAdminText">
+                    <p>last 30 days</p>
+                    <select className="monthlyChartAdminSelect" name="" id="">
+                      <option value="">Current month</option>
+                      <option value="">Previous month</option>
+                      <option value="">Last month</option>
+                    </select>
+                  </div>
+                  <Line data={monthlydata} options={lineOptions} />
+                </div>
+                <div className="secondBoxAdminChartNav">
+                  <img onClick={()=>setchartnumphone(1)} src={chartnumphone===1? chevronleftdisable : chevronright} alt="" />
+                  <div>
+                    <div onClick={()=>setchartnumphone(1)} className={chartnumphone===1? "weeklycirclephonediv" : "weeklycirclephonedivOff"}></div>
+                    <div onClick={()=>setchartnumphone(2)} className={chartnumphone===2? "monthlycirclephonediv" : "monthlycirclephonedivOff"}></div>
+                  </div>
+                  <img onClick={()=>setchartnumphone(2)} src={chartnumphone===1? chevronleft : chevronrightdisable} alt="" />
               </div>
-              <div className="monthlyChartAdmin">
-                <div className="monthlyChartAdminText">
-                  <p>last 30 days</p>
-                  <select className="monthlyChartAdminSelect" name="" id="">
-                    <option value="">Current month</option>
-                    <option value="">Previous month</option>
-                    <option value="">Last month</option>
-                  </select>
-                </div>
-                <Line data={monthlydata} options={lineOptions} />
               </div>
             </div>
             <div className="rightthirdBoxAdmin">
@@ -633,7 +646,8 @@ const Admin = () => {
                 <input type="text" placeholder="Type message here..." />
                 <AiOutlinePaperClip size={"23px"} color="#878787"/>
               </div>
-              <button>Send</button>
+              <button className="sendMessageBoxAdminkeyboardButtonText">Send</button>
+              <button className="sendMessageBoxAdminkeyboardButtonImg"><img src={send} alt="" /></button>
             </div>
           </div>
           <div
@@ -760,7 +774,7 @@ const Admin = () => {
         </div>
       </div>
       <div className="innerBoxPhoneAdmin">
-        <div className="innerBoxPhoneAdminContent">
+        <div onClick={()=>isSidebarPhone===true && setIsSidebarPhone(!isSidebarPhone)} className="innerBoxPhoneAdminContent">
           <div className="navPhoneAdmin">
             <div className="menuIconAdminBox">
               <img onClick={()=>setIsSidebarPhone(!isSidebarPhone)} src={menu} alt="menu" />
@@ -780,41 +794,43 @@ const Admin = () => {
               <div className="countdownrAdminBoxPhoneNumber">25</div>
             </div>
           </div>
-          <div className="secondBoxAdminPhone">
-            <div className="secondBoxInnerAdminPhone">
-              <div className="secondBoxInnerAdminPhoneText">Today</div>
-              <div className="secondBoxInnerAdminPhoneNumber">12</div>
-            </div>
-            <div className="secondBoxInnerAdminPhone">
-              <div className="secondBoxInnerAdminPhoneText">Total</div>
-              <div className="secondBoxInnerAdminPhoneNumber">42</div>
-            </div>
-          </div>
-          <div className="thirdBoxAdminPhone">
-            <div className="thirdBoxAdminChartBoxPhone">
-              {chartnumphone===1 && <div className="thirdBoxAdminWeeklyBoxPhone">
-                <p className="thirdBoxAdminWeeklyBoxPhoneText">This Week</p>
-                <Bar data={weeklydata} options={barOptions} />
-              </div>}
-              {chartnumphone===2 && <div className="thirdBoxAdminMonthlyBoxPhone">
-                <div className="thirdBoxAdminMonthlyBoxPhoneText">
-                  <p>last 30 days</p>
-                  <select className="monthlyChartAdminSelect" name="" id="">
-                    <option value="">Current month</option>
-                    <option value="">Previous month</option>
-                    <option value="">Last month</option>
-                  </select>
-                </div>
-                <Line data={monthlydata} options={lineOptions} />
-              </div>}
-            </div>
-            <div className="thirdBoxAdminChartNavPhone">
-              <img onClick={()=>setchartnumphone(1)} src={chartnumphone===1? chevronleftdisable : chevronright} alt="" />
-              <div>
-                <div onClick={()=>setchartnumphone(1)} className={chartnumphone===1? "weeklycirclephonediv" : "weeklycirclephonedivOff"}></div>
-                <div onClick={()=>setchartnumphone(2)} className={chartnumphone===2? "monthlycirclephonediv" : "monthlycirclephonedivOff"}></div>
+          <div className="GraphWrapperPhone">
+            <div className="secondBoxAdminPhone">
+              <div className="secondBoxInnerAdminPhone">
+                <div className="secondBoxInnerAdminPhoneText">Today</div>
+                <div className="secondBoxInnerAdminPhoneNumber">12</div>
               </div>
-              <img onClick={()=>setchartnumphone(2)} src={chartnumphone===1? chevronleft : chevronrightdisable} alt="" />
+              <div className="secondBoxInnerAdminPhone">
+                <div className="secondBoxInnerAdminPhoneText">Total</div>
+                <div className="secondBoxInnerAdminPhoneNumber">42</div>
+              </div>
+            </div>
+            <div className="thirdBoxAdminPhone">
+              <div className="thirdBoxAdminChartBoxPhone">
+                {chartnumphone===1 && <div className="thirdBoxAdminWeeklyBoxPhone">
+                  <p className="thirdBoxAdminWeeklyBoxPhoneText">This Week</p>
+                  <Bar data={weeklydata} options={barOptions} />
+                </div>}
+                {chartnumphone===2 && <div className="thirdBoxAdminMonthlyBoxPhone">
+                  <div className="thirdBoxAdminMonthlyBoxPhoneText">
+                    <p>last 30 days</p>
+                    <select className="monthlyChartAdminSelect" name="" id="">
+                      <option value="">Current month</option>
+                      <option value="">Previous month</option>
+                      <option value="">Last month</option>
+                    </select>
+                  </div>
+                  <Line data={monthlydata} options={lineOptions} />
+                </div>}
+              </div>
+              <div className="thirdBoxAdminChartNavPhone">
+                <img onClick={()=>setchartnumphone(1)} src={chartnumphone===1? chevronleftdisable : chevronright} alt="" />
+                <div>
+                  <div onClick={()=>setchartnumphone(1)} className={chartnumphone===1? "weeklycirclephonediv" : "weeklycirclephonedivOff"}></div>
+                  <div onClick={()=>setchartnumphone(2)} className={chartnumphone===2? "monthlycirclephonediv" : "monthlycirclephonedivOff"}></div>
+                </div>
+                <img onClick={()=>setchartnumphone(2)} src={chartnumphone===1? chevronleft : chevronrightdisable} alt="" />
+              </div>
             </div>
           </div>
           <div className="fourthBoxAdminPhone">
@@ -867,56 +883,79 @@ const Admin = () => {
               <img src={logo} alt="logo" />
               <p>Furation Tech</p>
           </div> */}
-          <div className="SecondBoxsideBarPhoneAdmin">
-              <div
-                onClick={() => setBarnum(1)}
-                className={
-                  barnum === 1 ? "sidesecondfirstPhoneAdminOn" : "sidesecondfirstPhoneAdmin"
-                }
-              >
-                <p>Dashboard</p>
-              </div>
-              <div
-                className={
-                  barnum === 2 || barnum===3 || barnum===4 || barnum===5
-                    ? "sidesecondsecondPhoneAdminOn"
-                    : "sidesecondsecondPhoneAdmin"
-                }
-              >
-                <p onClick={() => {
-                  if(barnum===2 || barnum===3 ||barnum===4 ||barnum===5){
-                    setBarnum(1);
-                  }else{
-                    setBarnum(2);
+          <div className="ContentBoxSideBarrPhoneAdmin">
+            <div className="SecondBoxsideBarPhoneAdmin">
+                <div
+                  onClick={() => {
+                    setBarnum(1)
+                    setIsSidebarPhone(!isSidebarPhone)
+                  }}
+                  className={
+                    barnum === 1 ? "sidesecondfirstPhoneAdminOn" : "sidesecondfirstPhoneAdmin"
                   }
-                }}
-                >Message</p>
-                <div className={barnum===2 || barnum===3 || barnum===4 || barnum===5? "sidesecondseconddivPhoneAdmin" : "sidesecondseconddivPhoneAdminOff"}>
-                  <p className={barnum===2 || barnum===3? "sidesendMessagePhoneAdmin" : "sidesendMessagePhoneAdminOff"} onClick={() => setBarnum(3)}>Send Message {(barnum === 2 || barnum === 3) && <AiOutlineCheck/>} </p><br/><br/>
-                  <p className={barnum===4? "sidesendBulkMessagePhoneAdmin" : "sidesendBulkMessagePhoneAdminOff"} onClick={() => setBarnum(4)}>Bulk message {barnum ===4 && <AiOutlineCheck/>}</p><br/><br/>
-                  <p className={barnum===5? "sideannouncementPhoneAdmin" : "sideannouncementPhoneAdminOff"} onClick={() => setBarnum(5)}>Announcement {barnum ===5 && <AiOutlineCheck/>}</p><br/><br/>
+                >
+                  <p>Dashboard</p>
                 </div>
-              </div>
-              <div
-                onClick={() => setBarnum(6)}
-                className={
-                  barnum === 6 ? "sidesecondthirdPhoneAdminOn" : "sidesecondthirdPhoneAdmin"
-                }
-              >
-                <p>Feedback</p>
-              </div>
-              <div
-                onClick={() => setBarnum(7)}
-                className={
-                  barnum === 7
-                    ? "sidesecondfourthPhoneAdminOn"
-                    : "sidesecondfourthPhoneAdmin"
-                }
-              >
-                <p>Subscription History</p>
-              </div>
+                <div
+                  className={
+                    barnum === 2 || barnum===3 || barnum===4 || barnum===5
+                      ? "sidesecondsecondPhoneAdminOn"
+                      : "sidesecondsecondPhoneAdmin"
+                  }
+                >
+                  <p onClick={() => {
+                    if(barnum===2 || barnum===3 ||barnum===4 ||barnum===5){
+                      setBarnum(1);
+                    }else{
+                      setBarnum(2);
+                    }
+                  }}
+                  >Message</p>
+                  <div className={barnum===2 || barnum===3 || barnum===4 || barnum===5? "sidesecondseconddivPhoneAdmin" : "sidesecondseconddivPhoneAdminOff"}>
+                    <p className={barnum===2 || barnum===3? "sidesendMessagePhoneAdmin" : "sidesendMessagePhoneAdminOff"} onClick={() => {
+                      setBarnum(3)
+                      setIsSidebarPhone(!isSidebarPhone)
+                    }}>Send Message {(barnum === 2 || barnum === 3) && <AiOutlineCheck/>} </p><br/><br/>
+                    <p className={barnum===4? "sidesendBulkMessagePhoneAdmin" : "sidesendBulkMessagePhoneAdminOff"} onClick={() => {
+                      setBarnum(4)
+                      setIsSidebarPhone(!isSidebarPhone)
+                    }}>Bulk message {barnum ===4 && <AiOutlineCheck/>}</p><br/><br/>
+                    <p className={barnum===5? "sideannouncementPhoneAdmin" : "sideannouncementPhoneAdminOff"} onClick={() => {
+                      setBarnum(5)
+                      setIsSidebarPhone(!isSidebarPhone)
+                    }}>Announcement {barnum ===5 && <AiOutlineCheck/>}</p><br/><br/>
+                  </div>
+                </div>
+                <div
+                  onClick={() => {
+                    setBarnum(6)
+                    setIsSidebarPhone(!isSidebarPhone)
+                  }}
+                  className={
+                    barnum === 6 ? "sidesecondthirdPhoneAdminOn" : "sidesecondthirdPhoneAdmin"
+                  }
+                >
+                  <p>Feedback</p>
+                </div>
+                <div
+                  onClick={() => {
+                    setBarnum(7)
+                    setIsSidebarPhone(!isSidebarPhone)
+                  }}
+                  className={
+                    barnum === 7
+                      ? "sidesecondfourthPhoneAdminOn"
+                      : "sidesecondfourthPhoneAdmin"
+                  }
+                >
+                  <p>Subscription History</p>
+                </div>
+            </div>
+            <div className="ThirdBoxsideBarPhoneAdmin">
+              <div className="ThirdBoxsideBarFirstPhoneAdmin">Request Support</div>
+              <div className="ThirdBoxsideBarSecondPhoneAdmin">Logout</div>
+            </div>
           </div>
-          <div className="ThirdBoxsideBarPhoneAdmin"></div>
         </div>
       
       </div>
