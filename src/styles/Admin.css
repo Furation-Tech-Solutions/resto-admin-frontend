@@ -1456,6 +1456,7 @@
 
 
 
+
 @media all and (min-width:801px) and (max-width:1200px){
     
     .innerBoxPhoneAdminOverlay{
@@ -2065,6 +2066,7 @@
 
 
 
+
 @media all and (min-width:481px) and (max-width:800px){
     .innerBoxAdminOverlay{
         display: none;
@@ -2087,7 +2089,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        height: 100px;
+        height: 90px;
         flex-shrink: 0;
         padding: 0px 0px 0px 15px;
         background: linear-gradient(166deg, #434343 0.54%, #080808 141.29%), linear-gradient(292deg, #7200FF 6.04%, #FC57FF 155.22%);
@@ -2096,8 +2098,8 @@
         width: 11%;
     }
     .menuIconAdminBox > img{
-        width: 67%;
-        height: 66%;
+        width: 45px;
+        height: 45px;
         margin: auto;
     }
     .logoAdminBox{
@@ -2432,12 +2434,12 @@
         width: 85%;
         margin: auto;
         text-align: left;
-        padding: 20px 5px 15px 5px;
+        padding: 21px 5px 15px 8px;
         color: #EBEBEB;
     }
     .menudivsidePhoneBox > img {
-        width: 57px;
-        height: 57px;
+        width: 45px;
+        height: 45px;
     }
     .FirstBoxsideBarPhoneAdmin{
         width: 90%;
@@ -2459,7 +2461,7 @@
     }
 
     .SecondBoxsideBarPhoneAdmin{
-        width: 80%;
+        width: 83%;
         padding: 10px;
         display: inline-flex;
         flex-direction: column;
@@ -3160,8 +3162,8 @@
         width: 11%;
     }
     .menuIconAdminBox > img{
-        width: 67%;
-        height: 66%;
+        width: 35px;
+        height: 35px;
         margin: auto;
     }
     .logoAdminBox{
@@ -3442,7 +3444,7 @@
         position: fixed;
         flex-shrink: 0;
         background: linear-gradient(178deg, #434343 0%, #080808 44.71%);
-        width: 48%;
+        width: 50%;
         height: 100vh;
         z-index: 100;
         top: 0;
@@ -3471,7 +3473,7 @@
         width: 80%;
         margin: auto;
         text-align: left;
-        padding: 20px 5px 15px 10px;
+        padding: 21px 5px 15px 5px;
         color: #EBEBEB;
     }
     .menudivsidePhoneBox > img {
@@ -3498,7 +3500,7 @@
     }
 
     .SecondBoxsideBarPhoneAdmin{
-        width: 80%;
+        width: 83%;
         padding: 10px;
         display: inline-flex;
         flex-direction: column;
@@ -3699,7 +3701,7 @@
         border-radius: 8px;
         color: #FFF;
         font-family: "Poppins", Arial, sans-serif;
-        font-size: 16px;
+        font-size: 13px;
         font-style: normal;
         font-weight: 500;
         line-height: 20px; /* 142.857% */
@@ -3708,7 +3710,7 @@
     .ThirdBoxsideBarSecondPhoneAdmin{
         display: flex;
         width: 95%;
-        padding: 12px 8px;
+        padding: 8px 0px;
         justify-content: center;
         align-items: center;
         gap: 10px;
@@ -3716,7 +3718,7 @@
         color: #FFF;
         border: 1px solid #FFF;
         font-family: "Poppins", Arial, sans-serif;
-        font-size: 17px;
+        font-size: 13px;
         font-style: normal;
         font-weight: 500;
         line-height: 20px; /* 142.857% */
