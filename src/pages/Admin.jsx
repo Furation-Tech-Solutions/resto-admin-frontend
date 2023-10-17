@@ -228,7 +228,7 @@ const Admin = () => {
   const subscriptionData = [
     {
       plan: "123456789",
-      type: "User name",
+      type: "Gold",
       price: 100,
       invoice: "1234",
       startdate: "05/09/2023",
@@ -237,7 +237,7 @@ const Admin = () => {
     },
     {
       plan: "123456789",
-      type: "User name",
+      type: "Gold",
       price: 100,
       invoice: "1234",
       startdate: "05/09/2023",
@@ -246,7 +246,7 @@ const Admin = () => {
     },
     {
       plan: "123456789",
-      type: "User name",
+      type: "Gold",
       price: 100,
       invoice: "1234",
       startdate: "05/09/2023",
@@ -255,7 +255,7 @@ const Admin = () => {
     },
     {
       plan: "123456789",
-      type: "User name",
+      type: "Gold",
       price: 100,
       invoice: "1234",
       startdate: "05/09/2023",
@@ -264,7 +264,7 @@ const Admin = () => {
     },
     {
       plan: "123456789",
-      type: "User name",
+      type: "Gold",
       price: 100,
       invoice: "1234",
       startdate: "05/09/2023",
@@ -273,7 +273,7 @@ const Admin = () => {
     },
     {
       plan: "123456789",
-      type: "User name",
+      type: "Gold",
       price: 100,
       invoice: "1234",
       startdate: "05/09/2023",
@@ -282,7 +282,7 @@ const Admin = () => {
     },
     {
       plan: "123456789",
-      type: "User name",
+      type: "Gold",
       price: 100,
       invoice: "1234",
       startdate: "05/09/2023",
@@ -291,7 +291,7 @@ const Admin = () => {
     },
     {
       plan: "123456789",
-      type: "User name",
+      type: "Gold",
       price: 100,
       invoice: "1234",
       startdate: "05/09/2023",
@@ -300,7 +300,7 @@ const Admin = () => {
     },
     {
       plan: "123456789",
-      type: "User name",
+      type: "Gold",
       price: 100,
       invoice: "1234",
       startdate: "05/09/2023",
@@ -309,7 +309,7 @@ const Admin = () => {
     },
     {
       plan: "123456789",
-      type: "User name",
+      type: "Gold",
       price: 100,
       invoice: "1234",
       startdate: "05/09/2023",
@@ -318,7 +318,7 @@ const Admin = () => {
     },
     {
       plan: "123456789",
-      type: "User name",
+      type: "Gold",
       price: 100,
       invoice: "1234",
       startdate: "05/09/2023",
@@ -327,7 +327,7 @@ const Admin = () => {
     },
     {
       plan: "123456789",
-      type: "User name",
+      type: "Gold",
       price: 100,
       invoice: "1234",
       startdate: "05/09/2023",
@@ -336,7 +336,7 @@ const Admin = () => {
     },
     {
       plan: "123456789",
-      type: "User name",
+      type: "Gold",
       price: 100,
       invoice: "1234",
       startdate: "05/09/2023",
@@ -345,7 +345,7 @@ const Admin = () => {
     },
     {
       plan: "123456789",
-      type: "User name",
+      type: "Gold",
       price: 100,
       invoice: "1234",
       startdate: "05/09/2023",
@@ -354,7 +354,7 @@ const Admin = () => {
     },
     {
       plan: "123456789",
-      type: "User name",
+      type: "Gold",
       price: 100,
       invoice: "1234",
       startdate: "05/09/2023",
@@ -363,7 +363,7 @@ const Admin = () => {
     },
     {
       plan: "123456789",
-      type: "User name",
+      type: "Gold",
       price: 100,
       invoice: "1234",
       startdate: "05/09/2023",
@@ -372,7 +372,7 @@ const Admin = () => {
     },
     {
       plan: "123456789",
-      type: "User name",
+      type: "Gold",
       price: 100,
       invoice: "1234",
       startdate: "05/09/2023",
@@ -381,7 +381,7 @@ const Admin = () => {
     },
     {
       plan: "123456789",
-      type: "User name",
+      type: "Gold",
       price: 100,
       invoice: "1234",
       startdate: "05/09/2023",
@@ -390,7 +390,7 @@ const Admin = () => {
     },
     {
       plan: "123456789",
-      type: "User name",
+      type: "Gold",
       price: 100,
       invoice: "1234",
       startdate: "05/09/2023",
@@ -399,7 +399,7 @@ const Admin = () => {
     },
     {
       plan: "123456789",
-      type: "User name",
+      type: "Gold",
       price: 100,
       invoice: "1234",
       startdate: "05/09/2023",
@@ -408,7 +408,7 @@ const Admin = () => {
     },
     {
       plan: "123456789",
-      type: "User name",
+      type: "Gold",
       price: 100,
       invoice: "1234",
       startdate: "05/09/2023",
@@ -417,7 +417,7 @@ const Admin = () => {
     },
     {
       plan: "123456789",
-      type: "User name",
+      type: "Gold",
       price: 100,
       invoice: "1234",
       startdate: "05/09/2023",
