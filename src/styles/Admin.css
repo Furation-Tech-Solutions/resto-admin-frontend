@@ -545,6 +545,12 @@
 .sendMessageBoxAdminOff{
     display: none;
 }
+.interactionAdmin{
+    display: inline;
+}
+.interactionAdminOff{
+    display: none;
+}
 
 .sendBulkMessageBoxAdmin{
     display: inline;
@@ -1039,7 +1045,7 @@
     padding-left: 10px;
     outline: none;
 }
-.sendMessageBoxAdminkeyboard > button {
+.sendMessageBoxAdminkeyboardButtonText {
     display: flex;
     width: 82px;
     height: 38px;
@@ -1058,8 +1064,28 @@
     line-height: normal;
     border: none;
 }
+.sendMessageBoxAdminkeyboardButtonImg {
+    display: flex;
+    width: 42px;
+    height: 42px;
+    padding: 14px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    background: linear-gradient(287deg, #7200FF 15.07%, #FC57FF 88.56%);
+    color: #FFF;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border: none;
+}
 .sendMessageBoxAdminkeyboardButtonText{
-    display: inline;
+    display: flex;
 }
 .sendMessageBoxAdminkeyboardButtonImg{
     display: none;
@@ -1162,7 +1188,8 @@
     padding-left: 10px;
     outline: none;
 }
-.sendBulkMessageBoxAdminkeyboard > button {
+
+.sendBulkMessageBoxAdminkeyboardButtonText {
     display: flex;
     width: 82px;
     height: 38px;
@@ -1180,6 +1207,32 @@
     font-weight: 400;
     line-height: normal;
     border: none;
+}
+.sendBulkMessageBoxAdminkeyboardButtonImg {
+    display: flex;
+    width: 42px;
+    height: 42px;
+    padding: 14px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    background: linear-gradient(287deg, #7200FF 15.07%, #FC57FF 88.56%);
+    color: #FFF;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border: none;
+}
+.sendBulkMessageBoxAdminkeyboardButtonText{
+    display: flex;
+}
+.sendBulkMessageBoxAdminkeyboardButtonImg{
+    display: none;
 }
 
 .announcementBoxAdminText{
@@ -1239,9 +1292,10 @@
     padding-left: 10px;
     outline: none;
 }
-.announcementBoxAdminkeyboard > button {
+
+.announcementBoxAdminkeyboardButtonText {
     display: flex;
-    width: 8%;
+    width: 82px;
     height: 38px;
     padding: 14px;
     justify-content: center;
@@ -1258,6 +1312,33 @@
     line-height: normal;
     border: none;
 }
+.announcementBoxAdminkeyboardButtonImg {
+    display: flex;
+    width: 42px;
+    height: 42px;
+    padding: 14px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    background: linear-gradient(287deg, #7200FF 15.07%, #FC57FF 88.56%);
+    color: #FFF;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border: none;
+}
+.announcementBoxAdminkeyboardButtonText{
+    display: flex;
+}
+.announcementBoxAdminkeyboardButtonImg{
+    display: none;
+}
+
 
 .fileinputwrapperAdmin {
     display: flex;
@@ -1471,7 +1552,7 @@
         font-size: 10px;
     }
     .countdownrightDoughnutOuterAdminFirstBox > p{
-        font-size: 22px;
+        font-size: 18px;
     }
     .rightsecondBoxAdmin{
         width: 96%;
@@ -1649,8 +1730,12 @@
         padding: 10px;
         font-size: 24px;
     }
+    .sendMessageBoxAdminmessagebox{
+        height: 73vh;
+        margin-top: 10px;
+    }
     .sendMessageBoxAdminkeyboard{
-        width: 97%;
+        width: 98%;
     }
     .sendMessageBoxAdminkeyboard > img{
         width: 50px;
@@ -1661,123 +1746,194 @@
         width: 78%;
         height: 50px;
     }
+    .sendMessageBoxAdminkeyboard > div :nth-child(2){
+        width: 30px;
+        height: 30px;
+    }
     .sendMessageBoxAdminkeyboard > div >input{
         width: 88%;
         height: 75%;
         font-size: 21px;
     }
-    .sendMessageBoxAdminkeyboard > button {
+    /* .sendMessageBoxAdminkeyboard > button {
         width: 13%;
         height: 50px;
         padding: 8px;
         font-size: 21px;
-    }
+    } */
     .sendMessageBoxAdminkeyboardButtonText{
+        width: 13%;
+        height: 50px;
+        padding: 8px;
+        font-size: 21px;
         display: none;
     }
     .sendMessageBoxAdminkeyboardButtonImg{
-        display: inline;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        border-radius: 50%;
     }
     .sendBulkMessageBoxAdminText{
-        font-size: 20px;
+        font-size: 28px;
     }
     .sendBulkMessageBoxAdminaddcontact{
-        height: 34px;
+        height: 50px;
         padding:  0px;
     }
+    .sendBulkMessageBoxAdminmessagebox{
+        height: 73vh;
+        margin-top: 10px;
+    }
     .sendBulkMessageBoxAdminkeyboard{
-        width: 97%;
+        width: 98%;
     }
     .sendBulkMessageBoxAdminkeyboard > img{
-        width: 24px;
-        height: 24px;
+        width: 50px;
+        height: 50px;
         margin-right: 5px;
     }
     .sendBulkMessageBoxAdminkeyboard > div{
         width: 78%;
-        height: 30px;
+        height: 50px;
+    }
+    .sendBulkMessageBoxAdminkeyboard > div :nth-child(2){
+        width: 34px;
+        height: 34px;
     }
     .sendBulkMessageBoxAdminkeyboard > div >input{
         width: 88%;
         height: 75%;
-        font-size: 13px;
+        font-size: 21px;
     }
-    .sendBulkMessageBoxAdminkeyboard > button {
+    /* .sendBulkMessageBoxAdminkeyboard > button {
         width: 11%;
         height: 30px;
         padding: 8px;
         font-size: 14px;
-    }
-    .announcementBoxAdminkeyboard{
-        width: 97%;
-    }
-    .announcementBoxAdminkeyboard > img{
-        width: 24px;
-        height: 24px;
-        margin-right: 5px;
-    }
-    .announcementBoxAdminkeyboard > div{
-        width: 78%;
-        height: 30px;
-    }
-    .announcementBoxAdminkeyboard > div >input{
-        width: 88%;
-        height: 75%;
-        font-size: 13px;
-    }
-    .announcementBoxAdminkeyboard > button {
-        width: 11%;
-        height: 30px;
+    } */
+    .sendBulkMessageBoxAdminkeyboardButtonText{
+        width: 13%;
+        height: 50px;
         padding: 8px;
-        font-size: 14px;
+        font-size: 21px;
+        display: none;
+    }
+    .sendBulkMessageBoxAdminkeyboardButtonImg{
+        width: 50px;
+        height: 50px;
+        display: flex;
+        border-radius: 50%;
     }
     .fileinputwrapperAdmin{
         width: 97%;
         padding: 3px;
     }
     .file-input-textAdmin{
-        width: 85%;
-        height: 20px;
-        font-size: 13px;
+        width: 78%;
+        height: 30px;
+        font-size: 24px;
         padding: 0px;
         padding-right: 3px;
         padding-left: 3px;
     }
     .file-input-buttonAdmin {
-        width: 70px;
+        width: 115px;
         height: 25px;
-        padding: 0px 3px;
-        font-size: 12px;
+        padding: 4px 3px;
+        font-size: 18px;
         padding-left: 0px;
     }
+    .announcementBoxAdminText{
+        font-size: 28px;
+    }
+    .announcementBoxAdminmessagebox{
+        height: 80vh;
+        margin-top: 10px;
+    }
+    .announcementBoxAdminkeyboard{
+        width: 98%;
+    }
+    .announcementBoxAdminkeyboard > img{
+        width: 50px;
+        height: 50px;
+        margin-right: 5px;
+    }
+    .announcementBoxAdminkeyboard > div{
+        width: 78%;
+        height: 50px;
+    }
+    .announcementBoxAdminkeyboard > div :nth-child(2){
+        width: 34px;
+        height: 34px;
+    }
+    .announcementBoxAdminkeyboard > div >input{
+        width: 88%;
+        height: 75%;
+        font-size: 21px;
+    }
+    /* .announcementBoxAdminkeyboard > button {
+        width: 11%;
+        height: 30px;
+        padding: 8px;
+        font-size: 14px;
+    } */
+    .announcementBoxAdminkeyboardButtonText{
+        width: 13%;
+        height: 50px;
+        padding: 8px;
+        font-size: 21px;
+        display: none;
+    }
+    .announcementBoxAdminkeyboardButtonImg{
+        width: 50px;
+        height: 50px;
+        display: flex;
+        border-radius: 50%;
+    }
     .FeedbackTextAdmin{
-        font-size: 20px;
+        font-size: 28px;
     }
     .FeedbackTableAdmin :nth-child(4){
-        width: 280px;
+        width: 370px;
+    }
+    .FeedbackTableAdmin{
+        width: 155%;
+    }
+    .feedbacktableholder{
+        height: 90vh;
+        overflow-x: auto;
+        overflow-y: auto;
     }
     .FeedbackTableHeadAdmin{
-        font-size: 12px;
+        font-size: 19px;
     }
     .FeedbackTableBodyAdmin{
-        font-size: 12px;
+        font-size: 19px;
     }
     .SubscriptionTextAdmin{
-        font-size: 20px;
+        font-size: 28px;
+    }
+    .subscriptiontableholder{
+        height: 90vh;
+        overflow-x: auto;
+        overflow-y: auto;
+        border: 1px solid #C2C2C2;
+        border-radius: 8px;
     }
     .SubscriptionTableAdmin{
         width: 95%;
     }
     .SubscriptionTableHeadAdmin{
-        font-size: 11px;
-        padding: 5px;
+        font-size: 19px;
+        padding: 7px;
     }
     .SubscriptionTableBodyAdmin{
-        font-size: 11px;
-        padding: 5px;
+        font-size: 19px;
+        padding: 8px;
     }
     .SubscriptionTableBodyAdmintrue{
-        font-size: 12px;
+        font-size: 19px;
     }
 }
 
@@ -2499,6 +2655,232 @@
         text-decoration-line: underline;
         margin-top: 8px;
     }
+    .sendMessageBoxAdminText{
+        font-size: 26px;
+        width: 94%;
+        margin: auto;
+        text-align: left;
+    }
+    .sendMessageBoxAdminaddcontact{
+        width: 95%;
+        margin: auto;
+        display: flex;
+        gap: 18px;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .sendMessageBoxAdminaddcontact > input{
+        width: 79%;
+        height: 45px;
+        font-size: 23px;
+    }
+    .sendMessageBoxAdminaddcontact > button {
+        width: 15%;
+        height: 48px;
+        padding: 10px;
+        font-size: 24px;
+    }
+    .sendMessageBoxAdminmessagebox{
+        height: 69vh;
+        margin-top: 10px;
+    }
+    .sendMessageBoxAdminkeyboard{
+        width: 95%;
+        margin: auto;
+    }
+    .sendMessageBoxAdminkeyboard > img{
+        width: 50px;
+        height: 50px;
+        margin-right: 5px;
+    }
+    .sendMessageBoxAdminkeyboard > div{
+        width: 78%;
+        height: 50px;
+    }
+    .sendMessageBoxAdminkeyboard > div :nth-child(2){
+        width: 34px;
+        height: 34px;
+    }
+    .sendMessageBoxAdminkeyboard > div >input{
+        width: 88%;
+        height: 75%;
+        font-size: 21px;
+    }
+    .sendMessageBoxAdminkeyboardButtonText{
+        width: 13%;
+        height: 50px;
+        padding: 8px;
+        font-size: 21px;
+        display: none;
+    }
+    .sendMessageBoxAdminkeyboardButtonImg{
+        width: 50px;
+        height: 50px;
+        display: flex;
+        border-radius: 50%;
+    }
+    .sendBulkMessageBoxAdminText{
+        font-size: 26px;
+        width: 94%;
+        margin: auto;
+        text-align: left;
+    }
+    .sendBulkMessageBoxAdminaddcontact{
+        width: 95%;
+        margin: auto;
+        display: flex;
+        gap: 18px;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .sendBulkMessageBoxAdminmessagebox{
+        height: 69vh;
+        margin-top: 10px;
+    }
+    .sendBulkMessageBoxAdminkeyboard{
+        width: 95%;
+        margin: auto;
+    }
+    .sendBulkMessageBoxAdminkeyboard > img{
+        width: 50px;
+        height: 50px;
+        margin-right: 5px;
+    }
+    .sendBulkMessageBoxAdminkeyboard > div{
+        width: 78%;
+        height: 50px;
+    }
+    .sendBulkMessageBoxAdminkeyboard > div :nth-child(2){
+        width: 34px;
+        height: 34px;
+    }
+    .sendBulkMessageBoxAdminkeyboard > div >input{
+        width: 88%;
+        height: 75%;
+        font-size: 21px;
+    }
+    .sendBulkMessageBoxAdminkeyboardButtonText{
+        width: 13%;
+        height: 50px;
+        padding: 8px;
+        font-size: 21px;
+        display: none;
+    }
+    .sendBulkMessageBoxAdminkeyboardButtonImg{
+        width: 50px;
+        height: 50px;
+        display: flex;
+        border-radius: 50%;
+    }
+    .fileinputwrapperAdmin{
+        width: 97%;
+        padding: 3px;
+        justify-content: space-between;
+    }
+    .file-input-textAdmin{
+        width: 78%;
+        height: 30px;
+        font-size: 24px;
+        padding: 0px;
+        padding-right: 3px;
+        padding-left: 3px;
+    }
+    .file-input-buttonAdmin {
+        width: 117px;
+        height: 28px;
+        padding: 4px 3px;
+        font-size: 18px;
+        padding-left: 0px;
+    }
+    .announcementBoxAdminText{
+        font-size: 28px;
+        width: 94%;
+        margin: auto;
+        text-align: left;
+    }
+    .announcementBoxAdminmessagebox{
+        height: 74vh;
+        margin-top: 10px;
+    }
+    .announcementBoxAdminkeyboard{
+        width: 95%;
+        margin: auto;
+    }
+    .announcementBoxAdminkeyboard > img{
+        width: 50px;
+        height: 50px;
+        margin-right: 5px;
+    }
+    .announcementBoxAdminkeyboard > div{
+        width: 78%;
+        height: 50px;
+    }
+    .announcementBoxAdminkeyboard > div :nth-child(2){
+        width: 34px;
+        height: 34px;
+    }
+    .announcementBoxAdminkeyboard > div >input{
+        width: 88%;
+        height: 75%;
+        font-size: 21px;
+    }
+    .announcementBoxAdminkeyboardButtonText{
+        width: 13%;
+        height: 50px;
+        padding: 8px;
+        font-size: 21px;
+        display: none;
+    }
+    .announcementBoxAdminkeyboardButtonImg{
+        width: 50px;
+        height: 50px;
+        display: flex;
+        border-radius: 50%;
+    }
+    .FeedbackTextAdmin{
+        font-size: 28px;
+    }
+    .FeedbackTableAdmin :nth-child(4){
+        width: 370px;
+    }
+    .FeedbackTableAdmin{
+        width: 155%;
+    }
+    .feedbacktableholder{
+        height: 90vh;
+        overflow-x: auto;
+        overflow-y: auto;
+    }
+    .FeedbackTableHeadAdmin{
+        font-size: 19px;
+    }
+    .FeedbackTableBodyAdmin{
+        font-size: 19px;
+    }
+    .SubscriptionTextAdmin{
+        font-size: 28px;
+    }
+    .subscriptiontableholder{
+        height: 90vh;
+        overflow-x: auto;
+        overflow-y: auto;
+        border: 1px solid #C2C2C2;
+        border-radius: 8px;
+    }
+    .SubscriptionTableAdmin{
+        width: 95%;
+    }
+    .SubscriptionTableHeadAdmin{
+        font-size: 19px;
+        padding: 7px;
+    }
+    .SubscriptionTableBodyAdmin{
+        font-size: 19px;
+        padding: 8px;
+    }
+    .SubscriptionTableBodyAdmintrue{
+        font-size: 19px;
+    }
 }
 
 
@@ -3195,5 +3577,253 @@
         line-height: normal;
         text-decoration-line: underline;
         margin-top: 8px;
+    }
+    .sendMessageBoxAdminText{
+        font-size: 22px;
+        width: 94%;
+        margin: auto;
+        text-align: left;
+        margin-bottom: 7px;
+    }
+    .sendMessageBoxAdminaddcontact{
+        width: 93%;
+        margin: auto;
+        display: flex;
+        gap: 16px;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 0px;
+        margin-left: 10px;
+    }
+    .sendMessageBoxAdminaddcontact > input{
+        width: 79%;
+        height: 35px;
+        font-size: 18px;
+    }
+    .sendMessageBoxAdminaddcontact > button {
+        width: 15%;
+        height: 35px;
+        padding: 10px;
+        font-size: 18px;
+    }
+    .sendMessageBoxAdminmessagebox{
+        height: 69vh;
+        margin-top: 10px;
+    }
+    .sendMessageBoxAdminkeyboard{
+        width: 94%;
+        margin-left: 4px;
+        margin-bottom: 5px;
+    }
+    .sendMessageBoxAdminkeyboard > img{
+        width: 40px;
+        height: 40px;
+        margin-right: 5px;
+    }
+    .sendMessageBoxAdminkeyboard > div{
+        width: 75%;
+        height: 40px;
+    }
+    .sendMessageBoxAdminkeyboard > div :nth-child(2){
+        width: 30px;
+        height: 30px;
+    }
+    .sendMessageBoxAdminkeyboard > div >input{
+        width: 87%;
+        height: 75%;
+        font-size: 19px;
+    }
+    .sendMessageBoxAdminkeyboardButtonText{
+        width: 13%;
+        height: 50px;
+        padding: 8px;
+        font-size: 21px;
+        display: none;
+    }
+    .sendMessageBoxAdminkeyboardButtonImg{
+        width: 40px;
+        height: 40px;
+        display: flex;
+        border-radius: 50%;
+    }
+    .sendMessageBoxAdminkeyboardButtonImg > img{
+        width: 22px;
+        height: 22px;
+    }
+    .sendBulkMessageBoxAdminText{
+        font-size: 22px;
+        width: 94%;
+        margin: auto;
+        text-align: left;
+        margin-bottom: 7px;
+    }
+    .sendBulkMessageBoxAdminaddcontact{
+        width: 93%;
+        margin: auto;
+        display: flex;
+        gap: 16px;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 0px;
+        margin-left: 10px;
+    }
+    .sendBulkMessageBoxAdminmessagebox{
+        height: 69vh;
+        margin-top: 10px;
+    }
+    .sendBulkMessageBoxAdminkeyboard{
+        width: 95%;
+        margin-left: 4px;
+        margin-bottom: 5px;
+    }
+    .sendBulkMessageBoxAdminkeyboard > img{
+        width: 40px;
+        height: 40px;
+        margin-right: 5px;
+    }
+    .sendBulkMessageBoxAdminkeyboard > div{
+        width: 75%;
+        height: 40px;
+    }
+    .sendBulkMessageBoxAdminkeyboard > div :nth-child(2){
+        width: 30px;
+        height: 30px;
+    }
+    .sendBulkMessageBoxAdminkeyboard > div >input{
+        width: 87%;
+        height: 75%;
+        font-size: 19px;
+    }
+    .sendBulkMessageBoxAdminkeyboardButtonText{
+        width: 13%;
+        height: 50px;
+        padding: 8px;
+        font-size: 21px;
+        display: none;
+    }
+    .sendBulkMessageBoxAdminkeyboardButtonImg{
+        width: 37px;
+        height: 37px;
+        display: flex;
+        border-radius: 50%;
+    }
+    .sendBulkMessageBoxAdminkeyboardButtonImg > img{
+        width: 20px;
+        height: 20px;
+    }
+    .fileinputwrapperAdmin{
+        width: 97%;
+        padding: 3px;
+        justify-content: space-between;
+    }
+    .file-input-textAdmin{
+        width: 67%;
+        height: 20px;
+        font-size: 17px;
+        padding: 0px;
+        padding-right: 3px;
+        padding-left: 3px;
+    }
+    .file-input-buttonAdmin {
+        width: 32%;
+        height: 20px;
+        padding: 2px 3px;
+        font-size: 15px;
+        padding-left: 0px;
+    }
+    .announcementBoxAdminText{
+        font-size: 22px;
+        width: 94%;
+        margin: auto;
+        text-align: left;
+        margin-bottom: 7px;
+    }
+    .announcementBoxAdminmessagebox{
+        height: 74vh;
+        margin-top: 10px;
+    }
+    .announcementBoxAdminkeyboard{
+        width: 95%;
+        margin-left: 4px;
+        margin-bottom: 5px;
+    }
+    .announcementBoxAdminkeyboard > img{
+        width: 40px;
+        height: 40px;
+        margin-right: 5px;
+    }
+    .announcementBoxAdminkeyboard > div{
+        width: 75%;
+        height: 40px;
+    }
+    .announcementBoxAdminkeyboard > div :nth-child(2){
+        width: 30px;
+        height: 30px;
+    }
+    .announcementBoxAdminkeyboard > div >input{
+        width: 87%;
+        height: 75%;
+        font-size: 19px;
+    }
+    .announcementBoxAdminkeyboardButtonText{
+        width: 13%;
+        height: 50px;
+        padding: 8px;
+        font-size: 21px;
+        display: none;
+    }
+    .announcementBoxAdminkeyboardButtonImg{
+        width: 37px;
+        height: 37px;
+        display: flex;
+        border-radius: 50%;
+    }
+    .announcementBoxAdminkeyboardButtonImg > img{
+        width: 20px;
+        height: 20px;
+    }
+    .FeedbackTextAdmin{
+        font-size: 24px;
+    }
+    .FeedbackTableAdmin :nth-child(4){
+        width: 370px;
+    }
+    .FeedbackTableAdmin{
+        width: 155%;
+    }
+    .feedbacktableholder{
+        height: 80vh;
+        overflow-x: auto;
+        overflow-y: auto;
+    }
+    .FeedbackTableHeadAdmin{
+        font-size: 17px;
+    }
+    .FeedbackTableBodyAdmin{
+        font-size: 17px;
+    }
+    .SubscriptionTextAdmin{
+        font-size: 24px;
+    }
+    .subscriptiontableholder{
+        height: 80vh;
+        overflow-x: auto;
+        overflow-y: auto;
+        border: 1px solid #C2C2C2;
+        border-radius: 8px;
+    }
+    .SubscriptionTableAdmin{
+        width: 95%;
+    }
+    .SubscriptionTableHeadAdmin{
+        font-size: 17px;
+        padding: 7px;
+    }
+    .SubscriptionTableBodyAdmin{
+        font-size: 17px;
+        padding: 8px;
+    }
+    .SubscriptionTableBodyAdmintrue{
+        font-size: 19px;
     }
 }
