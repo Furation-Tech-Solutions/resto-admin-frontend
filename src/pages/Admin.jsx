@@ -443,7 +443,7 @@ const Admin = () => {
 
   return (
     <div className="outerBoxAdmin">
-      <div className="innerBoxAdmin">
+      <div className={currentSubscriptionopen? "innerBoxAdminOverlay" : "innerBoxAdmin" }>
         <div className="leftBoxAdmin">
           <div className="leftfirstBoxAdmin">
             <img src={logo} alt="applogo" />
@@ -775,7 +775,7 @@ const Admin = () => {
           </div>
         </div>
       </div>
-      <div className="innerBoxPhoneAdmin">
+      <div className={currentSubscriptionopen? "innerBoxPhoneAdminOverlay" : "innerBoxPhoneAdmin"}>
         <div onClick={()=>isSidebarPhone===true && setIsSidebarPhone(!isSidebarPhone)} className="innerBoxPhoneAdminContent">
           <div className="navPhoneAdmin">
             <div className="menuIconAdminBox">
@@ -1112,8 +1112,31 @@ const Admin = () => {
         </div>
       
       </div>
-      {isSubscribed===true && <CurrentSubscripton />
-      }
+      {isSubscribed===true &&  <div className={ currentSubscriptionopen? "currentSubscriptionAdmin" : "currentSubscriptionAdminOff"}>
+          <div className="currentSubscriptionCloseAdmin">
+              <img onClick={()=>setCurrentSubscriptionopen(false)} src={closeicon} alt="" />
+          </div>
+          <p className="currentSubscriptionTextAdmin">Current Subscription</p>
+          <div className="currentSubscriptionInnerBoxAdmin">                                                                                                                                                                                                                                                        
+              <div className="currentSubscriptionDoughnutOuterAdmin">
+                  <div className="currentSubscriptionDoughnutInnerAdmin">
+                      <Doughnut data={doughnutdata} /><br/>
+                      <div className="currentSubscriptionDoughnutInnerAdminNumber">25</div>
+                  </div>
+                  <p>25/30 days left</p>
+              </div>
+              <div className="currentSubscriptionTextBoxAdmin">
+                  <p>Plan :- Plan A</p>
+                  <p>Status :- Active</p>
+                  <p>Start Date :- 01/10/2023</p>
+                  <p>End Date :- 30/10/2023</p>
+              </div>
+              <div className="currentSubscriptionviewallAdmin" onClick={()=>{
+                  setBarnum(7)
+                  setCurrentSubscriptionopen(false)
+              }}>View all subscriptions</div>
+          </div>
+      </div>}
       {isSubscribed===false && <div className={ currentSubscriptionopen? "newSubscriptionAdmin" : "newSubscriptionAdminOff"}>
           <div className="newSubscriptionCloseAdmin">
             <img onClick={()=>setCurrentSubscriptionopen(false)} src={closeicon} alt="" />

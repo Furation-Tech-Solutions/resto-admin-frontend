@@ -4,7 +4,9 @@ import { Doughnut } from 'react-chartjs-2';
 import "../styles/Admin.css";
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, Filler, LineElement, BarElement, ArcElement, Title, Tooltip, Legend } from 'chart.js';
 
-const CurrentSubscripton = () => {
+const CurrentSubscripton = ({props}) => {
+
+  console.log(props);
 
     ChartJS.register(
         CategoryScale,
@@ -35,7 +37,7 @@ const CurrentSubscripton = () => {
   };
 
     
-  const [ currentSubscriptionopen, setCurrentSubscriptionopen ]= useState(false);
+  const [ currentSubscriptionopen, setCurrentSubscriptionopen ]= useState(props.currentSubscriptionopen);
 
   return (
     <div className={ currentSubscriptionopen? "currentSubscriptionAdmin" : "currentSubscriptionAdminOff"}>
@@ -43,7 +45,7 @@ const CurrentSubscripton = () => {
             <img onClick={()=>setCurrentSubscriptionopen(false)} src={closeicon} alt="" />
         </div>
         <p className="currentSubscriptionTextAdmin">Current Subscription</p>
-        <div className="currentSubscriptionInnerBoxAdmin">
+        <div className="currentSubscriptionInnerBoxAdmin">                                                                                                                                                                                                                                                        
             <div className="currentSubscriptionDoughnutOuterAdmin">
                 <div className="currentSubscriptionDoughnutInnerAdmin">
                     <Doughnut data={doughnutdata} /><br/>

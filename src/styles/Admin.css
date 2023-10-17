@@ -1,6 +1,9 @@
 *{
     font-family: "Poppins", Arial, sans-serif;
 }
+.innerBoxPhoneAdminOverlay{
+    display: none;
+}
 .innerBoxPhoneAdmin{
     display: none;
 }
@@ -13,6 +16,14 @@
     position: relative;
     overflow-x: hidden;
     overflow-y: hidden;
+}
+.innerBoxAdminOverlay{
+    width: 100%;
+    background: #FFF;
+    opacity: 0.1;
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
 }
 .innerBoxAdmin{
     width: 100%;
@@ -680,51 +691,6 @@
     text-align: justify;
     padding: 8px;
 }
-.currentSubscriptionAdmin{
-    display: inline;
-    width: 450px;
-    height: 500px;
-    border-radius: 10px;
-    background: #FFF;
-    box-shadow: 0px 0px 25px 1px rgba(0, 0, 0, 0.15);
-    margin: auto;
-    position: absolute;
-    top: 5%;
-    left: 40%;
-}
-.currentSubscriptionAdminOff{
-    display: none;
-}
-.currentSubscriptionCloseAdmin{
-    width: 95%;
-    text-align: right;
-    flex-shrink: 0;
-    padding-top: 15px;
-}
-.currentSubscriptionCloseAdmin > img{
-    width: 22px;
-    height: 22px;
-}
-.currentSubscriptionTextAdmin{
-    color: #000;
-    font-family: "Poppins", Arial, sans-serif;
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 20px; /* 90.909% */
-    letter-spacing: 0.1px;
-    margin: 0px;
-    margin-bottom: 15px;
-}
-.currentSubscriptionInnerBoxAdmin{
-    width: 359px;
-    height: 357px;
-    margin: auto;
-    border-radius: 8px;
-    border: 1px solid #CACACA;
-    background: #FBF8FF;
-    text-align: center;
-}
 .countdownrightDoughnutOuterAdminFirstBox{
     width: 100%;
     height: 125px;
@@ -767,8 +733,53 @@
     margin: 0px;
     line-height: normal;
 }
+.currentSubscriptionAdmin{
+    display: inline;
+    width: 32%;
+    height: 500px;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 0px 25px 1px rgba(0, 0, 0, 0.15);
+    margin: auto;
+    position: absolute;
+    top: 8%;
+    left: 35%;
+}
+.currentSubscriptionAdminOff{
+    display: none;
+}
+.currentSubscriptionCloseAdmin{
+    width: 95%;
+    text-align: right;
+    flex-shrink: 0;
+    padding-top: 15px;
+}
+.currentSubscriptionCloseAdmin > img{
+    width: 22px;
+    height: 22px;
+}
+.currentSubscriptionTextAdmin{
+    color: #000;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 90.909% */
+    letter-spacing: 0.1px;
+    margin: 0px;
+    margin-bottom: 15px;
+}
+.currentSubscriptionInnerBoxAdmin{
+    width: 78%;
+    height: 357px;
+    margin: auto;
+    border-radius: 8px;
+    border: 1px solid #CACACA;
+    background: #FBF8FF;
+    text-align: center;
+}
 .currentSubscriptionTextBoxAdmin{
-    width: 319px;
+    width: 84%;
     height: 140px;
     flex-shrink: 0;
     margin: auto;
@@ -787,7 +798,52 @@
     font-weight: 400;
     line-height: normal;
     text-decoration-line: underline;
-    margin-top: 50px;
+    margin-top: 35px;
+}
+.currentSubscriptionDoughnutOuterAdmin{
+    border-bottom: 1px solid #E7E7E7;
+    width: 90%;
+    height: 160px;
+    margin: auto;
+    font-size: 15px;
+    font-family: "Poppins", Arial, sans-serif;
+}
+.currentSubscriptionDoughnutOuterAdmin > p{
+    text-align: center;
+    margin: 0px;
+    margin-top: 10px;
+}
+.currentSubscriptionDoughnutInnerAdmin{
+    width: 118px;
+    height: 118px;
+    margin: auto;
+    transform: rotate(0.005deg);
+    flex-shrink: 0;
+    stroke-width: 30.975px;
+    stroke: #7200FF;
+    position: relative;
+}
+.currentSubscriptionDoughnutInnerAdminNumber{
+    position: absolute;
+    top: 40%;
+    right: 35%;
+    color: #4F4F4F;
+    text-align: center;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.currentSubscriptionDoughnutAdmin >p {
+    color: #707070;
+    text-align: right;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    margin: 0px;
+    line-height: normal;
 }
 .newSubscriptionAdmin{
     display: inline;
@@ -1392,51 +1448,6 @@
 #myfileAdmin::-webkit-file-upload-buttonAdmin {
     visibility: hidden;
 }
-.currentSubscriptionDoughnutOuterAdmin{
-    border-bottom: 1px solid #E7E7E7;
-    width: 90%;
-    height: 140px;
-    margin: auto;
-    font-size: 15px;
-    font-family: "Poppins", Arial, sans-serif;
-}
-.currentSubscriptionDoughnutOuterAdmin > p{
-    text-align: center;
-    margin: 0px;
-    margin-top: 10px;
-}
-.currentSubscriptionDoughnutInnerAdmin{
-    width: 118px;
-    height: 118px;
-    margin: auto;
-    transform: rotate(0.005deg);
-    flex-shrink: 0;
-    stroke-width: 30.975px;
-    stroke: #7200FF;
-    position: relative;
-}
-.currentSubscriptionDoughnutInnerAdminNumber{
-    position: absolute;
-    top: 40%;
-    right: 35%;
-    color: #4F4F4F;
-    text-align: center;
-    font-family: "Poppins", Arial, sans-serif;
-    font-size: 26px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-}
-.currentSubscriptionDoughnutAdmin >p {
-    color: #707070;
-    text-align: right;
-    font-family: "Poppins", Arial, sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    margin: 0px;
-    line-height: normal;
-}
 .secondBoxAdminChartNav{
     display: none ;
 }
@@ -1446,6 +1457,10 @@
 
 
 @media all and (min-width:801px) and (max-width:1200px){
+    
+    .innerBoxPhoneAdminOverlay{
+        display: none;
+    }
     .innerBoxPhoneAdmin{
         display: none;
     }
@@ -1934,6 +1949,116 @@
     .SubscriptionTableBodyAdmintrue{
         font-size: 19px;
     }
+    .currentSubscriptionAdmin{
+        display: inline;
+        width: 600px;
+        height: 670px;
+        border-radius: 10px;
+        background: #FFF;
+        box-shadow: 0px 0px 25px 1px rgba(0, 0, 0, 0.15);
+        margin: auto;
+        position: absolute;
+        top: 10%;
+        left: 20%;
+    }
+    .currentSubscriptionCloseAdmin{
+        width: 95%;
+        text-align: right;
+        flex-shrink: 0;
+        padding-top: 25px;
+    }
+    .currentSubscriptionCloseAdmin > img{
+        width: 30px;
+        height: 30px;
+    }
+    .currentSubscriptionTextAdmin{
+        color: #000;
+        font-family: "Poppins", Arial, sans-serif;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 20px; /* 90.909% */
+        letter-spacing: 0.1px;
+        margin: 0px;
+        margin-bottom: 20px;
+    }
+    .currentSubscriptionInnerBoxAdmin{
+        width: 75%;
+        height: 490px;
+        margin: auto;
+        border-radius: 8px;
+        border: 1px solid #CACACA;
+        background: #FBF8FF;
+        text-align: center;
+    }
+    .currentSubscriptionTextBoxAdmin{
+        width: 80%;
+        height: 200px;
+        flex-shrink: 0;
+        margin: auto;
+        margin-top: 20px;
+        border-radius: 8px;
+        border: 1px solid #CACACA;
+        background: #F3EAFF;
+        text-align: left;
+        padding: 20px 0px 15px 20px;
+    }
+    .currentSubscriptionviewallAdmin{
+        color: #9114FF;
+        font-family: "Poppins", Arial, sans-serif;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-decoration-line: underline;
+        margin-top: 40px;
+    }
+    .currentSubscriptionDoughnutOuterAdmin{
+        border-bottom: 1px solid #E7E7E7;
+        width: 85%;
+        height: 205px;
+        margin: auto;
+        font-size: 15px;
+        font-family: "Poppins", Arial, sans-serif;
+    }
+    .currentSubscriptionDoughnutOuterAdmin > p{
+        font-size: 23px;
+        text-align: center;
+        margin: 0px;
+        margin-top: 10px;
+    }
+    .currentSubscriptionDoughnutInnerAdmin{
+        width: 155px;
+        height: 155px;
+        margin: auto;
+        transform: rotate(0.005deg);
+        flex-shrink: 0;
+        stroke-width: 30.975px;
+        stroke: #7200FF;
+        position: relative;
+    }
+    .currentSubscriptionDoughnutInnerAdminNumber{
+        position: absolute;
+        top: 40%;
+        right: 35%;
+        color: #2b2a2a;
+        text-align: center;
+        font-family: "Poppins", Arial, sans-serif;
+        font-size: 39px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+    .currentSubscriptionTextBoxAdmin >p {
+        color: #707070;
+        text-align: left;
+        font-family: "Poppins", Arial, sans-serif;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 400;
+        margin: 0px;
+        line-height: 50px ;
+    }
 }
 
 
@@ -1941,8 +2066,15 @@
 
 
 @media all and (min-width:481px) and (max-width:800px){
+    .innerBoxAdminOverlay{
+        display: none;
+    }
     .innerBoxAdmin{
         display: none;
+    }
+    .innerBoxPhoneAdminOverlay{
+        display: inline;
+        opacity: 0.1;
     }
     .innerBoxPhoneAdmin{
         display: inline;
@@ -2880,6 +3012,116 @@
     .SubscriptionTableBodyAdmintrue{
         font-size: 19px;
     }
+    .currentSubscriptionAdmin{
+        display: inline;
+        width: 450px;
+        height: 580px;
+        border-radius: 10px;
+        background: #FFF;
+        box-shadow: 0px 0px 25px 1px rgba(0, 0, 0, 0.15);
+        margin: auto;
+        position: absolute;
+        top: 13%;
+        left: 15%;
+    }
+    .currentSubscriptionCloseAdmin{
+        width: 96%;
+        text-align: right;
+        flex-shrink: 0;
+        padding-top: 20px;
+    }
+    .currentSubscriptionCloseAdmin > img{
+        width: 25px;
+        height: 25px;
+    }
+    .currentSubscriptionTextAdmin{
+        color: #000;
+        font-family: "Poppins", Arial, sans-serif;
+        font-size: 26px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 20px; /* 90.909% */
+        letter-spacing: 0.1px;
+        margin: 0px;
+        margin-bottom: 20px;
+    }
+    .currentSubscriptionInnerBoxAdmin{
+        width: 70%;
+        height: 420px;
+        margin: auto;
+        border-radius: 8px;
+        border: 1px solid #CACACA;
+        background: #FBF8FF;
+        text-align: center;
+    }
+    .currentSubscriptionTextBoxAdmin{
+        width: 80%;
+        height: 175px;
+        flex-shrink: 0;
+        margin: auto;
+        margin-top: 20px;
+        border-radius: 8px;
+        border: 1px solid #CACACA;
+        background: #F3EAFF;
+        text-align: left;
+        padding: 10px 0px 15px 10px;
+    }
+    .currentSubscriptionviewallAdmin{
+        color: #9114FF;
+        font-family: "Poppins", Arial, sans-serif;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-decoration-line: underline;
+        margin-top: 40px;
+    }
+    .currentSubscriptionDoughnutOuterAdmin{
+        border-bottom: 1px solid #E7E7E7;
+        width: 85%;
+        height: 175px;
+        margin: auto;
+        font-size: 15px;
+        font-family: "Poppins", Arial, sans-serif;
+    }
+    .currentSubscriptionDoughnutOuterAdmin > p{
+        font-size: 20px;
+        text-align: center;
+        margin: 0px;
+        margin-top: 10px;
+    }
+    .currentSubscriptionDoughnutInnerAdmin{
+        width: 127px;
+        height: 127px;
+        margin: auto;
+        transform: rotate(0.005deg);
+        flex-shrink: 0;
+        stroke-width: 30.975px;
+        stroke: #7200FF;
+        position: relative;
+    }
+    .currentSubscriptionDoughnutInnerAdminNumber{
+        position: absolute;
+        top: 40%;
+        right: 35%;
+        color: #2b2a2a;
+        text-align: center;
+        font-family: "Poppins", Arial, sans-serif;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+    .currentSubscriptionTextBoxAdmin >p {
+        color: #707070;
+        text-align: left;
+        font-family: "Poppins", Arial, sans-serif;
+        font-size: 19px;
+        font-style: normal;
+        font-weight: 400;
+        margin: 0px;
+        line-height: 45px ;
+    }
 }
 
 
@@ -2888,8 +3130,15 @@
 
 
 @media all and (min-width:180px) and (max-width:480px){
+    .innerBoxAdminOverlay{
+        display: none;
+    }
     .innerBoxAdmin{
         display: none;
+    }
+    .innerBoxPhoneAdminOverlay{
+        display: inline;
+        opacity: 0.1;
     }
     .innerBoxPhoneAdmin{
         display: inline;
@@ -3473,110 +3722,6 @@
         line-height: 20px; /* 142.857% */
         letter-spacing: 0.1px;
     }
-
-
-        
-    .currentSubscriptionAdmin{
-        width: 300px;
-        height: 360px;
-        top: 12%;
-        left: 13%;
-    }
-    .currentSubscriptionCloseAdmin{
-        padding-top: 10px;
-    }
-    .currentSubscriptionCloseAdmin > img{
-        width: 18px;
-        height: 18px;
-    }
-    .currentSubscriptionTextAdmin{
-        font-size: 19px;
-        margin-bottom: 10px;
-    }
-    .currentSubscriptionInnerBoxAdmin{
-        width: 259px;
-        height: 280px;
-    }
-    .countdownrightDoughnutOuterAdminFirstBox{
-        border-bottom: 1px solid #E7E7E7;
-        width: 100%;
-        height: 125px;
-        font-size: 15px;
-        font-family: "Poppins", Arial, sans-serif;
-    }
-    .countdownrightDoughnutOuterAdminFirstBox > p{
-        text-align: center;
-        margin: 0px;
-        margin-top: -5px;
-    }
-    .countdownrightDoughnutInnerAdminFirstBox{
-        width: 80px;
-        margin: auto;
-        transform: rotate(0.005deg);
-        flex-shrink: 0;
-        stroke-width: 30.975px;
-        stroke: #7200FF;
-        position: relative;
-    }
-    .countdownrightDoughnutInnerAdminNumberFirstBox{
-        position: absolute;
-        top: 37%;
-        right: 37%;
-        color: #4F4F4F;
-        text-align: center;
-        font-family: "Poppins", Arial, sans-serif;
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: normal;
-    }
-    .countdownrightText {
-        color: #707070;
-        text-align: right;
-        font-family: "Poppins", Arial, sans-serif;
-        font-size: 15px;
-        font-style: normal;
-        font-weight: 400;
-        margin: 0px;
-        line-height: normal;
-    }
-    .currentSubscriptionTextBoxAdmin{
-        width: 219px;
-        height: 100px;
-        flex-shrink: 0;
-        margin: auto;
-        margin-top: 10px;
-        border-radius: 8px;
-        border: 1px solid #CACACA;
-        background: #F3EAFF;
-        text-align: left;
-        padding: 0px 0px 15px 10px;
-        font-size: 12px;
-    }
-    .currentSubscriptionDoughnutOuterAdmin{
-        font-size: 13px;
-        width: 90%;
-        height: 115px;
-    }
-    .currentSubscriptionDoughnutInnerAdmin{
-        width: 80px;
-        height: 80px;
-    }
-    .currentSubscriptionDoughnutInnerAdminNumber{
-        top: 42%;
-        right: 35%;
-        font-size: 21px;
-    }
-    .currentSubscriptionviewallAdmin{
-        color: #9114FF;
-        font-family: "Poppins", Arial, sans-serif;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        text-decoration-line: underline;
-        margin-top: 8px;
-    }
     .sendMessageBoxAdminText{
         font-size: 22px;
         width: 94%;
@@ -3824,5 +3969,115 @@
     }
     .SubscriptionTableBodyAdmintrue{
         font-size: 19px;
+    }
+    .currentSubscriptionAdmin{
+        display: inline;
+        width: 290px;
+        height: 420px;
+        border-radius: 10px;
+        background: #FFF;
+        box-shadow: 0px 0px 25px 1px rgba(0, 0, 0, 0.15);
+        margin: auto;
+        position: absolute;
+        top: 13%;
+        left: 14%;
+    }
+    .currentSubscriptionCloseAdmin{
+        width: 96%;
+        text-align: right;
+        flex-shrink: 0;
+        padding-top: 15px;
+    }
+    .currentSubscriptionCloseAdmin > img{
+        width: 20px;
+        height: 20px;
+    }
+    .currentSubscriptionTextAdmin{
+        color: #000;
+        font-family: "Poppins", Arial, sans-serif;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 20px; /* 90.909% */
+        letter-spacing: 0.1px;
+        margin: 0px;
+        margin-bottom: 20px;
+    }
+    .currentSubscriptionInnerBoxAdmin{
+        width: 80%;
+        height: 295px;
+        margin: auto;
+        border-radius: 8px;
+        border: 1px solid #CACACA;
+        background: #FBF8FF;
+        text-align: center;
+    }
+    .currentSubscriptionTextBoxAdmin{
+        width: 83%;
+        height: 115px;
+        flex-shrink: 0;
+        margin: auto;
+        margin-top: 10px;
+        border-radius: 8px;
+        border: 1px solid #CACACA;
+        background: #F3EAFF;
+        text-align: left;
+        padding: 10px 0px 15px 10px;
+    }
+    .currentSubscriptionviewallAdmin{
+        color: #9114FF;
+        font-family: "Poppins", Arial, sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-decoration-line: underline;
+        margin-top: 20px;
+    }
+    .currentSubscriptionDoughnutOuterAdmin{
+        border-bottom: 1px solid #E7E7E7;
+        width: 85%;
+        height: 130px;
+        margin: auto;
+        font-size: 15px;
+        font-family: "Poppins", Arial, sans-serif;
+    }
+    .currentSubscriptionDoughnutOuterAdmin > p{
+        font-size: 16px;
+        text-align: center;
+        margin: 0px;
+        margin-top: 10px;
+    }
+    .currentSubscriptionDoughnutInnerAdmin{
+        width: 97px;
+        height: 97px;
+        margin: auto;
+        transform: rotate(0.005deg);
+        flex-shrink: 0;
+        stroke-width: 30.975px;
+        stroke: #7200FF;
+        position: relative;
+    }
+    .currentSubscriptionDoughnutInnerAdminNumber{
+        position: absolute;
+        top: 40%;
+        right: 35%;
+        color: #2b2a2a;
+        text-align: center;
+        font-family: "Poppins", Arial, sans-serif;
+        font-size: 26px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+    .currentSubscriptionTextBoxAdmin >p {
+        color: #707070;
+        text-align: left;
+        font-family: "Poppins", Arial, sans-serif;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        margin: 0px;
+        line-height: 30px ;
     }
 }
