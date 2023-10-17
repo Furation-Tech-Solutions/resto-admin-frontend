@@ -1731,7 +1731,7 @@
         font-size: 24px;
     }
     .sendMessageBoxAdminmessagebox{
-        height: 73vh;
+        height: 80vh;
         margin-top: 10px;
     }
     .sendMessageBoxAdminkeyboard{
@@ -1747,8 +1747,8 @@
         height: 50px;
     }
     .sendMessageBoxAdminkeyboard > div :nth-child(2){
-        width: 30px;
-        height: 30px;
+        width: 34px;
+        height: 34px;
     }
     .sendMessageBoxAdminkeyboard > div >input{
         width: 88%;
@@ -1775,14 +1775,14 @@
         border-radius: 50%;
     }
     .sendBulkMessageBoxAdminText{
-        font-size: 28px;
+        font-size: 26px;
     }
     .sendBulkMessageBoxAdminaddcontact{
         height: 50px;
         padding:  0px;
     }
     .sendBulkMessageBoxAdminmessagebox{
-        height: 73vh;
+        height: 80vh;
         margin-top: 10px;
     }
     .sendBulkMessageBoxAdminkeyboard{
@@ -1845,10 +1845,10 @@
         padding-left: 0px;
     }
     .announcementBoxAdminText{
-        font-size: 28px;
+        font-size: 27px;
     }
     .announcementBoxAdminmessagebox{
-        height: 80vh;
+        height: 85vh;
         margin-top: 10px;
     }
     .announcementBoxAdminkeyboard{
