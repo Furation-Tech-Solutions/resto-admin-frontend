@@ -23,6 +23,8 @@ const Superadmin = () => {
     .then((r)=>setUserData(r.data));
   }, [])
 
+  console.log(userData);
+
   const [barnum, setBarnum]= useState(1);
   const dispatch= useDispatch();
 
@@ -283,7 +285,7 @@ const Superadmin = () => {
                   </thead>
                   <tbody>
                     {userData && userData.map((user, i)=>{
-                      return <tr key={user._id} onClick={()=>navigate(`/superadmin/:${user._id}`)}>
+                      return <tr key={user.id} onClick={()=>navigate(`/superadmin/:${user.id}`)}>
                         <td className="userTableBodySuperAdmin">{i+1}</td>
                         <td className="userTableBodySuperAdmin">{user.businessName}</td>
                         <td className="userTableBodySuperAdmin">{user.email}</td>
@@ -324,7 +326,7 @@ const Superadmin = () => {
                   </thead>
                   <tbody>
                     {feedbackData && feedbackData.map((feedback, i)=>{
-                      return <tr key={feedback._id}>
+                      return <tr key={feedback.id}>
                         <td className="feedbackTableBodySuperAdmin">{i+1}</td>
                         <td className="feedbackTableBodySuperAdmin">{feedback.name}</td>
                         <td className="feedbackTableBodySuperAdmin">{feedback.phone}</td>

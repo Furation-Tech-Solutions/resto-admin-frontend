@@ -1,20 +1,18 @@
 import React, { useState } from "react";
 import "../styles/Admin.css";
+import "../styles/Superadmin.css";
 import logo from "../utils/Images/Admin/logo.svg";
-import emoji from "../utils/Images/Admin/emoji.svg";
-import closeicon from "../utils/Images/Admin/closeicon.png";
+import { AiOutlineSearch } from 'react-icons/ai';
 import menu from "../utils/Images/Admin/menu.svg";
 import filter from "../utils/Images/Admin/filter.svg";
-import calendar from "../utils/Images/Admin/Calendar.svg";
 import chevronleft from "../utils/Images/Admin/chevron-right.svg";
 import chevronrightdisable from "../utils/Images/Admin/chevron-right-disable.svg";
 import chevronright from "../utils/Images/Admin/chevron-left.svg";
 import chevronleftdisable from "../utils/Images/Admin/chevron-left-disable.svg";
-import checkcircle from '../utils/Images/Admin/checkcircle.svg'
-import { AiOutlinePaperClip, AiOutlineCheck } from 'react-icons/ai';
 import { FiSearch } from 'react-icons/fi';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, Filler, LineElement, BarElement, ArcElement, Title, Tooltip, Legend } from 'chart.js';
 import { Line,  Bar, Doughnut } from 'react-chartjs-2';
+import { useNavigate } from "react-router-dom";
 
 const SingleAdmin = () => {
 
@@ -30,6 +28,8 @@ const SingleAdmin = () => {
         Tooltip,
         Legend
       );
+
+      const navigate= useNavigate();
       
       const [ currentSubscriptionopen, setCurrentSubscriptionopen ]= useState(false);
     
@@ -440,32 +440,34 @@ const SingleAdmin = () => {
     
   return (
     <div>
-      <div className="innerBoxAdmin">
-      <div className="leftBoxSuperAdmin">
+      <div className={currentSubscriptionopen? "innerBoxAdminOverlay" : "innerBoxAdmin" }>
+        <div className="leftBoxSuperAdmin">
           <div className="leftfirstBoxSuperAdmin">
             <img src={logo} alt="applogo" />
             <p>Furation Tech</p>
           </div>
-          <div className="leftsecondBoxSuperAdmin">
-            <div
-              onClick={() => setBarnum(1)}
-              className={
-                barnum === 1 ? "leftsecondfirstSuperAdminOn" : "leftsecondfirstSuperAdmin"
-              }
-            >
-              <p>Dashboard</p>
+          <div className="ContentBoxSideBarrPhoneAdmin">
+            <div className="leftsecondBoxSuperAdmin">
+              <div
+                onClick={() => navigate("/superadmin")}
+                className={
+                  barnum === 1 ? "leftsecondfirstSuperAdminOn" : "leftsecondfirstSuperAdmin"
+                }
+              >
+                <p>Dashboard</p>
+              </div>
+              <div
+                onClick={() => setBarnum(2)}
+                className={
+                  barnum === 2 ? "leftsecondsecondSuperAdminOn" : "leftsecondsecondSuperAdmin"
+                }
+              >
+                <p>Support</p>
+              </div>
             </div>
-            <div
-              onClick={() => setBarnum(2)}
-              className={
-                barnum === 2 ? "leftsecondsecondSuperAdminOn" : "leftsecondsecondSuperAdmin"
-              }
-            >
-              <p>Support</p>
+            <div className="leftthirdBoxSuperAdmin">
+              <div className="leftthirdBoxfirstSuperAdmin">Logout</div>
             </div>
-          </div>
-          <div className="leftthirdBoxSuperAdmin">
-            <div className="leftthirdBoxfirstSuperAdmin">Logout</div>
           </div>
         </div>
         <div className="rightBoxAdmin">
@@ -488,7 +490,6 @@ const SingleAdmin = () => {
                     <p>25</p>
                   </div>
                 </div> */}
-                <div></div>
                 <div className="countdownrightDoughnutOuterAdminFirstBox">
                   <div onClick={()=>setCurrentSubscriptionopen(true)} className="countdownrightDoughnutInnerAdminFirstBox">
                     <Doughnut data={doughnutdata} /><br/>
@@ -513,22 +514,32 @@ const SingleAdmin = () => {
                   <div className="rightsecondBoxCountNumber">42</div>
                 </div>
               </div>
-              <div className="weeklyChartAdmin">
-                <div className="weeklyChartAdminText">
-                  <p>last 7 days</p>
+              <div className="AdminTabChartWrapper">
+                <div className={chartnumphone===1? "weeklyChartAdmin" : "weeklyChartAdminHide"}>
+                  <div className="weeklyChartAdminText">
+                    <p>last 7 days</p>
+                  </div>
+                  <Bar data={weeklydata} options={barOptions} />
                 </div>
-                <Bar data={weeklydata} options={barOptions} />
+                <div className={chartnumphone===2? "monthlyChartAdmin" : "monthlyChartAdminHide"}>
+                  <div className="monthlyChartAdminText">
+                    <p>last 30 days</p>
+                    <select className="monthlyChartAdminSelect" name="" id="">
+                      <option value="">Current month</option>
+                      <option value="">Previous month</option>
+                      <option value="">Last month</option>
+                    </select>
+                  </div>
+                  <Line data={monthlydata} options={lineOptions} />
+                </div>
+                <div className="secondBoxAdminChartNav">
+                  <img onClick={()=>setchartnumphone(1)} src={chartnumphone===1? chevronleftdisable : chevronright} alt="" />
+                  <div>
+                    <div onClick={()=>setchartnumphone(1)} className={chartnumphone===1? "weeklycirclephonediv" : "weeklycirclephonedivOff"}></div>
+                    <div onClick={()=>setchartnumphone(2)} className={chartnumphone===2? "monthlycirclephonediv" : "monthlycirclephonedivOff"}></div>
+                  </div>
+                  <img onClick={()=>setchartnumphone(2)} src={chartnumphone===1? chevronleft : chevronrightdisable} alt="" />
               </div>
-              <div className="monthlyChartAdmin">
-                <div className="monthlyChartAdminText">
-                  <p>last 30 days</p>
-                  <select className="monthlyChartAdminSelect" name="" id="">
-                    <option value="">Current month</option>
-                    <option value="">Previous month</option>
-                    <option value="">Last month</option>
-                  </select>
-                </div>
-                <Line data={monthlydata} options={lineOptions} />
               </div>
             </div>
             <div className="rightthirdBoxAdmin">
@@ -562,7 +573,7 @@ const SingleAdmin = () => {
                   {userData &&
                     userData.map((user, i) => {
                       return (
-                        <tr>
+                        <tr key={user._id}>
                           <td className="userTableAdminBody">{i + 1}</td>
                           <td className="userTableAdminBody">{user.name}</td>
                           <td className="userTableAdminBody">{user.phone}</td>
@@ -574,149 +585,39 @@ const SingleAdmin = () => {
               </table>
             </div>
           </div>
-          <div
-            className={
-              barnum === 2 ? "rightMessageBoxAdmin" : "rightMessageBoxAdminOff"
-            }
-          >
-            <div></div>
-          </div>
-          <div
-            className={
-              barnum === 2 || barnum === 3 ? "sendMessageBoxAdmin" : "sendMessageBoxAdminOff"
-            }
-          >
-            <div className="sendMessageBoxAdminText">
-              <p>Send Message</p>
-            </div>
-            <div className="sendMessageBoxAdminaddcontact">
-              <input type="text" placeholder="Enter phone no" />
-              <button>Add</button>
-            </div>
-            <div className="sendMessageBoxAdminmessagebox"></div>
-            <div className="sendMessageBoxAdminkeyboard">
-              <img src={emoji} alt="emoji face" />
-              <div>
-                <input type="text" placeholder="Type message here..." />
-                <AiOutlinePaperClip size={"23px"} color="#878787"/>
+          <div className={barnum===2 ? 'rightBoxSuperAdminSupport' : 'rightBoxSuperAdminSupportOff'}>
+            <div className='rightBoxSuperAdminSupportText'><p>Support</p></div>
+            <div className='rightsecondBoxSuperadmin'>
+              <div className="rightsecondBoxSuperadminInputBox">
+                <AiOutlineSearch size={"20px"} />
+                <input className="rightsecondBoxSuperadminInput" type="text" placeholder='Search by email or phone number' />
               </div>
-              <button>Send</button>
+              <select className="rightsecondBoxSuperadminSelect" name="" id="">
+                <option value="">Filter By</option>
+                <option value="">Akina</option>
+                <option value="">Pritam da dhaba</option>
+              </select>
             </div>
-          </div>
-          <div
-            className={
-              barnum === 4 ? "sendBulkMessageBoxAdmin" : "sendBulkMessageBoxAdminOff"
-            }
-          >
-            <div className="sendBulkMessageBoxAdminText">
-              <p>Send Bulk Message</p>
-            </div>
-            <div className="sendBulkMessageBoxAdminaddcontact">
-              {/* <input className="sendBulkMessageBoxAdminaddcontactInput" type="text" placeholder="Upload Excel file" />
-              <input className="sendBulkMessageBoxAdminaddcontactFile" type="file" placeholder="Choose File" /> */}
-              <label className="fileinputwrapperAdmin">
-                  <span className="file-input-textAdmin">Upload Excel file</span>
-                  <input type="file" id="myfileAdmin" name="myfile" multiple />
-                  <span className="file-input-buttonAdmin">Choose File</span>
-              </label>
-            </div>
-            <div className="sendBulkMessageBoxAdminmessagebox"></div>
-            <div className="sendBulkMessageBoxAdminkeyboard">
-              <img src={emoji} alt="emoji face" />
-              <div>
-                <input type="text" placeholder="Type message here..." />
-                <AiOutlinePaperClip size={"25px"} color="#878787"/>
-              </div>
-              <button>Send</button>
-            </div>
-          </div>
-          <div
-            className={
-              barnum === 5 ? "announcementBoxAdmin" : "announcementBoxAdminOff"
-            }
-          >
-            <div className="announcementBoxAdminText">
-              <p>Announcement</p>
-            </div>
-            <div className="announcementBoxAdminmessagebox"></div>
-            <div className="announcementBoxAdminkeyboard">
-              <img src={emoji} alt="emoji face" />
-              <div>
-                <input type="text" placeholder="Type message here..." />
-                <AiOutlinePaperClip size={"25px"} color="#878787"/>
-              </div>
-              <button>Send</button>
-            </div>
-          </div>
-          <div
-            className={
-              barnum === 6
-                ? "rightFeedbackBoxAdmin"
-                : "rightFeedbackBoxAdminOff"
-            }
-          >
-            <div className="rightFeedbackBoxAdminInner">
-              <p className="FeedbackTextAdmin">Feedback</p>
-              <div className="feedbacktableholder">
-                <table className="FeedbackTableAdmin">
+            <div className='rightthirdBoxSuperadminSupport'>
+              <div className='userTableSuperAdminHolder'>
+                <table className="feedbackTableSuperAdmin">
                   <thead>
                     <tr>
-                      <th className="FeedbackTableHeadAdmin">Sr. No.</th>
-                      <th className="FeedbackTableHeadAdmin">Name</th>
-                      <th className="FeedbackTableHeadAdmin">Phone Number</th>
-                      <th className="FeedbackTableHeadAdmin">Feedback</th>
-                      <th className="FeedbackTableHeadAdmin">Date</th>
+                      <th className="feedbackTableHeadSuperAdmin">Sr. No.</th>
+                      <th className="feedbackTableHeadSuperAdmin">Name</th>
+                      <th className="feedbackTableHeadSuperAdmin">Phone Number</th>
+                      <th className="feedbackTableHeadSuperAdmin">Feedback</th>
+                      <th className="feedbackTableHeadSuperAdmin">Date</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {feedbackData && feedbackData.map((feed, i)=>{
-                      return <tr>
-                        <td className="FeedbackTableBodyAdmin">{i+1}</td>
-                        <td className="FeedbackTableBodyAdmin">{feed.name}</td>
-                        <td className="FeedbackTableBodyAdmin">{feed.phone}</td>
-                        <td className="FeedbackTableBodyAdmin">{feed.message}</td>
-                        <td className="FeedbackTableBodyAdmin">{feed.date}</td>
-                      </tr>
-                    })}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-          <div
-            className={
-              barnum === 7
-                ? "rightSubscriptionBoxAdmin"
-                : "rightSubscriptionBoxAdminOff"
-            }
-          >
-            <div className="rightSubscriptionBoxAdminInner">
-              <p className="SubscriptionTextAdmin">Subscription & Payment History</p>
-              <div className="subscriptiontableholder">
-                <table className="SubscriptionTableAdmin">
-                  <thead>
-                    <tr>
-                      <th className="SubscriptionTableHeadAdmin">Sr. No.</th>
-                      <th className="SubscriptionTableHeadAdmin">Plan</th>
-                      <th className="SubscriptionTableHeadAdmin">Type</th>
-                      <th className="SubscriptionTableHeadAdmin">Price</th>
-                      <th className="SubscriptionTableHeadAdmin">Invoice</th>
-                      <th className="SubscriptionTableHeadAdmin">Start Date</th>
-                      <th className="SubscriptionTableHeadAdmin">End Date</th>
-                      <th className="SubscriptionTableHeadAdmin">Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {subscriptionData && subscriptionData.map((subscription, i)=>{
-                      return <tr>
-                        <td className="SubscriptionTableBodyAdmin">{i+1}</td>
-                        <td className="SubscriptionTableBodyAdmin">{subscription.plan}</td>
-                        <td className="SubscriptionTableBodyAdmin">{subscription.type}</td>
-                        <td className="SubscriptionTableBodyAdmin">{subscription.price}</td>
-                        <td className="SubscriptionTableBodyAdmin">{subscription.invoice}</td>
-                        <td className="SubscriptionTableBodyAdmin">{subscription.startdate}</td>
-                        <td className="SubscriptionTableBodyAdmin">{subscription.enddate}</td>
-                        <td className={subscription.status?"SubscriptionTableBodyAdmintrue" : "SubscriptionTableBodyAdmin"}>{subscription.status? "Active" : "Expired"}</td>
+                    {feedbackData && feedbackData.map((feedback, i)=>{
+                      return <tr key={feedback.id}>
+                        <td className="feedbackTableBodySuperAdmin">{i+1}</td>
+                        <td className="feedbackTableBodySuperAdmin">{feedback.name}</td>
+                        <td className="feedbackTableBodySuperAdmin">{feedback.phone}</td>
+                        <td className="feedbackTableBodySuperAdmin">{feedback.message}</td>
+                        <td className="feedbackTableBodySuperAdmin">{feedback.date}</td>
                       </tr>
                     })}
                   </tbody>
@@ -726,8 +627,8 @@ const SingleAdmin = () => {
           </div>
         </div>
       </div>
-      <div className="innerBoxPhoneAdmin">
-        <div className="innerBoxPhoneAdminContent">
+      <div className={currentSubscriptionopen? "innerBoxPhoneAdminOverlay" : "innerBoxPhoneAdmin"}>
+        <div onClick={()=>isSidebarPhone===true && setIsSidebarPhone(!isSidebarPhone)} className="innerBoxPhoneAdminContent">
           <div className="navPhoneAdmin">
             <div className="menuIconAdminBox">
               <img onClick={()=>setIsSidebarPhone(!isSidebarPhone)} src={menu} alt="menu" />
@@ -736,91 +637,98 @@ const SingleAdmin = () => {
               <img src={logo} alt="logo" />
             </div>
           </div>
-          <div className="firstBoxAdminPhone">
-            <div className="firstBoxTextAdminPhone">
-              <p>Hello, Admin!</p>
-              <p>Users Overview</p>
-              <p>13 June, 2023 Tuesday</p>
-            </div>
-            <div onClick={()=>setCurrentSubscriptionopen(true)} className="countdownrAdminBoxPhone">
-              <Doughnut data={doughnutdata} /><br/>
-              <div className="countdownrAdminBoxPhoneNumber">25</div>
-            </div>
-          </div>
-          <div className="secondBoxAdminPhone">
-            <div className="secondBoxInnerAdminPhone">
-              <div className="secondBoxInnerAdminPhoneText">Today</div>
-              <div className="secondBoxInnerAdminPhoneNumber">12</div>
-            </div>
-            <div className="secondBoxInnerAdminPhone">
-              <div className="secondBoxInnerAdminPhoneText">Total</div>
-              <div className="secondBoxInnerAdminPhoneNumber">42</div>
-            </div>
-          </div>
-          <div className="thirdBoxAdminPhone">
-            <div className="thirdBoxAdminChartBoxPhone">
-              {chartnumphone===1 && <div className="thirdBoxAdminWeeklyBoxPhone">
-                <p className="thirdBoxAdminWeeklyBoxPhoneText">This Week</p>
-                <Bar data={weeklydata} options={barOptions} />
-              </div>}
-              {chartnumphone===2 && <div className="thirdBoxAdminMonthlyBoxPhone">
-                <div className="thirdBoxAdminMonthlyBoxPhoneText">
-                  <p>last 30 days</p>
-                  <select className="monthlyChartAdminSelect" name="" id="">
-                    <option value="">Current month</option>
-                    <option value="">Previous month</option>
-                    <option value="">Last month</option>
-                  </select>
-                </div>
-                <Line data={monthlydata} options={lineOptions} />
-              </div>}
-            </div>
-            <div className="thirdBoxAdminChartNavPhone">
-              <img onClick={()=>setchartnumphone(1)} src={chartnumphone===1? chevronleftdisable : chevronright} alt="" />
-              <div>
-                <div onClick={()=>setchartnumphone(1)} className={chartnumphone===1? "weeklycirclephonediv" : "weeklycirclephonedivOff"}></div>
-                <div onClick={()=>setchartnumphone(2)} className={chartnumphone===2? "monthlycirclephonediv" : "monthlycirclephonedivOff"}></div>
+          <div
+              className={
+                barnum === 1 ? "interactionAdmin" : "interactionAdminOff"
+              }>
+            <div className="firstBoxAdminPhone">
+              <div className="firstBoxTextAdminPhone">
+                <p>Hello, Admin!</p>
+                <p>Users Overview</p>
+                <p>13 June, 2023 Tuesday</p>
               </div>
-              <img onClick={()=>setchartnumphone(2)} src={chartnumphone===1? chevronleft : chevronrightdisable} alt="" />
+              <div onClick={()=>setCurrentSubscriptionopen(true)} className="countdownrAdminBoxPhone">
+                <Doughnut data={doughnutdata} /><br/>
+                <div className="countdownrAdminBoxPhoneNumber">25</div>
+              </div>
             </div>
-          </div>
-          <div className="fourthBoxAdminPhone">
-            <div className="fourthBoxAdminPhoneInputBox">
-              <FiSearch />
-              <input
-                type="text"
-                name=""
-                id=""
-                placeholder="Search by name or phone number"
-              />
+            <div className="GraphWrapperPhone">
+              <div className="secondBoxAdminPhone">
+                <div className="secondBoxInnerAdminPhone">
+                  <div className="secondBoxInnerAdminPhoneText">Today</div>
+                  <div className="secondBoxInnerAdminPhoneNumber">12</div>
+                </div>
+                <div className="secondBoxInnerAdminPhone">
+                  <div className="secondBoxInnerAdminPhoneText">Total</div>
+                  <div className="secondBoxInnerAdminPhoneNumber">42</div>
+                </div>
+              </div>
+              <div className="thirdBoxAdminPhone">
+                <div className="thirdBoxAdminChartBoxPhone">
+                  {chartnumphone===1 && <div className="thirdBoxAdminWeeklyBoxPhone">
+                    <p className="thirdBoxAdminWeeklyBoxPhoneText">This Week</p>
+                    <Bar data={weeklydata} options={barOptions} />
+                  </div>}
+                  {chartnumphone===2 && <div className="thirdBoxAdminMonthlyBoxPhone">
+                    <div className="thirdBoxAdminMonthlyBoxPhoneText">
+                      <p>last 30 days</p>
+                      <select className="monthlyChartAdminSelect" name="" id="">
+                        <option value="">Current month</option>
+                        <option value="">Previous month</option>
+                        <option value="">Last month</option>
+                      </select>
+                    </div>
+                    <Line data={monthlydata} options={lineOptions} />
+                  </div>}
+                </div>
+                <div className="thirdBoxAdminChartNavPhone">
+                  <img onClick={()=>setchartnumphone(1)} src={chartnumphone===1? chevronleftdisable : chevronright} alt="" />
+                  <div>
+                    <div onClick={()=>setchartnumphone(1)} className={chartnumphone===1? "weeklycirclephonediv" : "weeklycirclephonedivOff"}></div>
+                    <div onClick={()=>setchartnumphone(2)} className={chartnumphone===2? "monthlycirclephonediv" : "monthlycirclephonedivOff"}></div>
+                  </div>
+                  <img onClick={()=>setchartnumphone(2)} src={chartnumphone===1? chevronleft : chevronrightdisable} alt="" />
+                </div>
+              </div>
             </div>
-            <div className="fourthBoxAdminPhoneButton">
-              <img src={filter} alt="filtericon" />
+            <div className="fourthBoxAdminPhone">
+              <div className="fourthBoxAdminPhoneInputBox">
+                <FiSearch />
+                <input
+                  type="text"
+                  name=""
+                  id=""
+                  placeholder="Search by name or phone number"
+                />
+              </div>
+              <div className="fourthBoxAdminPhoneButton">
+                <img src={filter} alt="filtericon" />
+              </div>
             </div>
-          </div>
-          <div className="fifthBoxAdminPhone">
-            <table className="userTableAdminPhone">
-              <thead>
-                <tr>
-                  <th className="userTableAdminHeadPhone">Sr.No.</th>
-                  <th className="userTableAdminHeadPhone">Name</th>
-                  <th className="userTableAdminHeadPhone">Phone Number</th>
-                  <th className="userTableAdminHeadPhone">Message Count</th>
-                </tr>
-              </thead>
-              <tbody>
-                {userData && userData.map((user, i) => {
-                  return (
-                    <tr>
-                      <td className="userTableAdminBodyPhone">{i + 1}</td>
-                      <td className="userTableAdminBodyPhone">{user.name}</td>
-                      <td className="userTableAdminBodyPhone">{user.phone}</td>
-                      <td className="userTableAdminBodyPhone">{user.messeage_count}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+            <div className="fifthBoxAdminPhone">
+              <table className="userTableAdminPhone">
+                <thead>
+                  <tr>
+                    <th className="userTableAdminHeadPhone">Sr.No.</th>
+                    <th className="userTableAdminHeadPhone">Name</th>
+                    <th className="userTableAdminHeadPhone">Phone Number</th>
+                    <th className="userTableAdminHeadPhone">Message Count</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {userData && userData.map((user, i) => {
+                    return (
+                      <tr key={user._id}>
+                        <td className="userTableAdminBodyPhone">{i + 1}</td>
+                        <td className="userTableAdminBodyPhone">{user.name}</td>
+                        <td className="userTableAdminBodyPhone">{user.phone}</td>
+                        <td className="userTableAdminBodyPhone">{user.messeage_count}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
 
@@ -830,61 +738,39 @@ const SingleAdmin = () => {
               <img onClick={()=>setIsSidebarPhone(!isSidebarPhone)} src={menu} alt="menu" />
             </div>
           </div>
-          {/* <div className="FirstBoxsideBarPhoneAdmin">
-              <img src={logo} alt="logo" />
-              <p>Furation Tech</p>
-          </div> */}
-          <div className="SecondBoxsideBarPhoneAdmin">
-              <div
-                onClick={() => setBarnum(1)}
-                className={
-                  barnum === 1 ? "sidesecondfirstPhoneAdminOn" : "sidesecondfirstPhoneAdmin"
-                }
-              >
-                <p>Dashboard</p>
-              </div>
-              <div
-                className={
-                  barnum === 2 || barnum===3 || barnum===4 || barnum===5
-                    ? "sidesecondsecondPhoneAdminOn"
-                    : "sidesecondsecondPhoneAdmin"
-                }
-              >
-                <p onClick={() => {
-                  if(barnum===2 || barnum===3 ||barnum===4 ||barnum===5){
-                    setBarnum(1);
-                  }else{
-                    setBarnum(2);
+          <div className="ContentBoxSideBarrPhoneAdmin">
+            <div className="SecondBoxsideBarPhoneAdmin">
+                <div
+                  onClick={() => {
+                    navigate("/superadmin")
+                    setIsSidebarPhone(!isSidebarPhone)
+                  }}
+                  className={
+                    barnum === 1 ? "sidesecondfirstPhoneAdminOn" : "sidesecondfirstPhoneAdmin"
                   }
-                }}
-                >Message</p>
-                <div className={barnum===2 || barnum===3 || barnum===4 || barnum===5? "sidesecondseconddivPhoneAdmin" : "sidesecondseconddivPhoneAdminOff"}>
-                  <p className={barnum===2 || barnum===3? "sidesendMessagePhoneAdmin" : "sidesendMessagePhoneAdminOff"} onClick={() => setBarnum(3)}>Send Message {(barnum === 2 || barnum === 3) && <AiOutlineCheck/>} </p><br/><br/>
-                  <p className={barnum===4? "sidesendBulkMessagePhoneAdmin" : "sidesendBulkMessagePhoneAdminOff"} onClick={() => setBarnum(4)}>Bulk message {barnum ===4 && <AiOutlineCheck/>}</p><br/><br/>
-                  <p className={barnum===5? "sideannouncementPhoneAdmin" : "sideannouncementPhoneAdminOff"} onClick={() => setBarnum(5)}>Announcement {barnum ===5 && <AiOutlineCheck/>}</p><br/><br/>
+                >
+                  <p>Dashboard</p>
                 </div>
-              </div>
-              <div
-                onClick={() => setBarnum(6)}
-                className={
-                  barnum === 6 ? "sidesecondthirdPhoneAdminOn" : "sidesecondthirdPhoneAdmin"
-                }
-              >
-                <p>Feedback</p>
-              </div>
-              <div
-                onClick={() => setBarnum(7)}
-                className={
-                  barnum === 7
-                    ? "sidesecondfourthPhoneAdminOn"
-                    : "sidesecondfourthPhoneAdmin"
-                }
-              >
-                <p>Subscription History</p>
-              </div>
+                <div
+                  onClick={() => {
+                    setBarnum(2)
+                    setIsSidebarPhone(!isSidebarPhone)
+                  }}
+                  className={
+                    barnum === 2
+                      ? "sidesecondsecondPhoneAdminOn"
+                      : "sidesecondsecondPhoneAdmin"
+                  }
+                >
+                  <p>Support</p>
+                </div>
+            </div>
+            <div className="ThirdBoxsideBarPhoneAdmin">
+              <div className="ThirdBoxsideBarSecondPhoneAdmin">Logout</div>
+            </div>
           </div>
-          <div className="ThirdBoxsideBarPhoneAdmin"></div>
         </div>
+      
       </div>
     </div>
   )
