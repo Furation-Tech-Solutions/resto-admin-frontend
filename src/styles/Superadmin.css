@@ -931,7 +931,7 @@
         line-height: 20px; /* 142.857% */
         letter-spacing: 0.1px;
     }
-    .sidesecondsecondPhoneAdminOn{
+    .sidesecondsecondPhoneSuperAdminOn{
         display: flex;
         width: 85%;
         padding: 0px 6px;
@@ -1286,7 +1286,7 @@
         line-height: 20px; /* 142.857% */
         letter-spacing: 0.1px;
     }
-    .sidesecondsecondPhoneAdminOn{
+    .sidesecondsecondPhoneSuperAdminOn{
         display: flex;
         width: 75%;
         padding: 0px 6px;

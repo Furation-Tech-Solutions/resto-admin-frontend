@@ -204,7 +204,7 @@ const Superadmin = () => {
                   }}
                   className={
                     barnum === 2
-                      ? "sidesecondsecondPhoneAdminOn"
+                      ? "sidesecondsecondPhoneSuperAdminOn"
                       : "sidesecondsecondPhoneAdmin"
                   }
                 >
