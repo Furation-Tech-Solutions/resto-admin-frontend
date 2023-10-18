@@ -671,7 +671,7 @@
         padding: 5px 0px 5px 10px;
     }
     .rightsecondBoxSuperadminInput{
-        width: 95%;
+        width: 90%;
         height: 21px;
         font-size: 18px;
     }
@@ -1381,7 +1381,7 @@
         height: 20px;
     }
     .rightsecondBoxSuperadminInput{
-        width: 95%;
+        width: 85%;
         height: 24px;
         font-size: 17px;
     }
@@ -1392,7 +1392,7 @@
         padding: 2px;
     }
     .rightsecondBoxSuperadminSelect > option {
-        font-size: 11px;
+        font-size: 10px;
     }
     .rightthirdBoxSuperadmin{
         width: 98%;
