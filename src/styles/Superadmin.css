@@ -1,11 +1,29 @@
 *{
     font-family: "Poppins", Arial, sans-serif;
-}.outerBoxSuperAdmin{
+}
+.innerBoxPhoneAdminOverlay{
+    display: none;
+}
+.innerBoxPhoneAdmin{
+    display: none;
+}
+.sideBarPhoneAdmin{
+    display: none;
+}
+.outerBoxSuperAdmin{
     width: 100%;
     background: #FFF;
     position: relative;
     overflow-x: hidden;
     overflow-y: hidden;
+}
+.innerBoxSuperAdminOverlay{
+    width: 100%;
+    background: #FFF;
+    opacity: 0.1;
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
 }
 .innerBoxSuperAdmin{
     width: 100%;
@@ -23,7 +41,8 @@
 .leftfirstBoxSuperAdmin{
     padding: 30px;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 10px;
     align-items: center;
 }
 .leftfirstBoxSuperAdmin > img {
@@ -38,6 +57,14 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+}
+.ContentBoxSideBarrPhoneAdmin{
+    display: flex;
+    width: 100%;
+    height: 86%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 .leftsecondBoxSuperAdmin{
     width: 60%;
@@ -127,7 +154,6 @@
     line-height: 20px; /* 142.857% */
     letter-spacing: 0.1px;
     margin: auto;
-    margin-top: 90%;
 }
 .leftthirdBoxfirstSuperAdmin{
     width: 60%;
@@ -187,6 +213,9 @@
     line-height: normal;
     margin: 0px;
 }
+.addadminbuttonSuperadminBox{
+    width: 13%;
+}
 .addadminbuttonSuperadmin{
     display: flex;
     border: none;
@@ -200,7 +229,7 @@
     background: linear-gradient(287deg, #7200FF 15.07%, #FC57FF 88.56%), #000;
     color: #FFF;
     text-align: center;
-    font-family: Poppins;
+    font-family: "Poppins", Arial, sans-serif;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -259,11 +288,10 @@
     flex-shrink: 0;
     border-radius: 8px;
     border: 1px solid #C2C2C2;
-    overflow: scroll;
+    height: 72vh;
+    margin-top: 10px;
     overflow-x: hidden;
     overflow-y: auto;
-    height: 73vh;
-    margin-top: 10px;
 }
 .userTableSuperAdmin{
     width: 100%;
@@ -309,15 +337,13 @@
 }
 .rightthirdBoxSuperadminSupport{
     width: 98%;
-    display: flex;
-    justify-content: space-between;
-    height: 460px;
-    align-items: center;
-    padding: 10px 0px;
-    overflow-x: hidden;
-    overflow-y: auto;
+    flex-shrink: 0;
     border-radius: 8px;
     border: 1px solid #C2C2C2;
+    height: 75vh;
+    margin-top: 10px;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .feedbackTableSuperAdmin{
@@ -358,7 +384,7 @@
     left: 35%;
     width: 30%;
     height: 470px;
-    padding: 50px;
+    padding: 40px;
     text-align: left;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
@@ -556,57 +582,82 @@
 
 
 
-@media all and (min-width:481px) and (max-width:786px){
+@media all and (min-width:801px) and (max-width:1200px){
+    .innerBoxPhoneAdminOverlay{
+        display: none;
+    }
+    .innerBoxPhoneAdmin{
+        display: none;
+    }
+    .leftBoxSuperAdmin{
+        width: 30%;
+    }
     .leftfirstBoxSuperAdmin{
         padding: 15px;
     }
     .leftfirstBoxSuperAdmin > p{
-        font-size: 11px;
+        font-size: 22px;
     }
     .leftfirstBoxSuperAdmin > img {
-        width: 25%;
-        height: 25%;
+        width: 22%;
+        height: 22%;
         flex-shrink: 0;
     }
+    .ContentBoxSideBarrPhoneAdmin{
+        height: 98%;
+    }
     .leftsecondfirstSuperAdmin{
-        font-size: 11px;
+        font-size: 20px;
         width: 93%;
-        padding: 0px 7px 0px 5px;
+        padding: 5px 10px;
     }
     .leftsecondfirstSuperAdminOn{
-        font-size: 11px;
+        font-size: 20px;
         width: 93%;
         height: 40px;
-        padding: 0px 7px 0px 5px;
+        padding: 5px 10px;
     }
     .leftsecondsecondSuperAdmin{
-        font-size: 11px;
+        font-size: 20px;
         width: 93%;
-        padding: 0px 7px 0px 5px;
+        padding: 5px 10px;
     }
     .leftsecondsecondSuperAdminOn{
-        font-size: 11px;
+        font-size: 20px;
         width: 93%;
         height: 40px;
-        padding: 0px 7px 0px 5px;
+        padding: 5px 10px;
+    }
+    .leftthirdBoxSuperAdmin{
+        font-size: 14px;
     }
     .leftthirdBoxfirstSuperAdmin{
-        font-size: 11px;
-        padding: 6px 1px;
-        margin-top: 100%;
+        padding: 13px 1px;
+        border: 2px solid #717171;
+        font-size: 19px;
+    }
+    .rightBoxSuperAdmin{
+        width: 69%;
+        height: 100vh;
+        flex-shrink: 0;
+    }
+    .rightfirstBoxSuperadmin{
+        width: 98%;
     }
     .rightfirstBoxSuperadminText :nth-child(1){
-        font-size: 19px;
-        margin-bottom: 5px;
+        font-size: 26px;
+        margin-bottom: 12px;
     }
     .rightfirstBoxSuperadminText :nth-child(2){
-        font-size: 12px;
+        font-size: 19px;
         margin: 0px;
     }
+    .addadminbuttonSuperadminBox{
+        width: 23%;
+    }
     .addadminbuttonSuperadmin{
-        width: 100%;
-        height: 28px;
-        font-size: 14px;
+        height: 38px;
+        font-size: 18px;
         padding: 6px;
     }
     .rightsecondBoxSuperadmin{
@@ -615,79 +666,815 @@
         margin-top: 10px;
     }
     .rightsecondBoxSuperadminInputBox{
-        width: 76%;
-        height: 20px;
+        width: 73%;
+        height: 30px;
         padding: 5px 0px 5px 10px;
     }
     .rightsecondBoxSuperadminInput{
         width: 95%;
         height: 21px;
-        font-size: 12px;
+        font-size: 18px;
     }
     .rightsecondBoxSuperadminSelect{
-        width: 20%;
-        height: 33px;
-        font-size: 12px;
+        width: 22%;
+        height: 41px;
+        font-size: 18px;
         padding: 3px 7px 3px 3px;
     }
+    .rightsecondBoxSuperadminSelect > option{
+        font-size: 14px;
+    }
+    .rightthirdBoxSuperadmin{
+        width: 97%;
+        height: 77vh;
+        overflow-x: auto;
+        overflow-y: auto;
+    }
     .userTableSuperAdmin{
+        width: 115vh;
         margin: 4px;
         padding: 0px 5px 0px 5px;
     }
     .userTableHeadSuperAdmin{
-        font-size: 12px;
+        font-size: 19px;
         padding: 4px;
     }
     .userTableBodySuperAdmin{
-        font-size: 12px;
+        font-size: 19px;
         padding: 4px;
     }
+    .rightthirdBoxSuperadminSupport{
+        width: 97%;
+        height: 79vh;
+        overflow-x: auto;
+        overflow-y: auto;
+    }
     .rightBoxSuperAdminSupportText{
-        font-size: 19px;
+        font-size: 25px;
         margin: 0px;
     }
     .feedbackTableSuperAdmin{
+        width: 115vh;
         margin: 4px;
         padding: 0px 5px 0px 5px;
     }
     .feedbackTableHeadSuperAdmin{
-        font-size: 12px;
+        font-size: 19px;
         padding: 6px;
     }
     .feedbackTableBodySuperAdmin{
-        font-size: 12px;
+        font-size: 19px;
         padding: 6px;
     }
     .addadmin{
-        width: 40%;
-        height: 370px;
-        top: 7%;
-        left: 30%;
-        padding: 30px;
+        width: 55%;
+        height: 580px;
+        top: 12%;
+        left: 20%;
+        padding: 50px;
     }
     .addadmintext{
-        font-size: 20px;
+        font-size: 31px;
     }
     .addadminlabel{
-        font-size: 12px;
+        font-size: 21px;
     }
     .addadmininput{
         width: 95%;
-        height: 24px;
-        font-size: 12px;
-        margin-top: 5px;
-        margin-bottom: 8px;
+        height: 42px;
+        font-size: 21px;
+        margin-top: 10px;
+        margin-bottom: 13px;
         padding-left: 5px;
     }
     .addadminbutton{
         width: 98%;
-        height: 32px;
-        font-size: 13px;
-        margin-top: 17px;
+        height: 52px;
+        font-size: 21px;
+        margin-top: 23px;
     }
     .addadmincancelbutton{
         width: 98%;
-        height: 32px;
+        height: 52px;
+        font-size: 21px;
+    }
+}
+
+
+
+
+
+
+@media all and (min-width:481px) and (max-width:800px){
+    /* .innerBoxSuperAdminOverlay{
+        display: none;
+    }
+    .innerBoxSuperAdmin{
+        display: none;
+    } */
+    .leftBoxSuperAdmin{
+        display: none;
+    }
+    .innerBoxPhoneAdminOverlay{
+        display: inline;
+        opacity: 0.1;
+    }
+    .innerBoxPhoneAdmin{
+        display: inline;
+    }
+    .innerBoxPhoneAdminContent{
+        display: inline;
+        z-index: 1;
+    }
+    .navPhoneAdmin{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 90px;
+        flex-shrink: 0;
+        padding: 0px 0px 0px 15px;
+        background: linear-gradient(166deg, #434343 0.54%, #080808 141.29%), linear-gradient(292deg, #7200FF 6.04%, #FC57FF 155.22%);
+    }
+    .menuIconAdminBox{
+        width: 11%;
+    }
+    .menuIconAdminBox > img{
+        width: 45px;
+        height: 45px;
+        margin: auto;
+    }
+    .logoAdminBox{
+        width: 90%;
+    }
+    .logoAdminBox > img{
+        width: 12%;
+    }
+    .sideBarPhoneAdminOff{
+        display: none;
+    }
+    .sideBarPhoneAdmin{
+        display: inline;
+        position: fixed;
+        flex-shrink: 0;
+        background: linear-gradient(178deg, #434343 0%, #080808 44.71%);
+        width: 48%;
+        height: 100vh;
+        z-index: 100;
+        top: 0;
+        left: 0;
+    }
+    .ContentBoxSideBarrPhoneAdmin{
+        display: flex;
+        width: 100%;
+        height: 80%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+    /* .sideBarInnerPhoneAdmin{
+        position: fixed;
+        flex-shrink: 0;
+        border: 1px solid rgb(255, 255, 255);
+        background: linear-gradient(178deg, #434343 0%, #080808 44.71%);
+        width: 40%;
+        height: 100vh;
+        z-index: 100;
+        top: 0;
+        left: 0;
+    } */
+    .menudivsidePhone{
+        width: 85%;
+        margin: auto;
+        text-align: left;
+        padding: 21px 5px 15px 8px;
+        color: #EBEBEB;
+    }
+    .menudivsidePhoneBox > img {
+        width: 45px;
+        height: 45px;
+    }
+    .FirstBoxsideBarPhoneAdmin{
+        width: 90%;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        padding: 4px;
+        gap: 5px;
+        color: #EBEBEB;
+        font-family: "Poppins", Arial, sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+    .FirstBoxsideBarPhoneAdmin > img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .SecondBoxsideBarPhoneAdmin{
+        width: 83%;
+        padding: 10px;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        margin-top: 10px;
+    }
+    .sidesecondfirstPhoneAdmin{
+        display: flex;
+        width: 85%;
+        padding: 0px 8px;
+        justify-content: left;
+        align-items: center;
+        gap: 10px;
+        border-radius: 8px;
+        color: #FFF;
+        font-family: "Poppins", Arial, sans-serif;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 20px; /* 142.857% */
+        letter-spacing: 0.1px;
+    }
+    .sidesecondfirstPhoneAdminOn{
+        display: flex;
+        width: 85%;
+        padding: 0px 6px;
+        justify-content: left;
+        align-items: center;
+        gap: 10px;
+        border-radius: 8px;
+        background: #FFF;
+        color: #000;
+        font-family: "Poppins", Arial, sans-serif;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 20px; /* 142.857% */
+        letter-spacing: 0.1px;
+        text-align: left;
+    }
+    .sidesecondsecondPhoneAdmin{
+        display: flex;
+        width: 85%;
+        padding: 0px 6px;
+        justify-content: left;
+        align-items: center;
+        gap: 10px;
+        border-radius: 8px;
+        color: #FFF;
+        font-family: "Poppins", Arial, sans-serif;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 20px; /* 142.857% */
+        letter-spacing: 0.1px;
+    }
+    .sidesecondsecondPhoneAdminOn{
+        display: flex;
+        width: 85%;
+        padding: 0px 6px;
+        justify-content: left;
+        align-items: center;
+        gap: 10px;
+        border-radius: 8px;
+        background: #FFF;
+        color: #000;
+        font-family: "Poppins", Arial, sans-serif;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 20px; /* 142.857% */
+        letter-spacing: 0.1px;
+        text-align: left;
+    }
+    .ThirdBoxsideBarPhoneAdmin{
+        width: 80%;
+        padding: 10px;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        margin-top: 10px;
+        text-align: center;
+    }
+    .ThirdBoxsideBarSecondPhoneAdmin{
+        display: flex;
+        width: 70%;
+        padding: 16px 12px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        border-radius: 8px;
+        color: #FFF;
+        border: 1px solid #FFF;
+        font-family: "Poppins", Arial, sans-serif;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 20px; /* 142.857% */
+        letter-spacing: 0.1px;
+    }
+
+    .rightBoxSuperAdmin{
+        width: 95%;
+        margin: auto;
+        height: 100vh;
+        flex-shrink: 0;
+    }
+    .rightBoxSuperAdminDashboard{
+        display: inline;
+    }
+    .rightBoxSuperAdminDashboardOff{
+        display: none;
+    }
+    .rightfirstBoxSuperadmin{
+        width: 98%;
+    }
+    .rightfirstBoxSuperadminText{
+        text-align: left;
+    }
+    .rightfirstBoxSuperadminText :nth-child(1){
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+    .rightfirstBoxSuperadminText :nth-child(2){
+        font-size: 19px;
+        margin: 0px;
+    }
+    .addadminbuttonSuperadminBox{
+        width: 23%;
+    }
+    .addadminbuttonSuperadmin{
+        height: 42px;
+        font-size: 19px;
+        padding: 3px 10px;
+    }
+    .rightsecondBoxSuperadmin{
+        padding: 10px 0px;
+        margin-top: 20px;
+    }
+    .rightsecondBoxSuperadminInputBox{
+        width: 76%;
+        height: 28px;
+        padding: 10px 0px 10px 10px;
+    }
+    .rightsecondBoxSuperadminInput{
+        width: 95%;
+        height: 24px;
+        font-size: 20px;
+    }
+    .rightsecondBoxSuperadminSelect{
+        width: 20%;
+        height: 48px;
+        font-size: 19px;
+        padding: 2px;
+    }
+    .rightsecondBoxSuperadminSelect > option {
         font-size: 13px;
+    }
+    .rightthirdBoxSuperadmin{
+        width: 98%;
+        height: 72vh;
+        overflow-x: auto;
+        overflow-y: auto;
+    }
+    .userTableSuperAdmin{
+        width: 100vh;
+        margin: 8px;
+        padding: 0px 0px 0px 10px;
+    }
+    .userTableHeadSuperAdmin{
+        font-size: 19px;
+        padding: 8px;
+    }
+    .userTableBodySuperAdmin{
+        font-size: 19px;
+        padding: 8px;
+    }
+    .rightBoxSuperAdminSupportText{
+        font-size: 28px;
+    }
+    .rightBoxSuperAdminSupport{
+        display: inline;
+    }
+    .rightBoxSuperAdminSupportOff{
+        display: none;
+    }
+    .rightthirdBoxSuperadminSupport{
+        width: 98%;
+        height: 70vh;
+        overflow-x: auto;
+        overflow-y: auto;
+    }
+    .feedbackTableSuperAdmin{
+        width: 100vh;
+        margin: 8px;
+        padding: 0px 10px 0px 10px;
+    }
+    .feedbackTableHeadSuperAdmin{
+        font-size: 19px;
+        padding: 8px;
+    }
+    .feedbackTableBodySuperAdmin{
+        font-size: 19px;
+        padding: 8px;
+    }
+    .feedbackTableSuperAdmin :nth-child(4){
+        width: 400px;
+        text-align: justify;
+    }
+    .addadmin{
+        width: 60%;
+        height: 530px;
+        top: 15%;
+        left: 12%;
+        padding: 50px;
+    }
+    .addadmintext{
+        font-size: 28px;
+    }
+    .addadminlabel{
+        font-size: 19px;
+    }
+    .addadmininput{
+        width: 95%;
+        height: 38px;
+        font-size: 19px;
+        margin-top: 8px;
+        margin-bottom: 11px;
+        padding-left: 5px;
+    }
+    .addadminbutton{
+        width: 98%;
+        height: 45px;
+        font-size: 19px;
+        margin-top: 23px;
+    }
+    .addadmincancelbutton{
+        width: 98%;
+        height: 45px;
+        font-size: 19px;
+    }
+}
+
+
+
+
+
+
+@media all and (min-width:180px) and (max-width:480px){
+    /* .innerBoxSuperAdminOverlay{
+        display: none;
+    }
+    .innerBoxSuperAdmin{
+        display: none;
+    } */
+    .leftBoxSuperAdmin{
+        display: none;
+    }
+    .innerBoxPhoneAdminOverlay{
+        display: inline;
+        opacity: 0.1;
+    }
+    .innerBoxPhoneAdmin{
+        display: inline;
+    }
+    .innerBoxPhoneAdminContent{
+        display: inline;
+        z-index: 1;
+    }
+    .navPhoneAdmin{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 80px;
+        flex-shrink: 0;
+        padding: 0px 0px 0px 15px;
+        background: linear-gradient(166deg, #434343 0.54%, #080808 141.29%), linear-gradient(292deg, #7200FF 6.04%, #FC57FF 155.22%);
+    }
+    .menuIconAdminBox{
+        width: 11%;
+    }
+    .menuIconAdminBox > img{
+        width: 35px;
+        height: 35px;
+        margin: auto;
+    }
+    .logoAdminBox{
+        width: 90%;
+    }
+    .sideBarPhoneAdminOff{
+        display: none;
+    }
+    .sideBarPhoneAdmin{
+        display: inline;
+        position: fixed;
+        flex-shrink: 0;
+        background: linear-gradient(178deg, #434343 0%, #080808 44.71%);
+        width: 50%;
+        height: 100vh;
+        z-index: 100;
+        top: 0;
+        left: 0;
+    }
+    /* .sideBarInnerPhoneAdmin{
+        position: fixed;
+        flex-shrink: 0;
+        border: 1px solid rgb(255, 255, 255);
+        background: linear-gradient(178deg, #434343 0%, #080808 44.71%);
+        width: 40%;
+        height: 100vh;
+        z-index: 100;
+        top: 0;
+        left: 0;
+    } */
+    .menudivsidePhone{
+        width: 80%;
+        margin: auto;
+        text-align: left;
+        padding: 21px 5px 15px 5px;
+        color: #EBEBEB;
+    }
+    .menudivsidePhoneBox > img {
+        width: 35px;
+        height: 35px;
+    }
+    .ContentBoxSideBarrPhoneAdmin{
+        display: flex;
+        width: 100%;
+        height: 70%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .FirstBoxsideBarPhoneAdmin{
+        width: 90%;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        padding: 4px;
+        gap: 5px;
+        color: #EBEBEB;
+        font-family: "Poppins", Arial, sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+    .FirstBoxsideBarPhoneAdmin > img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .SecondBoxsideBarPhoneAdmin{
+        width: 83%;
+        padding: 10px;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .sidesecondfirstPhoneAdmin{
+        display: flex;
+        width: 75%;
+        padding: 0px 6px;
+        justify-content: left;
+        align-items: center;
+        gap: 10px;
+        border-radius: 8px;
+        color: #FFF;
+        font-family: "Poppins", Arial, sans-serif;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 20px; /* 142.857% */
+        letter-spacing: 0.1px;
+    }
+    .sidesecondfirstPhoneAdminOn{
+        display: flex;
+        width: 75%;
+        padding: 0px 6px;
+        justify-content: left;
+        align-items: center;
+        gap: 10px;
+        border-radius: 8px;
+        background: #FFF;
+        color: #000;
+        font-family: "Poppins", Arial, sans-serif;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 20px; /* 142.857% */
+        letter-spacing: 0.1px;
+        text-align: left;
+    }
+    .sidesecondsecondPhoneAdmin{
+        display: flex;
+        width: 75%;
+        padding: 0px 6px;
+        justify-content: left;
+        align-items: center;
+        gap: 10px;
+        border-radius: 8px;
+        color: #FFF;
+        font-family: "Poppins", Arial, sans-serif;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 20px; /* 142.857% */
+        letter-spacing: 0.1px;
+    }
+    .sidesecondsecondPhoneAdminOn{
+        display: flex;
+        width: 75%;
+        padding: 0px 6px;
+        justify-content: left;
+        align-items: center;
+        gap: 10px;
+        border-radius: 8px;
+        background: #FFF;
+        color: #000;
+        font-family: "Poppins", Arial, sans-serif;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 20px; /* 142.857% */
+        letter-spacing: 0.1px;
+        text-align: left;
+    }
+    
+    .ThirdBoxsideBarPhoneAdmin{
+        width: 80%;
+        padding: 10px;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        margin-top: 10px;
+        text-align: center;
+    }
+    .ThirdBoxsideBarSecondPhoneAdmin{
+        display: flex;
+        width: 95%;
+        padding: 8px 0px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        border-radius: 8px;
+        color: #FFF;
+        border: 1px solid #FFF;
+        font-family: "Poppins", Arial, sans-serif;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 20px; /* 142.857% */
+        letter-spacing: 0.1px;
+    }
+
+    .rightBoxSuperAdmin{
+        width: 95%;
+        margin: auto;
+        height: 100vh;
+        flex-shrink: 0;
+    }
+    .rightBoxSuperAdminDashboard{
+        display: inline;
+    }
+    .rightBoxSuperAdminDashboardOff{
+        display: none;
+    }
+    .rightfirstBoxSuperadmin{
+        width: 98%;
+    }
+    .rightfirstBoxSuperadminText{
+        text-align: left;
+    }
+    .rightfirstBoxSuperadminText :nth-child(1){
+        font-size: 22px;
+        margin-bottom: 8px;
+    }
+    .rightfirstBoxSuperadminText :nth-child(2){
+        font-size: 15px;
+        margin: 0px;
+    }
+    .addadminbuttonSuperadminBox{
+        width: 34%;
+    }
+    .addadminbuttonSuperadmin{
+        height: 35px;
+        font-size: 16px;
+        padding: 0px 3px;
+    }
+    .rightsecondBoxSuperadmin{
+        padding: 10px 0px;
+        margin-top: 20px;
+    }
+    .rightsecondBoxSuperadminInputBox{
+        width: 72%;
+        height: 25px;
+        padding: 5px 0px 10px 5px;
+    }
+    .rightsecondBoxSuperadminInputBox :nth-child(1){
+        width: 20px;
+        height: 20px;
+    }
+    .rightsecondBoxSuperadminInput{
+        width: 95%;
+        height: 24px;
+        font-size: 17px;
+    }
+    .rightsecondBoxSuperadminSelect{
+        width: 24%;
+        height: 42px;
+        font-size: 17px;
+        padding: 2px;
+    }
+    .rightsecondBoxSuperadminSelect > option {
+        font-size: 11px;
+    }
+    .rightthirdBoxSuperadmin{
+        width: 98%;
+        height: 70vh;
+        overflow-x: auto;
+        overflow-y: auto;
+    }
+    .userTableSuperAdmin{
+        width: 100vh;
+        margin: 8px;
+        padding: 0px 0px 0px 10px;
+    }
+    .userTableHeadSuperAdmin{
+        font-size: 18px;
+        padding: 8px;
+    }
+    .userTableBodySuperAdmin{
+        font-size: 18px;
+        padding: 8px;
+    }
+    .rightBoxSuperAdminSupportText{
+        font-size: 28px;
+    }
+    .rightBoxSuperAdminSupport{
+        display: inline;
+    }
+    .rightBoxSuperAdminSupportOff{
+        display: none;
+    }
+    .rightthirdBoxSuperadminSupport{
+        width: 98%;
+        height: 70vh;
+        overflow-x: auto;
+        overflow-y: auto;
+    }
+    .feedbackTableSuperAdmin{
+        width: 100vh;
+        margin: 8px;
+        padding: 0px 10px 0px 10px;
+    }
+    .feedbackTableHeadSuperAdmin{
+        font-size: 18px;
+        padding: 8px;
+    }
+    .feedbackTableBodySuperAdmin{
+        font-size: 18px;
+        padding: 8px;
+    }
+    .feedbackTableSuperAdmin :nth-child(4){
+        width: 400px;
+        text-align: justify;
+    }
+    .addadmin{
+        width: 60%;
+        height: 500px;
+        top: 15%;
+        left: 10%;
+        padding: 50px;
+    }
+    .addadmintext{
+        font-size: 28px;
+    }
+    .addadminlabel{
+        font-size: 19px;
+    }
+    .addadmininput{
+        width: 95%;
+        height: 38px;
+        font-size: 19px;
+        margin-top: 8px;
+        margin-bottom: 11px;
+        padding-left: 5px;
+    }
+    .addadminbutton{
+        width: 98%;
+        height: 45px;
+        font-size: 19px;
+        margin-top: 23px;
+    }
+    .addadmincancelbutton{
+        width: 98%;
+        height: 45px;
+        font-size: 19px;
     }
 }

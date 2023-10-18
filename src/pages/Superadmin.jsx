@@ -5,12 +5,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AiOutlinePlus, AiOutlineSearch } from 'react-icons/ai';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { AiOutlineCheck } from 'react-icons/ai';
+import menu from "../utils/Images/Admin/menu.svg";
 
 const Superadmin = () => {
 
   const [userData, setUserData] = useState([]);
 
   const navigate= useNavigate();
+
+  const [ isPopup, setIsPopup ]= useState(false);
+
+  const [ isSidebarPhone, setIsSidebarPhone ]= useState(false);
 
   useEffect(()=>{
     axios.get(`https://restaurant-bot-admin.onrender.com/api/v1/admin`)
@@ -23,92 +29,92 @@ const Superadmin = () => {
   const [ isAddAdmin, setIsAddAdmin ] = useState(false);
   const [ istoggle, setIstoggle ] = useState(false);
 
-  // const userData= [
-  //   {
-  //     businessname: 'abcd',
-  //     email :'abc@gmail.com',
-  //     phone: 1234567890,
-  //     subsciption:'9days left'
-  //   },
-  //   {
-  //     businessname: 'abcd',
-  //     email :'abc@gmail.com',
-  //     phone: 1234567890,
-  //     subsciption:'9days left'
-  //   },
-  //   {
-  //     businessname: 'abcd',
-  //     email :'abc@gmail.com',
-  //     phone: 1234567890,
-  //     subsciption:'9days left'
-  //   },
-  //   {
-  //     businessname: 'abcd',
-  //     email :'abc@gmail.com',
-  //     phone: 1234567890,
-  //     subsciption:'9days left'
-  //   },
-  //   {
-  //     businessname: 'abcd',
-  //     email :'abc@gmail.com',
-  //     phone: 1234567890,
-  //     subsciption:'9days left'
-  //   },
-  //   {
-  //     businessname: 'abcd',
-  //     email :'abc@gmail.com',
-  //     phone: 1234567890,
-  //     subsciption:'9days left'
-  //   },
-  //   {
-  //     businessname: 'abcd',
-  //     email :'abc@gmail.com',
-  //     phone: 1234567890,
-  //     subsciption:'9days left'
-  //   },
-  //   {
-  //     businessname: 'abcd',
-  //     email :'abc@gmail.com',
-  //     phone: 1234567890,
-  //     subsciption:'9days left'
-  //   },
-  //   {
-  //     businessname: 'abcd',
-  //     email :'abc@gmail.com',
-  //     phone: 1234567890,
-  //     subsciption:'9days left'
-  //   },
-  //   {
-  //     businessname: 'abcd',
-  //     email :'abc@gmail.com',
-  //     phone: 1234567890,
-  //     subsciption:'9days left'
-  //   },
-  //   {
-  //     businessname: 'abcd',
-  //     email :'abc@gmail.com',
-  //     phone: 1234567890,
-  //     subsciption:'9days left'
-  //   },
-  //   {
-  //     businessname: 'abcd',
-  //     email :'abc@gmail.com',
-  //     phone: 1234567890,
-  //     subsciption:'9days left'
-  //   },
-  //   {
-  //     businessname: 'abcd',
-  //     email :'abc@gmail.com',
-  //     phone: 1234567890,
-  //     subsciption:'9days left'
-  //   },
-  //   {
-  //     businessname: 'abcd',
-  //     email :'abc@gmail.com',
-  //     phone: 1234567890,
-  //     subsciption:'9days left'
-  //   }
-  // ]
+  const userDataa= [
+    {
+      businessname: 'abcd',
+      email :'abc@gmail.com',
+      phone: 1234567890,
+      subsciption:'9days left'
+    },
+    {
+      businessname: 'abcd',
+      email :'abc@gmail.com',
+      phone: 1234567890,
+      subsciption:'9days left'
+    },
+    {
+      businessname: 'abcd',
+      email :'abc@gmail.com',
+      phone: 1234567890,
+      subsciption:'9days left'
+    },
+    {
+      businessname: 'abcd',
+      email :'abc@gmail.com',
+      phone: 1234567890,
+      subsciption:'9days left'
+    },
+    {
+      businessname: 'abcd',
+      email :'abc@gmail.com',
+      phone: 1234567890,
+      subsciption:'9days left'
+    },
+    {
+      businessname: 'abcd',
+      email :'abc@gmail.com',
+      phone: 1234567890,
+      subsciption:'9days left'
+    },
+    {
+      businessname: 'abcd',
+      email :'abc@gmail.com',
+      phone: 1234567890,
+      subsciption:'9days left'
+    },
+    {
+      businessname: 'abcd',
+      email :'abc@gmail.com',
+      phone: 1234567890,
+      subsciption:'9days left'
+    },
+    {
+      businessname: 'abcd',
+      email :'abc@gmail.com',
+      phone: 1234567890,
+      subsciption:'9days left'
+    },
+    {
+      businessname: 'abcd',
+      email :'abc@gmail.com',
+      phone: 1234567890,
+      subsciption:'9days left'
+    },
+    {
+      businessname: 'abcd',
+      email :'abc@gmail.com',
+      phone: 1234567890,
+      subsciption:'9days left'
+    },
+    {
+      businessname: 'abcd',
+      email :'abc@gmail.com',
+      phone: 1234567890,
+      subsciption:'9days left'
+    },
+    {
+      businessname: 'abcd',
+      email :'abc@gmail.com',
+      phone: 1234567890,
+      subsciption:'9days left'
+    },
+    {
+      businessname: 'abcd',
+      email :'abc@gmail.com',
+      phone: 1234567890,
+      subsciption:'9days left'
+    }
+  ]
 
   const feedbackData = [
     {
@@ -157,32 +163,87 @@ const Superadmin = () => {
 
   return (
     <div className="outerBoxSuperAdmin">
-      <div className="innerBoxSuperAdmin">
+      <div className={isPopup || isAddAdmin? "innerBoxPhoneAdminOverlay" : "innerBoxPhoneAdmin"}>
+        <div onClick={()=>isSidebarPhone===true && setIsSidebarPhone(!isSidebarPhone)} className="innerBoxPhoneAdminContent">
+          <div className="navPhoneAdmin">
+            <div className="menuIconAdminBox">
+              <img onClick={()=>setIsSidebarPhone(!isSidebarPhone)} src={menu} alt="menu" />
+            </div>
+            <div className="logoAdminBox">
+              <img src={logo} alt="logo" />
+            </div>
+          </div>
+          <div></div>
+        </div>
+
+        <div className={isSidebarPhone? "sideBarPhoneAdmin" : "sideBarPhoneAdminOff"}>
+          <div className="menudivsidePhone">
+            <div className="menudivsidePhoneBox">
+              <img onClick={()=>setIsSidebarPhone(!isSidebarPhone)} src={menu} alt="menu" />
+            </div>
+          </div>
+          <div className="ContentBoxSideBarrPhoneAdmin">
+            <div className="SecondBoxsideBarPhoneAdmin">
+                <div
+                  onClick={() => {
+                    setBarnum(1)
+                    setIsSidebarPhone(!isSidebarPhone)
+                  }}
+                  className={
+                    barnum === 1 ? "sidesecondfirstPhoneAdminOn" : "sidesecondfirstPhoneAdmin"
+                  }
+                >
+                  <p>Dashboard</p>
+                </div>
+                <div
+                  onClick={() => {
+                    setBarnum(2)
+                    setIsSidebarPhone(!isSidebarPhone)
+                  }}
+                  className={
+                    barnum === 2
+                      ? "sidesecondsecondPhoneAdminOn"
+                      : "sidesecondsecondPhoneAdmin"
+                  }
+                >
+                  <p>Support</p>
+                </div>
+            </div>
+            <div className="ThirdBoxsideBarPhoneAdmin">
+              <div className="ThirdBoxsideBarSecondPhoneAdmin">Logout</div>
+            </div>
+          </div>
+        </div>
+      
+      </div>
+      <div className={isPopup || isAddAdmin? "innerBoxSuperAdminOverlay" : "innerBoxSuperAdmin"}>
         <div className="leftBoxSuperAdmin">
           <div className="leftfirstBoxSuperAdmin">
             <img src={logo} alt="applogo" />
             <p>Furation Tech</p>
           </div>
-          <div className="leftsecondBoxSuperAdmin">
-            <div
-              onClick={() => setBarnum(1)}
-              className={
-                barnum === 1 ? "leftsecondfirstSuperAdminOn" : "leftsecondfirstSuperAdmin"
-              }
-            >
-              <p>Dashboard</p>
+          <div className="ContentBoxSideBarrPhoneAdmin">
+            <div className="leftsecondBoxSuperAdmin">
+              <div
+                onClick={() => setBarnum(1)}
+                className={
+                  barnum === 1 ? "leftsecondfirstSuperAdminOn" : "leftsecondfirstSuperAdmin"
+                }
+              >
+                <p>Dashboard</p>
+              </div>
+              <div
+                onClick={() => setBarnum(2)}
+                className={
+                  barnum === 2 ? "leftsecondsecondSuperAdminOn" : "leftsecondsecondSuperAdmin"
+                }
+              >
+                <p>Support</p>
+              </div>
             </div>
-            <div
-              onClick={() => setBarnum(2)}
-              className={
-                barnum === 2 ? "leftsecondsecondSuperAdminOn" : "leftsecondsecondSuperAdmin"
-              }
-            >
-              <p>Support</p>
+            <div className="leftthirdBoxSuperAdmin">
+              <div className="leftthirdBoxfirstSuperAdmin">Logout</div>
             </div>
-          </div>
-          <div className="leftthirdBoxSuperAdmin">
-            <div className="leftthirdBoxfirstSuperAdmin">Logout</div>
           </div>
         </div>
         <div className='rightBoxSuperAdmin'>
@@ -192,14 +253,14 @@ const Superadmin = () => {
                 <p>Hello, Super Admin!</p>
                 <p>13 June, 2023 Tuesday</p>
               </div>
-              <div>
+              <div className="addadminbuttonSuperadminBox">
                 <button onClick={()=>setIsAddAdmin(true)} className="addadminbuttonSuperadmin"><AiOutlinePlus/>Add Admin</button>
               </div>
             </div>
             <div className='rightsecondBoxSuperadmin'>
               <div className="rightsecondBoxSuperadminInputBox">
-                <AiOutlineSearch size={"20px"} />
-                <input className="rightsecondBoxSuperadminInput" type="text" placeholder='Search by business name, email or phone number' />
+                <AiOutlineSearch />
+                <input className="rightsecondBoxSuperadminInput" type="text" placeholder='Search by email or phone number' />
               </div>
               <select className="rightsecondBoxSuperadminSelect" name="" id="">
                 <option value="">Filter By</option>
@@ -208,30 +269,32 @@ const Superadmin = () => {
               </select>
             </div>
             <div className='rightthirdBoxSuperadmin'>
-              <table className="userTableSuperAdmin">
-                <thead>
-                  <tr>
-                    <th className="userTableHeadSuperAdmin">Sr. No.</th>
-                    <th className="userTableHeadSuperAdmin">Business Name</th>
-                    <th className="userTableHeadSuperAdmin">Email Address</th>
-                    <th className="userTableHeadSuperAdmin">Phone Number</th>
-                    <th className="userTableHeadSuperAdmin">Subscription</th>
-                    <th className="userTableHeadSuperAdmin">Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {userData && userData.map((user, i)=>{
-                    return <tr key={user._id} onClick={()=>navigate(`/superadmin/:${user._id}`)}>
-                      <td className="userTableBodySuperAdmin">{i+1}</td>
-                      <td className="userTableBodySuperAdmin">{user.businessName}</td>
-                      <td className="userTableBodySuperAdmin">{user.email}</td>
-                      <td className="userTableBodySuperAdmin">{user.phone}</td>
-                      <td className="userTableBodySuperAdmin">{user.botrunning? '9days left' : 'Renewal pending'}</td>
-                      <td className="userTableBodySuperAdmin">Edit</td>
+              <div className='userTableSuperAdminHolder'>
+                <table className="userTableSuperAdmin">
+                  <thead>
+                    <tr>
+                      <th className="userTableHeadSuperAdmin">Sr. No.</th>
+                      <th className="userTableHeadSuperAdmin">Business Name</th>
+                      <th className="userTableHeadSuperAdmin">Email Address</th>
+                      <th className="userTableHeadSuperAdmin">Phone Number</th>
+                      <th className="userTableHeadSuperAdmin">Subscription</th>
+                      <th className="userTableHeadSuperAdmin">Action</th>
                     </tr>
-                  })}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {userData && userData.map((user, i)=>{
+                      return <tr key={user._id} onClick={()=>navigate(`/superadmin/:${user._id}`)}>
+                        <td className="userTableBodySuperAdmin">{i+1}</td>
+                        <td className="userTableBodySuperAdmin">{user.businessName}</td>
+                        <td className="userTableBodySuperAdmin">{user.email}</td>
+                        <td className="userTableBodySuperAdmin">{user.phone}</td>
+                        <td className="userTableBodySuperAdmin">{user.botrunning? '9days left' : 'Renewal pending'}</td>
+                        <td className="userTableBodySuperAdmin">Edit</td>
+                      </tr>
+                    })}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
           <div className={barnum===2 ? 'rightBoxSuperAdminSupport' : 'rightBoxSuperAdminSupportOff'}>
@@ -239,7 +302,7 @@ const Superadmin = () => {
             <div className='rightsecondBoxSuperadmin'>
               <div className="rightsecondBoxSuperadminInputBox">
                 <AiOutlineSearch size={"20px"} />
-                <input className="rightsecondBoxSuperadminInput" type="text" placeholder='Search by business name, email or phone number' />
+                <input className="rightsecondBoxSuperadminInput" type="text" placeholder='Search by email or phone number' />
               </div>
               <select className="rightsecondBoxSuperadminSelect" name="" id="">
                 <option value="">Filter By</option>
@@ -247,29 +310,31 @@ const Superadmin = () => {
                 <option value="">Pritam da dhaba</option>
               </select>
             </div>
-            <div className='rightthirdBoxSuperadmin'>
-              <table className="feedbackTableSuperAdmin">
-                <thead>
-                  <tr>
-                    <th className="feedbackTableHeadSuperAdmin">Sr. No.</th>
-                    <th className="feedbackTableHeadSuperAdmin">Name</th>
-                    <th className="feedbackTableHeadSuperAdmin">Phone Number</th>
-                    <th className="feedbackTableHeadSuperAdmin">Feedback</th>
-                    <th className="feedbackTableHeadSuperAdmin">Date</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {feedbackData && feedbackData.map((feedback, i)=>{
-                    return <tr key={feedback._id}>
-                      <td className="feedbackTableBodySuperAdmin">{i+1}</td>
-                      <td className="feedbackTableBodySuperAdmin">{feedback.name}</td>
-                      <td className="feedbackTableBodySuperAdmin">{feedback.phone}</td>
-                      <td className="feedbackTableBodySuperAdmin">{feedback.message}</td>
-                      <td className="feedbackTableBodySuperAdmin">{feedback.date}</td>
+            <div className='rightthirdBoxSuperadminSupport'>
+              <div className='userTableSuperAdminHolder'>
+                <table className="feedbackTableSuperAdmin">
+                  <thead>
+                    <tr>
+                      <th className="feedbackTableHeadSuperAdmin">Sr. No.</th>
+                      <th className="feedbackTableHeadSuperAdmin">Name</th>
+                      <th className="feedbackTableHeadSuperAdmin">Phone Number</th>
+                      <th className="feedbackTableHeadSuperAdmin">Feedback</th>
+                      <th className="feedbackTableHeadSuperAdmin">Date</th>
                     </tr>
-                  })}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {feedbackData && feedbackData.map((feedback, i)=>{
+                      return <tr key={feedback._id}>
+                        <td className="feedbackTableBodySuperAdmin">{i+1}</td>
+                        <td className="feedbackTableBodySuperAdmin">{feedback.name}</td>
+                        <td className="feedbackTableBodySuperAdmin">{feedback.phone}</td>
+                        <td className="feedbackTableBodySuperAdmin">{feedback.message}</td>
+                        <td className="feedbackTableBodySuperAdmin">{feedback.date}</td>
+                      </tr>
+                    })}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
