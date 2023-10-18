@@ -266,6 +266,7 @@
     font-weight: 500;
     line-height: 20px; /* 142.857% */
     letter-spacing: 0.1px;
+    text-align: center;
 }
 .leftthirdBoxsecondAdmin{
     width: 60%;
@@ -285,6 +286,7 @@
     margin: auto;
     margin-top: 20px;
     color: #FFF;
+    text-align: center;
 }
 .rightBoxAdmin{
     width: 80%;
@@ -768,6 +770,7 @@
     letter-spacing: 0.1px;
     margin: 0px;
     margin-bottom: 15px;
+    text-align: center;
 }
 .currentSubscriptionInnerBoxAdmin{
     width: 78%;
@@ -1595,11 +1598,13 @@
     }
     .leftthirdBoxfirstAdmin{
         font-size: 21px;
+        text-align: center;
     }
     .leftthirdBoxsecondAdmin{
         font-size: 21px;
         padding: 18px 12px;
         margin-top: 20px;
+        text-align: center;
     }
     .rightBoxAdmin{
         width: 68%;
@@ -2050,6 +2055,7 @@
         letter-spacing: 0.1px;
         margin: 0px;
         margin-bottom: 20px;
+        text-align: center;
     }
     .currentSubscriptionInnerBoxAdmin{
         width: 75%;
@@ -2237,6 +2243,7 @@
     }
     .logoAdminBox{
         width: 90%;
+        text-align: center;
     }
     .logoAdminBox > img{
         width: 12%;
@@ -3156,6 +3163,7 @@
         letter-spacing: 0.1px;
         margin: 0px;
         margin-bottom: 20px;
+        text-align: center;
     }
     .currentSubscriptionInnerBoxAdmin{
         width: 70%;
@@ -3344,6 +3352,7 @@
     }
     .logoAdminBox{
         width: 90%;
+        text-align: center;
     }
     .firstBoxAdminPhone{
         width: 95%;
@@ -4180,6 +4189,7 @@
         letter-spacing: 0.1px;
         margin: 0px;
         margin-bottom: 20px;
+        text-align: center;
     }
     .currentSubscriptionInnerBoxAdmin{
         width: 80%;
