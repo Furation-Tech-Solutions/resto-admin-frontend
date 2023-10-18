@@ -1028,7 +1028,7 @@
     .rightsecondBoxSuperadminSelect{
         width: 20%;
         height: 48px;
-        font-size: 19px;
+        font-size: 17px;
         padding: 2px;
     }
     .rightsecondBoxSuperadminSelect > option {
@@ -1088,7 +1088,7 @@
     .addadmin{
         width: 60%;
         height: 530px;
-        top: 11%;
+        top: 8%;
         left: 12%;
         padding: 50px;
     }
@@ -1388,7 +1388,7 @@
     .rightsecondBoxSuperadminSelect{
         width: 24%;
         height: 42px;
-        font-size: 17px;
+        font-size: 15px;
         padding: 2px;
     }
     .rightsecondBoxSuperadminSelect > option {
@@ -1448,7 +1448,7 @@
     .addadmin{
         width: 60%;
         height: 500px;
-        top: 10%;
+        top: 8%;
         left: 10%;
         padding: 50px;
     }
