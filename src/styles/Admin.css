@@ -1451,6 +1451,74 @@
 .secondBoxAdminChartNav{
     display: none ;
 }
+.requestSupportAdmin{
+    display: inline;
+    width: 27%;
+    height: 350px;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 0px 25px 1px rgba(0, 0, 0, 0.15);
+    margin: auto;
+    position: absolute;
+    top: 8%;
+    left: 35%;
+    padding: 40px;
+}
+.requestSupportAdminOff{
+    display: none;
+}
+.requestSupportCloseAdmin{
+    width: 100%;
+    text-align: right;
+    flex-shrink: 0;
+}
+.requestSupportCloseAdmin > img{
+    width: 22px;
+    height: 22px;
+}
+.requestSupportTextAdmin{
+    color: #000;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 90.909% */
+    letter-spacing: 0.1px;
+    margin: 0px;
+    margin-bottom: 15px;
+    text-align: left;
+    margin: 20px 0px 7px 0px;
+}
+.requestSupporttextBox{
+    width: 100%;
+    height: 60%;
+    border-radius: 4px;
+    border: 1px solid #CACACA;
+    background: #FFF;
+}
+.requestSupportInput{
+    width: 94%;
+    height: 90%;
+    margin: auto;
+    padding: 10px;
+    border: none;
+    outline: none;
+    text-align: left;
+    resize: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.requestSupportButton{
+    width: 100%;
+    height: 40px;
+    border-radius: 4px;
+    border: none;
+    font-size: 18px;
+    color: #FFF;
+    margin-top: 25px;
+    background: linear-gradient(287deg, #7200FF 15.07%, #FC57FF 88.56%);
+}
+
 
 
 
@@ -1494,6 +1562,7 @@
         padding: 0px 10px;
     }
     .leftsecondsecondAdminOn{
+        display: inline;
         font-size: 20px;
         width: 90%;
         padding: 0px 10px;
@@ -2058,6 +2127,71 @@
         font-weight: 400;
         margin: 0px;
         line-height: 50px ;
+    }
+    .requestSupportAdmin{
+        display: inline;
+        width: 55%;
+        height: 550px;
+        border-radius: 10px;
+        background: #FFF;
+        box-shadow: 0px 0px 25px 1px rgba(0, 0, 0, 0.15);
+        margin: auto;
+        position: absolute;
+        top: 10%;
+        left: 20%;
+        padding: 50px;
+    }
+    .requestSupportCloseAdmin{
+        width: 100%;
+        text-align: right;
+        flex-shrink: 0;
+    }
+    .requestSupportCloseAdmin > img{
+        width: 32px;
+        height: 32px;
+    }
+    .requestSupportTextAdmin{
+        color: #000;
+        font-family: "Poppins", Arial, sans-serif;
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 20px; /* 90.909% */
+        letter-spacing: 0.1px;
+        margin: 0px;
+        margin-bottom: 15px;
+        text-align: left;
+        margin: 20px 0px 17px 0px;
+    }
+    .requestSupporttextBox{
+        width: 100%;
+        height: 60%;
+        border-radius: 4px;
+        border: 1px solid #CACACA;
+        background: #FFF;
+    }
+    .requestSupportInput{
+        width: 94%;
+        height: 90%;
+        margin: auto;
+        padding: 10px;
+        border: none;
+        outline: none;
+        text-align: left;
+        resize: none;
+        overflow-y: auto;
+        overflow-x: hidden;
+        font-size: 22px;
+    }
+    .requestSupportButton{
+        width: 100%;
+        height: 70px;
+        border-radius: 4px;
+        border: none;
+        font-size: 24px;
+        color: #FFF;
+        margin-top: 30px;
+        background: linear-gradient(287deg, #7200FF 15.07%, #FC57FF 88.56%);
     }
 }
 
@@ -2684,29 +2818,6 @@
         line-height: 20px; /* 142.857% */
         letter-spacing: 0.1px;
     }
-
-        
-    .currentSubscriptionAdmin{
-        width: 300px;
-        height: 360px;
-        top: 12%;
-        left: 13%;
-    }
-    .currentSubscriptionCloseAdmin{
-        padding-top: 10px;
-    }
-    .currentSubscriptionCloseAdmin > img{
-        width: 18px;
-        height: 18px;
-    }
-    .currentSubscriptionTextAdmin{
-        font-size: 19px;
-        margin-bottom: 10px;
-    }
-    .currentSubscriptionInnerBoxAdmin{
-        width: 259px;
-        height: 280px;
-    }
     .countdownrightDoughnutOuterAdminFirstBox{
         border-bottom: 1px solid #E7E7E7;
         width: 100%;
@@ -3122,6 +3233,72 @@
         font-weight: 400;
         margin: 0px;
         line-height: 45px ;
+    }
+    .requestSupportAdmin{
+        display: inline;
+        width: 65%;
+        height: 550px;
+        border-radius: 10px;
+        background: #FFF;
+        box-shadow: 0px 0px 25px 1px rgba(0, 0, 0, 0.15);
+        margin: auto;
+        position: absolute;
+        top: 20%;
+        left: 11%;
+        padding: 50px;
+    }
+    .requestSupportCloseAdmin{
+        width: 100%;
+        text-align: right;
+        flex-shrink: 0;
+    }
+    .requestSupportCloseAdmin > img{
+        width: 30px;
+        height: 30px;
+    }
+    .requestSupportTextAdmin{
+        color: #000;
+        font-family: "Poppins", Arial, sans-serif;
+        font-size: 29px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 20px; /* 90.909% */
+        letter-spacing: 0.1px;
+        margin: 0px;
+        margin-bottom: 15px;
+        text-align: left;
+        margin: 20px 0px 17px 0px;
+    }
+    .requestSupporttextBox{
+        width: 100%;
+        height: 60%;
+        border-radius: 4px;
+        border: 1px solid #CACACA;
+        background: #FFF;
+    }
+    .requestSupportInput{
+        width: 90%;
+        height: 90%;
+        padding: 16px;
+        border: none;
+        outline: none;
+        text-align: left;
+        resize: none;
+        overflow-y: auto;
+        overflow-x: hidden;
+        font-size: 21px;
+        color: #333232;
+        letter-spacing: 0.5;
+    }
+    .requestSupportButton{
+        width: 100%;
+        height: 70px;
+        border-radius: 4px;
+        border: none;
+        font-size: 24px;
+        color: #FFF;
+        margin-top: 35px;
+        background: linear-gradient(287deg, #7200FF 15.07%, #FC57FF 88.56%);
     }
 }
 
@@ -4080,5 +4257,73 @@
         font-weight: 400;
         margin: 0px;
         line-height: 30px ;
+    }
+    .requestSupportAdmin{
+        display: inline;
+        width: 73%;
+        height: 350px;
+        border-radius: 10px;
+        background: #FFF;
+        box-shadow: 0px 0px 25px 1px rgba(0, 0, 0, 0.15);
+        margin: auto;
+        position: absolute;
+        top: 20%;
+        left: 8%;
+        padding: 20px;
+    }
+    .requestSupportCloseAdmin{
+        width: 100%;
+        text-align: right;
+        flex-shrink: 0;
+        margin-top: 0px;
+    }
+    .requestSupportCloseAdmin > img{
+        width: 20px;
+        height: 20px;
+    }
+    .requestSupportTextAdmin{
+        color: #000;
+        font-family: "Poppins", Arial, sans-serif;
+        font-size: 19px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 20px; /* 90.909% */
+        letter-spacing: 0.1px;
+        margin: 0px;
+        margin-bottom: 15px;
+        text-align: left;
+        margin: 0px 0px 7px 0px;
+    }
+    .requestSupporttextBox{
+        width: 100%;
+        height: 60%;
+        border-radius: 4px;
+        border: 1px solid #CACACA;
+        background: #FFF;
+    }
+    .requestSupportInput{
+        width: 94%;
+        height: 90%;
+        margin: auto;
+        padding: 8px;
+        border: none;
+        outline: none;
+        text-align: left;
+        resize: none;
+        overflow-y: auto;
+        overflow-x: hidden;
+        font-size: 16px;
+        color: #333232;
+        letter-spacing: 0.5;
+    }
+    .requestSupportButton{
+        width: 100%;
+        height: 40px;
+        border-radius: 4px;
+        border: none;
+        font-size: 19px;
+        color: #FFF;
+        margin-top: 35px;
+        background: linear-gradient(287deg, #7200FF 15.07%, #FC57FF 88.56%);
     }
 }

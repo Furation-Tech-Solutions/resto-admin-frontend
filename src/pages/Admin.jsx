@@ -40,8 +40,9 @@ const Admin = () => {
 
   const [ isSidebarPhone, setIsSidebarPhone ]= useState(false);
 
-  const [ chartnumphone, setchartnumphone ]= useState(1);
+  const [ isrequestAdmin, setIsRequestAdmin ]= useState(false);
 
+  const [ chartnumphone, setchartnumphone ]= useState(1);
   
   const [barnum, setBarnum] = useState(1);
 
@@ -443,7 +444,7 @@ const Admin = () => {
 
   return (
     <div className="outerBoxAdmin">
-      <div className={currentSubscriptionopen? "innerBoxAdminOverlay" : "innerBoxAdmin" }>
+      <div className={currentSubscriptionopen || isrequestAdmin ? "innerBoxAdminOverlay" : "innerBoxAdmin" }>
         <div className="leftBoxAdmin">
           <div className="leftfirstBoxAdmin">
             <img src={logo} alt="applogo" />
@@ -500,7 +501,7 @@ const Admin = () => {
               </div>
             </div>
             <div className="leftthirdBoxAdmin">
-              <div className="leftthirdBoxfirstAdmin">Request Support</div>
+              <div onClick={()=>setIsRequestAdmin(true)} className="leftthirdBoxfirstAdmin">Request Support</div>
               <div className="leftthirdBoxsecondAdmin">Logout</div>
             </div>
           </div>
@@ -775,7 +776,7 @@ const Admin = () => {
           </div>
         </div>
       </div>
-      <div className={currentSubscriptionopen? "innerBoxPhoneAdminOverlay" : "innerBoxPhoneAdmin"}>
+      <div className={currentSubscriptionopen || isrequestAdmin ? "innerBoxPhoneAdminOverlay" : "innerBoxPhoneAdmin"}>
         <div onClick={()=>isSidebarPhone===true && setIsSidebarPhone(!isSidebarPhone)} className="innerBoxPhoneAdminContent">
           <div className="navPhoneAdmin">
             <div className="menuIconAdminBox">
@@ -1105,7 +1106,10 @@ const Admin = () => {
                 </div>
             </div>
             <div className="ThirdBoxsideBarPhoneAdmin">
-              <div className="ThirdBoxsideBarFirstPhoneAdmin">Request Support</div>
+              <div onClick={()=> {
+                setIsRequestAdmin(true)
+                setIsSidebarPhone(!isSidebarPhone)}
+               } className="ThirdBoxsideBarFirstPhoneAdmin">Request Support</div>
               <div className="ThirdBoxsideBarSecondPhoneAdmin">Logout</div>
             </div>
           </div>
@@ -1136,7 +1140,8 @@ const Admin = () => {
                   setCurrentSubscriptionopen(false)
               }}>View all subscriptions</div>
           </div>
-      </div>}
+        </div>
+      }
       {isSubscribed===false && <div className={ currentSubscriptionopen? "newSubscriptionAdmin" : "newSubscriptionAdminOff"}>
           <div className="newSubscriptionCloseAdmin">
             <img onClick={()=>setCurrentSubscriptionopen(false)} src={closeicon} alt="" />
@@ -1168,6 +1173,16 @@ const Admin = () => {
           </div>
         </div>
       }
+      <div className={ isrequestAdmin? "requestSupportAdmin" : "requestSupportAdminOff"}>
+        <div className="requestSupportCloseAdmin">
+          <img onClick={()=>setIsRequestAdmin(false)} src={closeicon} alt="" />
+        </div>
+        <p className="requestSupportTextAdmin">Feedback</p>
+        <div className="requestSupporttextBox">
+          <textarea className="requestSupportInput" type="text" placeholder="Write your feedback here" />
+        </div>
+        <button className="requestSupportButton">Submit</button>
+      </div>
     </div>
   );
 };
