@@ -857,8 +857,8 @@
     box-shadow: 0px 0px 25px 1px rgba(0, 0, 0, 0.15);
     margin: auto;
     position: absolute;
-    top: 5%;
-    left: 40%;
+    top: 7%;
+    left: 33%;
 }
 .newSubscriptionAdminOff{
     display: none;
@@ -2199,6 +2199,117 @@
         margin-top: 30px;
         background: linear-gradient(287deg, #7200FF 15.07%, #FC57FF 88.56%);
     }
+    .newSubscriptionAdmin{
+        display: inline;
+        width: 72%;
+        height: 690px;
+        top: 7%;
+        left: 15%;
+    }
+    .newSubscriptionAdminOff{
+        display: none;
+    }
+    .newSubscriptionCloseAdmin{
+        width: 95%;
+        padding-top: 25px;
+    }
+    .newSubscriptionCloseAdmin > img{
+        width: 32px;
+        height: 32px;
+    }
+    .newSubscriptionTextAdmin{
+        font-size: 29px;
+        margin: 0px;
+        margin-bottom: 25px;
+    }
+    .newSubscriptionInnerBoxAdmin{
+        width: 75%;
+        height: 450px;
+        margin: auto;
+    }
+    .newSubscriptionDoughnutOuterAdmin{
+        width: 80%;
+        height: 170px;
+        font-size: 18px;
+        letter-spacing: 1px;
+    }
+    .newSubscriptionDoughnutOuterAdmin > p {
+        font-size: 21px;
+    }
+    .newSubscriptionDoughnutOuterAdmin > p > span{
+        font-size: 19px;
+    }
+    .newSubscriptionDoughnutAdmin >p {
+        width: 216px;
+        font-size: 18px;
+    }
+    .newSubscriptionDoughnutAdmin > div{
+        width: 115px;
+        height: 115px;
+        border-radius: 50%;
+    }
+    .newSubscriptionDoughnutAdmin > div >img{
+        width: 53px;
+        height: 51px;
+    }
+    .newSubscriptionbenifitsBoxAdmin{
+        width: 90%;
+        height: 230px;
+        margin: auto;
+        margin-top: 10px;
+        margin-bottom: 40px;
+    }
+    .newSubscriptionbenifitsBoxAdmin > div{
+        display: flex;
+        justify-content: start;
+        align-items: start;
+        text-align: left;
+        line-height: 20px;
+    }
+    .newSubscriptionbenifitsBoxAdmin > div >img{
+        margin-top: 8px;
+        margin-right: 8px;
+    }
+    .newSubscriptionbenifitsBoxAdmin > div >p{
+        margin: 0;
+        color: #4F4F4F;
+        font-family: "Poppins", Arial, sans-serif;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 45px;
+    }
+    .newSubscriptionbenifitsBoxAdmin > div > p >span{
+        color: #858585;
+        font-family: "Poppins", Arial, sans-serif;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+    .newSubscriptionsubscribebuttonAdmin{
+        display: flex;
+        width: 85%;
+        height: 53px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        flex-shrink: 0;
+        border-radius: 4px;
+        background: linear-gradient(287deg, #7200FF 15.07%, #FC57FF 88.56%);
+        color: #FFF;
+        text-align: center;
+        font-family: "Poppins", Arial, sans-serif;
+        font-size: 21px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px; /* 125% */
+        letter-spacing: 0.1px;
+        border: none;
+        margin: auto;
+        margin-top: 10px;
+    }
 }
 
 
@@ -3308,6 +3419,117 @@
         margin-top: 35px;
         background: linear-gradient(287deg, #7200FF 15.07%, #FC57FF 88.56%);
     }
+    .newSubscriptionAdmin{
+        display: inline;
+        width: 83%;
+        height: 690px;
+        top: 12%;
+        left: 9%;
+    }
+    .newSubscriptionAdminOff{
+        display: none;
+    }
+    .newSubscriptionCloseAdmin{
+        width: 95%;
+        padding-top: 25px;
+    }
+    .newSubscriptionCloseAdmin > img{
+        width: 30px;
+        height: 30px;
+    }
+    .newSubscriptionTextAdmin{
+        font-size: 27px;
+        margin: 0px;
+        margin-bottom: 25px;
+    }
+    .newSubscriptionInnerBoxAdmin{
+        width: 82%;
+        height: 460px;
+        margin: auto;
+    }
+    .newSubscriptionDoughnutOuterAdmin{
+        width: 80%;
+        height: 165px;
+        font-size: 18px;
+        letter-spacing: 1px;
+    }
+    .newSubscriptionDoughnutOuterAdmin > p {
+        font-size: 20px;
+    }
+    .newSubscriptionDoughnutOuterAdmin > p > span{
+        font-size: 18px;
+    }
+    .newSubscriptionDoughnutAdmin >p {
+        width: 216px;
+        font-size: 17px;
+    }
+    .newSubscriptionDoughnutAdmin > div{
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+    }
+    .newSubscriptionDoughnutAdmin > div >img{
+        width: 50px;
+        height: 50px;
+    }
+    .newSubscriptionbenifitsBoxAdmin{
+        width: 95%;
+        height: 245px;
+        margin: auto;
+        margin-top: 10px;
+        margin-bottom: 40px;
+    }
+    .newSubscriptionbenifitsBoxAdmin > div{
+        display: flex;
+        justify-content: start;
+        align-items: start;
+        text-align: left;
+        line-height: 20px;
+    }
+    .newSubscriptionbenifitsBoxAdmin > div >img{
+        margin-top: 9px;
+        margin-right: 8px;
+    }
+    .newSubscriptionbenifitsBoxAdmin > div >p{
+        margin: 0;
+        color: #4F4F4F;
+        font-family: "Poppins", Arial, sans-serif;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 39px;
+    }
+    .newSubscriptionbenifitsBoxAdmin > div > p >span{
+        color: #858585;
+        font-family: "Poppins", Arial, sans-serif;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+    .newSubscriptionsubscribebuttonAdmin{
+        display: flex;
+        width: 85%;
+        height: 53px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        flex-shrink: 0;
+        border-radius: 4px;
+        background: linear-gradient(287deg, #7200FF 15.07%, #FC57FF 88.56%);
+        color: #FFF;
+        text-align: center;
+        font-family: "Poppins", Arial, sans-serif;
+        font-size: 21px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px; /* 125% */
+        letter-spacing: 0.1px;
+        border: none;
+        margin: auto;
+        margin-top: 10px;
+    }
 }
 
 
@@ -4335,5 +4557,109 @@
         color: #FFF;
         margin-top: 35px;
         background: linear-gradient(287deg, #7200FF 15.07%, #FC57FF 88.56%);
+    }
+    .newSubscriptionAdmin{
+        display: inline;
+        width: 83%;
+        height: 530px;
+        top: 12%;
+        left: 9%;
+    }
+    .newSubscriptionAdminOff{
+        display: none;
+    }
+    .newSubscriptionCloseAdmin{
+        width: 93%;
+        padding-top: 20px;
+    }
+    .newSubscriptionCloseAdmin > img{
+        width: 18px;
+        height: 18px;
+    }
+    .newSubscriptionTextAdmin{
+        font-size: 20px;
+        margin: 0px;
+        margin-bottom: 18px;
+        margin-top: 10px;
+    }
+    .newSubscriptionInnerBoxAdmin{
+        width: 82%;
+        height: 350px;
+        margin: auto;
+    }
+    .newSubscriptionDoughnutOuterAdmin{
+        width: 80%;
+        height: 120px;
+        font-size: 15px;
+        letter-spacing: 1px;
+        padding-top: 10px;
+    }
+    .newSubscriptionDoughnutOuterAdmin > p {
+        font-size: 16px;
+        margin: 10px;
+    }
+    .newSubscriptionDoughnutOuterAdmin > div > img{
+        width: 35px;
+        height: 35px;
+    }
+    .newSubscriptionDoughnutOuterAdmin > p > span{
+        font-size: 16px;
+    }
+    .newSubscriptionDoughnutAdmin >p {
+        width: 216px;
+        font-size: 15px;
+    }
+    .newSubscriptionDoughnutAdmin > div{
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+    }
+    .newSubscriptionDoughnutAdmin > div >img{
+        width: 50px;
+        height: 50px;
+    }
+    .newSubscriptionbenifitsBoxAdmin{
+        width: 96%;
+        height: 190px;
+        margin: auto;
+        margin-top: 10px;
+        margin-bottom: 40px;
+    }
+    .newSubscriptionbenifitsBoxAdmin > div{
+        display: flex;
+        justify-content: start;
+        align-items: start;
+        text-align: left;
+        line-height: 20px;
+    }
+    .newSubscriptionbenifitsBoxAdmin > div >img{
+        width: 20px;
+        height: 20px;
+        margin-top: 7px;
+        margin-right: 7px;
+    }
+    .newSubscriptionbenifitsBoxAdmin > div >p{
+        margin: 0;
+        color: #4F4F4F;
+        font-family: "Poppins", Arial, sans-serif;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 30px;
+    }
+    .newSubscriptionbenifitsBoxAdmin > div > p >span{
+        color: #858585;
+        font-family: "Poppins", Arial, sans-serif;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+    .newSubscriptionsubscribebuttonAdmin{
+        display: flex;
+        width: 80%;
+        height: 40px;
+        font-size: 15px;
+        margin-top: 10px;
     }
 }

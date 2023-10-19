@@ -36,7 +36,7 @@ const Admin = () => {
   
   const [ currentSubscriptionopen, setCurrentSubscriptionopen ]= useState(false);
 
-  const [isSubscribed, setIsSubscribed]= useState(true);
+  const [isSubscribed, setIsSubscribed]= useState(false);
 
   const [ isSidebarPhone, setIsSidebarPhone ]= useState(false);
 
