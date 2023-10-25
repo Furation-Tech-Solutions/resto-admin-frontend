@@ -17,8 +17,8 @@ import { FiSearch } from 'react-icons/fi';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, Filler, LineElement, BarElement, ArcElement, Title, Tooltip, Legend } from 'chart.js';
 import { Line,  Bar, Doughnut } from 'react-chartjs-2';
 import CurrentSubscripton from "../components/CurrentSubscripton";
-import { useDispatch } from "react-redux";
-import { getWeeklyUniqueUser } from "../Redux/AppData/action";
+import { useDispatch, useSelector } from "react-redux";
+import { getMonthlyUniqueUser, getTotalUniqueUser, getUniqueUser, getWeeklyUniqueUser } from "../Redux/AppData/action";
 
 
 const Admin = () => {
@@ -53,8 +53,18 @@ const Admin = () => {
   // const date = new Date();
 
   useEffect(()=>{
-    dispatch(getWeeklyUniqueUser()).then((r)=>console.log({"r" : r}))
+    dispatch(getUniqueUser());
+    dispatch(getTotalUniqueUser());
+    dispatch(getWeeklyUniqueUser());
+    dispatch(getMonthlyUniqueUser());
   }, [])
+
+  const uniqueData= useSelector((store)=>store.AppReducer.uniqueUser);
+  const totalUniqueData= useSelector((store)=>store.AppReducer.totalUniqueUser);
+  const weekData= useSelector((store)=>store.AppReducer.weeklyuniqueUser);
+  const monthData= useSelector((store)=>store.AppReducer.monthlyuniqueUser);
+
+  console.log({"weekData":weekData});
 
 
   const weeklylabels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
@@ -549,13 +559,13 @@ const Admin = () => {
                   <div className="rightsecondBoxCountText">
                     <p>Today</p>
                   </div>
-                  <div className="rightsecondBoxCountNumber">12</div>
+                  <div className="rightsecondBoxCountNumber">{uniqueData.length}</div>
                 </div>
                 <div className="rightsecondBoxCountOuter">
                   <div className="rightsecondBoxCountText">
                     <p>Total</p>
                   </div>
-                  <div className="rightsecondBoxCountNumber">42</div>
+                  <div className="rightsecondBoxCountNumber">{totalUniqueData.length}</div>
                 </div>
               </div>
               <div className="AdminTabChartWrapper">
@@ -614,14 +624,14 @@ const Admin = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {userData &&
-                    userData.map((user, i) => {
+                  {totalUniqueData &&
+                    totalUniqueData.map((user, i) => {
                       return (
                         <tr key={i}>
                           <td className="userTableAdminBody">{i + 1}</td>
                           <td className="userTableAdminBody">{user.name}</td>
-                          <td className="userTableAdminBody">{user.phone}</td>
-                          <td className="userTableAdminBody">{user.messeage_count}</td>
+                          <td className="userTableAdminBody">{user.recipient}</td>
+                          <td className="userTableAdminBody">{user.message_count}</td>
                         </tr>
                       );
                     })}
@@ -813,11 +823,11 @@ const Admin = () => {
               <div className="secondBoxAdminPhone">
                 <div className="secondBoxInnerAdminPhone">
                   <div className="secondBoxInnerAdminPhoneText">Today</div>
-                  <div className="secondBoxInnerAdminPhoneNumber">12</div>
+                  <div className="secondBoxInnerAdminPhoneNumber">{uniqueData.length}</div>
                 </div>
                 <div className="secondBoxInnerAdminPhone">
                   <div className="secondBoxInnerAdminPhoneText">Total</div>
-                  <div className="secondBoxInnerAdminPhoneNumber">42</div>
+                  <div className="secondBoxInnerAdminPhoneNumber">{totalUniqueData.length}</div>
                 </div>
               </div>
               <div className="thirdBoxAdminPhone">
@@ -873,13 +883,13 @@ const Admin = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {userData && userData.map((user, i) => {
+                  {totalUniqueData && totalUniqueData.map((user, i) => {
                     return (
                       <tr key={i}>
                         <td className="userTableAdminBodyPhone">{i + 1}</td>
                         <td className="userTableAdminBodyPhone">{user.name}</td>
-                        <td className="userTableAdminBodyPhone">{user.phone}</td>
-                        <td className="userTableAdminBodyPhone">{user.messeage_count}</td>
+                        <td className="userTableAdminBodyPhone">{user.recipient}</td>
+                        <td className="userTableAdminBodyPhone">{user.message_count}</td>
                       </tr>
                     );
                   })}

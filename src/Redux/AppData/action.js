@@ -72,7 +72,7 @@ const getPaymentHistory= (params)=>(dispatch)=>{
     dispatch(getPaymentHistoryRequest());
     return axios.get(`https://restaurant-bot-admin.onrender.com/api/v1/payment`, params)
     .then((res)=>{
-        dispatch(getPaymentHistorySuccess(res))
+        dispatch(getPaymentHistorySuccess(res.data))
     })
     .catch((error)=>{
         dispatch(getPaymentHistoryError())
@@ -82,7 +82,7 @@ const getPaymentHistory= (params)=>(dispatch)=>{
 const getUniqueUser= ()=>(dispatch)=>{
     return axios.get(`https://what-bot.furation.tech/dailyuser`)
     .then((res)=>{
-        dispatch(getUniqueUserSuccess(res))
+        dispatch(getUniqueUserSuccess(res.data))
     })
     .catch((error)=>{
         dispatch(getUniqueUserError())
@@ -92,7 +92,7 @@ const getUniqueUser= ()=>(dispatch)=>{
 const getTotalUniqueUser= ()=>(dispatch)=>{
     return axios.get(`https://what-bot.furation.tech/totaluser`)
     .then((res)=>{
-        dispatch(getTotalUniqueUserSuccess(res))
+        dispatch(getTotalUniqueUserSuccess(res.data))
     })
     .catch((error)=>{
         dispatch(getTotalUniqueUserError())
@@ -102,7 +102,7 @@ const getTotalUniqueUser= ()=>(dispatch)=>{
 const getWeeklyUniqueUser= ()=>(dispatch)=>{
     return axios.get(`https://what-bot.furation.tech/weeklyuser`)
     .then((res)=>{
-        dispatch(getWeeklyUniqueUserSuccess(res))
+        dispatch(getWeeklyUniqueUserSuccess(res.data))
     })
     .catch((error)=>{
         dispatch(getWeeklyUniqueUserError())
@@ -112,7 +112,7 @@ const getWeeklyUniqueUser= ()=>(dispatch)=>{
 const getMonthlyUniqueUser= ()=>(dispatch)=>{
     return axios.get(`https://what-bot.furation.tech/monthlyuser`)
     .then((res)=>{
-        dispatch(getMonthlyUniqueUserSuccess(res))
+        dispatch(getMonthlyUniqueUserSuccess(res.data))
     })
     .catch((error)=>{
         dispatch(getMonthlyUniqueUserError())

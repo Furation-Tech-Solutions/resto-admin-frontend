@@ -4,8 +4,8 @@ const initialState= {
     paymentHistory: [],
     uniqueUser: [],
     totalUniqueUser: [],
-    weeklyniqueUser: [],
-    monthlyniqueUser: [],
+    weeklyuniqueUser: [],
+    monthlyuniqueUser: [],
     isLoadingpayment: false,
     isErrorpayment: false
 }
