@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/Admin.css";
 import logo from "../utils/Images/Admin/logo.svg";
 import emoji from "../utils/Images/Admin/emoji.svg";
@@ -17,6 +17,8 @@ import { FiSearch } from 'react-icons/fi';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, Filler, LineElement, BarElement, ArcElement, Title, Tooltip, Legend } from 'chart.js';
 import { Line,  Bar, Doughnut } from 'react-chartjs-2';
 import CurrentSubscripton from "../components/CurrentSubscripton";
+import { useDispatch } from "react-redux";
+import { getWeeklyUniqueUser } from "../Redux/AppData/action";
 
 
 const Admin = () => {
@@ -33,6 +35,8 @@ const Admin = () => {
     Tooltip,
     Legend
   );
+
+  const dispatch= useDispatch();
   
   const [ currentSubscriptionopen, setCurrentSubscriptionopen ]= useState(false);
 
@@ -47,6 +51,10 @@ const Admin = () => {
   const [barnum, setBarnum] = useState(1);
 
   // const date = new Date();
+
+  useEffect(()=>{
+    dispatch(getWeeklyUniqueUser()).then((r)=>console.log({"r" : r}))
+  }, [])
 
 
   const weeklylabels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
@@ -609,7 +617,7 @@ const Admin = () => {
                   {userData &&
                     userData.map((user, i) => {
                       return (
-                        <tr key={user._id}>
+                        <tr key={i}>
                           <td className="userTableAdminBody">{i + 1}</td>
                           <td className="userTableAdminBody">{user.name}</td>
                           <td className="userTableAdminBody">{user.phone}</td>
@@ -720,7 +728,7 @@ const Admin = () => {
                   </thead>
                   <tbody>
                     {feedbackData && feedbackData.map((feed, i)=>{
-                      return <tr key={feed._id}>
+                      return <tr key={i}>
                         <td className="FeedbackTableBodyAdmin">{i+1}</td>
                         <td className="FeedbackTableBodyAdmin">{feed.name}</td>
                         <td className="FeedbackTableBodyAdmin">{feed.phone}</td>
@@ -758,7 +766,7 @@ const Admin = () => {
                   </thead>
                   <tbody>
                     {subscriptionData && subscriptionData.map((subscription, i)=>{
-                      return <tr key={subscription._id}>
+                      return <tr key={i}>
                         <td className="SubscriptionTableBodyAdmin">{i+1}</td>
                         <td className="SubscriptionTableBodyAdmin">{subscription.plan}</td>
                         <td className="SubscriptionTableBodyAdmin">{subscription.type}</td>
@@ -867,7 +875,7 @@ const Admin = () => {
                 <tbody>
                   {userData && userData.map((user, i) => {
                     return (
-                      <tr key={user._id}>
+                      <tr key={i}>
                         <td className="userTableAdminBodyPhone">{i + 1}</td>
                         <td className="userTableAdminBodyPhone">{user.name}</td>
                         <td className="userTableAdminBodyPhone">{user.phone}</td>
@@ -971,7 +979,7 @@ const Admin = () => {
                   </thead>
                   <tbody>
                     {feedbackData && feedbackData.map((feed, i)=>{
-                      return <tr key={feed._id}>
+                      return <tr key={i}>
                         <td className="FeedbackTableBodyAdmin">{i+1}</td>
                         <td className="FeedbackTableBodyAdmin">{feed.name}</td>
                         <td className="FeedbackTableBodyAdmin">{feed.phone}</td>
@@ -1009,7 +1017,7 @@ const Admin = () => {
                   </thead>
                   <tbody>
                     {subscriptionData && subscriptionData.map((subscription, i)=>{
-                      return <tr key={subscription._id}>
+                      return <tr key={i}>
                         <td className="SubscriptionTableBodyAdmin">{i+1}</td>
                         <td className="SubscriptionTableBodyAdmin">{subscription.plan}</td>
                         <td className="SubscriptionTableBodyAdmin">{subscription.type}</td>

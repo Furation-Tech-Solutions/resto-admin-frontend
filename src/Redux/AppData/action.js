@@ -72,7 +72,7 @@ const getPaymentHistory= (params)=>(dispatch)=>{
     dispatch(getPaymentHistoryRequest());
     return axios.get(`https://restaurant-bot-admin.onrender.com/api/v1/payment`, params)
     .then((res)=>{
-        dispatch(getPaymentHistorySuccess(res.data))
+        dispatch(getPaymentHistorySuccess(res))
     })
     .catch((error)=>{
         dispatch(getPaymentHistoryError())
@@ -80,9 +80,9 @@ const getPaymentHistory= (params)=>(dispatch)=>{
 }
 
 const getUniqueUser= ()=>(dispatch)=>{
-    return axios.get(`https://worrisome-newt-twill.cyclic.cloud/dailyuser`)
+    return axios.get(`https://what-bot.furation.tech/dailyuser`)
     .then((res)=>{
-        dispatch(getUniqueUserSuccess(res.data))
+        dispatch(getUniqueUserSuccess(res))
     })
     .catch((error)=>{
         dispatch(getUniqueUserError())
@@ -90,9 +90,9 @@ const getUniqueUser= ()=>(dispatch)=>{
 }
 
 const getTotalUniqueUser= ()=>(dispatch)=>{
-    return axios.get(`https://worrisome-newt-twill.cyclic.cloud/totaluser`)
+    return axios.get(`https://what-bot.furation.tech/totaluser`)
     .then((res)=>{
-        dispatch(getTotalUniqueUserSuccess(res.data))
+        dispatch(getTotalUniqueUserSuccess(res))
     })
     .catch((error)=>{
         dispatch(getTotalUniqueUserError())
@@ -100,9 +100,9 @@ const getTotalUniqueUser= ()=>(dispatch)=>{
 }
 
 const getWeeklyUniqueUser= ()=>(dispatch)=>{
-    return axios.get(`https://worrisome-newt-twill.cyclic.cloud/weeklyuser`)
+    return axios.get(`https://what-bot.furation.tech/weeklyuser`)
     .then((res)=>{
-        dispatch(getWeeklyUniqueUserSuccess(res.data))
+        dispatch(getWeeklyUniqueUserSuccess(res))
     })
     .catch((error)=>{
         dispatch(getWeeklyUniqueUserError())
@@ -110,9 +110,9 @@ const getWeeklyUniqueUser= ()=>(dispatch)=>{
 }
 
 const getMonthlyUniqueUser= ()=>(dispatch)=>{
-    return axios.get(`https://worrisome-newt-twill.cyclic.cloud/monthlyuser`)
+    return axios.get(`https://what-bot.furation.tech/monthlyuser`)
     .then((res)=>{
-        dispatch(getMonthlyUniqueUserSuccess(res.data))
+        dispatch(getMonthlyUniqueUserSuccess(res))
     })
     .catch((error)=>{
         dispatch(getMonthlyUniqueUserError())
