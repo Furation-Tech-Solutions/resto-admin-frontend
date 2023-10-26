@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../styles/Admin.css";
 import "../styles/Superadmin.css";
+import "../styles/SingleAdmin.css";
 import logo from "../utils/Images/Admin/logo.svg";
 import { AiOutlineSearch } from 'react-icons/ai';
 import menu from "../utils/Images/Admin/menu.svg";
