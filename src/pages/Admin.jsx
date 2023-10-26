@@ -47,6 +47,8 @@ const Admin = () => {
   const [ isrequestAdmin, setIsRequestAdmin ]= useState(false);
 
   const [ chartnumphone, setchartnumphone ]= useState(1);
+
+  const [panelUserList, setPanelUserList]= useState("total");
   
   const [barnum, setBarnum] = useState(1);
 
@@ -64,7 +66,6 @@ const Admin = () => {
   const weekData= useSelector((store)=>store.AppReducer.weeklyuniqueUser);
   const monthData= useSelector((store)=>store.AppReducer.monthlyuniqueUser);
 
-  console.log({"weekData":weekData});
 
 
   const weeklylabels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
@@ -606,11 +607,11 @@ const Admin = () => {
                   placeholder="Search by name or phone number"
                 />
               </div>
-              <select name="" id="">
-                <option value="">Today</option>
-                <option value="">Last 7 Days</option>
-                <option value="">Last 30 days</option>
-                <option value="">Total</option>
+              <select name="" id="" onChange={(e)=>setPanelUserList(e.target.value)}>
+                <option value="total">Total</option>
+                <option value="monthly">Last 30 Days</option>
+                <option value="weekly">Last 7 days</option>
+                <option value="daily">Today</option>
               </select>
             </div>
             <div className="rightfourthBoxAdmin">
