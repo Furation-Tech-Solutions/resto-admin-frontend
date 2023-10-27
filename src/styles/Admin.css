@@ -1523,6 +1523,16 @@
     margin-top: 25px;
     background: linear-gradient(287deg, #7200FF 15.07%, #FC57FF 88.56%);
 }
+.notfounddiv{
+    width: 100%;
+    text-align: center;
+    color: #A4A4A4;
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
 
 
 

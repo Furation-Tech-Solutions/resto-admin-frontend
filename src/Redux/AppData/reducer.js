@@ -2,6 +2,8 @@ import * as types from "./actionTypes"
 
 const initialState= {
     paymentHistory: [],
+    userFeedback: [],
+    supportrequest: [],
     uniqueUser: [],
     totalUniqueUser: [],
     weeklyuniqueUser: [],
@@ -25,13 +27,21 @@ const reducer= (oldState= initialState, action)=>{
             return {
                 ...oldState, isLoadingpayment:false, isError:true
             }
+        case types.GET_USERFEEDBACK_SUCCESS: 
+            return {
+                ...oldState, userFeedback:payload
+            }
+        case types.GET_USERFEEDBACK_ERROR: 
+            return {
+                ...oldState, userFeedback: []
+            }
         case types.GET_UNIQUEUSER_SUCCESS: 
             return {
                 ...oldState, uniqueUser:payload
             }
         case types.GET_UNIQUEUSER_ERROR: 
             return {
-                ...oldState, uniqueUser:0
+                ...oldState, uniqueUser:[]
             }
         case types.GET_TOTALUNIQUEUSER_SUCCESS: 
             return {
@@ -39,7 +49,7 @@ const reducer= (oldState= initialState, action)=>{
             }
         case types.GET_TOTALUNIQUEUSER_ERROR: 
             return {
-                ...oldState, totalUniqueUser:0
+                ...oldState, totalUniqueUser:[]
             }
         case types.GET_WEEKLYUNIQUEUSER_SUCCESS: 
             return {
@@ -47,7 +57,7 @@ const reducer= (oldState= initialState, action)=>{
             }
         case types.GET_WEEKLYUNIQUEUSER_ERROR: 
             return {
-                ...oldState, weeklyniqueUser:0
+                ...oldState, weeklyniqueUser:[]
             }
         case types.GET_MONTHLYUNIQUEUSER_SUCCESS: 
             return {
@@ -55,7 +65,7 @@ const reducer= (oldState= initialState, action)=>{
             }
         case types.GET_MONTHLYUNIQUEUSER_ERROR: 
             return {
-                ...oldState, monthlyniqueUser:0
+                ...oldState, monthlyniqueUser:[]
             }
         default : return oldState
     }

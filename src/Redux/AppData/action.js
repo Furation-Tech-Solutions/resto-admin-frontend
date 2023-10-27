@@ -1,5 +1,5 @@
 // import axios from "axios"
-import { GET_MONTHLYUNIQUEUSER_ERROR, GET_MONTHLYUNIQUEUSER_SUCCESS, GET_PAYMENTHISTORY_ERROR, GET_PAYMENTHISTORY_REQUEST, GET_PAYMENTHISTORY_SUCCESS, GET_TOTALUNIQUEUSER_ERROR, GET_TOTALUNIQUEUSER_SUCCESS, GET_UNIQUEUSER_ERROR, GET_UNIQUEUSER_SUCCESS, GET_WEEKLYUNIQUEUSER_ERROR, GET_WEEKLYUNIQUEUSER_SUCCESS } from "./actionTypes"
+import { GET_MONTHLYUNIQUEUSER_ERROR, GET_MONTHLYUNIQUEUSER_SUCCESS, GET_PAYMENTHISTORY_ERROR, GET_PAYMENTHISTORY_REQUEST, GET_PAYMENTHISTORY_SUCCESS, GET_SUPPORTREQUEST_ERROR, GET_SUPPORTREQUEST_SUCCESS, GET_TOTALUNIQUEUSER_ERROR, GET_TOTALUNIQUEUSER_SUCCESS, GET_UNIQUEUSER_ERROR, GET_UNIQUEUSER_SUCCESS, GET_USERFEEDBACK_ERROR, GET_USERFEEDBACK_REQUEST, GET_USERFEEDBACK_SUCCESS, GET_WEEKLYUNIQUEUSER_ERROR, GET_WEEKLYUNIQUEUSER_SUCCESS, POST_SUPPORTREQUEST_ERROR, POST_SUPPORTREQUEST_SUCCESS } from "./actionTypes"
 import axios from "axios";
 
 const getPaymentHistoryRequest= ()=>{
@@ -16,6 +16,46 @@ const getPaymentHistorySuccess= (payload)=>{
 const getPaymentHistoryError= ()=>{
     return {
         type: GET_PAYMENTHISTORY_ERROR
+    }
+}
+const getUserFeedbackRequest= ()=>{
+    return {
+        type: GET_USERFEEDBACK_REQUEST
+    }
+}
+const getUserFeedbackSuccess= (payload)=>{
+    return {
+        type: GET_USERFEEDBACK_SUCCESS,
+        payload
+    }
+}
+const getUserFeedbackError= ()=>{
+    return {
+        type: GET_USERFEEDBACK_ERROR
+    }
+}
+
+const getSupportRequestSuccess= (payload)=>{
+    return {
+        type: GET_SUPPORTREQUEST_SUCCESS,
+        payload
+    }
+}
+const getSupportRequestError= ()=>{
+    return {
+        type: GET_SUPPORTREQUEST_ERROR
+    }
+}
+
+const postSupportRequestSuccess= (payload)=>{
+    return {
+        type: POST_SUPPORTREQUEST_SUCCESS,
+        payload
+    }
+}
+const postSupportRequestError= ()=>{
+    return {
+        type: POST_SUPPORTREQUEST_ERROR
     }
 }
 
@@ -79,6 +119,33 @@ const getPaymentHistory= (params)=>(dispatch)=>{
     })
 }
 
+const getUserFeedback= (params)=>(dispatch)=>{
+    dispatch(getUserFeedbackRequest());
+    return axios.get(`https://what-bot.furation.tech/feedback`, params)
+    .then((res)=>{
+        dispatch(getUserFeedbackSuccess(res.data))
+    })
+    .catch((error)=>{
+        dispatch(getUserFeedbackError())
+    })
+}
+
+const getSupportRequest= (params)=>(dispatch)=>{
+    return axios.get(`https://what-bot.furation.tech/requestsupport`, params)
+    .then((res)=>{
+        dispatch(getSupportRequestSuccess(res.data))
+    })
+    .catch((error)=>{
+        dispatch(getSupportRequestError())
+    })
+}
+
+const postSupportRequest= (payload)=>(dispatch)=>{
+    return axios.post("https://what-bot.furation.tech/requestsupport", payload)
+    .then((r)=>{dispatch(postSupportRequestSuccess())})
+    .catch((e)=>{dispatch(postSupportRequestError())})
+}
+
 const getUniqueUser= ()=>(dispatch)=>{
     return axios.get(`https://what-bot.furation.tech/dailyuser`)
     .then((res)=>{
@@ -119,4 +186,4 @@ const getMonthlyUniqueUser= ()=>(dispatch)=>{
     })
 }
 
-export {getPaymentHistory, getUniqueUser, getTotalUniqueUser, getWeeklyUniqueUser, getMonthlyUniqueUser};
+export {getPaymentHistory, getUserFeedback, getSupportRequest, postSupportRequest, getUniqueUser, getTotalUniqueUser, getWeeklyUniqueUser, getMonthlyUniqueUser};

@@ -577,6 +577,16 @@
     letter-spacing: 0.1px;
     background: none;
 }
+.notfounddiv{
+    width: 100%;
+    text-align: center;
+    color: #A4A4A4;
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
 
 
 
@@ -1117,6 +1127,9 @@
         height: 45px;
         font-size: 19px;
     }
+    .notfounddiv > img {
+        width: 100%;
+    }
 }
 
 
@@ -1476,5 +1489,8 @@
         width: 98%;
         height: 45px;
         font-size: 19px;
+    }
+    .notfounddiv > img {
+        width: 100%;
     }
 }

@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import "../styles/Superadmin.css"
 import logo from "../utils/Images/Admin/logo.svg";
+import support from "../utils/Images/Admin/support.svg";
 import { useDispatch, useSelector } from 'react-redux';
 import { AiOutlinePlus, AiOutlineSearch } from 'react-icons/ai';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { AiOutlineCheck } from 'react-icons/ai';
 import menu from "../utils/Images/Admin/menu.svg";
+import { getSupportRequest } from '../Redux/AppData/action';
 
 const Superadmin = () => {
+  
+  const dispatch= useDispatch();
 
   const [userData, setUserData] = useState([]);
 
@@ -21,12 +25,14 @@ const Superadmin = () => {
   useEffect(()=>{
     axios.get(`https://restaurant-bot-admin.onrender.com/api/v1/admin`)
     .then((r)=>setUserData(r.data));
+    dispatch(getSupportRequest());
   }, [])
+  
+  const requestsupportdata= useSelector((store)=>store.AppReducer.supportrequest);
 
-  console.log(userData);
+  console.log(requestsupportdata);
 
   const [barnum, setBarnum]= useState(1);
-  const dispatch= useDispatch();
 
   const [ isAddAdmin, setIsAddAdmin ] = useState(false);
   const [ istoggle, setIstoggle ] = useState(false);
@@ -118,50 +124,50 @@ const Superadmin = () => {
     }
   ]
 
-  const feedbackData = [
-    {
-      phone: "123456789",
-      name: "User name",
-      message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      date: "04/10/2023"
-    },
-    {
-      phone: "123456789",
-      name: "User name",
-      message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      date: "04/10/2023"
-    },
-    {
-      phone: "123456789",
-      name: "User name",
-      message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      date: "04/10/2023"
-    },
-    {
-      phone: "123456789",
-      name: "User name",
-      message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      date: "04/10/2023"
-    },
-    {
-      phone: "123456789",
-      name: "User name",
-      message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      date: "04/10/2023"
-    },
-    {
-      phone: "123456789",
-      name: "User name",
-      message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      date: "04/10/2023"
-    },
-    {
-      phone: "123456789",
-      name: "User name",
-      message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      date: "04/10/2023"
-    }
-  ];
+  // const feedbackData = [
+  //   {
+  //     phone: "123456789",
+  //     name: "User name",
+  //     message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  //     date: "04/10/2023"
+  //   },
+  //   {
+  //     phone: "123456789",
+  //     name: "User name",
+  //     message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  //     date: "04/10/2023"
+  //   },
+  //   {
+  //     phone: "123456789",
+  //     name: "User name",
+  //     message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  //     date: "04/10/2023"
+  //   },
+  //   {
+  //     phone: "123456789",
+  //     name: "User name",
+  //     message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  //     date: "04/10/2023"
+  //   },
+  //   {
+  //     phone: "123456789",
+  //     name: "User name",
+  //     message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  //     date: "04/10/2023"
+  //   },
+  //   {
+  //     phone: "123456789",
+  //     name: "User name",
+  //     message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  //     date: "04/10/2023"
+  //   },
+  //   {
+  //     phone: "123456789",
+  //     name: "User name",
+  //     message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  //     date: "04/10/2023"
+  //   }
+  // ];
 
   return (
     <div className="outerBoxSuperAdmin">
@@ -301,7 +307,7 @@ const Superadmin = () => {
           </div>
           <div className={barnum===2 ? 'rightBoxSuperAdminSupport' : 'rightBoxSuperAdminSupportOff'}>
             <div className='rightBoxSuperAdminSupportText'><p>Support</p></div>
-            <div className='rightsecondBoxSuperadmin'>
+           {requestsupportdata.length>0 &&<div className='rightsecondBoxSuperadmin'>
               <div className="rightsecondBoxSuperadminInputBox">
                 <AiOutlineSearch size={"20px"} />
                 <input className="rightsecondBoxSuperadminInput" type="text" placeholder='Search by email or phone number' />
@@ -311,9 +317,9 @@ const Superadmin = () => {
                 <option value="">Akina</option>
                 <option value="">Pritam da dhaba</option>
               </select>
-            </div>
+            </div>}
             <div className='rightthirdBoxSuperadminSupport'>
-              <div className='userTableSuperAdminHolder'>
+            {requestsupportdata.length>0 ? <div className='userTableSuperAdminHolder'>
                 <table className="feedbackTableSuperAdmin">
                   <thead>
                     <tr>
@@ -325,7 +331,7 @@ const Superadmin = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {feedbackData && feedbackData.map((feedback, i)=>{
+                    {requestsupportdata && requestsupportdata.map((feedback, i)=>{
                       return <tr key={feedback.id}>
                         <td className="feedbackTableBodySuperAdmin">{i+1}</td>
                         <td className="feedbackTableBodySuperAdmin">{feedback.name}</td>
@@ -336,7 +342,12 @@ const Superadmin = () => {
                     })}
                   </tbody>
                 </table>
+              </div> : 
+              <div className="notfounddiv">
+                <img src={support} alt="support" />
+                <p>No record found</p>
               </div>
+              }
             </div>
           </div>
         </div>

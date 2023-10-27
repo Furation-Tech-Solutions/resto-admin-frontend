@@ -5,6 +5,8 @@ import emoji from "../utils/Images/Admin/emoji.svg";
 import closeicon from "../utils/Images/Admin/closeicon.png";
 import menu from "../utils/Images/Admin/menu.svg";
 import filter from "../utils/Images/Admin/filter.svg";
+import feedback from "../utils/Images/Admin/feedback.svg";
+import subscriptionandpayment from "../utils/Images/Admin/subscriptionandpayment.svg";
 import send from "../utils/Images/Admin/Send.svg";
 import calendar from "../utils/Images/Admin/Calendar.svg";
 import chevronleft from "../utils/Images/Admin/chevron-right.svg";
@@ -18,7 +20,7 @@ import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, Filler, Lin
 import { Line,  Bar, Doughnut } from 'react-chartjs-2';
 import CurrentSubscripton from "../components/CurrentSubscripton";
 import { useDispatch, useSelector } from "react-redux";
-import { getMonthlyUniqueUser, getTotalUniqueUser, getUniqueUser, getWeeklyUniqueUser } from "../Redux/AppData/action";
+import { getMonthlyUniqueUser, getPaymentHistory, getTotalUniqueUser, getUniqueUser, getUserFeedback, getWeeklyUniqueUser, postSupportRequest } from "../Redux/AppData/action";
 
 
 const Admin = () => {
@@ -40,6 +42,8 @@ const Admin = () => {
   
   const [ currentSubscriptionopen, setCurrentSubscriptionopen ]= useState(false);
 
+  const [ requestSupportValue, setRequestSupportValue]= useState("");
+
   const [isSubscribed, setIsSubscribed]= useState(false);
 
   const [ isSidebarPhone, setIsSidebarPhone ]= useState(false);
@@ -59,12 +63,30 @@ const Admin = () => {
     dispatch(getTotalUniqueUser());
     dispatch(getWeeklyUniqueUser());
     dispatch(getMonthlyUniqueUser());
+    dispatch(getPaymentHistory());
+    dispatch(getUserFeedback());
   }, [])
+
+  const handleRequestSupport= ()=>{
+    const data= {
+      message: requestSupportValue,
+      adminId: "jyhfkmu"
+    }
+    console.log(requestSupportValue);
+    dispatch(postSupportRequest(data));
+    console.log(0);
+  }
 
   const uniqueData= useSelector((store)=>store.AppReducer.uniqueUser);
   const totalUniqueData= useSelector((store)=>store.AppReducer.totalUniqueUser);
   const weekData= useSelector((store)=>store.AppReducer.weeklyuniqueUser);
   const monthData= useSelector((store)=>store.AppReducer.monthlyuniqueUser);
+  const subscriptionData= useSelector((store)=>store.AppReducer.paymentHistory);
+  const feedbackData= useSelector((store)=>store.AppReducer.userFeedback);
+
+  console.log(subscriptionData);
+
+  const date= new Date();
 
 
 
@@ -176,275 +198,275 @@ const Admin = () => {
       messeage_count: 12,
     },
   ];
-  const feedbackData = [
-    {
-      phone: "123456789",
-      name: "User name",
-      message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      date: "04/10/2023"
-    },
-    {
-      phone: "123456789",
-      name: "User name",
-      message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      date: "04/10/2023"
-    },
-    {
-      phone: "123456789",
-      name: "User name",
-      message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      date: "04/10/2023"
-    },
-    {
-      phone: "123456789",
-      name: "User name",
-      message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      date: "04/10/2023"
-    },
-    {
-      phone: "123456789",
-      name: "User name",
-      message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      date: "04/10/2023"
-    },
-    {
-      phone: "123456789",
-      name: "User name",
-      message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      date: "04/10/2023"
-    },
-    {
-      phone: "123456789",
-      name: "User name",
-      message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      date: "04/10/2023"
-    },
-    {
-      phone: "123456789",
-      name: "User name",
-      message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      date: "04/10/2023"
-    },
-    {
-      phone: "123456789",
-      name: "User name",
-      message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      date: "04/10/2023"
-    },
-    {
-      phone: "123456789",
-      name: "User name",
-      message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      date: "04/10/2023"
-    },
-    {
-      phone: "123456789",
-      name: "User name",
-      message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      date: "04/10/2023"
-    },
-  ];
+  // const feedbackData = [
+  //   {
+  //     phone: "123456789",
+  //     name: "User name",
+  //     message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  //     date: "04/10/2023"
+  //   },
+  //   {
+  //     phone: "123456789",
+  //     name: "User name",
+  //     message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  //     date: "04/10/2023"
+  //   },
+  //   {
+  //     phone: "123456789",
+  //     name: "User name",
+  //     message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  //     date: "04/10/2023"
+  //   },
+  //   {
+  //     phone: "123456789",
+  //     name: "User name",
+  //     message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  //     date: "04/10/2023"
+  //   },
+  //   {
+  //     phone: "123456789",
+  //     name: "User name",
+  //     message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  //     date: "04/10/2023"
+  //   },
+  //   {
+  //     phone: "123456789",
+  //     name: "User name",
+  //     message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  //     date: "04/10/2023"
+  //   },
+  //   {
+  //     phone: "123456789",
+  //     name: "User name",
+  //     message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  //     date: "04/10/2023"
+  //   },
+  //   {
+  //     phone: "123456789",
+  //     name: "User name",
+  //     message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  //     date: "04/10/2023"
+  //   },
+  //   {
+  //     phone: "123456789",
+  //     name: "User name",
+  //     message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  //     date: "04/10/2023"
+  //   },
+  //   {
+  //     phone: "123456789",
+  //     name: "User name",
+  //     message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  //     date: "04/10/2023"
+  //   },
+  //   {
+  //     phone: "123456789",
+  //     name: "User name",
+  //     message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  //     date: "04/10/2023"
+  //   },
+  // ];
 
-  const subscriptionData = [
-    {
-      plan: "123456789",
-      type: "Gold",
-      price: 100,
-      invoice: "1234",
-      startdate: "05/09/2023",
-      enddate: "04/10/2023",
-      status: true
-    },
-    {
-      plan: "123456789",
-      type: "Gold",
-      price: 100,
-      invoice: "1234",
-      startdate: "05/09/2023",
-      enddate: "04/10/2023",
-      status: false
-    },
-    {
-      plan: "123456789",
-      type: "Gold",
-      price: 100,
-      invoice: "1234",
-      startdate: "05/09/2023",
-      enddate: "04/10/2023",
-      status: false
-    },
-    {
-      plan: "123456789",
-      type: "Gold",
-      price: 100,
-      invoice: "1234",
-      startdate: "05/09/2023",
-      enddate: "04/10/2023",
-      status: false
-    },
-    {
-      plan: "123456789",
-      type: "Gold",
-      price: 100,
-      invoice: "1234",
-      startdate: "05/09/2023",
-      enddate: "04/10/2023",
-      status: false
-    },
-    {
-      plan: "123456789",
-      type: "Gold",
-      price: 100,
-      invoice: "1234",
-      startdate: "05/09/2023",
-      enddate: "04/10/2023",
-      status: false
-    },
-    {
-      plan: "123456789",
-      type: "Gold",
-      price: 100,
-      invoice: "1234",
-      startdate: "05/09/2023",
-      enddate: "04/10/2023",
-      status: false
-    },
-    {
-      plan: "123456789",
-      type: "Gold",
-      price: 100,
-      invoice: "1234",
-      startdate: "05/09/2023",
-      enddate: "04/10/2023",
-      status: false
-    },
-    {
-      plan: "123456789",
-      type: "Gold",
-      price: 100,
-      invoice: "1234",
-      startdate: "05/09/2023",
-      enddate: "04/10/2023",
-      status: false
-    },
-    {
-      plan: "123456789",
-      type: "Gold",
-      price: 100,
-      invoice: "1234",
-      startdate: "05/09/2023",
-      enddate: "04/10/2023",
-      status: false
-    },
-    {
-      plan: "123456789",
-      type: "Gold",
-      price: 100,
-      invoice: "1234",
-      startdate: "05/09/2023",
-      enddate: "04/10/2023",
-      status: false
-    },
-    {
-      plan: "123456789",
-      type: "Gold",
-      price: 100,
-      invoice: "1234",
-      startdate: "05/09/2023",
-      enddate: "04/10/2023",
-      status: false
-    },
-    {
-      plan: "123456789",
-      type: "Gold",
-      price: 100,
-      invoice: "1234",
-      startdate: "05/09/2023",
-      enddate: "04/10/2023",
-      status: false
-    },
-    {
-      plan: "123456789",
-      type: "Gold",
-      price: 100,
-      invoice: "1234",
-      startdate: "05/09/2023",
-      enddate: "04/10/2023",
-      status: false
-    },
-    {
-      plan: "123456789",
-      type: "Gold",
-      price: 100,
-      invoice: "1234",
-      startdate: "05/09/2023",
-      enddate: "04/10/2023",
-      status: false
-    },
-    {
-      plan: "123456789",
-      type: "Gold",
-      price: 100,
-      invoice: "1234",
-      startdate: "05/09/2023",
-      enddate: "04/10/2023",
-      status: false
-    },
-    {
-      plan: "123456789",
-      type: "Gold",
-      price: 100,
-      invoice: "1234",
-      startdate: "05/09/2023",
-      enddate: "04/10/2023",
-      status: false
-    },
-    {
-      plan: "123456789",
-      type: "Gold",
-      price: 100,
-      invoice: "1234",
-      startdate: "05/09/2023",
-      enddate: "04/10/2023",
-      status: false
-    },
-    {
-      plan: "123456789",
-      type: "Gold",
-      price: 100,
-      invoice: "1234",
-      startdate: "05/09/2023",
-      enddate: "04/10/2023",
-      status: false
-    },
-    {
-      plan: "123456789",
-      type: "Gold",
-      price: 100,
-      invoice: "1234",
-      startdate: "05/09/2023",
-      enddate: "04/10/2023",
-      status: false
-    },
-    {
-      plan: "123456789",
-      type: "Gold",
-      price: 100,
-      invoice: "1234",
-      startdate: "05/09/2023",
-      enddate: "04/10/2023",
-      status: false
-    },
-    {
-      plan: "123456789",
-      type: "Gold",
-      price: 100,
-      invoice: "1234",
-      startdate: "05/09/2023",
-      enddate: "04/10/2023",
-      status: false
-    }
-  ];
+  // const subscriptionData = [
+  //   {
+  //     plan: "123456789",
+  //     type: "Gold",
+  //     price: 100,
+  //     invoice: "1234",
+  //     startdate: "05/09/2023",
+  //     enddate: "04/10/2023",
+  //     status: true
+  //   },
+  //   {
+  //     plan: "123456789",
+  //     type: "Gold",
+  //     price: 100,
+  //     invoice: "1234",
+  //     startdate: "05/09/2023",
+  //     enddate: "04/10/2023",
+  //     status: false
+  //   },
+  //   {
+  //     plan: "123456789",
+  //     type: "Gold",
+  //     price: 100,
+  //     invoice: "1234",
+  //     startdate: "05/09/2023",
+  //     enddate: "04/10/2023",
+  //     status: false
+  //   },
+  //   {
+  //     plan: "123456789",
+  //     type: "Gold",
+  //     price: 100,
+  //     invoice: "1234",
+  //     startdate: "05/09/2023",
+  //     enddate: "04/10/2023",
+  //     status: false
+  //   },
+  //   {
+  //     plan: "123456789",
+  //     type: "Gold",
+  //     price: 100,
+  //     invoice: "1234",
+  //     startdate: "05/09/2023",
+  //     enddate: "04/10/2023",
+  //     status: false
+  //   },
+  //   {
+  //     plan: "123456789",
+  //     type: "Gold",
+  //     price: 100,
+  //     invoice: "1234",
+  //     startdate: "05/09/2023",
+  //     enddate: "04/10/2023",
+  //     status: false
+  //   },
+  //   {
+  //     plan: "123456789",
+  //     type: "Gold",
+  //     price: 100,
+  //     invoice: "1234",
+  //     startdate: "05/09/2023",
+  //     enddate: "04/10/2023",
+  //     status: false
+  //   },
+  //   {
+  //     plan: "123456789",
+  //     type: "Gold",
+  //     price: 100,
+  //     invoice: "1234",
+  //     startdate: "05/09/2023",
+  //     enddate: "04/10/2023",
+  //     status: false
+  //   },
+  //   {
+  //     plan: "123456789",
+  //     type: "Gold",
+  //     price: 100,
+  //     invoice: "1234",
+  //     startdate: "05/09/2023",
+  //     enddate: "04/10/2023",
+  //     status: false
+  //   },
+  //   {
+  //     plan: "123456789",
+  //     type: "Gold",
+  //     price: 100,
+  //     invoice: "1234",
+  //     startdate: "05/09/2023",
+  //     enddate: "04/10/2023",
+  //     status: false
+  //   },
+  //   {
+  //     plan: "123456789",
+  //     type: "Gold",
+  //     price: 100,
+  //     invoice: "1234",
+  //     startdate: "05/09/2023",
+  //     enddate: "04/10/2023",
+  //     status: false
+  //   },
+  //   {
+  //     plan: "123456789",
+  //     type: "Gold",
+  //     price: 100,
+  //     invoice: "1234",
+  //     startdate: "05/09/2023",
+  //     enddate: "04/10/2023",
+  //     status: false
+  //   },
+  //   {
+  //     plan: "123456789",
+  //     type: "Gold",
+  //     price: 100,
+  //     invoice: "1234",
+  //     startdate: "05/09/2023",
+  //     enddate: "04/10/2023",
+  //     status: false
+  //   },
+  //   {
+  //     plan: "123456789",
+  //     type: "Gold",
+  //     price: 100,
+  //     invoice: "1234",
+  //     startdate: "05/09/2023",
+  //     enddate: "04/10/2023",
+  //     status: false
+  //   },
+  //   {
+  //     plan: "123456789",
+  //     type: "Gold",
+  //     price: 100,
+  //     invoice: "1234",
+  //     startdate: "05/09/2023",
+  //     enddate: "04/10/2023",
+  //     status: false
+  //   },
+  //   {
+  //     plan: "123456789",
+  //     type: "Gold",
+  //     price: 100,
+  //     invoice: "1234",
+  //     startdate: "05/09/2023",
+  //     enddate: "04/10/2023",
+  //     status: false
+  //   },
+  //   {
+  //     plan: "123456789",
+  //     type: "Gold",
+  //     price: 100,
+  //     invoice: "1234",
+  //     startdate: "05/09/2023",
+  //     enddate: "04/10/2023",
+  //     status: false
+  //   },
+  //   {
+  //     plan: "123456789",
+  //     type: "Gold",
+  //     price: 100,
+  //     invoice: "1234",
+  //     startdate: "05/09/2023",
+  //     enddate: "04/10/2023",
+  //     status: false
+  //   },
+  //   {
+  //     plan: "123456789",
+  //     type: "Gold",
+  //     price: 100,
+  //     invoice: "1234",
+  //     startdate: "05/09/2023",
+  //     enddate: "04/10/2023",
+  //     status: false
+  //   },
+  //   {
+  //     plan: "123456789",
+  //     type: "Gold",
+  //     price: 100,
+  //     invoice: "1234",
+  //     startdate: "05/09/2023",
+  //     enddate: "04/10/2023",
+  //     status: false
+  //   },
+  //   {
+  //     plan: "123456789",
+  //     type: "Gold",
+  //     price: 100,
+  //     invoice: "1234",
+  //     startdate: "05/09/2023",
+  //     enddate: "04/10/2023",
+  //     status: false
+  //   },
+  //   {
+  //     plan: "123456789",
+  //     type: "Gold",
+  //     price: 100,
+  //     invoice: "1234",
+  //     startdate: "05/09/2023",
+  //     enddate: "04/10/2023",
+  //     status: false
+  //   }
+  // ];
 
   const doughnutdata = {
     labels: [],
@@ -726,7 +748,7 @@ const Admin = () => {
           >
             <div className="rightFeedbackBoxAdminInner">
               <p className="FeedbackTextAdmin">Feedback</p>
-              <div className="feedbacktableholder">
+              {feedbackData.length>0 ? <div className="feedbacktableholder">
                 <table className="FeedbackTableAdmin">
                   <thead>
                     <tr>
@@ -749,7 +771,12 @@ const Admin = () => {
                     })}
                   </tbody>
                 </table>
+              </div> : 
+              <div className="notfounddiv">
+                <img src={feedback} alt="feedback" />
+                <p>No feedback found</p>
               </div>
+              }
             </div>
           </div>
           <div
@@ -761,13 +788,13 @@ const Admin = () => {
           >
             <div className="rightSubscriptionBoxAdminInner">
               <p className="SubscriptionTextAdmin">Subscription & Payment History</p>
-              <div className="subscriptiontableholder">
+              {subscriptionData.length>0 ? <div className="subscriptiontableholder">
                 <table className="SubscriptionTableAdmin">
                   <thead>
                     <tr>
                       <th className="SubscriptionTableHeadAdmin">Sr. No.</th>
                       <th className="SubscriptionTableHeadAdmin">Plan</th>
-                      <th className="SubscriptionTableHeadAdmin">Type</th>
+                      <th className="SubscriptionTableHeadAdmin">Status</th>
                       <th className="SubscriptionTableHeadAdmin">Price</th>
                       <th className="SubscriptionTableHeadAdmin">Invoice</th>
                       <th className="SubscriptionTableHeadAdmin">Start Date</th>
@@ -779,10 +806,10 @@ const Admin = () => {
                     {subscriptionData && subscriptionData.map((subscription, i)=>{
                       return <tr key={i}>
                         <td className="SubscriptionTableBodyAdmin">{i+1}</td>
-                        <td className="SubscriptionTableBodyAdmin">{subscription.plan}</td>
-                        <td className="SubscriptionTableBodyAdmin">{subscription.type}</td>
+                        <td className="SubscriptionTableBodyAdmin">{subscription.service}</td>
+                        <td className="SubscriptionTableBodyAdmin">{subscription.status}</td>
                         <td className="SubscriptionTableBodyAdmin">{subscription.price}</td>
-                        <td className="SubscriptionTableBodyAdmin">{subscription.invoice}</td>
+                        <td className="SubscriptionTableBodyAdmin">{subscription.refno}</td>
                         <td className="SubscriptionTableBodyAdmin">{subscription.startdate}</td>
                         <td className="SubscriptionTableBodyAdmin">{subscription.enddate}</td>
                         <td className={subscription.status?"SubscriptionTableBodyAdmintrue" : "SubscriptionTableBodyAdmin"}>{subscription.status? "Active" : "Expired"}</td>
@@ -790,7 +817,12 @@ const Admin = () => {
                     })}
                   </tbody>
                 </table>
+              </div> : 
+              <div className="notfounddiv">
+                <img src={subscriptionandpayment} alt="subscriptionandpayment" />
+                <p>No subscription or payment history found</p>
               </div>
+              }
             </div>
           </div>
         </div>
@@ -977,7 +1009,7 @@ const Admin = () => {
           >
             <div className="rightFeedbackBoxAdminInner">
               <p className="FeedbackTextAdmin">Feedback</p>
-              <div className="feedbacktableholder">
+              {feedbackData.length>0 ? <div className="feedbacktableholder">
                 <table className="FeedbackTableAdmin">
                   <thead>
                     <tr>
@@ -1000,7 +1032,12 @@ const Admin = () => {
                     })}
                   </tbody>
                 </table>
-              </div>
+              </div> : 
+                <div className="notfounddiv">
+                  <img src={feedback} alt="feedback" />
+                  <p>No subscription or payment history found</p>
+                </div>
+              }
             </div>
           </div>
           <div
@@ -1012,13 +1049,13 @@ const Admin = () => {
           >
             <div className="rightSubscriptionBoxAdminInner">
               <p className="SubscriptionTextAdmin">Subscription & Payment History</p>
-              <div className="subscriptiontableholder">
+              {subscriptionData.length>0 ? <div className="subscriptiontableholder">
                 <table className="SubscriptionTableAdmin">
                   <thead>
                     <tr>
                       <th className="SubscriptionTableHeadAdmin">Sr. No.</th>
                       <th className="SubscriptionTableHeadAdmin">Plan</th>
-                      <th className="SubscriptionTableHeadAdmin">Type</th>
+                      <th className="SubscriptionTableHeadAdmin">Status</th>
                       <th className="SubscriptionTableHeadAdmin">Price</th>
                       <th className="SubscriptionTableHeadAdmin">Invoice</th>
                       <th className="SubscriptionTableHeadAdmin">Start Date</th>
@@ -1030,10 +1067,10 @@ const Admin = () => {
                     {subscriptionData && subscriptionData.map((subscription, i)=>{
                       return <tr key={i}>
                         <td className="SubscriptionTableBodyAdmin">{i+1}</td>
-                        <td className="SubscriptionTableBodyAdmin">{subscription.plan}</td>
-                        <td className="SubscriptionTableBodyAdmin">{subscription.type}</td>
+                        <td className="SubscriptionTableBodyAdmin">{subscription.service}</td>
+                        <td className="SubscriptionTableBodyAdmin">{subscription.status}</td>
                         <td className="SubscriptionTableBodyAdmin">{subscription.price}</td>
-                        <td className="SubscriptionTableBodyAdmin">{subscription.invoice}</td>
+                        <td className="SubscriptionTableBodyAdmin">{subscription.refno}</td>
                         <td className="SubscriptionTableBodyAdmin">{subscription.startdate}</td>
                         <td className="SubscriptionTableBodyAdmin">{subscription.enddate}</td>
                         <td className={subscription.status?"SubscriptionTableBodyAdmintrue" : "SubscriptionTableBodyAdmin"}>{subscription.status? "Active" : "Expired"}</td>
@@ -1041,7 +1078,12 @@ const Admin = () => {
                     })}
                   </tbody>
                 </table>
-              </div>
+              </div> : 
+                <div className="notfounddiv">
+                  <img src={feedback} alt="feedback" />
+                  <p>No subscription or payment history found</p>
+                </div>
+              }
             </div>
           </div>
         </div>
@@ -1198,9 +1240,9 @@ const Admin = () => {
         </div>
         <p className="requestSupportTextAdmin">Feedback</p>
         <div className="requestSupporttextBox">
-          <textarea className="requestSupportInput" type="text" placeholder="Write your feedback here" />
+          <textarea onChange={(e)=>setRequestSupportValue(e.target.value)} value={requestSupportValue} className="requestSupportInput" type="text" placeholder="Write your feedback here" />
         </div>
-        <button className="requestSupportButton">Submit</button>
+        <button onClick={()=>handleRequestSupport()} className="requestSupportButton">Submit</button>
       </div>
     </div>
   );
