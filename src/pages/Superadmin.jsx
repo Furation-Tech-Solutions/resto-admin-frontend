@@ -8,7 +8,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { AiOutlineCheck } from 'react-icons/ai';
 import menu from "../utils/Images/Admin/menu.svg";
-import { getSupportRequest } from '../Redux/AppData/action';
+import { getSupportRequest, postAddAdmin, postSupportRequest } from '../Redux/AppData/action';
 
 const Superadmin = () => {
   
@@ -22,6 +22,30 @@ const Superadmin = () => {
 
   const [ isSidebarPhone, setIsSidebarPhone ]= useState(false);
 
+  const [ addbusinessName, setAddbusinessName ]= useState("");
+  const [ addemail, setAddemail ]= useState("");
+  const [ addphone, setAddphone ]= useState("");
+  const [ addpassword, setAddpassword ]= useState("");
+
+  const handleAddAdmin= () => {
+    if(addbusinessName!=="" && addemail!=="" && addphone!=="" && addpassword!==""){
+      const data= {
+        "name" : "Business",
+        "businessName": addbusinessName, 
+        "email": addemail, 
+        "phone": addphone, 
+        "password": addpassword
+      };
+      dispatch(postAddAdmin(data)).then((r)=>{
+        console.log(data);
+        alert("Admin added successfully")
+        setIsAddAdmin(false);
+      })
+    }else {
+      alert("Please fill all the fields.")
+    }
+  }
+
   useEffect(()=>{
     axios.get(`https://restaurant-bot-admin.onrender.com/api/v1/admin`)
     .then((r)=>setUserData(r.data));
@@ -29,8 +53,6 @@ const Superadmin = () => {
   }, [])
   
   const requestsupportdata= useSelector((store)=>store.AppReducer.supportrequest);
-
-  console.log(requestsupportdata);
 
   const [barnum, setBarnum]= useState(1);
 
@@ -270,11 +292,12 @@ const Superadmin = () => {
                 <AiOutlineSearch />
                 <input className="rightsecondBoxSuperadminInput" type="text" placeholder='Search by email or phone number' />
               </div>
-              <select className="rightsecondBoxSuperadminSelect" name="" id="">
+              {/* <select className="rightsecondBoxSuperadminSelect" name="" id="">
                 <option value="">Filter By</option>
-                <option value="">Akina</option>
-                <option value="">Pritam da dhaba</option>
-              </select>
+                <option value="">Last 7 days</option>
+                <option value="">Last 30 days</option>
+                <option value="">Total</option>
+              </select> */}
             </div>
             <div className='rightthirdBoxSuperadmin'>
               <div className='userTableSuperAdminHolder'>
@@ -291,7 +314,7 @@ const Superadmin = () => {
                   </thead>
                   <tbody>
                     {userData && userData.map((user, i)=>{
-                      return <tr key={user.id} onClick={()=>navigate(`/superadmin/:${user.id}`)}>
+                      return <tr key={i} onClick={()=>navigate(`/superadmin/:${user.id}`)}>
                         <td className="userTableBodySuperAdmin">{i+1}</td>
                         <td className="userTableBodySuperAdmin">{user.businessName}</td>
                         <td className="userTableBodySuperAdmin">{user.email}</td>
@@ -308,14 +331,15 @@ const Superadmin = () => {
           <div className={barnum===2 ? 'rightBoxSuperAdminSupport' : 'rightBoxSuperAdminSupportOff'}>
             <div className='rightBoxSuperAdminSupportText'><p>Support</p></div>
            {requestsupportdata.length>0 &&<div className='rightsecondBoxSuperadmin'>
-              <div className="rightsecondBoxSuperadminInputBox">
+              <div className="rightsecondBoxSuperadminInputWithSelect">
                 <AiOutlineSearch size={"20px"} />
                 <input className="rightsecondBoxSuperadminInput" type="text" placeholder='Search by email or phone number' />
               </div>
               <select className="rightsecondBoxSuperadminSelect" name="" id="">
                 <option value="">Filter By</option>
-                <option value="">Akina</option>
-                <option value="">Pritam da dhaba</option>
+                <option value="">Last 7 days</option>
+                <option value="">Last 30 days</option>
+                <option value="">Total</option>
               </select>
             </div>}
             <div className='rightthirdBoxSuperadminSupport'>
@@ -332,12 +356,12 @@ const Superadmin = () => {
                   </thead>
                   <tbody>
                     {requestsupportdata && requestsupportdata.map((feedback, i)=>{
-                      return <tr key={feedback.id}>
+                      return <tr key={i}>
                         <td className="feedbackTableBodySuperAdmin">{i+1}</td>
-                        <td className="feedbackTableBodySuperAdmin">{feedback.name}</td>
+                        <td className="feedbackTableBodySuperAdmin">{feedback.businessName}</td>
                         <td className="feedbackTableBodySuperAdmin">{feedback.phone}</td>
                         <td className="feedbackTableBodySuperAdmin">{feedback.message}</td>
-                        <td className="feedbackTableBodySuperAdmin">{feedback.date}</td>
+                        <td className="feedbackTableBodySuperAdmin">{feedback.createdAt}</td>
                       </tr>
                     })}
                   </tbody>
@@ -356,15 +380,15 @@ const Superadmin = () => {
         <p className='addadmintext'>Add a new admin</p>
         <div>
           <label className='addadminlabel'>Business Name</label><br/>
-          <input className='addadmininput' type="text" placeholder='Name a business' /><br/>
+          <input onChange={(e)=>setAddbusinessName(e.target.value)} value={addbusinessName} className='addadmininput' type="text" placeholder='Name a business' /><br/>
           <label className='addadminlabel'>Email</label><br/>
-          <input className='addadmininput' type="email" placeholder='Enter email' /><br/>
+          <input onChange={(e)=>setAddemail(e.target.value)} value={addemail} className='addadmininput' type="email" placeholder='Enter email' /><br/>
           <label className='addadminlabel'>Phone</label><br/>
-          <input className='addadmininput' type="number" placeholder='Enter phone number' /><br/>
+          <input onChange={(e)=>setAddphone(e.target.value)} value={addphone} className='addadmininput' type="number" placeholder='Enter phone number' /><br/>
           <label className='addadminlabel'>Set a password</label><br/>
-          <input className='addadmininput' type="text" placeholder='Enter password' /><br/>
+          <input onChange={(e)=>setAddpassword(e.target.value)} value={addpassword} className='addadmininput' type="text" placeholder='Enter password' /><br/>
         </div>
-        <button className='addadminbutton'>Add Admin</button><br/>
+        <button onClick={()=>handleAddAdmin()} className='addadminbutton'>Add Admin</button><br/>
         <button onClick={()=>setIsAddAdmin(false)} className='addadmincancelbutton'>Cancel</button>
       </div>
       <div className={ istoggle? "togglesubscription" : "togglesubscriptionOff"}>

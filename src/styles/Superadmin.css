@@ -246,6 +246,16 @@
     margin-top: 20px;
 }
 .rightsecondBoxSuperadminInputBox{
+    width: 99%;
+    height: 20px;
+    flex-shrink: 0;
+    border-radius: 6px;
+    border: 1px solid #586266;
+    display: flex;
+    align-items: center;
+    padding: 10px 0px 10px 10px;
+}
+.rightsecondBoxSuperadminInputWithSelect{
     width: 82%;
     height: 20px;
     flex-shrink: 0;
@@ -676,7 +686,12 @@
         margin-top: 10px;
     }
     .rightsecondBoxSuperadminInputBox{
-        width: 73%;
+        width: 99%;
+        height: 30px;
+        padding: 5px 0px 5px 10px;
+    }
+    .rightsecondBoxSuperadminInputWithSelect{
+        width: 74%;
         height: 30px;
         padding: 5px 0px 5px 10px;
     }
@@ -1026,6 +1041,11 @@
         margin-top: 20px;
     }
     .rightsecondBoxSuperadminInputBox{
+        width: 99%;
+        height: 28px;
+        padding: 10px 0px 10px 10px;
+    }
+    .rightsecondBoxSuperadminInputWithSelect{
         width: 76%;
         height: 28px;
         padding: 10px 0px 10px 10px;
@@ -1385,6 +1405,11 @@
         margin-top: 20px;
     }
     .rightsecondBoxSuperadminInputBox{
+        width: 99%;
+        height: 25px;
+        padding: 5px 0px 10px 5px;
+    }
+    .rightsecondBoxSuperadminInputWithSelect{
         width: 72%;
         height: 25px;
         padding: 5px 0px 10px 5px;

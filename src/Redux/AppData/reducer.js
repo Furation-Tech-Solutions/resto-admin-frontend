@@ -9,7 +9,9 @@ const initialState= {
     weeklyuniqueUser: [],
     monthlyuniqueUser: [],
     isLoadingpayment: false,
-    isErrorpayment: false
+    isErrorpayment: false,
+    addAdminLoading: false,
+    addAdminError: false
 }
 
 const reducer= (oldState= initialState, action)=>{
@@ -34,6 +36,26 @@ const reducer= (oldState= initialState, action)=>{
         case types.GET_USERFEEDBACK_ERROR: 
             return {
                 ...oldState, userFeedback: []
+            }
+        case types.GET_SUPPORTREQUEST_SUCCESS: 
+            return {
+                ...oldState, supportrequest:payload
+            }
+        case types.GET_SUPPORTREQUEST_ERROR: 
+            return {
+                ...oldState, supportrequest: []
+            }
+        case types.POST_ADDADMIN_REQUEST: 
+            return {
+                ...oldState, addAdminLoading:true
+            }
+        case types.POST_ADDADMIN_SUCCESS: 
+            return {
+                ...oldState, addAdminLoading:false
+            }
+        case types.POST_ADDADMIN_ERROR: 
+            return {
+                ...oldState, addAdminLoading:false, addAdminError:true
             }
         case types.GET_UNIQUEUSER_SUCCESS: 
             return {
