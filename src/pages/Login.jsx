@@ -3,7 +3,7 @@ import "../styles/Login.css"
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { login } from "../Redux/AuthData/action";
 import furationlogo from "../utils/Images/login/furationlogo.svg";
 
@@ -16,10 +16,13 @@ const Login = () => {
   const dispatch= useDispatch();
   const navigate= useNavigate();
 
+  const role= useSelector((store)=>store.AuthReducer.role);
+
   const handleLogin = () =>{
     if(phone && password){
       dispatch(login({phone, password})).then((r)=>{
-        navigate("/");
+        role==="superadmin" ? navigate("/superadmin") : navigate("/");
+        alert("Successfully Logged in")
       })
     }
   }
@@ -50,7 +53,7 @@ const Login = () => {
             {ispassword ? <Visibility onClick={()=>handleClickShowPassword()} onMouseDown={(event)=>handleMouseDownPassword(event)} /> : <VisibilityOff onClick={()=>handleClickShowPassword()} onMouseDown={(event)=>handleMouseDownPassword(event)} />}
           </div>
           <div className='loginforgotpassword'>
-            <Link to="/register">Forgot password?</Link>
+            <Link to="/forgotpassword">Forgot password?</Link>
           </div>
           <button onClick={()=>handleLogin()} className='loginButton'>Login</button>
         </div>

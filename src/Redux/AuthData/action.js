@@ -9,4 +9,8 @@ const login= (payload) => (dispatch) => {
     .catch((e)=>{dispatch({type: types.USER_LOGIN_ERROR})})
 }
 
-export { login };
+const logout= () => (dispatch) => {
+    return dispatch({type: types.USER_LOGOUT_SUCCESS});
+}
+
+export { login, logout };

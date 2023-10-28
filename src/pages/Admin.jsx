@@ -21,6 +21,7 @@ import { Line,  Bar, Doughnut } from 'react-chartjs-2';
 import CurrentSubscripton from "../components/CurrentSubscripton";
 import { useDispatch, useSelector } from "react-redux";
 import { getMonthlyUniqueUser, getPaymentHistory, getTotalUniqueUser, getUniqueUser, getUserFeedback, getWeeklyUniqueUser, postSupportRequest } from "../Redux/AppData/action";
+import { logout } from "../Redux/AuthData/action";
 
 
 const Admin = () => {
@@ -84,9 +85,16 @@ const Admin = () => {
   const subscriptionData= useSelector((store)=>store.AppReducer.paymentHistory);
   const feedbackData= useSelector((store)=>store.AppReducer.userFeedback);
 
-  console.log(subscriptionData);
 
   const date= new Date();
+
+  
+  const isAuth= useSelector((store)=>store.AuthReducer.isAuth);
+
+
+  const handleLogout= () => {
+    dispatch(logout());
+  }
 
 
 
@@ -543,7 +551,7 @@ const Admin = () => {
             </div>
             <div className="leftthirdBoxAdmin">
               <div onClick={()=>setIsRequestAdmin(true)} className="leftthirdBoxfirstAdmin">Request Support</div>
-              <div className="leftthirdBoxsecondAdmin">Logout</div>
+              <div onClick={()=>handleLogout()} className="leftthirdBoxsecondAdmin">Logout</div>
             </div>
           </div>
         </div>
@@ -1171,7 +1179,7 @@ const Admin = () => {
                 setIsRequestAdmin(true)
                 setIsSidebarPhone(!isSidebarPhone)}
                } className="ThirdBoxsideBarFirstPhoneAdmin">Request Support</div>
-              <div className="ThirdBoxsideBarSecondPhoneAdmin">Logout</div>
+              <div onClick={()=>handleLogout()} className="ThirdBoxsideBarSecondPhoneAdmin">Logout</div>
             </div>
           </div>
         </div>
