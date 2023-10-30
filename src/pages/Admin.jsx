@@ -66,6 +66,7 @@ const Admin = () => {
     dispatch(getMonthlyUniqueUser());
     dispatch(getPaymentHistory());
     dispatch(getUserFeedback());
+     
   }, [])
 
   const handleRequestSupport= ()=>{
@@ -73,7 +74,6 @@ const Admin = () => {
       message: requestSupportValue,
       adminId: "jyhfkmu"
     }
-    console.log(requestSupportValue);
     dispatch(postSupportRequest(data));
     console.log(0);
   }
@@ -85,8 +85,26 @@ const Admin = () => {
   const subscriptionData= useSelector((store)=>store.AppReducer.paymentHistory);
   const feedbackData= useSelector((store)=>store.AppReducer.userFeedback);
 
+  
+  const [ adminpanelInteractionUserData, setAdminpanelInteractionUserData]= useState(totalUniqueData)
+
+  useEffect(()=>{
+    if(panelUserList==="monthly"){
+      setAdminpanelInteractionUserData(monthData)
+    }else if(panelUserList==="weekly"){
+      setAdminpanelInteractionUserData(weekData)
+    }else if(panelUserList==="daily"){
+      setAdminpanelInteractionUserData(uniqueData)
+    }else {
+      setAdminpanelInteractionUserData(totalUniqueData)
+    }
+  }, [adminpanelInteractionUserData, panelUserList, totalUniqueData, monthData, weekData, uniqueData]);
+
+
 
   const date= new Date();
+
+
 
   
   const isAuth= useSelector((store)=>store.AuthReducer.isAuth);
@@ -655,8 +673,8 @@ const Admin = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {totalUniqueData &&
-                    totalUniqueData.map((user, i) => {
+                  {adminpanelInteractionUserData &&
+                    adminpanelInteractionUserData.map((user, i) => {
                       return (
                         <tr key={i}>
                           <td className="userTableAdminBody">{i + 1}</td>
@@ -910,7 +928,14 @@ const Admin = () => {
                 />
               </div>
               <div className="fourthBoxAdminPhoneButton">
-                <img src={filter} alt="filtericon" />
+                {/* <img src={filter} alt="filtericon" /> */}
+                <select name="" id="" onChange={(e)=>setPanelUserList(e.target.value)}>
+                  {/* <option value="total"><img src={filter} alt="filtericon" /></option> */}
+                  <option value="total">Total</option>
+                  <option value="monthly">Last 30 Days</option>
+                  <option value="weekly">Last 7 days</option>
+                  <option value="daily">Today</option>
+                </select>
               </div>
             </div>
             <div className="fifthBoxAdminPhone">
@@ -924,7 +949,7 @@ const Admin = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {totalUniqueData && totalUniqueData.map((user, i) => {
+                  {adminpanelInteractionUserData && adminpanelInteractionUserData.map((user, i) => {
                     return (
                       <tr key={i}>
                         <td className="userTableAdminBodyPhone">{i + 1}</td>

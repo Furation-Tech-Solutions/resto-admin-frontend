@@ -75,19 +75,19 @@ const reducer= (oldState= initialState, action)=>{
             }
         case types.GET_WEEKLYUNIQUEUSER_SUCCESS: 
             return {
-                ...oldState, weeklyniqueUser:payload
+                ...oldState, weeklyuniqueUser:payload
             }
         case types.GET_WEEKLYUNIQUEUSER_ERROR: 
             return {
-                ...oldState, weeklyniqueUser:[]
+                ...oldState, weeklyuniqueUser:[]
             }
         case types.GET_MONTHLYUNIQUEUSER_SUCCESS: 
             return {
-                ...oldState, monthlyniqueUser:payload
+                ...oldState, monthlyuniqueUser:payload
             }
         case types.GET_MONTHLYUNIQUEUSER_ERROR: 
             return {
-                ...oldState, monthlyniqueUser:[]
+                ...oldState, monthlyuniqueUser:[]
             }
         default : return oldState
     }

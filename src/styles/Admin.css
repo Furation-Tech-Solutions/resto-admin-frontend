@@ -2586,7 +2586,7 @@
         margin-top: 15px;
     }
     .fourthBoxAdminPhoneInputBox{
-        width: 85%;
+        width: 72%;
         height: 50px;
         flex-shrink: 0;
         border-radius: 4px;
@@ -2611,17 +2611,30 @@
         border: none;
         outline: none;
     }
-    .fourthBoxAdminPhoneButton{
-        width: 7%;
-        height: 7%;
+    /* .fourthBoxAdminPhoneButton{
+        width: 8%;
+        height: 12%;
         font-size: 12px;
         border-radius: 10px;
         background-color: #9114FF;
         padding: 0px 3px;
-    }
+    } */
     .fourthBoxAdminPhoneButton > img{
         width: 100%;
         height: 95%;
+    }
+    .fourthBoxAdminPhoneButton {
+        width: 24%;
+    }
+    .fourthBoxAdminPhoneButton > select{
+        width: 95%;
+        height: 48px;
+        font-size: 18px;
+        border-radius: 10px;
+        padding: 0px 3px;
+    }
+    .fourthBoxAdminPhoneButton > select > option{
+        font-size: 15px;
     }
     .fifthBoxAdminPhone{
         width: 95%;
@@ -3786,7 +3799,7 @@
         margin-top: 20px;
     }
     .fourthBoxAdminPhoneInputBox{
-        width: 85%;
+        width: 72%;
         height: 32px;
         flex-shrink: 0;
         border-radius: 4px;
@@ -3806,17 +3819,31 @@
         border: none;
         outline: none;
     }
-    .fourthBoxAdminPhoneButton{
-        width: 8%;
-        height: 8%;
+    /* .fourthBoxAdminPhoneButton{
+        width: 15%;
+        height: 12%;
         font-size: 12px;
         border-radius: 10px;
         background-color: #9114FF;
         padding: 0px 3px;
-    }
+    } */
     .fourthBoxAdminPhoneButton > img{
         width: 100%;
         height: 95%;
+    }
+    
+    .fourthBoxAdminPhoneButton {
+        width: 24%;
+    }
+    .fourthBoxAdminPhoneButton > select{
+        width: 95%;
+        height: 30px;
+        font-size: 14px;
+        border-radius: 5px;
+        padding: 0px 3px;
+    }
+    .fourthBoxAdminPhoneButton > select > option{
+        font-size: 15px;
     }
     .fifthBoxAdminPhone{
         width: 95%;
