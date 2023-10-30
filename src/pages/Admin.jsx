@@ -990,7 +990,7 @@ const Admin = () => {
                 <p>Send Message</p>
               </div>
               <div className="sendMessageBoxAdminaddcontact">
-                <input onChange={(e)=>{if(e.target.value<=10){console.log(e.target.value)}}} value="123456" type="number" placeholder="Enter phone no" />
+                <input onChange={(e)=>{if(e.target.value<=10){setSendMessagePhoneNumber(e.target.value)}}} value={sendMessagePhoneNumber} type="number" placeholder="Enter phone no" />
                 <button onClick={()=>handleSendMessageAddButton()}>Add</button>
               </div>
               <div className="sendMessageBoxAdminmessagebox"></div>
