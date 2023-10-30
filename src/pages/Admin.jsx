@@ -57,6 +57,25 @@ const Admin = () => {
   
   const [barnum, setBarnum] = useState(1);
 
+  const [ sendMessagePhoneNumber, setSendMessagePhoneNumber ] = useState("");
+
+  const [ sendMessagePostData, setSendMessagePostData ]= useState({
+    adminId: "",
+    recipient: "",
+    phone_number_id: "",
+    messsage: "",
+    image: ""
+  })
+
+  const handleSendMessageAddButton= () => {
+    console.log(sendMessagePhoneNumber);
+    if(sendMessagePhoneNumber===10){
+      setSendMessagePostData.recipient= sendMessagePhoneNumber
+    }else{
+      alert("Please enter 10 digits phone number");
+    }
+  }
+
   // const date = new Date();
 
   useEffect(()=>{
@@ -66,7 +85,6 @@ const Admin = () => {
     dispatch(getMonthlyUniqueUser());
     dispatch(getPaymentHistory());
     dispatch(getUserFeedback());
-     
   }, [])
 
   const handleRequestSupport= ()=>{
@@ -972,8 +990,8 @@ const Admin = () => {
                 <p>Send Message</p>
               </div>
               <div className="sendMessageBoxAdminaddcontact">
-                <input type="text" placeholder="Enter phone no" />
-                <button>Add</button>
+                <input onChange={(e)=>{if(e.target.value<=10){console.log(e.target.value)}}} value="123456" type="number" placeholder="Enter phone no" />
+                <button onClick={()=>handleSendMessageAddButton()}>Add</button>
               </div>
               <div className="sendMessageBoxAdminmessagebox"></div>
               <div className="sendMessageBoxAdminkeyboard">
