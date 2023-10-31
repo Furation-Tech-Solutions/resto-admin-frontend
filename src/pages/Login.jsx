@@ -17,6 +17,7 @@ const Login = () => {
   const navigate= useNavigate();
 
   const role= useSelector((store)=>store.AuthReducer.role);
+  const isAuthLoading= useSelector((store)=>store.AuthReducer.isAuthLoading);
 
 
   const handleLogin = () =>{
@@ -56,7 +57,7 @@ const Login = () => {
           <div className='loginforgotpassword'>
             <Link to="/forgotpassword">Forgot password?</Link>
           </div>
-          <button onClick={()=>handleLogin()} className='loginButton'>Login</button>
+          <button isLoad={true} onClick={()=>handleLogin()} className='loginButton'>Login</button>
         </div>
       </div>
     </div>

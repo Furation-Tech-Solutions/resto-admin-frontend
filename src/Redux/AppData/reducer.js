@@ -11,7 +11,9 @@ const initialState= {
     isLoadingpayment: false,
     isErrorpayment: false,
     addAdminLoading: false,
-    addAdminError: false
+    addAdminError: false,
+    sendMessageLoading: false,
+    sendMessageError: false
 }
 
 const reducer= (oldState= initialState, action)=>{
@@ -44,6 +46,18 @@ const reducer= (oldState= initialState, action)=>{
         case types.GET_SUPPORTREQUEST_ERROR: 
             return {
                 ...oldState, supportrequest: []
+            }
+        case types.POST_SENDMESSAGE_REQUEST: 
+            return {
+                ...oldState, sendMessageLoading:true
+            }
+        case types.POST_SENDMESSAGE_SUCCESS: 
+            return {
+                ...oldState, sendMessageLoading:false
+            }
+        case types.POST_SENDMESSAGE_ERROR: 
+            return {
+                ...oldState, sendMessageLoading:false, sendMessageError:true
             }
         case types.POST_ADDADMIN_REQUEST: 
             return {

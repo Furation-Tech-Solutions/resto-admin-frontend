@@ -20,7 +20,7 @@ import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, Filler, Lin
 import { Line,  Bar, Doughnut } from 'react-chartjs-2';
 import CurrentSubscripton from "../components/CurrentSubscripton";
 import { useDispatch, useSelector } from "react-redux";
-import { getMonthlyUniqueUser, getPaymentHistory, getTotalUniqueUser, getUniqueUser, getUserFeedback, getWeeklyUniqueUser, postSupportRequest } from "../Redux/AppData/action";
+import { getMonthlyUniqueUser, getPaymentHistory, getTotalUniqueUser, getUniqueUser, getUserFeedback, getWeeklyUniqueUser, postSendMessage, postSupportRequest } from "../Redux/AppData/action";
 import { logout } from "../Redux/AuthData/action";
 
 
@@ -68,11 +68,21 @@ const Admin = () => {
   })
 
   const handleSendMessageAddButton= () => {
-    console.log(sendMessagePhoneNumber);
-    if(sendMessagePhoneNumber===10){
-      setSendMessagePostData.recipient= sendMessagePhoneNumber
+    if(sendMessagePhoneNumber.length===10){
+      setSendMessagePostData({...sendMessagePostData, "recipient": sendMessagePhoneNumber})
     }else{
       alert("Please enter 10 digits phone number");
+    }
+  }
+
+  const handleSendMessageSendButton= () => {
+    if(sendMessagePostData.recipient.length!==10){
+      alert("Please enter a valid phone number");
+    }else if(sendMessagePostData.messsage===""){
+      alert("Please enter your message");
+    }else {
+      console.log(sendMessagePostData);
+      dispatch(postSendMessage(sendMessagePostData));
     }
   }
 
@@ -722,18 +732,18 @@ const Admin = () => {
               <p>Send Message</p>
             </div>
             <div className="sendMessageBoxAdminaddcontact">
-              <input type="text" placeholder="Enter phone no" />
-              <button>Add</button>
+              <input onChange={(e)=>{if(e.target.value.length<=10){setSendMessagePhoneNumber(e.target.value)}}} value={sendMessagePhoneNumber} type="text" placeholder="Enter phone no" />
+              <button onClick={()=>handleSendMessageAddButton()}>Add</button>
             </div>
             <div className="sendMessageBoxAdminmessagebox"></div>
             <div className="sendMessageBoxAdminkeyboard">
               <img src={emoji} alt="emoji face" />
               <div>
-                <input type="text" placeholder="Type message here..." />
+                <input onChange={(e)=>setSendMessagePostData({...sendMessagePostData, "messsage": e.target.value})} value={sendMessagePostData.messsage} type="text" placeholder="Type message here..." />
                 <AiOutlinePaperClip size={"23px"} color="#878787"/>
               </div>
-              <button className="sendMessageBoxAdminkeyboardButtonText">Send</button>
-              <button className="sendMessageBoxAdminkeyboardButtonImg"><img src={send} alt="" /></button>
+              <button onClick={()=>handleSendMessageSendButton()} className="sendMessageBoxAdminkeyboardButtonText">Send</button>
+              <button onClick={()=>handleSendMessageSendButton()} className="sendMessageBoxAdminkeyboardButtonImg"><img src={send} alt="" /></button>
             </div>
           </div>
           <div
@@ -990,18 +1000,18 @@ const Admin = () => {
                 <p>Send Message</p>
               </div>
               <div className="sendMessageBoxAdminaddcontact">
-                <input onChange={(e)=>{if(e.target.value<=10){setSendMessagePhoneNumber(e.target.value)}}} value={sendMessagePhoneNumber} type="number" placeholder="Enter phone no" />
+                <input onChange={(e)=>{if(e.target.value.length<=10){setSendMessagePhoneNumber(e.target.value)}}} value={sendMessagePhoneNumber} type="number" placeholder="Enter phone no" />
                 <button onClick={()=>handleSendMessageAddButton()}>Add</button>
               </div>
               <div className="sendMessageBoxAdminmessagebox"></div>
               <div className="sendMessageBoxAdminkeyboard">
                 <img src={emoji} alt="emoji face" />
                 <div>
-                  <input type="text" placeholder="Type message here..." />
+                  <input onChange={(e)=>setSendMessagePostData({...sendMessagePostData, "messsage": e.target.value})} value={sendMessagePostData.messsage} type="text" placeholder="Type message here..." />
                   <AiOutlinePaperClip size={"23px"} color="#878787"/>
                 </div>
-                <button className="sendMessageBoxAdminkeyboardButtonText">Send</button>
-                <button className="sendMessageBoxAdminkeyboardButtonImg"><img src={send} alt="" /></button>
+                <button onClick={()=>handleSendMessageSendButton()} className="sendMessageBoxAdminkeyboardButtonText">Send</button>
+                <button onClick={()=>handleSendMessageSendButton()} className="sendMessageBoxAdminkeyboardButtonImg"><img src={send} alt="" /></button>
               </div>
           </div>
           <div
