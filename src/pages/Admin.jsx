@@ -86,7 +86,6 @@ const Admin = () => {
     }
   }
 
-  // const date = new Date();
 
   useEffect(()=>{
     dispatch(getUniqueUser());
@@ -100,10 +99,15 @@ const Admin = () => {
   const handleRequestSupport= ()=>{
     const data= {
       message: requestSupportValue,
-      adminId: "jyhfkmu"
+      adminId: "jyhfkmu",
+      businessName: "business",
+      email: "mail@gmail.com",
+      phone: "1234567890"
     }
-    dispatch(postSupportRequest(data));
-    console.log(0);
+    dispatch(postSupportRequest(data)).then(()=>{
+      setIsRequestAdmin(false);
+      alert("Feedback submitted successfully")
+    });
   }
 
   const uniqueData= useSelector((store)=>store.AppReducer.uniqueUser);
@@ -112,47 +116,144 @@ const Admin = () => {
   const monthData= useSelector((store)=>store.AppReducer.monthlyuniqueUser);
   const subscriptionData= useSelector((store)=>store.AppReducer.paymentHistory);
   const feedbackData= useSelector((store)=>store.AppReducer.userFeedback);
+  
+
+  const date= new Date();
+  // const day= date.getDate();
+
+  // console.log(date, day);
+
+  // const 
+
+  const weekBarLabels= () => {
+    const weekObj= {
+      0: "Sun",
+      1: "Mon",
+      2: "Tue",
+      3: "Wed",
+      4: "Thu",
+      5: "Fri",
+      6: "Sat"
+    }
+    const date= new Date();
+    const day0= new Date(date);
+    const day1= new Date(date);
+    day1.setDate(date.getDate() - 1);
+    const day2= new Date(day1);
+    day2.setDate(day1.getDate() - 1);
+    const day3= new Date(day2);
+    day3.setDate(day2.getDate() - 1);
+    const day4= new Date(day3);
+    day4.setDate(day3.getDate() - 1);
+    const day5= new Date(day4);
+    day5.setDate(day4.getDate() - 1);
+    const day6= new Date(day5);
+    day6.setDate(day5.getDate() - 1);
+    return [
+      weekObj[day6.getDay()],
+      weekObj[day5.getDay()],
+      weekObj[day4.getDay()],
+      weekObj[day3.getDay()],
+      weekObj[day2.getDay()],
+      weekObj[day1.getDay()],
+      weekObj[day0.getDay()],
+    ]
+  }
+
+
+  // console.log(weekData);
+
+  // const formatDate = date => {
+  //   const year = date.getFullYear();
+  //   const month = String(date.getMonth() + 1).padStart(2, '0');
+  //   const day = String(date.getDate()).padStart(2, '0');
+  //   return `${year}-${month}-${day}`;
+  // };
+
+  const weekbardata= () => {
+    const date= new Date();
+    const day0= new Date(date);
+    const day1= new Date(date);
+    day1.setDate(date.getDate() - 1);
+    const day2= new Date(day1);
+    day2.setDate(day1.getDate() - 1);
+    const day3= new Date(day2);
+    day3.setDate(day2.getDate() - 1);
+    const day4= new Date(day3);
+    day4.setDate(day3.getDate() - 1);
+    const day5= new Date(day4);
+    day5.setDate(day4.getDate() - 1);
+    const day6= new Date(day5);
+    day6.setDate(day5.getDate() - 1);
+    const day0data= weekData?.map((day)=>{
+      return day.createdAt===day0
+    })
+    const day1data= weekData?.map((day)=>{
+      return day.createdAt===day1
+    })
+    const day2data= weekData?.map((day)=>{
+      return day.createdAt===day2
+    })
+    const day3data= weekData?.map((day)=>{
+      return day.createdAt===day3
+    })
+    const day4data= weekData?.map((day)=>{
+      return day.createdAt===day4
+    })
+    const day5data= weekData?.map((day)=>{
+      return day.createdAt===day5
+    })
+    const day6data= weekData?.map((day)=>{
+      return day.createdAt===day6
+    })
+    return [day0data.length, day1data.length, day2data.length, day3data.length, day4data.length, day5data.length, day6data.length];
+  }
+
+  const monthlinedata= () => {
+    const date= new Date();
+    const month= date.getMonth();
+    const year= date.getFullYear();
+    console.log(month, year);
+    const array= [];
+    for(let i=0;i<31;i++){
+      const arr= monthData.map((el)=>{
+        return el.createdAt.getMonth()===i;
+      })
+      array.push(arr);
+    }
+    console.log(array);
+  }
+  monthlinedata();
 
   
-  const [ adminpanelInteractionUserData, setAdminpanelInteractionUserData]= useState(totalUniqueData)
+  const [ adminpanelInteractionUserData, setAdminpanelInteractionUserData]= useState(totalUniqueData);
 
   useEffect(()=>{
     if(panelUserList==="monthly"){
-      setAdminpanelInteractionUserData(monthData)
+      setAdminpanelInteractionUserData(monthData);
     }else if(panelUserList==="weekly"){
-      setAdminpanelInteractionUserData(weekData)
+      setAdminpanelInteractionUserData(weekData);
     }else if(panelUserList==="daily"){
-      setAdminpanelInteractionUserData(uniqueData)
+      setAdminpanelInteractionUserData(uniqueData);
     }else {
-      setAdminpanelInteractionUserData(totalUniqueData)
+      setAdminpanelInteractionUserData(totalUniqueData);
     }
   }, [adminpanelInteractionUserData, panelUserList, totalUniqueData, monthData, weekData, uniqueData]);
 
-
-
-  const date= new Date();
-
-
-
-  
-  const isAuth= useSelector((store)=>store.AuthReducer.isAuth);
-
+  // const isAuth= useSelector((store)=>store.AuthReducer.isAuth);
 
   const handleLogout= () => {
     dispatch(logout());
   }
 
-
-
-  const weeklylabels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
   const weeklydata = {
-    labels: weeklylabels,
+    labels: weekBarLabels(),
     datasets: [
       {
         label: "Unique users this week",
         backgroundColor: "#AF26FD",
         borderColor: "white",
-        data: [35, 17, 12, 26, 20, 30, 45],
+        data: weekbardata(),
       },
     ],
   };
@@ -205,9 +306,11 @@ const Admin = () => {
       },
     },
   };
+
   const monthlylabels = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19",
     "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"];
-  const monthlydata = {
+  
+    const monthlydata = {
     labels: monthlylabels,
     datasets: [
       {

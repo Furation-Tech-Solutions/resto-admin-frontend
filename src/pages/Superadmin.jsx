@@ -8,13 +8,11 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { AiOutlineCheck } from 'react-icons/ai';
 import menu from "../utils/Images/Admin/menu.svg";
-import { getSupportRequest, postAddAdmin, postSupportRequest } from '../Redux/AppData/action';
+import { getAdminData, getSupportRequest, postAddAdmin, postSupportRequest } from '../Redux/AppData/action';
 
 const Superadmin = () => {
   
   const dispatch= useDispatch();
-
-  const [userData, setUserData] = useState([]);
 
   const navigate= useNavigate();
 
@@ -31,14 +29,13 @@ const Superadmin = () => {
     if(addbusinessName!=="" && addemail!=="" && addphone!=="" && addpassword!==""){
       const data= {
         "name" : "Business",
-        "businessName": addbusinessName, 
-        "email": addemail, 
-        "phone": addphone, 
+        "businessName": addbusinessName,
+        "email": addemail,
+        "phone": addphone,
         "password": addpassword
       };
       dispatch(postAddAdmin(data)).then((r)=>{
-        console.log(data);
-        alert("Admin added successfully")
+        alert("Admin added successfully");
         setIsAddAdmin(false);
       })
     }else {
@@ -47,12 +44,17 @@ const Superadmin = () => {
   }
 
   useEffect(()=>{
-    axios.get(`https://restaurant-bot-admin.onrender.com/api/v1/admin`)
-    .then((r)=>setUserData(r.data));
+    dispatch(getAdminData());
     dispatch(getSupportRequest());
   }, [])
+
+  // const year = date.getFullYear();
+  // const month = String(date.getMonth() + 1).padStart(2, '0');
+  // const day = String(date.getDate()).padStart(2, '0');
+  // const dateFormat= day+ "/"+ month+ "/" + year;
   
   const requestsupportdata= useSelector((store)=>store.AppReducer.supportrequest);
+  const userData= useSelector((store)=>store.AppReducer.adminData);
 
   const [barnum, setBarnum]= useState(1);
 

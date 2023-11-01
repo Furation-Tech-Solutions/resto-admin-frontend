@@ -1,5 +1,5 @@
 // import axios from "axios"
-import { GET_MONTHLYUNIQUEUSER_ERROR, GET_MONTHLYUNIQUEUSER_SUCCESS, GET_PAYMENTHISTORY_ERROR, GET_PAYMENTHISTORY_REQUEST, GET_PAYMENTHISTORY_SUCCESS, GET_SUPPORTREQUEST_ERROR, GET_SUPPORTREQUEST_SUCCESS, GET_TOTALUNIQUEUSER_ERROR, GET_TOTALUNIQUEUSER_SUCCESS, GET_UNIQUEUSER_ERROR, GET_UNIQUEUSER_SUCCESS, GET_USERFEEDBACK_ERROR, GET_USERFEEDBACK_REQUEST, GET_USERFEEDBACK_SUCCESS, GET_WEEKLYUNIQUEUSER_ERROR, GET_WEEKLYUNIQUEUSER_SUCCESS, POST_ADDADMIN_ERROR, POST_ADDADMIN_REQUEST, POST_ADDADMIN_SUCCESS, POST_SENDMESSAGE_ERROR, POST_SENDMESSAGE_REQUEST, POST_SENDMESSAGE_SUCCESS, POST_SUPPORTREQUEST_ERROR, POST_SUPPORTREQUEST_SUCCESS } from "./actionTypes"
+import { GET_ADMINDATA_ERROR, GET_ADMINDATA_SUCCESS, GET_MONTHLYUNIQUEUSER_ERROR, GET_MONTHLYUNIQUEUSER_SUCCESS, GET_PAYMENTHISTORY_ERROR, GET_PAYMENTHISTORY_REQUEST, GET_PAYMENTHISTORY_SUCCESS, GET_SUPPORTREQUEST_ERROR, GET_SUPPORTREQUEST_SUCCESS, GET_TOTALUNIQUEUSER_ERROR, GET_TOTALUNIQUEUSER_SUCCESS, GET_UNIQUEUSER_ERROR, GET_UNIQUEUSER_SUCCESS, GET_USERFEEDBACK_ERROR, GET_USERFEEDBACK_REQUEST, GET_USERFEEDBACK_SUCCESS, GET_WEEKLYUNIQUEUSER_ERROR, GET_WEEKLYUNIQUEUSER_SUCCESS, POST_ADDADMIN_ERROR, POST_ADDADMIN_REQUEST, POST_ADDADMIN_SUCCESS, POST_SENDMESSAGE_ERROR, POST_SENDMESSAGE_REQUEST, POST_SENDMESSAGE_SUCCESS, POST_SUPPORTREQUEST_ERROR, POST_SUPPORTREQUEST_SUCCESS } from "./actionTypes"
 import axios from "axios";
 
 
@@ -40,6 +40,17 @@ const getUserFeedbackError= ()=>{
 }
 
 
+const getAdminDataSuccess= (payload)=>{
+    return {
+        type: GET_ADMINDATA_SUCCESS,
+        payload
+    }
+}
+const getAdminDataError= ()=>{
+    return {
+        type: GET_ADMINDATA_ERROR
+    }
+}
 
 
 const getSupportRequestSuccess= (payload)=>{
@@ -177,6 +188,16 @@ const getUserFeedback= (params)=>(dispatch)=>{
     })
 }
 
+const getAdminData= (params)=>(dispatch)=>{
+    return axios.get(`https://restaurant-bot-admin.onrender.com/api/v1/admin`, params)
+    .then((res)=>{
+        dispatch(getAdminDataSuccess(res.data))
+    })
+    .catch((error)=>{
+        dispatch(getAdminDataError())
+    })
+}
+
 const getSupportRequest= (params)=>(dispatch)=>{
     return axios.get(`https://what-bot.furation.tech/requestsupport`, params)
     .then((res)=>{
@@ -247,4 +268,4 @@ const getMonthlyUniqueUser= ()=>(dispatch)=>{
     })
 }
 
-export {getPaymentHistory, getUserFeedback, getSupportRequest, postSendMessage, postSupportRequest, postAddAdmin, getUniqueUser, getTotalUniqueUser, getWeeklyUniqueUser, getMonthlyUniqueUser};
+export {getPaymentHistory, getUserFeedback, getAdminData, getSupportRequest, postSendMessage, postSupportRequest, postAddAdmin, getUniqueUser, getTotalUniqueUser, getWeeklyUniqueUser, getMonthlyUniqueUser};

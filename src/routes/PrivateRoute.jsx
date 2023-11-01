@@ -4,8 +4,9 @@ import { useSelector } from 'react-redux';
 
 const PrivateRoute = ({children}) => {
   const isAuth= useSelector((store)=>store.AuthReducer.isAuth);
-
-  if(isAuth==false){
+  const token= JSON.parse(localStorage.getItem("token"))
+  
+  if(token===""){
     return <Navigate to="/login" />
   } else {
     return children
