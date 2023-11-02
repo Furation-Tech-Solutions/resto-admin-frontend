@@ -40,6 +40,8 @@ const Admin = () => {
   );
 
   const dispatch= useDispatch();
+
+  const adminDetails= JSON.parse(localStorage.getItem("admin"));
   
   const [ currentSubscriptionopen, setCurrentSubscriptionopen ]= useState(false);
 
@@ -60,7 +62,7 @@ const Admin = () => {
   const [ sendMessagePhoneNumber, setSendMessagePhoneNumber ] = useState("");
 
   const [ sendMessagePostData, setSendMessagePostData ]= useState({
-    adminId: "",
+    adminId: adminDetails.adminId,
     recipient: "",
     phone_number_id: "",
     messsage: "",
@@ -99,10 +101,10 @@ const Admin = () => {
   const handleRequestSupport= ()=>{
     const data= {
       message: requestSupportValue,
-      adminId: "jyhfkmu",
-      businessName: "business",
-      email: "mail@gmail.com",
-      phone: "1234567890"
+      adminId: adminDetails.adminId,
+      businessName: adminDetails.businessName,
+      email: adminDetails.email,
+      phone: adminDetails.phone
     }
     dispatch(postSupportRequest(data)).then(()=>{
       setIsRequestAdmin(false);
@@ -221,7 +223,7 @@ const Admin = () => {
       })
       array.push(arr);
     }
-    console.log(array);
+    // console.log(array);
   }
   monthlinedata();
 
