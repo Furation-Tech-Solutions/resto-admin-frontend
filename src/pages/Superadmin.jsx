@@ -8,7 +8,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { AiOutlineCheck } from 'react-icons/ai';
 import menu from "../utils/Images/Admin/menu.svg";
-import { getAdminData, getSupportRequest, postAddAdmin, postSupportRequest } from '../Redux/AppData/action';
+import { getAdminData, getSupportRequest, postAddAdmin } from '../Redux/AppData/action';
 
 const Superadmin = () => {
   
@@ -24,6 +24,8 @@ const Superadmin = () => {
   const [ addemail, setAddemail ]= useState("");
   const [ addphone, setAddphone ]= useState("");
   const [ addpassword, setAddpassword ]= useState("");
+
+  const [ filterValue, setFilterValue ] = useState("");
 
   const handleAddAdmin= () => {
     if(addbusinessName!=="" && addemail!=="" && addphone!=="" && addpassword!==""){
@@ -43,18 +45,66 @@ const Superadmin = () => {
     }
   }
 
+
   useEffect(()=>{
     dispatch(getAdminData());
     dispatch(getSupportRequest());
-  }, [])
+    // filterData();
+  }, [filterValue])
+
 
   // const year = date.getFullYear();
   // const month = String(date.getMonth() + 1).padStart(2, '0');
   // const day = String(date.getDate()).padStart(2, '0');
   // const dateFormat= day+ "/"+ month+ "/" + year;
   
-  const requestsupportdata= useSelector((store)=>store.AppReducer.supportrequest);
+  const requestsupportrawdata= useSelector((store)=>store.AppReducer.supportrequest);
+  
   const userData= useSelector((store)=>store.AppReducer.adminData);
+
+  const [ requestsupportdata, setRequestsupportdata ]= useState(requestsupportrawdata);
+
+  useEffect(()=>{
+    const date= new Date();
+    const newDate2= new Date(date);
+    if(filterValue==="week"){
+      const returnData= requestsupportrawdata?.filter((el)=>{
+        const newDate1= new Date(el.createdAt);
+        return Math.floor((newDate2- newDate1)/(1000*60*60*24))<7
+      })
+      setRequestsupportdata(returnData);
+    }else if(filterValue==="month"){
+      const returnData= requestsupportrawdata?.filter((el)=>{
+        const newDate1= new Date(el.createdAt);
+        return Math.floor((newDate2- newDate1)/(1000*60*60*24))<30
+      })
+      setRequestsupportdata(returnData);
+    }else{
+      setRequestsupportdata(requestsupportrawdata);
+    }
+  }, [requestsupportrawdata])
+  // console.log(requestsupportdata)
+
+  // const filterData= () => {
+  //   const date= new Date();
+  //   const newDate2= new Date(date);
+  //   if(filterValue==="week"){
+  //     const returnData= requestsupportrawdata?.filter((el)=>{
+  //       const newDate1= new Date(el.createdAt);
+  //       return Math.floor((newDate2- newDate1)/(1000*60*60*24))<7
+  //     })
+  //     setRequestsupportdata(returnData);
+  //   }else if(filterValue==="month"){
+  //     const returnData= requestsupportrawdata?.filter((el)=>{
+  //       const newDate1= new Date(el.createdAt);
+  //       return Math.floor((newDate2- newDate1)/(1000*60*60*24))<30
+  //     })
+  //     setRequestsupportdata(returnData);
+  //   }else{
+  //     setRequestsupportdata(requestsupportrawdata);
+  //   }
+  // }
+
 
   const [barnum, setBarnum]= useState(1);
 
@@ -337,11 +387,10 @@ const Superadmin = () => {
                 <AiOutlineSearch size={"20px"} />
                 <input className="rightsecondBoxSuperadminInput" type="text" placeholder='Search by email or phone number' />
               </div>
-              <select className="rightsecondBoxSuperadminSelect" name="" id="">
-                <option value="">Filter By</option>
-                <option value="">Last 7 days</option>
-                <option value="">Last 30 days</option>
-                <option value="">Total</option>
+              <select onChange={(e)=>setFilterValue(e.target.value)} value={filterValue} className="rightsecondBoxSuperadminSelect" name="" id="">
+                <option value="">All time</option>
+                <option value="week">Last 7 days</option>
+                <option value="month">Last 30 days</option>
               </select>
             </div>}
             <div className='rightthirdBoxSuperadminSupport'>
@@ -363,7 +412,7 @@ const Superadmin = () => {
                         <td className="feedbackTableBodySuperAdmin">{feedback.businessName}</td>
                         <td className="feedbackTableBodySuperAdmin">{feedback.phone}</td>
                         <td className="feedbackTableBodySuperAdmin">{feedback.message}</td>
-                        <td className="feedbackTableBodySuperAdmin">{feedback.createdAt}</td>
+                        <td className="feedbackTableBodySuperAdmin">{new Date(feedback.createdAt).toLocaleString()}</td>
                       </tr>
                     })}
                   </tbody>

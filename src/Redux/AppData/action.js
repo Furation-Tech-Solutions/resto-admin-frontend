@@ -168,7 +168,7 @@ const getMonthlyUniqueUserError= ()=>{
 
 const getPaymentHistory= (params)=>(dispatch)=>{
     dispatch(getPaymentHistoryRequest());
-    return axios.get(`https://restaurant-bot-admin.onrender.com/api/v1/payment`, params)
+    return axios.get(`https://admin-bot.furation.tech/api/v1/payment`, params)
     .then((res)=>{
         dispatch(getPaymentHistorySuccess(res.data))
     })
@@ -189,7 +189,7 @@ const getUserFeedback= (params)=>(dispatch)=>{
 }
 
 const getAdminData= (params)=>(dispatch)=>{
-    return axios.get(`https://restaurant-bot-admin.onrender.com/api/v1/admin`, params)
+    return axios.get(`https://admin-bot.furation.tech/api/v1/admin`, params)
     .then((res)=>{
         dispatch(getAdminDataSuccess(res.data))
     })
@@ -223,7 +223,7 @@ const postSupportRequest= (payload)=>(dispatch)=>{
 
 const postAddAdmin= (payload)=>(dispatch)=>{
     dispatch(postAddAdminRequest());
-    return axios.post("https://restaurant-bot-admin.onrender.com/api/v1/admin/new", payload)
+    return axios.post("https://admin-bot.furation.tech/api/v1/admin/new", payload)
     .then((r)=>{dispatch(postAddAdminSuccess())})
     .catch((e)=>{dispatch(postAddAdminError())})
 }
