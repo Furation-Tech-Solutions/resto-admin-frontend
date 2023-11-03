@@ -88,15 +88,35 @@ const Admin = () => {
     }
   }
 
+  const date= new Date();
+  const currentMonth= date.getMonth();
+
+  const monthObj= {
+    1 : "January",
+    2 : "February",
+    3 : "March",
+    4 : "April",
+    5 : "May",
+    6 : "June",
+    7 : "July",
+    8 : "August",
+    9 : "September",
+    10 : "October",
+    11 : "November",
+    12 : "December",
+  }
+
+  const [ chooseMonth, setChooseMonth ] = useState(currentMonth);
+
 
   useEffect(()=>{
     dispatch(getUniqueUser());
     dispatch(getTotalUniqueUser());
     dispatch(getWeeklyUniqueUser());
-    dispatch(getMonthlyUniqueUser());
+    dispatch(getMonthlyUniqueUser(chooseMonth));
     dispatch(getPaymentHistory());
     dispatch(getUserFeedback());
-  }, [])
+  }, [chooseMonth])
 
   const handleRequestSupport= ()=>{
     const data= {
@@ -120,7 +140,6 @@ const Admin = () => {
   const feedbackData= useSelector((store)=>store.AppReducer.userFeedback);
   
 
-  const date= new Date();
   // const day= date.getDate();
 
   // console.log(date, day);
@@ -185,25 +204,25 @@ const Admin = () => {
     day5.setDate(day4.getDate() - 1);
     const day6= new Date(day5);
     day6.setDate(day5.getDate() - 1);
-    const day0data= weekData?.map((day)=>{
+    const day0data= weekData?.filter((day)=>{
       return new Date(day.createdAt)===new Date(day0)
     })
-    const day1data= weekData?.map((day)=>{
+    const day1data= weekData?.filter((day)=>{
       return new Date(day.createdAt)===new Date(day1)
     })
-    const day2data= weekData?.map((day)=>{
+    const day2data= weekData?.filter((day)=>{
       return new Date(day.createdAt)===new Date(day2)
     })
-    const day3data= weekData?.map((day)=>{
+    const day3data= weekData?.filter((day)=>{
       return new Date(day.createdAt)===new Date(day3)
     })
-    const day4data= weekData?.map((day)=>{
+    const day4data= weekData?.filter((day)=>{
       return new Date(day.createdAt)===new Date(day4)
     })
-    const day5data= weekData?.map((day)=>{
+    const day5data= weekData?.filter((day)=>{
       return new Date(day.createdAt)===new Date(day5)
     })
-    const day6data= weekData?.map((day)=>{
+    const day6data= weekData?.filter((day)=>{
       return new Date(day.createdAt)===new Date(day6)
     })
     return [day0data.length, day1data.length, day2data.length, day3data.length, day4data.length, day5data.length, day6data.length];
@@ -758,10 +777,10 @@ const Admin = () => {
                 <div className={chartnumphone===2? "monthlyChartAdmin" : "monthlyChartAdminHide"}>
                   <div className="monthlyChartAdminText">
                     <p>last 30 days</p>
-                    <select className="monthlyChartAdminSelect" name="" id="">
-                      <option value="">Current month</option>
-                      <option value="">Previous month</option>
-                      <option value="">Last month</option>
+                    <select onChange={(e)=>setChooseMonth(e.target.value)} value={chooseMonth} className="monthlyChartAdminSelect" name="" id="">
+                      <option value={currentMonth}>Current month</option>
+                      <option value={currentMonth-1}>{monthObj[currentMonth-1]}</option>
+                      <option value={currentMonth-2}>{monthObj[currentMonth-2]}</option>
                     </select>
                   </div>
                   <Line data={monthlydata} options={lineOptions} />
