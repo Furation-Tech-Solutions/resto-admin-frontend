@@ -113,7 +113,7 @@ const Admin = () => {
     dispatch(getUniqueUser());
     dispatch(getTotalUniqueUser());
     dispatch(getWeeklyUniqueUser());
-    dispatch(getMonthlyUniqueUser(chooseMonth));
+    dispatch(getMonthlyUniqueUser({"month" : chooseMonth}));
     dispatch(getPaymentHistory());
     dispatch(getUserFeedback());
   }, [chooseMonth])
@@ -232,7 +232,6 @@ const Admin = () => {
     const date= new Date();
     const month= date.getMonth();
     const year= date.getFullYear();
-    console.log(month, year);
     const array= [];
     for(let i=0;i<31;i++){
       const arr= monthData.map((el)=>{
@@ -257,6 +256,7 @@ const Admin = () => {
     }else {
       setAdminpanelInteractionUserData(totalUniqueData);
     }
+    console.log(monthData);
   }, [adminpanelInteractionUserData, panelUserList, totalUniqueData, monthData, weekData, uniqueData]);
 
   // const isAuth= useSelector((store)=>store.AuthReducer.isAuth);
