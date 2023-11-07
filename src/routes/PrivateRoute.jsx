@@ -6,7 +6,7 @@ const PrivateRoute = ({children}) => {
   const isAuth= useSelector((store)=>store.AuthReducer.isAuth);
   const token= JSON.parse(localStorage.getItem("token"))
   
-  if(token===""){
+  if(!token){
     return <Navigate to="/login" />
   } else {
     return children

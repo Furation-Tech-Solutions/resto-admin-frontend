@@ -57,7 +57,7 @@ const Login = () => {
           <div className='loginforgotpassword'>
             <Link to="/forgotpassword">Forgot password?</Link>
           </div>
-          <button onClick={()=>handleLogin()} className='loginButton'>Login</button>
+          <button onClick={()=>handleLogin()} className='loginButton'><i class="fa fa-spinner fa-spin"></i>LoadingLogin</button>
         </div>
       </div>
     </div>
