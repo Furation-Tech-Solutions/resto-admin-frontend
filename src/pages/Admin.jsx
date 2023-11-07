@@ -22,6 +22,7 @@ import CurrentSubscripton from "../components/CurrentSubscripton";
 import { useDispatch, useSelector } from "react-redux";
 import { getMonthlyUniqueUser, getPaymentHistory, getTotalUniqueUser, getUniqueUser, getUserFeedback, getWeeklyUniqueUser, postSendMessage, postSupportRequest } from "../Redux/AppData/action";
 import { logout } from "../Redux/AuthData/action";
+import { useNavigate } from "react-router-dom";
 
 
 const Admin = () => {
@@ -41,7 +42,13 @@ const Admin = () => {
 
   const dispatch= useDispatch();
 
+  const navigate= useNavigate();
+
   const adminDetails= JSON.parse(localStorage.getItem("admin"));
+
+  if(!adminDetails.adminId){
+    navigate("/login");
+  }
   
   const [ currentSubscriptionopen, setCurrentSubscriptionopen ]= useState(false);
 
