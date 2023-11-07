@@ -46,7 +46,7 @@ const Admin = () => {
 
   const adminDetails= JSON.parse(localStorage.getItem("admin"));
 
-  if(!adminDetails.adminId){
+  if(!adminDetails || adminDetails?.adminId){
     navigate("/login");
   }
   
