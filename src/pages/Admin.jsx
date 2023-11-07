@@ -46,9 +46,9 @@ const Admin = () => {
 
   const adminDetails= JSON.parse(localStorage.getItem("admin"));
 
-  if(!adminDetails || adminDetails?.adminId){
-    navigate("/login");
-  }
+  // if(!adminDetails || adminDetails?.adminId){
+  //   navigate("/login");
+  // }
   
   const [ currentSubscriptionopen, setCurrentSubscriptionopen ]= useState(false);
 
@@ -69,7 +69,7 @@ const Admin = () => {
   const [ sendMessagePhoneNumber, setSendMessagePhoneNumber ] = useState("");
 
   const [ sendMessagePostData, setSendMessagePostData ]= useState({
-    adminId: adminDetails.adminId,
+    adminId: adminDetails?.adminId || "",
     recipient: "",
     phone_number_id: "",
     messsage: "",
