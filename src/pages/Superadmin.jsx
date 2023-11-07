@@ -60,9 +60,11 @@ const Superadmin = () => {
   
   const requestsupportrawdata= useSelector((store)=>store.AppReducer.supportrequest);
   
-  const userData= useSelector((store)=>store.AppReducer.adminData);
+  const userrawData= useSelector((store)=>store.AppReducer.adminData);
 
   const [ requestsupportdata, setRequestsupportdata ]= useState(requestsupportrawdata);
+
+  const [ userData, setUserData ] = useState(userrawData);
 
   useEffect(()=>{
     const date= new Date();
@@ -82,8 +84,8 @@ const Superadmin = () => {
     }else{
       setRequestsupportdata(requestsupportrawdata);
     }
-  }, [requestsupportrawdata])
-  // console.log(requestsupportdata)
+    setUserData(userrawData);
+  }, [requestsupportrawdata]);
 
   // const filterData= () => {
   //   const date= new Date();
