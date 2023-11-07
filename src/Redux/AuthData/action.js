@@ -4,7 +4,7 @@ import * as types from"./actionTypes";
 
 const login= (payload) => (dispatch) => {
     dispatch({type: types.USER_LOGIN_REQUEST});
-    return axios.post("http://admin-bot.furation.tech/api/v1/admin/login", payload)
+    return axios.post("https://admin-bot.furation.tech/api/v1/admin/login", payload)
     .then((r)=>{
         localStorage.setItem("token", JSON.stringify(r.data.token));
         localStorage.setItem("admin", JSON.stringify({
