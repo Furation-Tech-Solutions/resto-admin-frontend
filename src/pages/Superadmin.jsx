@@ -39,18 +39,30 @@ const Superadmin = () => {
       dispatch(postAddAdmin(data)).then((r)=>{
         alert("Admin added successfully");
         setIsAddAdmin(false);
+        dispatch(getAdminData());
+        setAddbusinessName("");
+        setAddemail("");
+        setAddphone("");
+        setAddpassword("");
       })
     }else {
       alert("Please fill all the fields.")
     }
+    
+    setUserData(userrawData);
   }
 
+
+  const [barnum, setBarnum]= useState(1);
+
+  const [ isAddAdmin, setIsAddAdmin ] = useState(false);
+  const [ istoggle, setIstoggle ] = useState(false);
 
   useEffect(()=>{
     dispatch(getAdminData());
     dispatch(getSupportRequest());
     // filterData();
-  }, [filterValue])
+  }, [filterValue, isAddAdmin])
 
 
   // const year = date.getFullYear();
@@ -107,11 +119,6 @@ const Superadmin = () => {
   //   }
   // }
 
-
-  const [barnum, setBarnum]= useState(1);
-
-  const [ isAddAdmin, setIsAddAdmin ] = useState(false);
-  const [ istoggle, setIstoggle ] = useState(false);
 
   const userDataa= [
     {

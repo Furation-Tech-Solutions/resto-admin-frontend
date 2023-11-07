@@ -18,7 +18,7 @@ const reducer= (oldState= initialState, action) => {
         case types.USER_LOGIN_ERROR:
             return {...oldState, isAuthLoading:false, token:"", isAuth:false, isAuthError:true}
         case types.USER_LOGOUT_SUCCESS:
-            return {...oldState, token:"", role: "", isAuth:false}
+            return {...oldState, isAuthLoading:false, token:"", role: "", isAuth:false}
         default:
             return oldState;
     }

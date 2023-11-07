@@ -19,6 +19,7 @@ const login= (payload) => (dispatch) => {
 }
 
 const logout= () => (dispatch) => {
+    dispatch({type: types.USER_LOGIN_REQUEST});
     localStorage.setItem("token", JSON.stringify(""));
     return dispatch({type: types.USER_LOGOUT_SUCCESS});
 }

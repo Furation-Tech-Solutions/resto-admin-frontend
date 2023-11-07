@@ -51,6 +51,8 @@ const Admin = () => {
   // }
   
   const [ currentSubscriptionopen, setCurrentSubscriptionopen ]= useState(false);
+  
+  const isAuthLoading= useSelector((store)=>store.AuthReducer.isAuthLoading);
 
   const [ requestSupportValue, setRequestSupportValue]= useState("");
 
@@ -726,7 +728,7 @@ const Admin = () => {
             </div>
             <div className="leftthirdBoxAdmin">
               <div onClick={()=>setIsRequestAdmin(true)} className="leftthirdBoxfirstAdmin">Request Support</div>
-              <div onClick={()=>handleLogout()} className="leftthirdBoxsecondAdmin">Logout</div>
+              <div onClick={()=>handleLogout()} className="leftthirdBoxsecondAdmin"><i class={isAuthLoading? "fa fa-spinner fa-spin" : ""}></i>Logout</div>
             </div>
           </div>
         </div>
@@ -1361,7 +1363,7 @@ const Admin = () => {
                 setIsRequestAdmin(true)
                 setIsSidebarPhone(!isSidebarPhone)}
                } className="ThirdBoxsideBarFirstPhoneAdmin">Request Support</div>
-              <div onClick={()=>handleLogout()} className="ThirdBoxsideBarSecondPhoneAdmin">Logout</div>
+              <div onClick={()=>handleLogout()} className="ThirdBoxsideBarSecondPhoneAdmin"><i class={isAuthLoading? "fa fa-spinner fa-spin" : ""}></i>Logout</div>
             </div>
           </div>
         </div>
