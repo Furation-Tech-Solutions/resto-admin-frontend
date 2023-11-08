@@ -98,21 +98,24 @@ const Admin = () => {
   }
 
   const date= new Date();
+
+  const subscriptionend= new Date(JSON.parse(localStorage.getItem("admin")).subscriptionend);
+  const piechartDate= Math.floor((subscriptionend-date)/(1000*60*60*24));
   const currentMonth= date.getMonth();
 
   const monthObj= {
-    1 : "January",
-    2 : "February",
-    3 : "March",
-    4 : "April",
-    5 : "May",
-    6 : "June",
-    7 : "July",
-    8 : "August",
-    9 : "September",
-    10 : "October",
-    11 : "November",
-    12 : "December",
+    0 : "January",
+    1 : "February",
+    2 : "March",
+    3 : "April",
+    4 : "May",
+    5 : "June",
+    6 : "July",
+    7 : "August",
+    8 : "September",
+    9 : "October",
+    10 : "November",
+    11 : "December",
   }
 
   const [ chooseMonth, setChooseMonth ] = useState(currentMonth);
@@ -144,9 +147,12 @@ const Admin = () => {
   const uniqueData= useSelector((store)=>store.AppReducer.uniqueUser);
   const totalUniqueData= useSelector((store)=>store.AppReducer.totalUniqueUser);
   const weekData= useSelector((store)=>store.AppReducer.weeklyuniqueUser);
-  const monthData= useSelector((store)=>store.AppReducer.monthlyuniqueUser);
+  const monthrawData= useSelector((store)=>store.AppReducer.monthlyuniqueUser);
+  // console.log({monthrawData});
   const subscriptionData= useSelector((store)=>store.AppReducer.paymentHistory);
   const feedbackData= useSelector((store)=>store.AppReducer.userFeedback);
+
+  const [ monthData, setMOnthData ] = useState(monthrawData);
   
 
   // const day= date.getDate();
@@ -239,12 +245,10 @@ const Admin = () => {
 
   const monthlinedata= () => {
     const date= new Date();
-    const month= date.getMonth();
-    const year= date.getFullYear();
     const array= [];
     for(let i=0;i<31;i++){
-      const arr= monthData.map((el)=>{
-        return el.createdAt.getMonth()===i;
+      const arr= monthData.filter((el)=>{
+        return el.createdAt.getDate()===i;
       })
       array.push(arr);
     }
@@ -265,8 +269,13 @@ const Admin = () => {
     }else {
       setAdminpanelInteractionUserData(totalUniqueData);
     }
-    console.log(monthData);
+    // console.log(monthData);
   }, [adminpanelInteractionUserData, panelUserList, totalUniqueData, monthData, weekData, uniqueData]);
+
+  useEffect(()=>{
+    setMOnthData(monthrawData);
+    // console.log({"monthlyData" : monthrawData});
+  }, [chooseMonth])
 
   // const isAuth= useSelector((store)=>store.AuthReducer.isAuth);
 
@@ -658,7 +667,7 @@ const Admin = () => {
     datasets: [
       {
         label: 'days left',
-        data: [5, 25],
+        data: [30-piechartDate, piechartDate],
         backgroundColor: [
           '#CACACA',
           '#AF26FD'
@@ -728,7 +737,7 @@ const Admin = () => {
             </div>
             <div className="leftthirdBoxAdmin">
               <div onClick={()=>setIsRequestAdmin(true)} className="leftthirdBoxfirstAdmin">Request Support</div>
-              <div onClick={()=>handleLogout()} className="leftthirdBoxsecondAdmin"><i class={isAuthLoading? "fa fa-spinner fa-spin" : ""}></i>Logout</div>
+              <div onClick={()=>handleLogout()} className="leftthirdBoxsecondAdmin"><i className={isAuthLoading? "fa fa-spinner fa-spin" : ""}></i>Logout</div>
             </div>
           </div>
         </div>
@@ -755,9 +764,9 @@ const Admin = () => {
                 <div className="countdownrightDoughnutOuterAdminFirstBox">
                   <div onClick={()=>setCurrentSubscriptionopen(true)} className="countdownrightDoughnutInnerAdminFirstBox">
                     <Doughnut data={doughnutdata} /><br/>
-                    <div className="countdownrightDoughnutInnerAdminNumberFirstBox">25</div>
+                    <div className="countdownrightDoughnutInnerAdminNumberFirstBox">{piechartDate}</div>
                   </div>
-                  <p className="countdownrightText">25/30 days left</p>
+                  <p className="countdownrightText">{piechartDate}/30 days left</p>
                 </div>
               </div>
             </div>
@@ -1034,7 +1043,7 @@ const Admin = () => {
               </div>
               <div onClick={()=>setCurrentSubscriptionopen(true)} className="countdownrAdminBoxPhone">
                 <Doughnut data={doughnutdata} /><br/>
-                <div className="countdownrAdminBoxPhoneNumber">25</div>
+                <div className="countdownrAdminBoxPhoneNumber">{piechartDate}</div>
               </div>
             </div>
             <div className="GraphWrapperPhone">
@@ -1378,7 +1387,7 @@ const Admin = () => {
               <div className="currentSubscriptionDoughnutOuterAdmin">
                   <div className="currentSubscriptionDoughnutInnerAdmin">
                       <Doughnut data={doughnutdata} /><br/>
-                      <div className="currentSubscriptionDoughnutInnerAdminNumber">25</div>
+                      <div className="currentSubscriptionDoughnutInnerAdminNumber">{piechartDate}</div>
                   </div>
                   <p>25/30 days left</p>
               </div>

@@ -11,7 +11,9 @@ const login= (payload) => (dispatch) => {
             adminId : r.data.adminId,
             businessName : r.data.businessName,
             phone : r.data.phone,
-            email : r.data.email
+            email : r.data.email,
+            subscriptionend: r.data.subscriptionend,
+            deployedLink: r.data.deployedLink
         }));
         dispatch({type: types.USER_LOGIN_SUCCESS, payload: {token: r.data.token,role: r.data.role}})
     })
