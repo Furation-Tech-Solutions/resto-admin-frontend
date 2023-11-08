@@ -147,17 +147,10 @@ const Admin = () => {
   const uniqueData= useSelector((store)=>store.AppReducer.uniqueUser);
   const totalUniqueData= useSelector((store)=>store.AppReducer.totalUniqueUser);
   const weekData= useSelector((store)=>store.AppReducer.weeklyuniqueUser);
-  const monthrawData= useSelector((store)=>store.AppReducer.monthlyuniqueUser);
-  // console.log({monthrawData});
+  const monthData= useSelector((store)=>store.AppReducer.monthlyuniqueUser);
   const subscriptionData= useSelector((store)=>store.AppReducer.paymentHistory);
   const feedbackData= useSelector((store)=>store.AppReducer.userFeedback);
 
-  const [ monthData, setMOnthData ] = useState(monthrawData);
-  
-
-  // const day= date.getDate();
-
-  // console.log(date, day);
 
   const weekBarLabels= () => {
     const weekObj= {
@@ -193,16 +186,6 @@ const Admin = () => {
       weekObj[day0.getDay()],
     ]
   }
-
-
-  // console.log(weekData);
-
-  // const formatDate = date => {
-  //   const year = date.getFullYear();
-  //   const month = String(date.getMonth() + 1).padStart(2, '0');
-  //   const day = String(date.getDate()).padStart(2, '0');
-  //   return `${year}-${month}-${day}`;
-  // };
 
   const weekbardata= () => {
     const date= new Date();
@@ -244,18 +227,16 @@ const Admin = () => {
   }
 
   const monthlinedata= () => {
-    const date= new Date();
     const array= [];
-    for(let i=0;i<30;i++){
-      const arr= monthData.filter((el)=>{
-        return el.createdAt.getDate()===i;
+    for(let i=1;i<=30;i++){
+      const arr= monthData?.filter((el)=>{
+        return new Date(el.createdAt).getDate()==i;
       })
-      array.push(arr);
+      array.push(arr.length);
     }
-    // console.log(array);
+    return array;
   }
   monthlinedata();
-
   
   const [ adminpanelInteractionUserData, setAdminpanelInteractionUserData]= useState(totalUniqueData);
 
@@ -273,8 +254,7 @@ const Admin = () => {
   }, [adminpanelInteractionUserData, panelUserList, totalUniqueData, monthData, weekData, uniqueData]);
 
   useEffect(()=>{
-    setMOnthData(monthrawData);
-    // console.log({"monthlyData" : monthrawData});
+    monthlinedata();
   }, [chooseMonth])
 
   // const isAuth= useSelector((store)=>store.AuthReducer.isAuth);
@@ -363,9 +343,7 @@ const Admin = () => {
           opacity: 0.5,
           below: '#AF26FD'
         },
-        data: [
-          14, 42, 23, 64, 45, 16, 34, 58, 25, 44, 33, 24, 45, 24, 32, 21, 32, 54, 64, 22, 43, 75, 21, 54, 34, 23, 54, 13, 54, 34,
-        ]
+        data: monthlinedata()
       },
     ],
   };

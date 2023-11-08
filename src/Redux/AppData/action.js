@@ -261,7 +261,6 @@ const getWeeklyUniqueUser= ()=>(dispatch)=>{
 const getMonthlyUniqueUser= (params)=>(dispatch)=>{
     return axios.get(`https://what-bot.furation.tech/monthlyuser`, {params})
     .then((res)=>{
-        console.log({"resdata":res.data});
         dispatch(getMonthlyUniqueUserSuccess(res.data))
     })
     .catch((error)=>{
