@@ -246,7 +246,7 @@ const Admin = () => {
   const monthlinedata= () => {
     const date= new Date();
     const array= [];
-    for(let i=0;i<31;i++){
+    for(let i=0;i<30;i++){
       const arr= monthData.filter((el)=>{
         return el.createdAt.getDate()===i;
       })
@@ -1372,7 +1372,7 @@ const Admin = () => {
                 setIsRequestAdmin(true)
                 setIsSidebarPhone(!isSidebarPhone)}
                } className="ThirdBoxsideBarFirstPhoneAdmin">Request Support</div>
-              <div onClick={()=>handleLogout()} className="ThirdBoxsideBarSecondPhoneAdmin"><i class={isAuthLoading? "fa fa-spinner fa-spin" : ""}></i>Logout</div>
+              <div onClick={()=>handleLogout()} className="ThirdBoxsideBarSecondPhoneAdmin"><i className={isAuthLoading? "fa fa-spinner fa-spin" : ""}></i>Logout</div>
             </div>
           </div>
         </div>
