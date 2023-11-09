@@ -148,7 +148,7 @@ const Admin = () => {
   const totalUniqueData= useSelector((store)=>store.AppReducer.totalUniqueUser);
   const weekData= useSelector((store)=>store.AppReducer.weeklyuniqueUser);
   const monthData= useSelector((store)=>store.AppReducer.monthlyuniqueUser);
-  const subscriptionData= useSelector((store)=>store.AppReducer.paymentHistory);
+  const subscriptionData= useSelector((store)=>store.AppReducer.paymentHistory).reverse();
   const feedbackData= useSelector((store)=>store.AppReducer.userFeedback);
 
 
@@ -1044,10 +1044,10 @@ const Admin = () => {
                   {chartnumphone===2 && <div className="thirdBoxAdminMonthlyBoxPhone">
                     <div className="thirdBoxAdminMonthlyBoxPhoneText">
                       <p>last 30 days</p>
-                      <select className="monthlyChartAdminSelect" name="" id="">
-                        <option value="">Current month</option>
-                        <option value="">Previous month</option>
-                        <option value="">Last month</option>
+                      <select onChange={(e)=>setChooseMonth(e.target.value)} value={chooseMonth} className="monthlyChartAdminSelect" name="" id="">
+                        <option value={currentMonth}>Current month</option>
+                        <option value={currentMonth-1}>{monthObj[currentMonth-1]}</option>
+                        <option value={currentMonth-2}>{monthObj[currentMonth-2]}</option>
                       </select>
                     </div>
                     <Line data={monthlydata} options={lineOptions} />
