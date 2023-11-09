@@ -127,7 +127,7 @@ const Admin = () => {
     dispatch(getWeeklyUniqueUser());
     dispatch(getMonthlyUniqueUser({"month" : chooseMonth}));
     dispatch(getPaymentHistory());
-    dispatch(getUserFeedback());
+    dispatch(getUserFeedback({"adminId" : adminDetails.adminId}));
   }, [chooseMonth])
 
   const handleRequestSupport= ()=>{

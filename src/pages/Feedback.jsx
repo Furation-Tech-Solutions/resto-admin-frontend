@@ -1,28 +1,28 @@
 import React, { useState } from 'react'
 import "../styles/Feedback.css"
-import Visibility from "@material-ui/icons/Visibility";
-import VisibilityOff from "@material-ui/icons/VisibilityOff";
-import { Link, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { login } from "../Redux/AuthData/action";
 import furationlogo from "../utils/Images/login/furationlogo.svg";
+import { postUserFeedback } from '../Redux/AppData/action';
 
 
 const Feedback = () => {
 
-    const [ispassword, setispassword] = useState(false);
+
+    const location= useLocation();
+    const id = location.pathname.split("/")[1].split(":")[1];
   
     const [ name, setName ]= useState("");
     const [ email, setEmail ]= useState("");
     const [ phone, setPhone ]= useState("");
-    const [ password, setPassword ]= useState("");
+    const [ message, setMessage ]= useState("");
     const dispatch= useDispatch();
     const navigate= useNavigate();
   
-    const handleLogin = () =>{
-      if(name && email && phone && password){
-        dispatch(login({phone, password})).then((r)=>{
-          navigate("/");
+    const handleFeedback = () =>{
+      if(name && email && phone && message){
+        dispatch(postUserFeedback({name, "recipient" : phone, "mail" : email, message, "adminId":id})).then((r)=>{
+          alert("Feedback Submitted Successfully.");
         })
       }
     }
@@ -40,8 +40,8 @@ const Feedback = () => {
           <label className='feedbacklabels'>Email</label><br/>
           <input className='inputfeedback' onChange={(e)=>setEmail(e.target.value)} type="text" value={email} placeholder='Enter your Email' /><br/>
           <label className='feedbacklabels'>Message</label><br/>
-          <input className='inputfeedback' onChange={(e)=>setPassword(e.target.value)} type="text" value={password} placeholder='Enter your Message' /><br/>
-          <button onClick={()=>handleLogin()} className='submitButton'>Submit</button>
+          <input className='inputfeedback' onChange={(e)=>setMessage(e.target.value)} type="text" value={message} placeholder='Enter your Message' /><br/>
+          <button onClick={()=>handleFeedback()} className='submitButton'>Submit</button>
         </div>
       </div>
     </div>

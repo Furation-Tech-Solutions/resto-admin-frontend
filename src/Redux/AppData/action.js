@@ -1,5 +1,5 @@
 // import axios from "axios"
-import { GET_ADMINDATA_ERROR, GET_ADMINDATA_SUCCESS, GET_MONTHLYUNIQUEUSER_ERROR, GET_MONTHLYUNIQUEUSER_SUCCESS, GET_PAYMENTHISTORY_ERROR, GET_PAYMENTHISTORY_REQUEST, GET_PAYMENTHISTORY_SUCCESS, GET_SUPPORTREQUEST_ERROR, GET_SUPPORTREQUEST_SUCCESS, GET_TOTALUNIQUEUSER_ERROR, GET_TOTALUNIQUEUSER_SUCCESS, GET_UNIQUEUSER_ERROR, GET_UNIQUEUSER_SUCCESS, GET_USERFEEDBACK_ERROR, GET_USERFEEDBACK_REQUEST, GET_USERFEEDBACK_SUCCESS, GET_WEEKLYUNIQUEUSER_ERROR, GET_WEEKLYUNIQUEUSER_SUCCESS, POST_ADDADMIN_ERROR, POST_ADDADMIN_REQUEST, POST_ADDADMIN_SUCCESS, POST_SENDMESSAGE_ERROR, POST_SENDMESSAGE_REQUEST, POST_SENDMESSAGE_SUCCESS, POST_SUPPORTREQUEST_ERROR, POST_SUPPORTREQUEST_SUCCESS } from "./actionTypes"
+import { GET_ADMINDATA_ERROR, GET_ADMINDATA_SUCCESS, GET_MONTHLYUNIQUEUSER_ERROR, GET_MONTHLYUNIQUEUSER_SUCCESS, GET_PAYMENTHISTORY_ERROR, GET_PAYMENTHISTORY_REQUEST, GET_PAYMENTHISTORY_SUCCESS, GET_SUPPORTREQUEST_ERROR, GET_SUPPORTREQUEST_SUCCESS, GET_TOTALUNIQUEUSER_ERROR, GET_TOTALUNIQUEUSER_SUCCESS, GET_UNIQUEUSER_ERROR, GET_UNIQUEUSER_SUCCESS, GET_USERFEEDBACK_ERROR, GET_USERFEEDBACK_REQUEST, GET_USERFEEDBACK_SUCCESS, GET_WEEKLYUNIQUEUSER_ERROR, GET_WEEKLYUNIQUEUSER_SUCCESS, POST_ADDADMIN_ERROR, POST_ADDADMIN_REQUEST, POST_ADDADMIN_SUCCESS, POST_SENDMESSAGE_ERROR, POST_SENDMESSAGE_REQUEST, POST_SENDMESSAGE_SUCCESS, POST_SUPPORTREQUEST_ERROR, POST_SUPPORTREQUEST_SUCCESS, POST_USERFEEDBACK_ERROR, POST_USERFEEDBACK_SUCCESS } from "./actionTypes"
 import axios from "axios";
 
 
@@ -36,6 +36,19 @@ const getUserFeedbackSuccess= (payload)=>{
 const getUserFeedbackError= ()=>{
     return {
         type: GET_USERFEEDBACK_ERROR
+    }
+}
+
+ 
+const postUserFeedbackSuccess= (payload)=>{
+    return {
+        type: POST_USERFEEDBACK_SUCCESS,
+        payload
+    }
+}
+const postUserFeedbackError= ()=>{
+    return {
+        type: POST_USERFEEDBACK_ERROR
     }
 }
 
@@ -188,8 +201,14 @@ const getUserFeedback= (params)=>(dispatch)=>{
     })
 }
 
+const postUserFeedback= (payload)=>(dispatch)=>{
+    return axios.post("https://what-bot.furation.tech/feedback", payload)
+    .then((r)=>{dispatch(postUserFeedbackSuccess())})
+    .catch((e)=>{dispatch(postUserFeedbackError())})
+}
+
 const getAdminData= (params)=>(dispatch)=>{
-    return axios.get(`https://admin-bot.furation.tech/api/v1/admin`, params)
+    return axios.get(`https://admin-bot.furation.tech/api/v1/admin`, {params})
     .then((res)=>{
         dispatch(getAdminDataSuccess(res.data))
     })
@@ -268,4 +287,4 @@ const getMonthlyUniqueUser= (params)=>(dispatch)=>{
     })
 }
 
-export {getPaymentHistory, getUserFeedback, getAdminData, getSupportRequest, postSendMessage, postSupportRequest, postAddAdmin, getUniqueUser, getTotalUniqueUser, getWeeklyUniqueUser, getMonthlyUniqueUser};
+export {getPaymentHistory, getUserFeedback, postUserFeedback, getAdminData, getSupportRequest, postSendMessage, postSupportRequest, postAddAdmin, getUniqueUser, getTotalUniqueUser, getWeeklyUniqueUser, getMonthlyUniqueUser};
