@@ -20,7 +20,7 @@ import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, Filler, Lin
 import { Line,  Bar, Doughnut } from 'react-chartjs-2';
 import CurrentSubscripton from "../components/CurrentSubscripton";
 import { useDispatch, useSelector } from "react-redux";
-import { getMonthlyUniqueUser, getPaymentHistory, getTotalUniqueUser, getUniqueUser, getUserFeedback, getWeeklyUniqueUser, postSendMessage, postSupportRequest } from "../Redux/AppData/action";
+import { getMonthlyUniqueUser, getPaymentHistory, getTotalUniqueUser, getUniqueUser, getUserFeedback, getUserSearchInput, getWeeklyUniqueUser, postSendMessage, postSupportRequest } from "../Redux/AppData/action";
 import { logout } from "../Redux/AuthData/action";
 import { useNavigate } from "react-router-dom";
 
@@ -56,6 +56,8 @@ const Admin = () => {
 
   const [ requestSupportValue, setRequestSupportValue]= useState("");
 
+  const [ userSearchInput, setUserSearchInput ] = useState("");
+
   const [isSubscribed, setIsSubscribed]= useState(false);
 
   const [ isSidebarPhone, setIsSidebarPhone ]= useState(false);
@@ -77,6 +79,11 @@ const Admin = () => {
     messsage: "",
     image: ""
   })
+
+  const handleUserSearchInput= (value) => {
+    setUserSearchInput(value);
+    dispatch(getUserSearchInput({"input" : value}));
+  }
 
   const handleSendMessageAddButton= () => {
     if(sendMessagePhoneNumber.length===10){
@@ -798,6 +805,8 @@ const Admin = () => {
                   type="text"
                   name=""
                   id=""
+                  onChange={(e)=>handleUserSearchInput(e.target.value)}
+                  value={userSearchInput}
                   placeholder="Search by name or phone number"
                 />
               </div>

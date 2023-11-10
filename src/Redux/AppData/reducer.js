@@ -2,6 +2,8 @@ import * as types from "./actionTypes"
 
 const initialState= {
     paymentHistory: [],
+    isLoadingpayment: false,
+    isErrorpayment: false,
     userFeedback: [],
     supportrequest: [],
     uniqueUser: [],
@@ -9,8 +11,9 @@ const initialState= {
     totalUniqueUser: [],
     weeklyuniqueUser: [],
     monthlyuniqueUser: [],
-    isLoadingpayment: false,
-    isErrorpayment: false,
+    searchUser: [],
+    searchUserLoading: false,
+    searchUserError: false,
     addAdminLoading: false,
     addAdminError: false,
     sendMessageLoading: false,
@@ -31,6 +34,18 @@ const reducer= (oldState= initialState, action)=>{
         case types.GET_PAYMENTHISTORY_ERROR: 
             return {
                 ...oldState, isLoadingpayment:false, isError:true
+            }
+        case types.GET_USERSEARCH_REQUEST: 
+            return {
+                ...oldState, searchUserLoading:true
+            }
+        case types.GET_USERSEARCH_SUCCESS: 
+            return {
+                ...oldState, searchUserLoading:false, searchUser:payload
+            }
+        case types.GET_USERSEARCH_ERROR: 
+            return {
+                ...oldState, searchUserLoading:false, searchUserError:true
             }
         case types.GET_USERFEEDBACK_SUCCESS: 
             return {
