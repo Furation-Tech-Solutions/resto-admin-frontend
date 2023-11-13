@@ -244,7 +244,7 @@ const Admin = () => {
     return array;
   }
   monthlinedata();
-  
+
   const [ adminpanelInteractionUserData, setAdminpanelInteractionUserData]= useState(totalUniqueData);
 
   useEffect(()=>{
@@ -805,7 +805,7 @@ const Admin = () => {
                   type="text"
                   name=""
                   id=""
-                  onChange={(e)=>handleUserSearchInput(e.target.value)}
+                  onKeyDown={(e)=>handleUserSearchInput(e.target.value)}
                   value={userSearchInput}
                   placeholder="Search by name or phone number"
                 />
