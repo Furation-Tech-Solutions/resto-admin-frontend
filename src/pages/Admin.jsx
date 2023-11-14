@@ -82,7 +82,8 @@ const Admin = () => {
 
   const handleUserSearchInput= (value) => {
     setUserSearchInput(value);
-    dispatch(getUserSearchInput({"input" : value}));
+    console.log(value);
+    dispatch(getTotalUniqueUser({"input" : value}));
   }
 
   const handleSendMessageAddButton= () => {
@@ -130,12 +131,12 @@ const Admin = () => {
 
   useEffect(()=>{
     dispatch(getUniqueUser());
-    dispatch(getTotalUniqueUser());
+    dispatch(getTotalUniqueUser({"input" : userSearchInput}));
     dispatch(getWeeklyUniqueUser());
     dispatch(getMonthlyUniqueUser({"month" : chooseMonth}));
     dispatch(getPaymentHistory());
     dispatch(getUserFeedback({"adminId" : adminDetails.adminId}));
-  }, [chooseMonth])
+  }, [chooseMonth, userSearchInput])
 
   const handleRequestSupport= ()=>{
     const data= {
@@ -237,7 +238,7 @@ const Admin = () => {
     const array= [];
     for(let i=1;i<=30;i++){
       const arr= monthData?.filter((el)=>{
-        return new Date(el.createdAt).getDate()==i;
+        return new Date(el.createdAt).getDate()==i-1;
       })
       array.push(arr.length);
     }
@@ -805,7 +806,7 @@ const Admin = () => {
                   type="text"
                   name=""
                   id=""
-                  onKeyDown={(e)=>handleUserSearchInput(e.target.value)}
+                  onChange={(e)=>handleUserSearchInput(e.target.value)}
                   value={userSearchInput}
                   placeholder="Search by name or phone number"
                 />
@@ -993,7 +994,7 @@ const Admin = () => {
                         <td className="SubscriptionTableBodyAdmin">{subscription.refno}</td>
                         <td className="SubscriptionTableBodyAdmin">{new Date(subscription.startdate).toLocaleString()}</td>
                         <td className="SubscriptionTableBodyAdmin">{new Date(subscription.enddate).toLocaleString()}</td>
-                        <td className={i===0?"SubscriptionTableBodyAdmintrue" : "SubscriptionTableBodyAdmin"}>{subscription.status? "Active" : "Expired"}</td>
+                        <td className={i===0?"SubscriptionTableBodyAdmintrue" : "SubscriptionTableBodyAdmin"}>{i===0? "Active" : "Expired"}</td>
                       </tr>
                     })}
                   </tbody>
