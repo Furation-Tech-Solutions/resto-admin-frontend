@@ -49,6 +49,14 @@ const Admin = () => {
   // if(!adminDetails || adminDetails?.adminId){
   //   navigate("/login");
   // }
+
+
+  const date= new Date();
+  const currentDate= date.toLocaleDateString();
+
+  const subscriptionend= new Date(JSON.parse(localStorage.getItem("admin")).subscriptionend);
+  const piechartDate= Math.floor((subscriptionend-date)/(1000*60*60*24));
+  const currentMonth= date.getMonth();
   
   const [ currentSubscriptionopen, setCurrentSubscriptionopen ]= useState(false);
   
@@ -58,7 +66,7 @@ const Admin = () => {
 
   const [ userSearchInput, setUserSearchInput ] = useState("");
 
-  const [isSubscribed, setIsSubscribed]= useState(false);
+  const [isSubscribed, setIsSubscribed]= useState(piechartDate!=0);
 
   const [ isSidebarPhone, setIsSidebarPhone ]= useState(false);
 
@@ -82,7 +90,6 @@ const Admin = () => {
 
   const handleUserSearchInput= (value) => {
     setUserSearchInput(value);
-    console.log(value);
     dispatch(getTotalUniqueUser({"input" : value}));
   }
 
@@ -105,11 +112,6 @@ const Admin = () => {
     }
   }
 
-  const date= new Date();
-
-  const subscriptionend= new Date(JSON.parse(localStorage.getItem("admin")).subscriptionend);
-  const piechartDate= Math.floor((subscriptionend-date)/(1000*60*60*24));
-  const currentMonth= date.getMonth();
 
   const monthObj= {
     0 : "January",
@@ -258,8 +260,8 @@ const Admin = () => {
     }else {
       setAdminpanelInteractionUserData(totalUniqueData);
     }
-    // console.log(monthData);
-  }, [adminpanelInteractionUserData, panelUserList, totalUniqueData, monthData, weekData, uniqueData]);
+    // console.log(totalUniqueData);
+  }, [adminpanelInteractionUserData, panelUserList, totalUniqueData, monthData, weekData, uniqueData, userSearchInput]);
 
   useEffect(()=>{
     monthlinedata();
@@ -739,7 +741,7 @@ const Admin = () => {
               <div className="textrightfirstBoxAdmin">
                 <p>Hello, Admin!</p>
                 <p>Users Overview</p>
-                <p>13 June, 2023 Tuesday</p>
+                <p>{currentDate}</p>
               </div>
               <div className="countdownrightfirstBoxAdmin">
                 {/* <div className="countdownrightfirstRoundOuter">
@@ -1027,7 +1029,7 @@ const Admin = () => {
               <div className="firstBoxTextAdminPhone">
                 <p>Hello, Admin!</p>
                 <p>Users Overview</p>
-                <p>13 June, 2023 Tuesday</p>
+                <p>{currentDate}</p>
               </div>
               <div onClick={()=>setCurrentSubscriptionopen(true)} className="countdownrAdminBoxPhone">
                 <Doughnut data={doughnutdata} /><br/>
@@ -1377,13 +1379,13 @@ const Admin = () => {
                       <Doughnut data={doughnutdata} /><br/>
                       <div className="currentSubscriptionDoughnutInnerAdminNumber">{piechartDate}</div>
                   </div>
-                  <p>25/30 days left</p>
+                  <p>{piechartDate}/30 days left</p>
               </div>
               <div className="currentSubscriptionTextBoxAdmin">
                   <p>Plan :- Plan A</p>
                   <p>Status :- Active</p>
-                  <p>Start Date :- 01/10/2023</p>
-                  <p>End Date :- 30/10/2023</p>
+                  <p>Start Date :- {adminDetails.startdate}</p>
+                  <p>End Date :- {new Date(adminDetails.subscriptionend).toLocaleDateString()}</p>
               </div>
               <div className="currentSubscriptionviewallAdmin" onClick={()=>{
                   setBarnum(7)

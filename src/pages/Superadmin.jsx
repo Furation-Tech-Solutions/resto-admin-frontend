@@ -27,6 +27,8 @@ const Superadmin = () => {
 
   const [ filterValue, setFilterValue ] = useState("");
 
+  const [ adminSearchInput, setAdminSearchInput ] = useState("");
+
   const handleAddAdmin= () => {
     if(addbusinessName!=="" && addemail!=="" && addphone!=="" && addpassword!==""){
       const data= {
@@ -52,6 +54,12 @@ const Superadmin = () => {
     setUserData(userrawData);
   }
 
+  
+  const handleAdminSearchInput= (value) => {
+    setAdminSearchInput(value);
+    dispatch(getAdminData());
+  }
+
 
   const [barnum, setBarnum]= useState(1);
 
@@ -64,6 +72,9 @@ const Superadmin = () => {
     // filterData();
   }, [filterValue, isAddAdmin])
 
+  const date= new Date();
+
+  const currentDate= date.toLocaleDateString();
 
   // const year = date.getFullYear();
   // const month = String(date.getMonth() + 1).padStart(2, '0');
@@ -342,7 +353,7 @@ const Superadmin = () => {
             <div className='rightfirstBoxSuperadmin'>
               <div className='rightfirstBoxSuperadminText'>
                 <p>Hello, Super Admin!</p>
-                <p>13 June, 2023 Tuesday</p>
+                <p>{currentDate}</p>
               </div>
               <div className="addadminbuttonSuperadminBox">
                 <button onClick={()=>setIsAddAdmin(true)} className="addadminbuttonSuperadmin"><AiOutlinePlus/>Add Admin</button>
@@ -351,7 +362,9 @@ const Superadmin = () => {
             <div className='rightsecondBoxSuperadmin'>
               <div className="rightsecondBoxSuperadminInputBox">
                 <AiOutlineSearch />
-                <input className="rightsecondBoxSuperadminInput" type="text" placeholder='Search by email or phone number' />
+                <input className="rightsecondBoxSuperadminInput" 
+                  onChange={(e)=>handleAdminSearchInput(e.target.value)}
+                  value={adminSearchInput} type="text" placeholder='Search by email or phone number' />
               </div>
               {/* <select className="rightsecondBoxSuperadminSelect" name="" id="">
                 <option value="">Filter By</option>

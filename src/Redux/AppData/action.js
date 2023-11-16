@@ -198,7 +198,7 @@ const getMonthlyUniqueUserError= ()=>{
 
 const getPaymentHistory= (params)=>(dispatch)=>{
     dispatch(getPaymentHistoryRequest());
-    return axios.get(`https://admin-bot.furation.tech/api/v1/payment`, params)
+    return axios.get(`https://admin-bot.furation.tech/api/v1/payment`, {params})
     .then((res)=>{
         dispatch(getPaymentHistorySuccess(res.data))
     })
@@ -209,7 +209,7 @@ const getPaymentHistory= (params)=>(dispatch)=>{
 
 const getUserSearchInput= (params)=>(dispatch)=>{
     dispatch(getUserSearchRequest());
-    return axios.get(`https://what-bot.furation.tech/searchuser`, params)
+    return axios.get(`https://what-bot.furation.tech/searchuser`, {params})
     .then((res)=>{
         dispatch(getUserSearchSuccess(res.data))
     })
@@ -220,7 +220,7 @@ const getUserSearchInput= (params)=>(dispatch)=>{
 
 const getUserFeedback= (params)=>(dispatch)=>{
     dispatch(getUserFeedbackRequest());
-    return axios.get(`https://what-bot.furation.tech/feedback`, params)
+    return axios.get(`https://what-bot.furation.tech/feedback`, {params})
     .then((res)=>{
         dispatch(getUserFeedbackSuccess(res.data))
     })
@@ -246,7 +246,7 @@ const getAdminData= (params)=>(dispatch)=>{
 }
 
 const getSupportRequest= (params)=>(dispatch)=>{
-    return axios.get(`https://what-bot.furation.tech/requestsupport`, params)
+    return axios.get(`https://what-bot.furation.tech/requestsupport`, {params})
     .then((res)=>{
         dispatch(getSupportRequestSuccess(res.data.data))
     })
@@ -285,8 +285,8 @@ const getUniqueUser= ()=>(dispatch)=>{
     })
 }
 
-const getTotalUniqueUser= ()=>(dispatch)=>{
-    return axios.get(`https://what-bot.furation.tech/totaluser`)
+const getTotalUniqueUser= (params)=>(dispatch)=>{
+    return axios.get(`https://what-bot.furation.tech/totaluser`, {params})
     .then((res)=>{
         dispatch(getTotalUniqueUserSuccess(res.data))
     })
