@@ -11,9 +11,9 @@ const initialState= {
     totalUniqueUser: [],
     weeklyuniqueUser: [],
     monthlyuniqueUser: [],
-    searchUser: [],
-    searchUserLoading: false,
-    searchUserError: false,
+    searchAdmin: [],
+    searchAdminLoading: false,
+    searchAdminError: false,
     addAdminLoading: false,
     addAdminError: false,
     sendMessageLoading: false,
@@ -35,17 +35,17 @@ const reducer= (oldState= initialState, action)=>{
             return {
                 ...oldState, isLoadingpayment:false, isError:true
             }
-        case types.GET_USERSEARCH_REQUEST: 
+        case types.GET_ADMINSEARCH_REQUEST: 
             return {
-                ...oldState, searchUserLoading:true
+                ...oldState, searchAdminLoading:true
             }
-        case types.GET_USERSEARCH_SUCCESS: 
+        case types.GET_ADMINSEARCH_SUCCESS: 
             return {
-                ...oldState, searchUserLoading:false, searchUser:payload
+                ...oldState, searchAdminLoading:false, searchAdmin:payload
             }
-        case types.GET_USERSEARCH_ERROR: 
+        case types.GET_ADMINSEARCH_ERROR: 
             return {
-                ...oldState, searchUserLoading:false, searchUserError:true
+                ...oldState, searchAdminLoading:false, searchAdminError:true
             }
         case types.GET_USERFEEDBACK_SUCCESS: 
             return {

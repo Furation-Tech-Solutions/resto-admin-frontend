@@ -8,7 +8,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { AiOutlineCheck } from 'react-icons/ai';
 import menu from "../utils/Images/Admin/menu.svg";
-import { getAdminData, getSupportRequest, postAddAdmin } from '../Redux/AppData/action';
+import { getAdminData, getAdminSearchInput, getSupportRequest, postAddAdmin } from '../Redux/AppData/action';
 
 const Superadmin = () => {
   
@@ -57,7 +57,7 @@ const Superadmin = () => {
   
   const handleAdminSearchInput= (value) => {
     setAdminSearchInput(value);
-    dispatch(getAdminData());
+    dispatch(getAdminSearchInput({"input" : value}));
   }
 
 
@@ -70,7 +70,8 @@ const Superadmin = () => {
     dispatch(getAdminData());
     dispatch(getSupportRequest());
     // filterData();
-  }, [filterValue, isAddAdmin])
+    dispatch(getAdminSearchInput({"input" : adminSearchInput}));
+  }, [filterValue, isAddAdmin, adminSearchInput])
 
   const date= new Date();
 
@@ -84,6 +85,8 @@ const Superadmin = () => {
   const requestsupportrawdata= useSelector((store)=>store.AppReducer.supportrequest);
   
   const userrawData= useSelector((store)=>store.AppReducer.adminData);
+
+  const userSearchData= useSelector((store)=>store.AppReducer.searchAdmin);
 
   const [ requestsupportdata, setRequestsupportdata ]= useState(requestsupportrawdata);
 
@@ -107,8 +110,12 @@ const Superadmin = () => {
     }else{
       setRequestsupportdata(requestsupportrawdata);
     }
-    setUserData(userrawData);
-  }, [requestsupportrawdata]);
+    if(adminSearchInput===""){
+      setUserData(userrawData);
+    }else {
+      setUserData(userSearchData);
+    }
+  }, [requestsupportrawdata, adminSearchInput]);
 
   // const filterData= () => {
   //   const date= new Date();
