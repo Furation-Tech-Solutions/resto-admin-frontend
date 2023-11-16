@@ -411,7 +411,7 @@ const Superadmin = () => {
           </div>
           <div className={barnum===2 ? 'rightBoxSuperAdminSupport' : 'rightBoxSuperAdminSupportOff'}>
             <div className='rightBoxSuperAdminSupportText'><p>Support</p></div>
-           {requestsupportdata.length>0 &&<div className='rightsecondBoxSuperadmin'>
+           <div className='rightsecondBoxSuperadmin'>
               <div className="rightsecondBoxSuperadminInputWithSelect">
                 <AiOutlineSearch size={"20px"} />
                 <input className="rightsecondBoxSuperadminInput" type="text" placeholder='Search by email or phone number' />
@@ -421,7 +421,7 @@ const Superadmin = () => {
                 <option value="week">Last 7 days</option>
                 <option value="month">Last 30 days</option>
               </select>
-            </div>}
+            </div>
             <div className='rightthirdBoxSuperadminSupport'>
             {requestsupportdata.length>0 ? <div className='userTableSuperAdminHolder'>
                 <table className="feedbackTableSuperAdmin">
