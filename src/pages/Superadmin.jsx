@@ -78,7 +78,7 @@ const Superadmin = () => {
     dispatch(getAdminData());
     dispatch(getSupportRequest({"input" : requestSupportInput}));
     dispatch(getAdminSearchInput({"input" : adminSearchInput}));
-  }, [filterValue, isAddAdmin, adminSearchInput, requestSupportInput])
+  }, [filterValue, isAddAdmin, adminSearchInput, requestSupportInput]);
 
   const date= new Date();
 
