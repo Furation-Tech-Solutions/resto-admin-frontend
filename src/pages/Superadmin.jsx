@@ -29,6 +29,8 @@ const Superadmin = () => {
 
   const [ adminSearchInput, setAdminSearchInput ] = useState("");
 
+  const [ requestSupportInput, setRequestSupportInput ] = useState("");
+
   const handleAddAdmin= () => {
     if(addbusinessName!=="" && addemail!=="" && addphone!=="" && addpassword!==""){
       const data= {
@@ -60,6 +62,12 @@ const Superadmin = () => {
     dispatch(getAdminSearchInput({"input" : value}));
   }
 
+  const handleRequestSupportInput= (value) => {
+    setRequestSupportInput(value);
+    console.log(value);
+    dispatch(getSupportRequest({"input" : value}));
+  }
+
 
   const [barnum, setBarnum]= useState(1);
 
@@ -68,19 +76,13 @@ const Superadmin = () => {
 
   useEffect(()=>{
     dispatch(getAdminData());
-    dispatch(getSupportRequest());
-    // filterData();
+    dispatch(getSupportRequest({"input" : requestSupportInput}));
     dispatch(getAdminSearchInput({"input" : adminSearchInput}));
-  }, [filterValue, isAddAdmin, adminSearchInput])
+  }, [filterValue, isAddAdmin, adminSearchInput, requestSupportInput])
 
   const date= new Date();
 
   const currentDate= date.toLocaleDateString();
-
-  // const year = date.getFullYear();
-  // const month = String(date.getMonth() + 1).padStart(2, '0');
-  // const day = String(date.getDate()).padStart(2, '0');
-  // const dateFormat= day+ "/"+ month+ "/" + year;
   
   const requestsupportrawdata= useSelector((store)=>store.AppReducer.supportrequest);
   
@@ -414,7 +416,7 @@ const Superadmin = () => {
            <div className='rightsecondBoxSuperadmin'>
               <div className="rightsecondBoxSuperadminInputWithSelect">
                 <AiOutlineSearch size={"20px"} />
-                <input className="rightsecondBoxSuperadminInput" type="text" placeholder='Search by email or phone number' />
+                <input onChange={(e)=>handleRequestSupportInput(e.target.value)} value={requestSupportInput} className="rightsecondBoxSuperadminInput" type="text" placeholder='Search by email or phone number' />
               </div>
               <select onChange={(e)=>setFilterValue(e.target.value)} value={filterValue} className="rightsecondBoxSuperadminSelect" name="" id="">
                 <option value="">All time</option>
