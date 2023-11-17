@@ -83,8 +83,8 @@ const Admin = () => {
   const [ sendMessagePostData, setSendMessagePostData ]= useState({
     adminId: adminDetails?.adminId || "",
     recipient: "",
-    phone_number_id: "",
-    messsage: "",
+    phone_number_id: 151367741389078,
+    message: "",
     image: ""
   })
 
@@ -104,14 +104,13 @@ const Admin = () => {
   const handleSendMessageSendButton= () => {
     if(sendMessagePostData.recipient.length!==10){
       alert("Please enter a valid phone number");
-    }else if(sendMessagePostData.messsage===""){
+    }else if(sendMessagePostData.message===""){
       alert("Please enter your message");
     }else {
       console.log(sendMessagePostData);
       dispatch(postSendMessage(sendMessagePostData));
     }
   }
-
 
   const monthObj= {
     0 : "January",
@@ -129,7 +128,6 @@ const Admin = () => {
   }
 
   const [ chooseMonth, setChooseMonth ] = useState(currentMonth);
-
 
   useEffect(()=>{
     dispatch(getUniqueUser());
@@ -160,7 +158,6 @@ const Admin = () => {
   const monthData= useSelector((store)=>store.AppReducer.monthlyuniqueUser);
   const subscriptionData= useSelector((store)=>store.AppReducer.paymentHistory).reverse();
   const feedbackData= useSelector((store)=>store.AppReducer.userFeedback);
-
 
   const weekBarLabels= () => {
     const weekObj= {
@@ -869,7 +866,7 @@ const Admin = () => {
             <div className="sendMessageBoxAdminkeyboard">
               <img src={emoji} alt="emoji face" />
               <div>
-                <input onChange={(e)=>setSendMessagePostData({...sendMessagePostData, "messsage": e.target.value})} value={sendMessagePostData.messsage} type="text" placeholder="Type message here..." />
+                <input onChange={(e)=>setSendMessagePostData({...sendMessagePostData, "message": e.target.value})} value={sendMessagePostData.message} type="text" placeholder="Type message here..." />
                 <AiOutlinePaperClip size={"23px"} color="#878787"/>
               </div>
               <button onClick={()=>handleSendMessageSendButton()} className="sendMessageBoxAdminkeyboardButtonText">Send</button>

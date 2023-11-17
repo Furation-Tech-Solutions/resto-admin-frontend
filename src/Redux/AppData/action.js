@@ -257,7 +257,7 @@ const getSupportRequest= (params)=>(dispatch)=>{
 
 const postSendMessage= (payload)=>(dispatch)=>{
     dispatch(postSendMessageRequest());
-    return axios.post("https://what-bot.furation.tech/requestsupport", payload)
+    return axios.post("https://what-bot.furation.tech/sendmessage", payload)
     .then((r)=>{dispatch(postSendMessageSuccess())})
     .catch((e)=>{dispatch(postSendMessageError())})
 }
