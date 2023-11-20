@@ -660,6 +660,10 @@ const Admin = () => {
     ],
   };
 
+  const handleSendMessageFile = (value) => {
+    console.log(0, value);
+  }
+
   return (
     <div className="outerBoxAdmin">
       <div className={currentSubscriptionopen || isrequestAdmin ? "innerBoxAdminOverlay" : "innerBoxAdmin" }>
@@ -866,8 +870,8 @@ const Admin = () => {
               <div>
                 <input onChange={(e)=>setSendMessagePostData({...sendMessagePostData, "message": e.target.value})} value={sendMessagePostData.message} type="text" placeholder="Type message here..." />
                 {/* <AiOutlinePaperClip size={"23px"} color="#878787"/> */}
-                <div class="dropZoneContainer">
-                    <input type="file" id="drop_zone" className="FileUpload" accept=".jpg,.png,.gif" />
+                <div className="dropZoneContainer">
+                    <input type="file" id="drop_zone" className="FileUpload" accept=".jpg,.png,.gif" onChange={(e)=>handleSendMessageFile(e.target.value)} />
                     <AiOutlinePaperClip className="dropZoneOverlay" size={"23px"} color="#878787"/>
                 </div>
               </div>
@@ -897,7 +901,7 @@ const Admin = () => {
               <img src={emoji} alt="emoji face" />
               <div>
                 <input type="text" placeholder="Type message here..." />
-                <div class="dropZoneContainer">
+                <div className="dropZoneContainer">
                     <input type="file" id="drop_zone" className="FileUpload" accept=".jpg,.png,.gif" />
                     <AiOutlinePaperClip className="dropZoneOverlay" size={"23px"} color="#878787"/>
                 </div>
@@ -919,7 +923,7 @@ const Admin = () => {
               <img src={emoji} alt="emoji face" />
               <div>
                 <input type="text" placeholder="Type message here..." />
-                <div class="dropZoneContainer">
+                <div className="dropZoneContainer">
                     <input type="file" id="drop_zone" className="FileUpload" accept=".jpg,.png,.gif" />
                     <AiOutlinePaperClip className="dropZoneOverlay" size={"23px"} color="#878787"/>
                 </div>
@@ -1144,7 +1148,7 @@ const Admin = () => {
                 <div>
                   <input onChange={(e)=>setSendMessagePostData({...sendMessagePostData, "messsage": e.target.value})} value={sendMessagePostData.messsage} type="text" placeholder="Type message here..." />
                   {/* <AiOutlinePaperClip size={"23px"} color="#878787"/> */}
-                  <div class="dropZoneContainer">
+                  <div className="dropZoneContainer">
                     <input type="file" id="drop_zone" className="FileUpload" accept=".jpg,.png,.gif" />
                     <AiOutlinePaperClip className="dropZoneOverlay" size={"23px"} color="#878787"/>
                   </div>
@@ -1176,7 +1180,7 @@ const Admin = () => {
                 <div>
                   <input type="text" placeholder="Type message here..." />
                   {/* <AiOutlinePaperClip size={"25px"} color="#878787"/> */}
-                  <div class="dropZoneContainer">
+                  <div className="dropZoneContainer">
                     <input type="file" id="drop_zone" className="FileUpload" accept=".jpg,.png,.gif" />
                     <AiOutlinePaperClip className="dropZoneOverlay" size={"23px"} color="#878787"/>
                   </div>
@@ -1199,7 +1203,7 @@ const Admin = () => {
                 <div>
                   <input type="text" placeholder="Type message here..." />
                   {/* <AiOutlinePaperClip size={"25px"} color="#878787"/> */}
-                  <div class="dropZoneContainer">
+                  <div className="dropZoneContainer">
                     <input type="file" id="drop_zone" className="FileUpload" accept=".jpg,.png,.gif" />
                     <AiOutlinePaperClip className="dropZoneOverlay" size={"23px"} color="#878787"/>
                   </div>
