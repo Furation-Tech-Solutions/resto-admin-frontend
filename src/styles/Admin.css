@@ -560,6 +560,25 @@
 .sendMessageBoxAdminOff{
     display: none;
 }
+.dropZoneOverlay, .FileUpload {
+    width: 23px;
+    height: 23px;
+}
+.dropZoneContainer{
+    position: relative;
+}
+.dropZoneOverlay {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    text-align: center;
+}
+
+.FileUpload {
+    opacity: 0;
+    position: relative;
+    z-index: 1;
+}
 .interactionAdmin{
     display: inline;
 }

@@ -83,7 +83,7 @@ const Admin = () => {
   const [ sendMessagePostData, setSendMessagePostData ]= useState({
     adminId: adminDetails?.adminId || "",
     recipient: "",
-    phone_number_id: 151367741389078,
+    phone_number_id: 121686631017880,
     message: "",
     image: ""
   })
@@ -107,7 +107,6 @@ const Admin = () => {
     }else if(sendMessagePostData.message===""){
       alert("Please enter your message");
     }else {
-      console.log(sendMessagePostData);
       dispatch(postSendMessage(sendMessagePostData));
     }
   }
@@ -257,7 +256,6 @@ const Admin = () => {
     }else {
       setAdminpanelInteractionUserData(totalUniqueData);
     }
-    // console.log(totalUniqueData);
   }, [adminpanelInteractionUserData, panelUserList, totalUniqueData, monthData, weekData, uniqueData, userSearchInput]);
 
   useEffect(()=>{
@@ -867,7 +865,11 @@ const Admin = () => {
               <img src={emoji} alt="emoji face" />
               <div>
                 <input onChange={(e)=>setSendMessagePostData({...sendMessagePostData, "message": e.target.value})} value={sendMessagePostData.message} type="text" placeholder="Type message here..." />
-                <AiOutlinePaperClip size={"23px"} color="#878787"/>
+                {/* <AiOutlinePaperClip size={"23px"} color="#878787"/> */}
+                <div class="dropZoneContainer">
+                    <input type="file" id="drop_zone" className="FileUpload" accept=".jpg,.png,.gif" />
+                    <AiOutlinePaperClip className="dropZoneOverlay" size={"23px"} color="#878787"/>
+                </div>
               </div>
               <button onClick={()=>handleSendMessageSendButton()} className="sendMessageBoxAdminkeyboardButtonText">Send</button>
               <button onClick={()=>handleSendMessageSendButton()} className="sendMessageBoxAdminkeyboardButtonImg"><img src={send} alt="" /></button>
@@ -895,7 +897,10 @@ const Admin = () => {
               <img src={emoji} alt="emoji face" />
               <div>
                 <input type="text" placeholder="Type message here..." />
-                <AiOutlinePaperClip size={"25px"} color="#878787"/>
+                <div class="dropZoneContainer">
+                    <input type="file" id="drop_zone" className="FileUpload" accept=".jpg,.png,.gif" />
+                    <AiOutlinePaperClip className="dropZoneOverlay" size={"23px"} color="#878787"/>
+                </div>
               </div>
               <button className="sendBulkMessageBoxAdminkeyboardButtonText">Send</button>
               <button className="sendBulkMessageBoxAdminkeyboardButtonImg"><img src={send} alt="" /></button>
@@ -914,7 +919,10 @@ const Admin = () => {
               <img src={emoji} alt="emoji face" />
               <div>
                 <input type="text" placeholder="Type message here..." />
-                <AiOutlinePaperClip size={"25px"} color="#878787"/>
+                <div class="dropZoneContainer">
+                    <input type="file" id="drop_zone" className="FileUpload" accept=".jpg,.png,.gif" />
+                    <AiOutlinePaperClip className="dropZoneOverlay" size={"23px"} color="#878787"/>
+                </div>
               </div>
               <button className="announcementBoxAdminkeyboardButtonText">Send</button>
               <button className="announcementBoxAdminkeyboardButtonImg"><img src={send} alt="" /></button>
@@ -1135,7 +1143,11 @@ const Admin = () => {
                 <img src={emoji} alt="emoji face" />
                 <div>
                   <input onChange={(e)=>setSendMessagePostData({...sendMessagePostData, "messsage": e.target.value})} value={sendMessagePostData.messsage} type="text" placeholder="Type message here..." />
-                  <AiOutlinePaperClip size={"23px"} color="#878787"/>
+                  {/* <AiOutlinePaperClip size={"23px"} color="#878787"/> */}
+                  <div class="dropZoneContainer">
+                    <input type="file" id="drop_zone" className="FileUpload" accept=".jpg,.png,.gif" />
+                    <AiOutlinePaperClip className="dropZoneOverlay" size={"23px"} color="#878787"/>
+                  </div>
                 </div>
                 <button onClick={()=>handleSendMessageSendButton()} className="sendMessageBoxAdminkeyboardButtonText">Send</button>
                 <button onClick={()=>handleSendMessageSendButton()} className="sendMessageBoxAdminkeyboardButtonImg"><img src={send} alt="" /></button>
@@ -1163,7 +1175,11 @@ const Admin = () => {
                 <img src={emoji} alt="emoji face" />
                 <div>
                   <input type="text" placeholder="Type message here..." />
-                  <AiOutlinePaperClip size={"25px"} color="#878787"/>
+                  {/* <AiOutlinePaperClip size={"25px"} color="#878787"/> */}
+                  <div class="dropZoneContainer">
+                    <input type="file" id="drop_zone" className="FileUpload" accept=".jpg,.png,.gif" />
+                    <AiOutlinePaperClip className="dropZoneOverlay" size={"23px"} color="#878787"/>
+                  </div>
                 </div>
                 <button className="sendBulkMessageBoxAdminkeyboardButtonText">Send</button>
                 <button className="sendBulkMessageBoxAdminkeyboardButtonImg"><img src={send} alt="" /></button>
@@ -1182,7 +1198,11 @@ const Admin = () => {
                 <img src={emoji} alt="emoji face" />
                 <div>
                   <input type="text" placeholder="Type message here..." />
-                  <AiOutlinePaperClip size={"25px"} color="#878787"/>
+                  {/* <AiOutlinePaperClip size={"25px"} color="#878787"/> */}
+                  <div class="dropZoneContainer">
+                    <input type="file" id="drop_zone" className="FileUpload" accept=".jpg,.png,.gif" />
+                    <AiOutlinePaperClip className="dropZoneOverlay" size={"23px"} color="#878787"/>
+                  </div>
                 </div>
                 <button className="announcementBoxAdminkeyboardButtonText">Send</button>
                 <button className="announcementBoxAdminkeyboardButtonImg"><img src={send} alt="" /></button>
