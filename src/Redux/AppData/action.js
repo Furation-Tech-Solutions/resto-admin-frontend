@@ -262,6 +262,69 @@ const postSendMessage= (payload)=>(dispatch)=>{
     .catch((e)=>{dispatch(postSendMessageError())})
 }
 
+// const postImageSendMessage= (payload)=> (dispatch)=>{
+//     dispatch(postSendMessageRequest());
+//     const adminId= JSON.parse(localStorage.getItem("admin")).adminId;
+//     let presignedURL="";
+//     let mediaURL="";
+//     axios.post("https://what-bot.furation.tech/uploadImage", { adminId })
+//     .then((r)=>{
+//         presignedURL= r.data.data.presignedURL;
+//         mediaURL= r.data.data.mediaURL;
+//     })
+//     .catch((e)=>{dispatch(postSendMessageError())})
+//     if(presignedURL!==""){
+//         axios.put(presignedURL, payload.image)
+//         console.log({presignedURL, mediaURL});
+//     }
+//     return axios.post("https://what-bot.furation.tech/sendmessage", {...payload, "image": mediaURL})
+//     .then((r)=>{dispatch(postSendMessageSuccess())})
+//     .catch((e)=>{dispatch(postSendMessageError())})
+// }
+
+const postImageSendMessage = (payload) => (dispatch) => {
+    dispatch(postSendMessageRequest());
+    const adminId = JSON.parse(localStorage.getItem("admin")).adminId;
+    let presignedURL = "";
+    let mediaURL = "";
+  
+    axios
+      .post("https://what-bot.furation.tech/uploadImage", { adminId })
+      .then((r) => {
+        presignedURL = r.data.data.presignedURL;
+        mediaURL = r.data.data.mediaURL;
+  
+        if (presignedURL !== "") {
+          // Move the axios.put request inside the .then block
+          axios.put(presignedURL, {data: payload.image}, { headers: { 'Content-Type': 'application/octet-stream'}})
+            .then(() => {
+              console.log({ presignedURL, mediaURL });
+  
+              // After successfully uploading the image, send the message
+              axios
+                .post("https://what-bot.furation.tech/sendmessage", {
+                  ...payload,
+                  image: mediaURL,
+                })
+                .then((r) => {
+                  dispatch(postSendMessageSuccess());
+                })
+                .catch((e) => {
+                  dispatch(postSendMessageError());
+                });
+            })
+            .catch((e) => {
+              dispatch(postSendMessageError());
+            });
+        }else {
+            dispatch(postSendMessageError());
+        }
+      })
+      .catch((e) => {
+        dispatch(postSendMessageError());
+      });
+  };
+
 const postSupportRequest= (payload)=>(dispatch)=>{
     return axios.post("https://what-bot.furation.tech/requestsupport", payload)
     .then((r)=>{dispatch(postSupportRequestSuccess())})
@@ -315,4 +378,4 @@ const getMonthlyUniqueUser= (params)=>(dispatch)=>{
     })
 }
 
-export {getPaymentHistory, getAdminSearchInput, getUserFeedback, postUserFeedback, getAdminData, getSupportRequest, postSendMessage, postSupportRequest, postAddAdmin, getUniqueUser, getTotalUniqueUser, getWeeklyUniqueUser, getMonthlyUniqueUser};
+export {getPaymentHistory, getAdminSearchInput, getUserFeedback, postUserFeedback, getAdminData, getSupportRequest, postSendMessage, postImageSendMessage, postSupportRequest, postAddAdmin, getUniqueUser, getTotalUniqueUser, getWeeklyUniqueUser, getMonthlyUniqueUser};

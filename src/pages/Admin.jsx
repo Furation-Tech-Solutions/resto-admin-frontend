@@ -20,7 +20,7 @@ import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, Filler, Lin
 import { Line,  Bar, Doughnut } from 'react-chartjs-2';
 import CurrentSubscripton from "../components/CurrentSubscripton";
 import { useDispatch, useSelector } from "react-redux";
-import { getMonthlyUniqueUser, getPaymentHistory, getTotalUniqueUser, getUniqueUser, getUserFeedback, getUserSearchInput, getWeeklyUniqueUser, postSendMessage, postSupportRequest } from "../Redux/AppData/action";
+import { getMonthlyUniqueUser, getPaymentHistory, getTotalUniqueUser, getUniqueUser, getUserFeedback, getUserSearchInput, getWeeklyUniqueUser, postImageSendMessage, postSendMessage, postSupportRequest } from "../Redux/AppData/action";
 import { logout } from "../Redux/AuthData/action";
 import { useNavigate } from "react-router-dom";
 
@@ -101,13 +101,21 @@ const Admin = () => {
     }
   }
 
+  const handleSendMessageFile = (value) => {
+    setSendMessagePostData({...sendMessagePostData, "image": value});
+  }
+
   const handleSendMessageSendButton= () => {
     if(sendMessagePostData.recipient.length!==10){
       alert("Please enter a valid phone number");
     }else if(sendMessagePostData.message===""){
       alert("Please enter your message");
     }else {
-      dispatch(postSendMessage(sendMessagePostData));
+      if(sendMessagePostData.image===""){
+        dispatch(postSendMessage(sendMessagePostData));
+      }else {
+        dispatch(postImageSendMessage(sendMessagePostData));
+      }
     }
   }
 
@@ -660,10 +668,6 @@ const Admin = () => {
     ],
   };
 
-  const handleSendMessageFile = (value) => {
-    console.log(0, value);
-  }
-
   return (
     <div className="outerBoxAdmin">
       <div className={currentSubscriptionopen || isrequestAdmin ? "innerBoxAdminOverlay" : "innerBoxAdmin" }>
@@ -871,7 +875,7 @@ const Admin = () => {
                 <input onChange={(e)=>setSendMessagePostData({...sendMessagePostData, "message": e.target.value})} value={sendMessagePostData.message} type="text" placeholder="Type message here..." />
                 {/* <AiOutlinePaperClip size={"23px"} color="#878787"/> */}
                 <div className="dropZoneContainer">
-                    <input type="file" id="drop_zone" className="FileUpload" accept=".jpg,.png,.gif" onChange={(e)=>handleSendMessageFile(e.target.value)} />
+                    <input type="file" id="drop_zone" className="FileUpload" accept=".jpg,.png" onChange={(e)=>handleSendMessageFile(e.target.value)} />
                     <AiOutlinePaperClip className="dropZoneOverlay" size={"23px"} color="#878787"/>
                 </div>
               </div>
