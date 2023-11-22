@@ -262,68 +262,108 @@ const postSendMessage= (payload)=>(dispatch)=>{
     .catch((e)=>{dispatch(postSendMessageError())})
 }
 
+const postImageSendMessage = (payload) => (dispatch) => {
+    dispatch(postSendMessageRequest());
+  
+    const adminId = JSON.parse(localStorage.getItem('admin')).adminId;
+
+    let presignedURL="";
+    let mediaURL= "";
+  
+    // Step 1: Get Presigned URL
+    return axios.post('https://what-bot.furation.tech/uploadImage', { adminId })
+      .then((response) => {
+        presignedURL = response.data.data.presignedURL;
+        mediaURL = response.data.data.mediaURL;
+  
+        // Step 2: Upload Image to Presigned 
+
+        return axios.put(presignedURL, payload.image);
+      })
+      .then(() => {
+        // Step 3: Send Message with Image
+        return axios.post('https://what-bot.furation.tech/sendmessage', {
+          ...payload,
+          image:  mediaURL
+        });
+      })
+      .then(() => {
+        dispatch(postSendMessageSuccess());
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        dispatch(postSendMessageError());
+      });
+  };
 // const postImageSendMessage= (payload)=> (dispatch)=>{
 //     dispatch(postSendMessageRequest());
 //     const adminId= JSON.parse(localStorage.getItem("admin")).adminId;
 //     let presignedURL="";
 //     let mediaURL="";
-//     axios.post("https://what-bot.furation.tech/uploadImage", { adminId })
+//    axios.post("https://what-bot.furation.tech/uploadImage", { adminId })
 //     .then((r)=>{
 //         presignedURL= r.data.data.presignedURL;
 //         mediaURL= r.data.data.mediaURL;
-//     })
+//         console.log("pre",presignedURL)
+//        axios.put(r.data.data.presignedURL, payload.image).then((res)=>{
+//         console.log(res)
+
+//        })
+//      })
 //     .catch((e)=>{dispatch(postSendMessageError())})
-//     if(presignedURL!==""){
-//         axios.put(presignedURL, payload.image)
-//         console.log({presignedURL, mediaURL});
-//     }
+//     // if(presignedURL!==""){
+//     //     axios.put(presignedURL, payload.image)
+//     //     console.log({presignedURL, mediaURL});
+//     // }
 //     return axios.post("https://what-bot.furation.tech/sendmessage", {...payload, "image": mediaURL})
 //     .then((r)=>{dispatch(postSendMessageSuccess())})
 //     .catch((e)=>{dispatch(postSendMessageError())})
 // }
 
-const postImageSendMessage = (payload) => (dispatch) => {
-    dispatch(postSendMessageRequest());
-    const adminId = JSON.parse(localStorage.getItem("admin")).adminId;
-    let presignedURL = "";
-    let mediaURL = "";
+// const postImageSendMessage = (payload) => (dispatch) => {
+//     dispatch(postSendMessageRequest());
+//     const adminId = JSON.parse(localStorage.getItem("admin")).adminId;
+//     let presignedURL = "";
+//     let mediaURL = "";
   
-    axios
-      .post("https://what-bot.furation.tech/uploadImage", { adminId })
-      .then((r) => {
-        presignedURL = r.data.data.presignedURL;
-        mediaURL = r.data.data.mediaURL;
+//     axios
+//       .post("https://what-bot.furation.tech/uploadImage", { adminId })
+//       .then((r) => {
+//         presignedURL = r.data.data.presignedURL;
+//         mediaURL = r.data.data.mediaURL;
+//         console.log({ presignedURL, mediaURL });
+//         console.log(payload.image)
+//         if (presignedURL !== "") {
+
+//           // Move the axios.put request inside tconhe .then block
+//           axios.put(r.data.data.presignedURL, payload.image, { headers: { 'Content-Type': 'application/octet-stream'}})
+//             .then(() => {
+//               console.log({ presignedURL, mediaURL });
   
-        if (presignedURL !== "") {
-          // Move the axios.put request inside the .then block
-          axios.put(presignedURL, {data: payload.image}, { headers: { 'Content-Type': 'application/octet-stream'}})
-            .then(() => {
-              console.log({ presignedURL, mediaURL });
-  
-              // After successfully uploading the image, send the message
-              axios
-                .post("https://what-bot.furation.tech/sendmessage", {
-                  ...payload,
-                  image: mediaURL,
-                })
-                .then((r) => {
-                  dispatch(postSendMessageSuccess());
-                })
-                .catch((e) => {
-                  dispatch(postSendMessageError());
-                });
-            })
-            .catch((e) => {
-              dispatch(postSendMessageError());
-            });
-        }else {
-            dispatch(postSendMessageError());
-        }
-      })
-      .catch((e) => {
-        dispatch(postSendMessageError());
-      });
-  };
+//               // After successfully uploading the image, send the message
+//               axios
+//                 .post("https://what-bot.furation.tech/sendmessage", {
+//                   ...payload,
+//                   image: mediaURL,
+//                 })
+//                 .then((r) => {
+//                   dispatch(postSendMessageSuccess());
+//                 })
+//                 .catch((e) => {
+//                   dispatch(postSendMessageError());
+//                 });
+//             })
+//             .catch((e) => {
+//               dispatch(postSendMessageError());
+//             });
+//         }else {
+//             dispatch(postSendMessageError());
+//         }
+//       })
+//       .catch((e) => {
+//         dispatch(postSendMessageError());
+//       });
+//   };
 
 const postSupportRequest= (payload)=>(dispatch)=>{
     return axios.post("https://what-bot.furation.tech/requestsupport", payload)
