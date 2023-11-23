@@ -258,42 +258,52 @@ const getSupportRequest= (params)=>(dispatch)=>{
 const postSendMessage= (payload)=>(dispatch)=>{
     dispatch(postSendMessageRequest());
     return axios.post("https://what-bot.furation.tech/sendmessage", payload)
-    .then((r)=>{dispatch(postSendMessageSuccess())})
+    .then((r)=>{
+        dispatch(postSendMessageSuccess())
+    })
     .catch((e)=>{dispatch(postSendMessageError())})
 }
 
 const postImageSendMessage = (payload) => (dispatch) => {
     dispatch(postSendMessageRequest());
+
   
     const adminId = JSON.parse(localStorage.getItem('admin')).adminId;
 
     let presignedURL="";
     let mediaURL= "";
-  
-    // Step 1: Get Presigned URL
-    return axios.post('https://what-bot.furation.tech/uploadImage', { adminId })
+    
+    return axios.post('https://what-bot.furation.tech/uploadImage', { adminId, "fileExtension" : payload.image.type})
       .then((response) => {
         presignedURL = response.data.data.presignedURL;
         mediaURL = response.data.data.mediaURL;
-  
-        // Step 2: Upload Image to Presigned 
 
-        return axios.put(presignedURL, payload.image);
-      })
-      .then(() => {
-        // Step 3: Send Message with Image
+        const selectedImage = payload.image;
+        if (selectedImage) {
+            const reader = new FileReader();
+            reader.onload = async (event) => {
+                const imageDataUrl = event.target.result;
+                await axios.put(presignedURL, selectedImage)
+            };
+
+            reader.readAsDataURL(selectedImage);
+        }
         return axios.post('https://what-bot.furation.tech/sendmessage', {
-          ...payload,
-          image:  mediaURL
+            ...payload,
+            image:  [mediaURL]
+        })
+        .then((r) => {
+            console.log({presignedURL});
+            console.log({mediaURL});
+            dispatch(postSendMessageSuccess());
+        })
+        .catch((error) => {
+            dispatch(postSendMessageError());
         });
-      })
-      .then(() => {
-        dispatch(postSendMessageSuccess());
-      })
-      .catch((error) => {
-        console.error('Error:', error);
+    })
+    .catch((error) => {
         dispatch(postSendMessageError());
-      });
+    });
   };
 // const postImageSendMessage= (payload)=> (dispatch)=>{
 //     dispatch(postSendMessageRequest());

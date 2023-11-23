@@ -101,8 +101,14 @@ const Admin = () => {
     }
   }
 
-  const handleSendMessageFile = (value) => {
-    setSendMessagePostData({...sendMessagePostData, "image": value});
+
+  const handleSendMessageFile = (e) => {
+
+    const file = e.target.files[0];
+
+    if (file) {
+      setSendMessagePostData({...sendMessagePostData, "image": file});
+    }
   }
 
   const handleSendMessageSendButton= () => {
@@ -217,25 +223,25 @@ const Admin = () => {
     const day6= new Date(day5);
     day6.setDate(day5.getDate() - 1);
     const day0data= weekData?.filter((day)=>{
-      return new Date(day.createdAt)===new Date(day0)
+      return new Date(day.createdAt).getDate()==new Date(day0).getDate() && new Date(day.createdAt).getMonth()==new Date(day0).getMonth() && new Date(day.createdAt).getFullYear()==new Date(day0).getFullYear()
     })
     const day1data= weekData?.filter((day)=>{
-      return new Date(day.createdAt)===new Date(day1)
+      return new Date(day.createdAt).getDate()==new Date(day1).getDate() && new Date(day.createdAt).getMonth()==new Date(day1).getMonth() && new Date(day.createdAt).getFullYear()==new Date(day1).getFullYear()
     })
     const day2data= weekData?.filter((day)=>{
-      return new Date(day.createdAt)===new Date(day2)
+      return new Date(day.createdAt).getDate()==new Date(day2).getDate() && new Date(day.createdAt).getMonth()==new Date(day2).getMonth() && new Date(day.createdAt).getFullYear()==new Date(day2).getFullYear()
     })
     const day3data= weekData?.filter((day)=>{
-      return new Date(day.createdAt)===new Date(day3)
+      return new Date(day.createdAt).getDate()==new Date(day3).getDate() && new Date(day.createdAt).getMonth()==new Date(day3).getMonth() && new Date(day.createdAt).getFullYear()==new Date(day3).getFullYear()
     })
     const day4data= weekData?.filter((day)=>{
-      return new Date(day.createdAt)===new Date(day4)
+      return new Date(day.createdAt).getDate()==new Date(day4).getDate() && new Date(day.createdAt).getMonth()==new Date(day4).getMonth() && new Date(day.createdAt).getFullYear()==new Date(day4).getFullYear()
     })
     const day5data= weekData?.filter((day)=>{
-      return new Date(day.createdAt)===new Date(day5)
+      return new Date(day.createdAt).getDate()==new Date(day5).getDate() && new Date(day.createdAt).getMonth()==new Date(day5).getMonth() && new Date(day.createdAt).getFullYear()==new Date(day5).getFullYear()
     })
     const day6data= weekData?.filter((day)=>{
-      return new Date(day.createdAt)===new Date(day6)
+      return new Date(day.createdAt).getDate()==new Date(day6).getDate() && new Date(day.createdAt).getMonth()==new Date(day6).getMonth() && new Date(day.createdAt).getFullYear()==new Date(day6).getFullYear()
     })
     return [day0data.length, day1data.length, day2data.length, day3data.length, day4data.length, day5data.length, day6data.length];
   }
@@ -244,7 +250,7 @@ const Admin = () => {
     const array= [];
     for(let i=1;i<=30;i++){
       const arr= monthData?.filter((el)=>{
-        return new Date(el.createdAt).getDate()==i-1;
+        return new Date(el.createdAt).getDate()==i;
       })
       array.push(arr.length);
     }
@@ -875,7 +881,7 @@ const Admin = () => {
                 <input onChange={(e)=>setSendMessagePostData({...sendMessagePostData, "message": e.target.value})} value={sendMessagePostData.message} type="text" placeholder="Type message here..." />
                 {/* <AiOutlinePaperClip size={"23px"} color="#878787"/> */}
                 <div className="dropZoneContainer">
-                    <input type="file" id="drop_zone" className="FileUpload" accept=".jpg,.png" onChange={(e)=>handleSendMessageFile(e.target.value)} />
+                    <input type="file" id="drop_zone" className="FileUpload" accept=".jpg,.png" onChange={(e)=>handleSendMessageFile(e)} />
                     <AiOutlinePaperClip className="dropZoneOverlay" size={"23px"} color="#878787"/>
                 </div>
               </div>
@@ -1465,71 +1471,3 @@ const Admin = () => {
 };
 
 export default Admin;
-
-
-
-
-
-{/* <Modal onClose={onClose} isOpen={isOpen} isCentered>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader className="currentSubscriptionTextAdmin">Current Subscription</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            <Box className="currentSubscriptionInnerBoxAdmin">
-              <Box className="currentSubscriptionDoughnutOuterAdmin">
-                <Box className="currentSubscriptionDoughnutInnerAdmin">
-                  <Doughnut data={doughnutdata} /><br/>
-                  <Box className="currentSubscriptionDoughnutInnerAdminNumber">25</Box>
-                </Box>
-                <Text>25/30 days left</Text>
-              </Box>
-              <Box className="currentSubscriptionTextBoxAdmin">
-                <Text>Plan :- Plan A</Text>
-                <Text>Status :- Active</Text>
-                <Text>Start Date :- 01/10/2023</Text>
-                <Text>End Date :- 30/10/2023</Text>
-              </Box>
-              <Box className="currentSubscriptionviewallAdmin" onClick={()=>setBarnum(7)}>View all subscriptions</Box>
-            </Box>
-          </ModalBody>
-          <ModalFooter>
-            <Button display='none' onClick={onClose}>Close</Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
-      <Modal onClose={onClose} isOpen={isOpen} isCentered>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader className="newSubscriptionTextAdmin">Subscription plans & pricing</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            <Box border='1px solid black' className="newSubscriptionInnerBoxAdmin">
-              <Box border='1px solid black' className="newSubscriptionDoughnutOuterAdmin">
-                <Box border='1px solid black' className="newSubscriptionbenifitsBoxAdmin">
-                  <Image border='1px solid black' src={calendar} alt="" />
-                </Box>
-                <Text border='1px solid black'>₹ 4000 <span>/ month</span></Text>
-              </Box>
-              <Box className="currentSubscriptionTextBoxAdmin">
-                <Box>
-                  <Image src={checkcircle} alt="" />
-                  <Text>Premium Membership- <span>Unlock Exclusive Benefits Every Month</span></Text>
-                </Box>
-                <Box>
-                  <Image src={checkcircle} alt="" />
-                  <Text>Monthly Subscription- <span>Your Gateway to Ongoing Rewards</span></Text>
-                </Box>
-                <Box>
-                  <Image src={checkcircle} alt="" />
-                  <Text>Save with Our Monthly Membership</Text>
-                </Box>
-              </Box>
-              <Button className="newSubscriptionsubscribebuttonAdmin">Subscribe</Button>
-            </Box>
-          </ModalBody>
-          <ModalFooter>
-            <Button display='none' onClick={onClose}>Close</Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal> */}
