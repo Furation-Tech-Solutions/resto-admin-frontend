@@ -283,7 +283,10 @@ const postImageSendMessage = (payload) => (dispatch) => {
             const reader = new FileReader();
             reader.onload = async (event) => {
                 const imageDataUrl = event.target.result;
-                await axios.put(presignedURL, selectedImage)
+                const headers = {
+                    'Content-Type': 'image/png'
+                }
+                await axios.put(presignedURL, selectedImage, { headers })
             };
 
             reader.readAsDataURL(selectedImage);
@@ -293,8 +296,6 @@ const postImageSendMessage = (payload) => (dispatch) => {
             image:  [mediaURL]
         })
         .then((r) => {
-            console.log({presignedURL});
-            console.log({mediaURL});
             dispatch(postSendMessageSuccess());
         })
         .catch((error) => {

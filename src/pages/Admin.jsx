@@ -243,7 +243,7 @@ const Admin = () => {
     const day6data= weekData?.filter((day)=>{
       return new Date(day.createdAt).getDate()==new Date(day6).getDate() && new Date(day.createdAt).getMonth()==new Date(day6).getMonth() && new Date(day.createdAt).getFullYear()==new Date(day6).getFullYear()
     })
-    return [day0data.length, day1data.length, day2data.length, day3data.length, day4data.length, day5data.length, day6data.length];
+    return [day6data.length, day5data.length, day4data.length, day3data.length, day2data.length, day1data.length, day0data.length];
   }
 
   const monthlinedata= () => {
