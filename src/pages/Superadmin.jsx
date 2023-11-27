@@ -8,6 +8,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { AiOutlineCheck } from 'react-icons/ai';
 import menu from "../utils/Images/Admin/menu.svg";
+import noadmin from "../utils/Images/Admin/noadmin.svg";
 import { getAdminData, getAdminSearchInput, getSupportRequest, postAddAdmin } from '../Redux/AppData/action';
 
 const Superadmin = () => {
@@ -118,6 +119,8 @@ const Superadmin = () => {
       setUserData(userSearchData);
     }
   }, [requestsupportrawdata, adminSearchInput]);
+
+  console.log({userData});
 
   // const filterData= () => {
   //   const date= new Date();
@@ -384,30 +387,37 @@ const Superadmin = () => {
             </div>
             <div className='rightthirdBoxSuperadmin'>
               <div className='userTableSuperAdminHolder'>
-                <table className="userTableSuperAdmin">
-                  <thead>
-                    <tr>
-                      <th className="userTableHeadSuperAdmin">Sr. No.</th>
-                      <th className="userTableHeadSuperAdmin">Business Name</th>
-                      <th className="userTableHeadSuperAdmin">Email Address</th>
-                      <th className="userTableHeadSuperAdmin">Phone Number</th>
-                      <th className="userTableHeadSuperAdmin">Subscription</th>
-                      <th className="userTableHeadSuperAdmin">Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {userData && userData.map((user, i)=>{
-                      return <tr key={i} onClick={()=>navigate(`/superadmin/:${user.id}`)}>
-                        <td className="userTableBodySuperAdmin">{i+1}</td>
-                        <td className="userTableBodySuperAdmin">{user.businessName}</td>
-                        <td className="userTableBodySuperAdmin">{user.email}</td>
-                        <td className="userTableBodySuperAdmin">{user.phone}</td>
-                        <td className="userTableBodySuperAdmin">{user.botrunning? '9days left' : 'Renewal pending'}</td>
-                        <td className="userTableBodySuperAdmin">Edit</td>
+                {userData.length > 0 ? 
+                  <table className="userTableSuperAdmin">
+                    <thead>
+                      <tr>
+                        <th className="userTableHeadSuperAdmin">Sr. No.</th>
+                        <th className="userTableHeadSuperAdmin">Business Name</th>
+                        <th className="userTableHeadSuperAdmin">Email Address</th>
+                        <th className="userTableHeadSuperAdmin">Phone Number</th>
+                        <th className="userTableHeadSuperAdmin">Subscription</th>
+                        <th className="userTableHeadSuperAdmin">Action</th>
                       </tr>
-                    })}
-                  </tbody>
-                </table>
+                    </thead>
+                    <tbody>
+                      {userData && userData.map((user, i)=>{
+                        return <tr key={i} onClick={()=>navigate(`/superadmin/:${user.id}`)}>
+                          <td className="userTableBodySuperAdmin">{i+1}</td>
+                          <td className="userTableBodySuperAdmin">{user.businessName}</td>
+                          <td className="userTableBodySuperAdmin">{user.email}</td>
+                          <td className="userTableBodySuperAdmin">{user.phone}</td>
+                          <td className="userTableBodySuperAdmin">{user.subscriptionend!==""? Math.floor((new Date(user.subscriptionend) - new Date(date)) / (1000*60*60*24)) + " days left" : 'Renewal pending'}</td>
+                          <td className="userTableBodySuperAdmin">Edit</td>
+                        </tr>
+                      })}
+                    </tbody>
+                  </table> 
+                  : 
+                  <div className="notfounddiv">
+                    <img src={noadmin} alt="feedback" />
+                    <p>No admin found</p>
+                  </div>
+                }
               </div>
             </div>
           </div>

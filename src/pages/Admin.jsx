@@ -55,11 +55,11 @@ const Admin = () => {
   const currentDate= date.toLocaleDateString();
 
   const subscriptionend= new Date(JSON.parse(localStorage.getItem("admin")).subscriptionend);
-  const piechartDate= Math.floor((subscriptionend-date)/(1000*60*60*24));
+  const piechartDate= Math.floor((subscriptionend-date)/(1000*60*60*24)) || 0;
   const currentMonth= date.getMonth();
   
   const [ currentSubscriptionopen, setCurrentSubscriptionopen ]= useState(false);
-  
+   
   const isAuthLoading= useSelector((store)=>store.AuthReducer.isAuthLoading);
 
   const [ requestSupportValue, setRequestSupportValue]= useState("");
@@ -147,7 +147,7 @@ const Admin = () => {
     dispatch(getTotalUniqueUser({"input" : userSearchInput}));
     dispatch(getWeeklyUniqueUser());
     dispatch(getMonthlyUniqueUser({"month" : chooseMonth}));
-    dispatch(getPaymentHistory());
+    dispatch(getPaymentHistory({"adminId" : adminDetails.adminId}));
     dispatch(getUserFeedback({"adminId" : adminDetails.adminId}));
   }, [chooseMonth, userSearchInput])
 
@@ -681,7 +681,7 @@ const Admin = () => {
           <div className="leftfirstBoxAdmin">
             <img src={logo} alt="applogo" />
             <p>Furation Tech</p>
-          </div>
+          </div> 
           <div className="ContentBoxSideBarrPhoneAdmin">
             <div className="leftsecondBoxAdmin">
               <div

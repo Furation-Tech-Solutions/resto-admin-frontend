@@ -57,7 +57,7 @@ const Login = () => {
           <div className='loginforgotpassword'>
             <Link to="/forgotpassword">Forgot password?</Link>
           </div>
-          <button onClick={()=>handleLogin()} className='loginButton'><i class={isAuthLoading? "fa fa-spinner fa-spin" : ""}></i>Login</button>
+          <button onClick={()=>handleLogin()} className='loginButton'><i className={isAuthLoading? "fa fa-spinner fa-spin" : ""}></i>Login</button>
         </div>
       </div>
     </div>

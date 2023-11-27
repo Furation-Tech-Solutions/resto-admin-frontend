@@ -198,7 +198,7 @@ const getMonthlyUniqueUserError= ()=>{
 
 const getPaymentHistory= (params)=>(dispatch)=>{
     dispatch(getPaymentHistoryRequest());
-    return axios.get(`https://admin-bot.furation.tech/api/v1/payment`, {params})
+    return axios.get(`https://admin-bot.furation.tech/api/v1/payment`, { params })
     .then((res)=>{
         dispatch(getPaymentHistorySuccess(res.data))
     })
