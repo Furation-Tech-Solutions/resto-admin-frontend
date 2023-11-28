@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import "../styles/Feedback.css"
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import furationlogo from "../utils/Images/login/furationlogo.svg";
 import { postUserFeedback } from '../Redux/AppData/action';
@@ -17,7 +17,6 @@ const Feedback = () => {
     const [ phone, setPhone ]= useState("");
     const [ message, setMessage ]= useState("");
     const dispatch= useDispatch();
-    const navigate= useNavigate();
   
     const handleFeedback = () =>{
       if(name && email && phone && message){

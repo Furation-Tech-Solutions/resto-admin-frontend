@@ -4,25 +4,23 @@ import logo from "../utils/Images/Admin/logo.svg";
 import emoji from "../utils/Images/Admin/emoji.svg";
 import closeicon from "../utils/Images/Admin/closeicon.png";
 import menu from "../utils/Images/Admin/menu.svg";
-import filter from "../utils/Images/Admin/filter.svg";
 import feedback from "../utils/Images/Admin/feedback.svg";
 import subscriptionandpayment from "../utils/Images/Admin/subscriptionandpayment.svg";
 import send from "../utils/Images/Admin/Send.svg";
 import calendar from "../utils/Images/Admin/Calendar.svg";
-import chevronleft from "../utils/Images/Admin/chevron-right.svg";
-import chevronrightdisable from "../utils/Images/Admin/chevron-right-disable.svg";
-import chevronright from "../utils/Images/Admin/chevron-left.svg";
-import chevronleftdisable from "../utils/Images/Admin/chevron-left-disable.svg";
 import checkcircle from '../utils/Images/Admin/checkcircle.svg'
 import { AiOutlinePaperClip, AiOutlineCheck } from 'react-icons/ai';
 import { FiSearch } from 'react-icons/fi';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, Filler, LineElement, BarElement, ArcElement, Title, Tooltip, Legend } from 'chart.js';
-import { Line,  Bar, Doughnut } from 'react-chartjs-2';
-import CurrentSubscripton from "../components/CurrentSubscripton";
+import { Doughnut } from 'react-chartjs-2';
 import { useDispatch, useSelector } from "react-redux";
 import { getMonthlyUniqueUser, getPaymentHistory, getTotalUniqueUser, getUniqueUser, getUserFeedback, getUserSearchInput, getWeeklyUniqueUser, postImageSendMessage, postSendMessage, postSupportRequest } from "../Redux/AppData/action";
 import { logout } from "../Redux/AuthData/action";
 import { useNavigate } from "react-router-dom";
+import GraphOuter from "../components/GraphOuter";
+import GraphWrapperPhone from "../components/GraphWrapperPhone";
+import UserTable from "../components/UserTable";
+import UserTablePhone from "../components/UserTablePhone";
 
 
 const Admin = () => {
@@ -42,14 +40,7 @@ const Admin = () => {
 
   const dispatch= useDispatch();
 
-  const navigate= useNavigate();
-
   const adminDetails= JSON.parse(localStorage.getItem("admin"));
-
-  // if(!adminDetails || adminDetails?.adminId){
-  //   navigate("/login");
-  // }
-
 
   const date= new Date();
   const currentDate= date.toLocaleDateString();
@@ -72,8 +63,6 @@ const Admin = () => {
 
   const [ isrequestAdmin, setIsRequestAdmin ]= useState(false);
 
-  const [ chartnumphone, setchartnumphone ]= useState(1);
-
   const [panelUserList, setPanelUserList]= useState("total");
   
   const [barnum, setBarnum] = useState(1);
@@ -87,11 +76,6 @@ const Admin = () => {
     message: "",
     image: ""
   })
-
-  const handleUserSearchInput= (value) => {
-    setUserSearchInput(value);
-    dispatch(getTotalUniqueUser({"input" : value}));
-  }
 
   const handleSendMessageAddButton= () => {
     if(sendMessagePhoneNumber.length===10){
@@ -123,21 +107,6 @@ const Admin = () => {
         dispatch(postImageSendMessage(sendMessagePostData));
       }
     }
-  }
-
-  const monthObj= {
-    0 : "January",
-    1 : "February",
-    2 : "March",
-    3 : "April",
-    4 : "May",
-    5 : "June",
-    6 : "July",
-    7 : "August",
-    8 : "September",
-    9 : "October",
-    10 : "November",
-    11 : "December",
   }
 
   const [ chooseMonth, setChooseMonth ] = useState(currentMonth);
@@ -172,79 +141,7 @@ const Admin = () => {
   const subscriptionData= useSelector((store)=>store.AppReducer.paymentHistory).reverse();
   const feedbackData= useSelector((store)=>store.AppReducer.userFeedback);
 
-  const weekBarLabels= () => {
-    const weekObj= {
-      0: "Sun",
-      1: "Mon",
-      2: "Tue",
-      3: "Wed",
-      4: "Thu",
-      5: "Fri",
-      6: "Sat"
-    }
-    const date= new Date();
-    const day0= new Date(date);
-    const day1= new Date(date);
-    day1.setDate(date.getDate() - 1);
-    const day2= new Date(day1);
-    day2.setDate(day1.getDate() - 1);
-    const day3= new Date(day2);
-    day3.setDate(day2.getDate() - 1);
-    const day4= new Date(day3);
-    day4.setDate(day3.getDate() - 1);
-    const day5= new Date(day4);
-    day5.setDate(day4.getDate() - 1);
-    const day6= new Date(day5);
-    day6.setDate(day5.getDate() - 1);
-    return [
-      weekObj[day6.getDay()],
-      weekObj[day5.getDay()],
-      weekObj[day4.getDay()],
-      weekObj[day3.getDay()],
-      weekObj[day2.getDay()],
-      weekObj[day1.getDay()],
-      weekObj[day0.getDay()],
-    ]
-  }
 
-  const weekbardata= () => {
-    const date= new Date();
-    const day0= new Date(date);
-    const day1= new Date(date);
-    day1.setDate(date.getDate() - 1);
-    const day2= new Date(day1);
-    day2.setDate(day1.getDate() - 1);
-    const day3= new Date(day2);
-    day3.setDate(day2.getDate() - 1);
-    const day4= new Date(day3);
-    day4.setDate(day3.getDate() - 1);
-    const day5= new Date(day4);
-    day5.setDate(day4.getDate() - 1);
-    const day6= new Date(day5);
-    day6.setDate(day5.getDate() - 1);
-    const day0data= weekData?.filter((day)=>{
-      return new Date(day.createdAt).getDate()==new Date(day0).getDate() && new Date(day.createdAt).getMonth()==new Date(day0).getMonth() && new Date(day.createdAt).getFullYear()==new Date(day0).getFullYear()
-    })
-    const day1data= weekData?.filter((day)=>{
-      return new Date(day.createdAt).getDate()==new Date(day1).getDate() && new Date(day.createdAt).getMonth()==new Date(day1).getMonth() && new Date(day.createdAt).getFullYear()==new Date(day1).getFullYear()
-    })
-    const day2data= weekData?.filter((day)=>{
-      return new Date(day.createdAt).getDate()==new Date(day2).getDate() && new Date(day.createdAt).getMonth()==new Date(day2).getMonth() && new Date(day.createdAt).getFullYear()==new Date(day2).getFullYear()
-    })
-    const day3data= weekData?.filter((day)=>{
-      return new Date(day.createdAt).getDate()==new Date(day3).getDate() && new Date(day.createdAt).getMonth()==new Date(day3).getMonth() && new Date(day.createdAt).getFullYear()==new Date(day3).getFullYear()
-    })
-    const day4data= weekData?.filter((day)=>{
-      return new Date(day.createdAt).getDate()==new Date(day4).getDate() && new Date(day.createdAt).getMonth()==new Date(day4).getMonth() && new Date(day.createdAt).getFullYear()==new Date(day4).getFullYear()
-    })
-    const day5data= weekData?.filter((day)=>{
-      return new Date(day.createdAt).getDate()==new Date(day5).getDate() && new Date(day.createdAt).getMonth()==new Date(day5).getMonth() && new Date(day.createdAt).getFullYear()==new Date(day5).getFullYear()
-    })
-    const day6data= weekData?.filter((day)=>{
-      return new Date(day.createdAt).getDate()==new Date(day6).getDate() && new Date(day.createdAt).getMonth()==new Date(day6).getMonth() && new Date(day.createdAt).getFullYear()==new Date(day6).getFullYear()
-    })
-    return [day6data.length, day5data.length, day4data.length, day3data.length, day2data.length, day1data.length, day0data.length];
-  }
 
   const monthlinedata= () => {
     const array= [];
@@ -281,384 +178,7 @@ const Admin = () => {
   const handleLogout= () => {
     dispatch(logout());
   }
-
-  const weeklydata = {
-    labels: weekBarLabels(),
-    datasets: [
-      {
-        label: "Unique users this week",
-        backgroundColor: "#AF26FD",
-        borderColor: "white",
-        data: weekbardata(),
-      },
-    ],
-  };
-  const lineOptions = {
-    scales: {
-      x: {
-        grid: {
-          display: false, // Hide x-axis grid lines
-        },
-      },
-      y: {
-        grid: {
-          display: true, // Hide y-axis grid lines
-        },
-      },
-    },
-    responsive: true,
-    plugins: {
-      legend: {
-        position: 'top',
-      },
-      title: {
-        display: true,
-        text: '',
-      },
-    },
-  };
-
-  const barOptions = {
-    scales: {
-      x: {
-        grid: {
-          display: false, // Hide x-axis grid lines
-        },
-      },
-      y: {
-        grid: {
-          display: true, // Hide y-axis grid lines
-        },
-      },
-    },
-    responsive: true,
-    plugins: {
-      legend: {
-        position: 'top',
-      },
-      title: {
-        display: true,
-        text: '',
-      },
-    },
-  };
-
-  const monthlylabels = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19",
-    "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"];
   
-  const monthlydata = {
-    labels: monthlylabels,
-    datasets: [
-      {
-        label: "Unique users this month",
-        backgroundColor: "#AF26FD",
-        borderColor: "#AF26FD",
-        borderWidth: 1.5,
-        pointRadius: 0.5,
-        pointHoverRadius: 5,
-        customCanvasBackgroundColor: 'blue',
-        fill: {
-          target: 'origin',
-          opacity: 0.5,
-          below: '#AF26FD'
-        },
-        data: monthlinedata()
-      },
-    ],
-  };
-
-  const userData = [
-    {
-      phone: "123456789",
-      name: "Sanghamitra",
-      messeage_count: 12,
-    },
-    {
-      phone: "123456789",
-      name: "Sanghamitra",
-      messeage_count: 12,
-    },
-    {
-      phone: "123456789",
-      name: "Sanghamitra",
-      messeage_count: 12,
-    },
-    {
-      phone: "123456789",
-      name: "Sanghamitra",
-      messeage_count: 12,
-    },
-  ];
-  // const feedbackData = [
-  //   {
-  //     phone: "123456789",
-  //     name: "User name",
-  //     message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  //     date: "04/10/2023"
-  //   },
-  //   {
-  //     phone: "123456789",
-  //     name: "User name",
-  //     message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  //     date: "04/10/2023"
-  //   },
-  //   {
-  //     phone: "123456789",
-  //     name: "User name",
-  //     message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  //     date: "04/10/2023"
-  //   },
-  //   {
-  //     phone: "123456789",
-  //     name: "User name",
-  //     message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  //     date: "04/10/2023"
-  //   },
-  //   {
-  //     phone: "123456789",
-  //     name: "User name",
-  //     message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  //     date: "04/10/2023"
-  //   },
-  //   {
-  //     phone: "123456789",
-  //     name: "User name",
-  //     message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  //     date: "04/10/2023"
-  //   },
-  //   {
-  //     phone: "123456789",
-  //     name: "User name",
-  //     message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  //     date: "04/10/2023"
-  //   },
-  //   {
-  //     phone: "123456789",
-  //     name: "User name",
-  //     message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  //     date: "04/10/2023"
-  //   },
-  //   {
-  //     phone: "123456789",
-  //     name: "User name",
-  //     message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  //     date: "04/10/2023"
-  //   },
-  //   {
-  //     phone: "123456789",
-  //     name: "User name",
-  //     message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  //     date: "04/10/2023"
-  //   },
-  //   {
-  //     phone: "123456789",
-  //     name: "User name",
-  //     message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  //     date: "04/10/2023"
-  //   },
-  // ];
-
-  // const subscriptionData = [
-  //   {
-  //     plan: "123456789",
-  //     type: "Gold",
-  //     price: 100,
-  //     invoice: "1234",
-  //     startdate: "05/09/2023",
-  //     enddate: "04/10/2023",
-  //     status: true
-  //   },
-  //   {
-  //     plan: "123456789",
-  //     type: "Gold",
-  //     price: 100,
-  //     invoice: "1234",
-  //     startdate: "05/09/2023",
-  //     enddate: "04/10/2023",
-  //     status: false
-  //   },
-  //   {
-  //     plan: "123456789",
-  //     type: "Gold",
-  //     price: 100,
-  //     invoice: "1234",
-  //     startdate: "05/09/2023",
-  //     enddate: "04/10/2023",
-  //     status: false
-  //   },
-  //   {
-  //     plan: "123456789",
-  //     type: "Gold",
-  //     price: 100,
-  //     invoice: "1234",
-  //     startdate: "05/09/2023",
-  //     enddate: "04/10/2023",
-  //     status: false
-  //   },
-  //   {
-  //     plan: "123456789",
-  //     type: "Gold",
-  //     price: 100,
-  //     invoice: "1234",
-  //     startdate: "05/09/2023",
-  //     enddate: "04/10/2023",
-  //     status: false
-  //   },
-  //   {
-  //     plan: "123456789",
-  //     type: "Gold",
-  //     price: 100,
-  //     invoice: "1234",
-  //     startdate: "05/09/2023",
-  //     enddate: "04/10/2023",
-  //     status: false
-  //   },
-  //   {
-  //     plan: "123456789",
-  //     type: "Gold",
-  //     price: 100,
-  //     invoice: "1234",
-  //     startdate: "05/09/2023",
-  //     enddate: "04/10/2023",
-  //     status: false
-  //   },
-  //   {
-  //     plan: "123456789",
-  //     type: "Gold",
-  //     price: 100,
-  //     invoice: "1234",
-  //     startdate: "05/09/2023",
-  //     enddate: "04/10/2023",
-  //     status: false
-  //   },
-  //   {
-  //     plan: "123456789",
-  //     type: "Gold",
-  //     price: 100,
-  //     invoice: "1234",
-  //     startdate: "05/09/2023",
-  //     enddate: "04/10/2023",
-  //     status: false
-  //   },
-  //   {
-  //     plan: "123456789",
-  //     type: "Gold",
-  //     price: 100,
-  //     invoice: "1234",
-  //     startdate: "05/09/2023",
-  //     enddate: "04/10/2023",
-  //     status: false
-  //   },
-  //   {
-  //     plan: "123456789",
-  //     type: "Gold",
-  //     price: 100,
-  //     invoice: "1234",
-  //     startdate: "05/09/2023",
-  //     enddate: "04/10/2023",
-  //     status: false
-  //   },
-  //   {
-  //     plan: "123456789",
-  //     type: "Gold",
-  //     price: 100,
-  //     invoice: "1234",
-  //     startdate: "05/09/2023",
-  //     enddate: "04/10/2023",
-  //     status: false
-  //   },
-  //   {
-  //     plan: "123456789",
-  //     type: "Gold",
-  //     price: 100,
-  //     invoice: "1234",
-  //     startdate: "05/09/2023",
-  //     enddate: "04/10/2023",
-  //     status: false
-  //   },
-  //   {
-  //     plan: "123456789",
-  //     type: "Gold",
-  //     price: 100,
-  //     invoice: "1234",
-  //     startdate: "05/09/2023",
-  //     enddate: "04/10/2023",
-  //     status: false
-  //   },
-  //   {
-  //     plan: "123456789",
-  //     type: "Gold",
-  //     price: 100,
-  //     invoice: "1234",
-  //     startdate: "05/09/2023",
-  //     enddate: "04/10/2023",
-  //     status: false
-  //   },
-  //   {
-  //     plan: "123456789",
-  //     type: "Gold",
-  //     price: 100,
-  //     invoice: "1234",
-  //     startdate: "05/09/2023",
-  //     enddate: "04/10/2023",
-  //     status: false
-  //   },
-  //   {
-  //     plan: "123456789",
-  //     type: "Gold",
-  //     price: 100,
-  //     invoice: "1234",
-  //     startdate: "05/09/2023",
-  //     enddate: "04/10/2023",
-  //     status: false
-  //   },
-  //   {
-  //     plan: "123456789",
-  //     type: "Gold",
-  //     price: 100,
-  //     invoice: "1234",
-  //     startdate: "05/09/2023",
-  //     enddate: "04/10/2023",
-  //     status: false
-  //   },
-  //   {
-  //     plan: "123456789",
-  //     type: "Gold",
-  //     price: 100,
-  //     invoice: "1234",
-  //     startdate: "05/09/2023",
-  //     enddate: "04/10/2023",
-  //     status: false
-  //   },
-  //   {
-  //     plan: "123456789",
-  //     type: "Gold",
-  //     price: 100,
-  //     invoice: "1234",
-  //     startdate: "05/09/2023",
-  //     enddate: "04/10/2023",
-  //     status: false
-  //   },
-  //   {
-  //     plan: "123456789",
-  //     type: "Gold",
-  //     price: 100,
-  //     invoice: "1234",
-  //     startdate: "05/09/2023",
-  //     enddate: "04/10/2023",
-  //     status: false
-  //   },
-  //   {
-  //     plan: "123456789",
-  //     type: "Gold",
-  //     price: 100,
-  //     invoice: "1234",
-  //     startdate: "05/09/2023",
-  //     enddate: "04/10/2023",
-  //     status: false
-  //   }
-  // ];
-
   const doughnutdata = {
     labels: [],
     datasets: [
@@ -767,93 +287,8 @@ const Admin = () => {
                 </div>
               </div>
             </div>
-            <div className="rightsecondBoxAdmin">
-              <div className="rightsecondBoxCount">
-                <div className="rightsecondBoxCountOuter">
-                  <div className="rightsecondBoxCountText">
-                    <p>Today</p>
-                  </div>
-                  <div className="rightsecondBoxCountNumber">{uniqueData.length}</div>
-                </div>
-                <div className="rightsecondBoxCountOuter">
-                  <div className="rightsecondBoxCountText">
-                    <p>Total</p>
-                  </div>
-                  <div className="rightsecondBoxCountNumber">{totalUniqueData.length}</div>
-                </div>
-              </div>
-              <div className="AdminTabChartWrapper">
-                <div className={chartnumphone===1? "weeklyChartAdmin" : "weeklyChartAdminHide"}>
-                  <div className="weeklyChartAdminText">
-                    <p>last 7 days</p>
-                  </div>
-                  <Bar data={weeklydata} options={barOptions} />
-                </div>
-                <div className={chartnumphone===2? "monthlyChartAdmin" : "monthlyChartAdminHide"}>
-                  <div className="monthlyChartAdminText">
-                    <p>last 30 days</p>
-                    <select onChange={(e)=>setChooseMonth(e.target.value)} value={chooseMonth} className="monthlyChartAdminSelect" name="" id="">
-                      <option value={currentMonth}>Current month</option>
-                      <option value={currentMonth-1}>{monthObj[currentMonth-1]}</option>
-                      <option value={currentMonth-2}>{monthObj[currentMonth-2]}</option>
-                    </select>
-                  </div>
-                  <Line data={monthlydata} options={lineOptions} />
-                </div>
-                <div className="secondBoxAdminChartNav">
-                  <img onClick={()=>setchartnumphone(1)} src={chartnumphone===1? chevronleftdisable : chevronright} alt="" />
-                  <div>
-                    <div onClick={()=>setchartnumphone(1)} className={chartnumphone===1? "weeklycirclephonediv" : "weeklycirclephonedivOff"}></div>
-                    <div onClick={()=>setchartnumphone(2)} className={chartnumphone===2? "monthlycirclephonediv" : "monthlycirclephonedivOff"}></div>
-                  </div>
-                  <img onClick={()=>setchartnumphone(2)} src={chartnumphone===1? chevronleft : chevronrightdisable} alt="" />
-              </div>
-              </div>
-            </div>
-            <div className="rightthirdBoxAdmin">
-              <div className="rightthirdBoxAdminSearchBox">
-                <FiSearch />
-                <input
-                  type="text"
-                  name=""
-                  id=""
-                  onChange={(e)=>handleUserSearchInput(e.target.value)}
-                  value={userSearchInput}
-                  placeholder="Search by name or phone number"
-                />
-              </div>
-              <select name="" id="" onChange={(e)=>setPanelUserList(e.target.value)}>
-                <option value="total">Total</option>
-                <option value="monthly">This month</option>
-                <option value="weekly">Last 7 days</option>
-                <option value="daily">Today</option>
-              </select>
-            </div>
-            <div className="rightfourthBoxAdmin">
-              { adminpanelInteractionUserData.length > 0 ? <table className="userTableAdmin">
-                <thead>
-                  <tr>
-                    <th className="userTableAdminHead">Sr.No.</th>
-                    <th className="userTableAdminHead">Name</th>
-                    <th className="userTableAdminHead">Phone Number</th>
-                    <th className="userTableAdminHead">Message Count</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {adminpanelInteractionUserData &&
-                    adminpanelInteractionUserData.map((user, i) => {
-                      return (
-                        <tr key={i}>
-                          <td className="userTableAdminBody">{i + 1}</td>
-                          <td className="userTableAdminBody">{user.name}</td>
-                          <td className="userTableAdminBody">{user.recipient}</td>
-                          <td className="userTableAdminBody">{user.message_count}</td>
-                        </tr>
-                      );
-                    })}
-                </tbody>
-              </table> : <h2>No data found</h2> }
-            </div>
+            <GraphOuter />
+            <UserTable />
           </div>
           <div
             className={
@@ -1055,90 +490,8 @@ const Admin = () => {
                 <div className="countdownrAdminBoxPhoneNumber">{piechartDate}</div>
               </div>
             </div>
-            <div className="GraphWrapperPhone">
-              <div className="secondBoxAdminPhone">
-                <div className="secondBoxInnerAdminPhone">
-                  <div className="secondBoxInnerAdminPhoneText">Today</div>
-                  <div className="secondBoxInnerAdminPhoneNumber">{uniqueData.length}</div>
-                </div>
-                <div className="secondBoxInnerAdminPhone">
-                  <div className="secondBoxInnerAdminPhoneText">Total</div>
-                  <div className="secondBoxInnerAdminPhoneNumber">{totalUniqueData.length}</div>
-                </div>
-              </div>
-              <div className="thirdBoxAdminPhone">
-                <div className="thirdBoxAdminChartBoxPhone">
-                  {chartnumphone===1 && <div className="thirdBoxAdminWeeklyBoxPhone">
-                    <p className="thirdBoxAdminWeeklyBoxPhoneText">This Week</p>
-                    <Bar data={weeklydata} options={barOptions} />
-                  </div>}
-                  {chartnumphone===2 && <div className="thirdBoxAdminMonthlyBoxPhone">
-                    <div className="thirdBoxAdminMonthlyBoxPhoneText">
-                      <p>last 30 days</p>
-                      <select onChange={(e)=>setChooseMonth(e.target.value)} value={chooseMonth} className="monthlyChartAdminSelect" name="" id="">
-                        <option value={currentMonth}>Current month</option>
-                        <option value={currentMonth-1}>{monthObj[currentMonth-1]}</option>
-                        <option value={currentMonth-2}>{monthObj[currentMonth-2]}</option>
-                      </select>
-                    </div>
-                    <Line data={monthlydata} options={lineOptions} />
-                  </div>}
-                </div>
-                <div className="thirdBoxAdminChartNavPhone">
-                  <img onClick={()=>setchartnumphone(1)} src={chartnumphone===1? chevronleftdisable : chevronright} alt="" />
-                  <div>
-                    <div onClick={()=>setchartnumphone(1)} className={chartnumphone===1? "weeklycirclephonediv" : "weeklycirclephonedivOff"}></div>
-                    <div onClick={()=>setchartnumphone(2)} className={chartnumphone===2? "monthlycirclephonediv" : "monthlycirclephonedivOff"}></div>
-                  </div>
-                  <img onClick={()=>setchartnumphone(2)} src={chartnumphone===1? chevronleft : chevronrightdisable} alt="" />
-                </div>
-              </div>
-            </div>
-            <div className="fourthBoxAdminPhone">
-              <div className="fourthBoxAdminPhoneInputBox">
-                <FiSearch />
-                <input
-                  type="text"
-                  name=""
-                  id=""
-                  placeholder="Search by name or phone number"
-                />
-              </div>
-              <div className="fourthBoxAdminPhoneButton">
-                {/* <img src={filter} alt="filtericon" /> */}
-                <select name="" id="" onChange={(e)=>setPanelUserList(e.target.value)}>
-                  {/* <option value="total"><img src={filter} alt="filtericon" /></option> */}
-                  <option value="total">Total</option>
-                  <option value="monthly">Last 30 Days</option>
-                  <option value="weekly">Last 7 days</option>
-                  <option value="daily">Today</option>
-                </select>
-              </div>
-            </div>
-            <div className="fifthBoxAdminPhone">
-            { adminpanelInteractionUserData.length > 0 ? <table className="userTableAdminPhone">
-                <thead>
-                  <tr>
-                    <th className="userTableAdminHeadPhone">Sr.No.</th>
-                    <th className="userTableAdminHeadPhone">Name</th>
-                    <th className="userTableAdminHeadPhone">Phone Number</th>
-                    <th className="userTableAdminHeadPhone">Message Count</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {adminpanelInteractionUserData && adminpanelInteractionUserData.map((user, i) => {
-                    return (
-                      <tr key={i}>
-                        <td className="userTableAdminBodyPhone">{i + 1}</td>
-                        <td className="userTableAdminBodyPhone">{user.name}</td>
-                        <td className="userTableAdminBodyPhone">{user.recipient}</td>
-                        <td className="userTableAdminBodyPhone">{user.message_count}</td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table> : <h2>No data found</h2> }
-            </div>
+            <GraphWrapperPhone />
+            <UserTablePhone />
           </div>
           <div
               className={

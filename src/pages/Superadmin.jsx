@@ -4,9 +4,7 @@ import logo from "../utils/Images/Admin/logo.svg";
 import support from "../utils/Images/Admin/support.svg";
 import { useDispatch, useSelector } from 'react-redux';
 import { AiOutlinePlus, AiOutlineSearch } from 'react-icons/ai';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { AiOutlineCheck } from 'react-icons/ai';
 import menu from "../utils/Images/Admin/menu.svg";
 import noadmin from "../utils/Images/Admin/noadmin.svg";
 import { getAdminData, getAdminSearchInput, getSupportRequest, postAddAdmin } from '../Redux/AppData/action';
@@ -79,7 +77,7 @@ const Superadmin = () => {
     dispatch(getAdminData());
     dispatch(getSupportRequest({"input" : requestSupportInput}));
     dispatch(getAdminSearchInput({"input" : adminSearchInput}));
-  }, [filterValue, isAddAdmin, adminSearchInput, requestSupportInput]);
+  }, [filterValue, isAddAdmin, adminSearchInput, requestSupportInput, dispatch]);
 
   const date= new Date();
 
@@ -118,162 +116,9 @@ const Superadmin = () => {
     }else {
       setUserData(userSearchData);
     }
-  }, [requestsupportrawdata, adminSearchInput]);
+  }, [requestsupportrawdata, adminSearchInput, filterValue, userSearchData, userrawData]);
 
   console.log({userData});
-
-  // const filterData= () => {
-  //   const date= new Date();
-  //   const newDate2= new Date(date);
-  //   if(filterValue==="week"){
-  //     const returnData= requestsupportrawdata?.filter((el)=>{
-  //       const newDate1= new Date(el.createdAt);
-  //       return Math.floor((newDate2- newDate1)/(1000*60*60*24))<7
-  //     })
-  //     setRequestsupportdata(returnData);
-  //   }else if(filterValue==="month"){
-  //     const returnData= requestsupportrawdata?.filter((el)=>{
-  //       const newDate1= new Date(el.createdAt);
-  //       return Math.floor((newDate2- newDate1)/(1000*60*60*24))<30
-  //     })
-  //     setRequestsupportdata(returnData);
-  //   }else{
-  //     setRequestsupportdata(requestsupportrawdata);
-  //   }
-  // }
-
-
-  const userDataa= [
-    {
-      businessname: 'abcd',
-      email :'abc@gmail.com',
-      phone: 1234567890,
-      subsciption:'9days left'
-    },
-    {
-      businessname: 'abcd',
-      email :'abc@gmail.com',
-      phone: 1234567890,
-      subsciption:'9days left'
-    },
-    {
-      businessname: 'abcd',
-      email :'abc@gmail.com',
-      phone: 1234567890,
-      subsciption:'9days left'
-    },
-    {
-      businessname: 'abcd',
-      email :'abc@gmail.com',
-      phone: 1234567890,
-      subsciption:'9days left'
-    },
-    {
-      businessname: 'abcd',
-      email :'abc@gmail.com',
-      phone: 1234567890,
-      subsciption:'9days left'
-    },
-    {
-      businessname: 'abcd',
-      email :'abc@gmail.com',
-      phone: 1234567890,
-      subsciption:'9days left'
-    },
-    {
-      businessname: 'abcd',
-      email :'abc@gmail.com',
-      phone: 1234567890,
-      subsciption:'9days left'
-    },
-    {
-      businessname: 'abcd',
-      email :'abc@gmail.com',
-      phone: 1234567890,
-      subsciption:'9days left'
-    },
-    {
-      businessname: 'abcd',
-      email :'abc@gmail.com',
-      phone: 1234567890,
-      subsciption:'9days left'
-    },
-    {
-      businessname: 'abcd',
-      email :'abc@gmail.com',
-      phone: 1234567890,
-      subsciption:'9days left'
-    },
-    {
-      businessname: 'abcd',
-      email :'abc@gmail.com',
-      phone: 1234567890,
-      subsciption:'9days left'
-    },
-    {
-      businessname: 'abcd',
-      email :'abc@gmail.com',
-      phone: 1234567890,
-      subsciption:'9days left'
-    },
-    {
-      businessname: 'abcd',
-      email :'abc@gmail.com',
-      phone: 1234567890,
-      subsciption:'9days left'
-    },
-    {
-      businessname: 'abcd',
-      email :'abc@gmail.com',
-      phone: 1234567890,
-      subsciption:'9days left'
-    }
-  ]
-
-  // const feedbackData = [
-  //   {
-  //     phone: "123456789",
-  //     name: "User name",
-  //     message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  //     date: "04/10/2023"
-  //   },
-  //   {
-  //     phone: "123456789",
-  //     name: "User name",
-  //     message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  //     date: "04/10/2023"
-  //   },
-  //   {
-  //     phone: "123456789",
-  //     name: "User name",
-  //     message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  //     date: "04/10/2023"
-  //   },
-  //   {
-  //     phone: "123456789",
-  //     name: "User name",
-  //     message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  //     date: "04/10/2023"
-  //   },
-  //   {
-  //     phone: "123456789",
-  //     name: "User name",
-  //     message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  //     date: "04/10/2023"
-  //   },
-  //   {
-  //     phone: "123456789",
-  //     name: "User name",
-  //     message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  //     date: "04/10/2023"
-  //   },
-  //   {
-  //     phone: "123456789",
-  //     name: "User name",
-  //     message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  //     date: "04/10/2023"
-  //   }
-  // ];
 
   return (
     <div className="outerBoxSuperAdmin">
@@ -281,7 +126,11 @@ const Superadmin = () => {
         <div onClick={()=>isSidebarPhone===true && setIsSidebarPhone(!isSidebarPhone)} className="innerBoxPhoneAdminContent">
           <div className="navPhoneAdmin">
             <div className="menuIconAdminBox">
-              <img onClick={()=>setIsSidebarPhone(!isSidebarPhone)} src={menu} alt="menu" />
+              <img onClick={()=>{
+                setIsPopup(true)
+                setIsSidebarPhone(!isSidebarPhone)
+              }
+              } src={menu} alt="menu" />
             </div>
             <div className="logoAdminBox">
               <img src={logo} alt="logo" />
