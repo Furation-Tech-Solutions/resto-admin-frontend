@@ -8,6 +8,7 @@ const initialState= {
     supportrequest: [],
     uniqueUser: [],
     adminData: [],
+    singleAdmin: {},
     totalUniqueUser: [],
     weeklyuniqueUser: [],
     monthlyuniqueUser: [],
@@ -62,6 +63,14 @@ const reducer= (oldState= initialState, action)=>{
         case types.GET_ADMINDATA_ERROR: 
             return {
                 ...oldState, adminData: []
+            }
+        case types.GET_SINGLEADMINDATA_SUCCESS: 
+            return {
+                ...oldState, singleAdmin:payload
+            }
+        case types.GET_SINGLEADMINDATA_ERROR: 
+            return {
+                ...oldState, singleAdmin: {}
             }
         case types.GET_SUPPORTREQUEST_SUCCESS: 
             return {

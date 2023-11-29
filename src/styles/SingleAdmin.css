@@ -1,0 +1,11 @@
+.rightupperBoxAdmin {
+    width: 98%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.rightupperBoxAdmin > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

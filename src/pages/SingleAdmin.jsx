@@ -2,14 +2,16 @@ import React, { useEffect, useState } from "react";
 import "../styles/Admin.css";
 import "../styles/Superadmin.css";
 import support from "../utils/Images/Admin/support.svg";
+import subscriptionandpayment from "../utils/Images/Admin/subscriptionandpayment.svg";
 import "../styles/SingleAdmin.css";
 import { AiOutlineSearch } from 'react-icons/ai';
+import chevronleft from "../utils/Images/Admin/chevronleft.svg";
 import logo from "../utils/Images/Admin/logo.svg";
 import menu from "../utils/Images/Admin/menu.svg";
 import { Doughnut } from 'react-chartjs-2';
-import { useNavigate } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getMonthlyUniqueUser, getPaymentHistory, getSupportRequest, getTotalUniqueUser, getUniqueUser, getUserFeedback, getUserSearchInput, getWeeklyUniqueUser, postImageSendMessage, postSendMessage, postSupportRequest } from "../Redux/AppData/action";
+import { getMonthlyUniqueUser, getPaymentHistory, getSingleAdminData, getSupportRequest, getTotalUniqueUser, getUniqueUser, getUserFeedback, getUserSearchInput, getWeeklyUniqueUser, postImageSendMessage, postSendMessage, postSupportRequest } from "../Redux/AppData/action";
 import { logout } from "../Redux/AuthData/action";
 import GraphOuter from "../components/GraphOuter";
 import GraphWrapperPhone from "../components/GraphWrapperPhone";
@@ -22,10 +24,18 @@ const SingleAdmin = () => {
 
   const navigate = useNavigate();
 
-  const adminDetails= JSON.parse(localStorage.getItem("admin"));
+  // const adminDetails= JSON.parse(localStorage.getItem("admin"));
 
   const date= new Date();
   const currentDate= date.toLocaleDateString();
+
+  const location= useLocation();
+
+  useEffect(()=>{
+    dispatch(getSingleAdminData({adminId: location.pathname.split("/")[2].split(":")[1]}))
+  }, [location])
+
+  const adminDetails= useSelector((store)=>store.AppReducer.singleAdmin);
 
   const subscriptionend= new Date(JSON.parse(localStorage.getItem("admin")).subscriptionend);
   const piechartDate= Math.floor((subscriptionend-date)/(1000*60*60*24)) || 0;
@@ -34,7 +44,7 @@ const SingleAdmin = () => {
   const requestsupportrawdata= useSelector((store)=>store.AppReducer.supportrequest);
 
   const [ requestsupportdata, setRequestsupportdata ]= useState(requestsupportrawdata);
-  
+
   const [ currentSubscriptionopen, setCurrentSubscriptionopen ]= useState(false);
 
   const [ userSearchInput, setUserSearchInput ] = useState("");
@@ -44,7 +54,7 @@ const SingleAdmin = () => {
   const [ isSidebarPhone, setIsSidebarPhone ]= useState(false);
 
   const [panelUserList, setPanelUserList]= useState("total");
-  
+
   const [barnum, setBarnum] = useState(1);
 
   const handleRequestSupportInput= (value) => {
@@ -69,6 +79,10 @@ const SingleAdmin = () => {
   const totalUniqueData= useSelector((store)=>store.AppReducer.totalUniqueUser);
   const weekData= useSelector((store)=>store.AppReducer.weeklyuniqueUser);
   const monthData= useSelector((store)=>store.AppReducer.monthlyuniqueUser);
+  const subscriptionData= useSelector((store)=>store.AppReducer.paymentHistory).reverse();
+
+
+
 
   useEffect(()=>{
     const date= new Date();
@@ -126,7 +140,7 @@ const SingleAdmin = () => {
   const handleLogout= () => {
     dispatch(logout());
   }
-  
+
   const doughnutdata = {
     labels: [],
     datasets: [
@@ -142,7 +156,6 @@ const SingleAdmin = () => {
     ],
   };
 
-    
   return (
     <div>
       <div className={currentSubscriptionopen? "innerBoxAdminOverlay" : "innerBoxAdmin" }>
@@ -183,7 +196,15 @@ const SingleAdmin = () => {
                 : "rightDashboardBoxAdminOff"
             }
           >
-            <div className="rightupperBoxAdmin"></div>
+            <div className="rightupperBoxAdmin">
+              <div onClick={()=>navigate("/superadmin")}>
+                <img src={chevronleft} alt="chevronleft" />
+                <p>Back</p>
+              </div>
+              <div>
+                <p>Edit</p>
+              </div>
+            </div>
             <div className="rightfirstBoxAdmin">
               <div className="textrightfirstBoxAdmin">
                 <p>Hello, Admin!</p>
@@ -207,6 +228,44 @@ const SingleAdmin = () => {
             </div>
             <GraphOuter />
             <UserTable />
+            <div className="rightSubscriptionBoxAdminInner">
+              <p className="SubscriptionTextAdmin">Subscription & Payment History</p>
+              {subscriptionData.length>0 ? <div className="subscriptiontableholder">
+                <table className="SubscriptionTableAdmin">
+                  <thead>
+                    <tr>
+                      <th className="SubscriptionTableHeadAdmin">Sr. No.</th>
+                      <th className="SubscriptionTableHeadAdmin">Plan</th>
+                      <th className="SubscriptionTableHeadAdmin">Status</th>
+                      <th className="SubscriptionTableHeadAdmin">Price</th>
+                      <th className="SubscriptionTableHeadAdmin">Invoice</th>
+                      <th className="SubscriptionTableHeadAdmin">Start Date</th>
+                      <th className="SubscriptionTableHeadAdmin">End Date</th>
+                      <th className="SubscriptionTableHeadAdmin">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {subscriptionData && subscriptionData.map((subscription, i)=>{
+                      return <tr key={i}>
+                        <td className="SubscriptionTableBodyAdmin">{i+1}</td>
+                        <td className="SubscriptionTableBodyAdmin">{subscription.service}</td>
+                        <td className="SubscriptionTableBodyAdmin">{subscription.status}</td>
+                        <td className="SubscriptionTableBodyAdmin">{subscription.price}</td>
+                        <td className="SubscriptionTableBodyAdmin">{subscription.refno}</td>
+                        <td className="SubscriptionTableBodyAdmin">{new Date(subscription.startdate).toLocaleString()}</td>
+                        <td className="SubscriptionTableBodyAdmin">{new Date(subscription.enddate).toLocaleString()}</td>
+                        <td className={i===0?"SubscriptionTableBodyAdmintrue" : "SubscriptionTableBodyAdmin"}>{i===0? "Active" : "Expired"}</td>
+                      </tr>
+                    })}
+                  </tbody>
+                </table>
+              </div> : 
+              <div className="notfounddiv">
+                <img src={subscriptionandpayment} alt="subscriptionandpayment" />
+                <p>No subscription or payment history found</p>
+              </div>
+              }
+            </div>
           </div>
           <div className={barnum===2 ? 'rightBoxSuperAdminSupport' : 'rightBoxSuperAdminSupportOff'}>
             <div className='rightBoxSuperAdminSupportText'><p>Support</p></div>

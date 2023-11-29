@@ -1,5 +1,5 @@
 // import axios from "axios"
-import { GET_ADMINDATA_ERROR, GET_ADMINDATA_SUCCESS, GET_ADMINSEARCH_ERROR, GET_ADMINSEARCH_REQUEST, GET_ADMINSEARCH_SUCCESS, GET_MONTHLYUNIQUEUSER_ERROR, GET_MONTHLYUNIQUEUSER_SUCCESS, GET_PAYMENTHISTORY_ERROR, GET_PAYMENTHISTORY_REQUEST, GET_PAYMENTHISTORY_SUCCESS, GET_SUPPORTREQUEST_ERROR, GET_SUPPORTREQUEST_SUCCESS, GET_TOTALUNIQUEUSER_ERROR, GET_TOTALUNIQUEUSER_SUCCESS, GET_UNIQUEUSER_ERROR, GET_UNIQUEUSER_SUCCESS, GET_USERFEEDBACK_ERROR, GET_USERFEEDBACK_REQUEST, GET_USERFEEDBACK_SUCCESS, GET_WEEKLYUNIQUEUSER_ERROR, GET_WEEKLYUNIQUEUSER_SUCCESS, POST_ADDADMIN_ERROR, POST_ADDADMIN_REQUEST, POST_ADDADMIN_SUCCESS, POST_SENDMESSAGE_ERROR, POST_SENDMESSAGE_REQUEST, POST_SENDMESSAGE_SUCCESS, POST_SUPPORTREQUEST_ERROR, POST_SUPPORTREQUEST_SUCCESS, POST_USERFEEDBACK_ERROR, POST_USERFEEDBACK_SUCCESS } from "./actionTypes"
+import { GET_ADMINDATA_ERROR, GET_ADMINDATA_SUCCESS, GET_ADMINSEARCH_ERROR, GET_ADMINSEARCH_REQUEST, GET_ADMINSEARCH_SUCCESS, GET_MONTHLYUNIQUEUSER_ERROR, GET_MONTHLYUNIQUEUSER_SUCCESS, GET_PAYMENTHISTORY_ERROR, GET_PAYMENTHISTORY_REQUEST, GET_PAYMENTHISTORY_SUCCESS, GET_SINGLEADMINDATA_ERROR, GET_SINGLEADMINDATA_SUCCESS, GET_SUPPORTREQUEST_ERROR, GET_SUPPORTREQUEST_SUCCESS, GET_TOTALUNIQUEUSER_ERROR, GET_TOTALUNIQUEUSER_SUCCESS, GET_UNIQUEUSER_ERROR, GET_UNIQUEUSER_SUCCESS, GET_USERFEEDBACK_ERROR, GET_USERFEEDBACK_REQUEST, GET_USERFEEDBACK_SUCCESS, GET_WEEKLYUNIQUEUSER_ERROR, GET_WEEKLYUNIQUEUSER_SUCCESS, POST_ADDADMIN_ERROR, POST_ADDADMIN_REQUEST, POST_ADDADMIN_SUCCESS, POST_SENDMESSAGE_ERROR, POST_SENDMESSAGE_REQUEST, POST_SENDMESSAGE_SUCCESS, POST_SUPPORTREQUEST_ERROR, POST_SUPPORTREQUEST_SUCCESS, POST_USERFEEDBACK_ERROR, POST_USERFEEDBACK_SUCCESS } from "./actionTypes"
 import axios from "axios";
 
 
@@ -79,6 +79,18 @@ const getAdminDataSuccess= (payload)=>{
 const getAdminDataError= ()=>{
     return {
         type: GET_ADMINDATA_ERROR
+    }
+}
+
+const getSingleAdminDataSuccess= (payload)=>{
+    return {
+        type: GET_SINGLEADMINDATA_SUCCESS,
+        payload
+    }
+}
+const getSingleAdminDataError= ()=>{
+    return {
+        type: GET_SINGLEADMINDATA_ERROR
     }
 }
 
@@ -242,6 +254,16 @@ const getAdminData= (params)=>(dispatch)=>{
     })
     .catch((error)=>{
         dispatch(getAdminDataError())
+    })
+}
+
+const getSingleAdminData= (params)=>(dispatch)=>{
+    return axios.get(`https://admin-bot.furation.tech/api/v1/admin/id/${params.adminId}`)
+    .then((res)=>{
+        dispatch(getSingleAdminDataSuccess(res.data))
+    })
+    .catch((error)=>{
+        dispatch(getSingleAdminDataError())
     })
 }
 
@@ -429,4 +451,4 @@ const getMonthlyUniqueUser= (params)=>(dispatch)=>{
     })
 }
 
-export {getPaymentHistory, getAdminSearchInput, getUserFeedback, postUserFeedback, getAdminData, getSupportRequest, postSendMessage, postImageSendMessage, postSupportRequest, postAddAdmin, getUniqueUser, getTotalUniqueUser, getWeeklyUniqueUser, getMonthlyUniqueUser};
+export {getPaymentHistory, getAdminSearchInput, getUserFeedback, postUserFeedback, getAdminData, getSingleAdminData, getSupportRequest, postSendMessage, postImageSendMessage, postSupportRequest, postAddAdmin, getUniqueUser, getTotalUniqueUser, getWeeklyUniqueUser, getMonthlyUniqueUser};
