@@ -391,6 +391,51 @@ const SingleAdmin = () => {
               }
             </div>
           </div>
+          <div className={barnum===2 ? 'rightBoxSuperAdminSupport' : 'rightBoxSuperAdminSupportOff'}>
+            <div className='rightBoxSuperAdminSupportText'><p>Support</p></div>
+           <div className='rightsecondBoxSuperadmin'>
+              <div className="rightsecondBoxSuperadminInputWithSelect">
+                <AiOutlineSearch size={"20px"} />
+                <input onChange={(e)=>handleRequestSupportInput(e.target.value)} value={requestSupportInput} className="rightsecondBoxSuperadminInput" type="text" placeholder='Search by email or phone number' />
+              </div>
+              <select onChange={(e)=>setFilterValue(e.target.value)} value={filterValue} className="rightsecondBoxSuperadminSelect" name="" id="">
+                <option value="">All time</option>
+                <option value="week">Last 7 days</option>
+                <option value="month">Last 30 days</option>
+              </select>
+            </div>
+            <div className='rightthirdBoxSuperadminSupport'>
+            {requestsupportdata.length>0 ? <div className='userTableSuperAdminHolder'>
+                <table className="feedbackTableSuperAdmin">
+                  <thead>
+                    <tr>
+                      <th className="feedbackTableHeadSuperAdmin">Sr. No.</th>
+                      <th className="feedbackTableHeadSuperAdmin">Name</th>
+                      <th className="feedbackTableHeadSuperAdmin">Phone Number</th>
+                      <th className="feedbackTableHeadSuperAdmin">Feedback</th>
+                      <th className="feedbackTableHeadSuperAdmin">Date</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {requestsupportdata && requestsupportdata.map((feedback, i)=>{
+                      return <tr key={i}>
+                        <td className="feedbackTableBodySuperAdmin">{i+1}</td>
+                        <td className="feedbackTableBodySuperAdmin">{feedback.businessName}</td>
+                        <td className="feedbackTableBodySuperAdmin">{feedback.phone}</td>
+                        <td className="feedbackTableBodySuperAdmin">{feedback.message}</td>
+                        <td className="feedbackTableBodySuperAdmin">{new Date(feedback.createdAt).toLocaleString()}</td>
+                      </tr>
+                    })}
+                  </tbody>
+                </table>
+              </div> : 
+              <div className="notfounddiv">
+                <img src={support} alt="support" />
+                <p>No record found</p>
+              </div>
+              }
+            </div>
+          </div>
         </div>
         <div className={isSidebarPhone? "sideBarPhoneAdmin" : "sideBarPhoneAdminOff"}>
           <div className="menudivsidePhone">
