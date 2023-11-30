@@ -16,18 +16,28 @@ const Login = () => {
   const dispatch= useDispatch();
   const navigate= useNavigate();
 
-  const role= useSelector((store)=>store.AuthReducer.role);
+  // const role= useSelector((store)=>store.AuthReducer.role);
   const isAuthLoading= useSelector((store)=>store.AuthReducer.isAuthLoading);
+  // const isError= useSelector((store)=>store.AuthReducer.isAuthError);
 
 
   const handleLogin = () =>{
     if(phone && password){
       dispatch(login({phone, password})).then((r)=>{
-        role==="superadmin" ? navigate("/superadmin") : navigate("/");
-        alert("Successfully Logged in")
+        const role= JSON.parse(localStorage.getItem("admin")).role;
+        // const isError= !JSON.parse(localStorage.getItem("admin")).role;
+        // console.log({isError, role})
+        const isError=false;
+        if(isError){
+          alert("Invalid Number or Password")
+        }else{
+          role==="superadmin" ? navigate("/superadmin") : navigate("/");
+        }
       })
     }
   }
+
+
 
   const handleClickShowPassword = () => {
     setispassword((prev)=>!prev);

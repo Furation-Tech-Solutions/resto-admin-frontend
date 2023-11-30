@@ -16,6 +16,7 @@ const login= (payload) => (dispatch) => {
             deployedLink: r.data.deployedLink
         }));
         dispatch({type: types.USER_LOGIN_SUCCESS, payload: {token: r.data.token,role: r.data.role}})
+        return {role : r.data.role}
     })
     .catch((e)=>{dispatch({type: types.USER_LOGIN_ERROR})})
 }

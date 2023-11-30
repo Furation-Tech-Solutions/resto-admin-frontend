@@ -405,7 +405,7 @@ const Admin = () => {
                         <td className="FeedbackTableBodyAdmin">{feed.name}</td>
                         <td className="FeedbackTableBodyAdmin">{feed.recipient}</td>
                         <td className="FeedbackTableBodyAdmin">{feed.message}</td>
-                        <td className="FeedbackTableBodyAdmin">{new Date(feed.createdAt).toLocaleString().split(",")[0]}</td>
+                        <td className="FeedbackTableBodyAdmin">{new Date(feed.createdAt).toLocaleString()}</td>
                       </tr>
                     })}
                   </tbody>
@@ -603,7 +603,7 @@ const Admin = () => {
                         <td className="FeedbackTableBodyAdmin">{feed.name}</td>
                         <td className="FeedbackTableBodyAdmin">{feed.recipient}</td>
                         <td className="FeedbackTableBodyAdmin">{feed.message}</td>
-                        <td className="FeedbackTableBodyAdmin">{new Date(feed.createdAt).toLocaleString().split(",")[0]}</td>
+                        <td className="FeedbackTableBodyAdmin">{new Date(feed.createdAt).toLocaleString()}</td>
                       </tr>
                     })}
                   </tbody>
