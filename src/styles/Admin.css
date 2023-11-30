@@ -2673,9 +2673,9 @@
         padding: 0px 4px 0px 4px;
     }
     .userTableAdminHeadPhone{
-        color: #000;
+        color: #353333;
         font-family: "Poppins", Arial, sans-serif;
-        font-size: 22px;
+        font-size: 18px;
         font-style: normal;
         font-weight: 600;
         line-height: normal;
@@ -2685,12 +2685,12 @@
     .userTableAdminBodyPhone{
         color: #4F4F4F;
         font-family: "Poppins", Arial, sans-serif;
-        font-size: 22px;
+        font-size: 18px;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
         text-align: left;
-        padding: 6px;
+        padding: 7px;
     }
     .sideBarPhoneAdminOff{
         display: none;

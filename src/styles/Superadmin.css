@@ -68,6 +68,7 @@
 }
 .leftsecondBoxSuperAdmin{
     width: 60%;
+    height: 400px;
     padding: 10px;
     display: inline-flex;
     flex-direction: column;

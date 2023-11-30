@@ -1,3 +1,9 @@
+.rightBoxSingleAdmin{
+    width: 80%;
+    height: 100vh;
+    flex-shrink: 0;
+    overflow-x: auto;
+}
 .rightupperBoxAdmin {
     width: 98%;
     display: flex;
@@ -8,4 +14,157 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+.subscriptiontableholderSingleAdmin{
+    height: 250px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border: 1px solid #C2C2C2;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+.SubscriptionTextSingleAdmin{
+    color: #000;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 90.909% */
+    letter-spacing: 0.1px;
+}
+.rightSubscriptionBoxSingleAdminInner{
+    width: 99%;
+    text-align: left;
+    padding: 1px;
+}
+.SubscriptionTableHeadSingleAdmin{
+    color: #282727;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-align: left;
+    padding: 8px;
+}
+.SubscriptionTableBodySingleAdmin{
+    color: #4F4F4F;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: justify;
+    padding: 8px;
+}
+.SubscriptionTableBodySingleAdmintrue{
+    color: #1ADB16;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: justify;
+    padding: 8px;
+}
+
+
+
+@media all and (min-width:801px) and (max-width:1200px){
+    .subscriptiontableholder{
+        height: 90vh;
+        overflow-x: auto;
+        overflow-y: auto;
+        border: 1px solid #C2C2C2;
+        border-radius: 8px;
+    }
+    .SubscriptionTextSingleAdmin{
+        font-size: 19px;
+    }
+    .rightBoxSingleAdmin{
+        width: 68%;
+        height: 100vh;
+        flex-shrink: 0;
+    }
+    .SubscriptionTableHeadSingleAdmin{
+        font-size: 16px;
+        padding: 6px;
+    }
+    .SubscriptionTableBodySingleAdmin{
+        font-size: 16px;
+        padding: 7px;
+    }
+    .SubscriptionTableBodySingleAdmintrue{
+        font-size: 16px;
+    }
+}
+
+
+
+@media all and (min-width:481px) and (max-width:800px){
+    .subscriptiontableholder{
+        width: 95%;
+        margin: auto;
+        height: 90vh;
+        overflow-x: auto;
+        overflow-y: auto;
+        border: 1px solid #C2C2C2;
+        border-radius: 8px;
+    }
+    .SubscriptionTextSingleAdmin{
+        font-size: 17px;
+    }
+    .rightupperBoxAdmin {
+        width: 95%;
+        margin: auto;
+    }
+    .rightSubscriptionBoxSingleAdminInner{
+        width: 95%;
+        margin: auto;
+    }
+    .SubscriptionTableHeadSingleAdmin{
+        font-size: 19px;
+        padding: 7px;
+    }
+    .SubscriptionTableBodySingleAdmin{
+        font-size: 19px;
+        padding: 8px;
+    }
+    .SubscriptionTableBodySingleAdmintrue{
+        font-size: 19px;
+    }
+}
+
+
+
+@media all and (min-width:180px) and (max-width:480px){
+    .subscriptiontableholder{
+        height: 80vh;
+        overflow-x: auto;
+        overflow-y: auto;
+        border: 1px solid #C2C2C2;
+        border-radius: 8px;
+    }
+    .SubscriptionTextSingleAdmin{
+        font-size: 17px;
+    }
+    .rightupperBoxAdmin {
+        width: 95%;
+        margin: auto;
+    }
+    .rightSubscriptionBoxSingleAdminInner{
+        width: 95%;
+        margin: auto;
+    }
+    .SubscriptionTableHeadSingleAdmin{
+        font-size: 17px;
+        padding: 7px;
+    }
+    .SubscriptionTableBodySingleAdmin{
+        font-size: 17px;
+        padding: 8px;
+    }
+    .SubscriptionTableBodySingleAdmintrue{
+        font-size: 19px;
+    }
 }

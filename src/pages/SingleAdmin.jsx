@@ -158,7 +158,8 @@ const SingleAdmin = () => {
 
   return (
     <div>
-      <div className={currentSubscriptionopen? "innerBoxAdminOverlay" : "innerBoxAdmin" }>
+      {/* <div className={currentSubscriptionopen? "innerBoxAdminOverlay" : "innerBoxAdmin" }> */}
+      <div className="innerBoxAdmin">
         <div className="leftBoxSuperAdmin">
           <div className="leftfirstBoxSuperAdmin">
             <img src={logo} alt="applogo" />
@@ -188,7 +189,7 @@ const SingleAdmin = () => {
             </div>
           </div>
         </div>
-        <div className="rightBoxAdmin">
+        <div className="rightBoxSingleAdmin">
           <div
             className={
               barnum === 1
@@ -218,7 +219,7 @@ const SingleAdmin = () => {
                   </div>
                 </div> */}
                 <div className="countdownrightDoughnutOuterAdminFirstBox">
-                  <div onClick={()=>setCurrentSubscriptionopen(true)} className="countdownrightDoughnutInnerAdminFirstBox">
+                  <div className="countdownrightDoughnutInnerAdminFirstBox">
                     <Doughnut data={doughnutdata} /><br/>
                     <div className="countdownrightDoughnutInnerAdminNumberFirstBox">{piechartDate}</div>
                   </div>
@@ -228,33 +229,33 @@ const SingleAdmin = () => {
             </div>
             <GraphOuter />
             <UserTable />
-            <div className="rightSubscriptionBoxAdminInner">
-              <p className="SubscriptionTextAdmin">Subscription & Payment History</p>
-              {subscriptionData.length>0 ? <div className="subscriptiontableholder">
+            <div className="rightSubscriptionBoxSingleAdminInner">
+              <p className="SubscriptionTextSingleAdmin">Subscription & Payment History</p>
+              {subscriptionData.length>0 ? <div className="subscriptiontableholderSingleAdmin">
                 <table className="SubscriptionTableAdmin">
                   <thead>
                     <tr>
-                      <th className="SubscriptionTableHeadAdmin">Sr. No.</th>
-                      <th className="SubscriptionTableHeadAdmin">Plan</th>
-                      <th className="SubscriptionTableHeadAdmin">Status</th>
-                      <th className="SubscriptionTableHeadAdmin">Price</th>
-                      <th className="SubscriptionTableHeadAdmin">Invoice</th>
-                      <th className="SubscriptionTableHeadAdmin">Start Date</th>
-                      <th className="SubscriptionTableHeadAdmin">End Date</th>
-                      <th className="SubscriptionTableHeadAdmin">Status</th>
+                      <th className="SubscriptionTableHeadSingleAdmin">Sr. No.</th>
+                      <th className="SubscriptionTableHeadSingleAdmin">Plan</th>
+                      <th className="SubscriptionTableHeadSingleAdmin">Status</th>
+                      <th className="SubscriptionTableHeadSingleAdmin">Price</th>
+                      <th className="SubscriptionTableHeadSingleAdmin">Invoice</th>
+                      <th className="SubscriptionTableHeadSingleAdmin">Start Date</th>
+                      <th className="SubscriptionTableHeadSingleAdmin">End Date</th>
+                      <th className="SubscriptionTableHeadSingleAdmin">Status</th>
                     </tr>
                   </thead>
                   <tbody>
                     {subscriptionData && subscriptionData.map((subscription, i)=>{
                       return <tr key={i}>
-                        <td className="SubscriptionTableBodyAdmin">{i+1}</td>
-                        <td className="SubscriptionTableBodyAdmin">{subscription.service}</td>
-                        <td className="SubscriptionTableBodyAdmin">{subscription.status}</td>
-                        <td className="SubscriptionTableBodyAdmin">{subscription.price}</td>
-                        <td className="SubscriptionTableBodyAdmin">{subscription.refno}</td>
-                        <td className="SubscriptionTableBodyAdmin">{new Date(subscription.startdate).toLocaleString()}</td>
-                        <td className="SubscriptionTableBodyAdmin">{new Date(subscription.enddate).toLocaleString()}</td>
-                        <td className={i===0?"SubscriptionTableBodyAdmintrue" : "SubscriptionTableBodyAdmin"}>{i===0? "Active" : "Expired"}</td>
+                        <td className="SubscriptionTableBodySingleAdmin">{i+1}</td>
+                        <td className="SubscriptionTableBodySingleAdmin">{subscription.service}</td>
+                        <td className="SubscriptionTableBodySingleAdmin">{subscription.status}</td>
+                        <td className="SubscriptionTableBodySingleAdmin">{subscription.price}</td>
+                        <td className="SubscriptionTableBodySingleAdmin">{subscription.refno}</td>
+                        <td className="SubscriptionTableBodySingleAdmin">{new Date(subscription.startdate).toLocaleString().split(",")[0]}</td>
+                        <td className="SubscriptionTableBodySingleAdmin">{new Date(subscription.enddate).toLocaleString().split(",")[0]}</td>
+                        <td className={i===0?"SubscriptionTableBodySingleAdmintrue" : "SubscriptionTableBodySingleAdmin"}>{i===0? "Active" : "Expired"}</td>
                       </tr>
                     })}
                   </tbody>
@@ -314,7 +315,8 @@ const SingleAdmin = () => {
           </div>
         </div>
       </div>
-      <div className={currentSubscriptionopen? "innerBoxPhoneAdminOverlay" : "innerBoxPhoneAdmin"}>
+      {/* <div className={currentSubscriptionopen? "innerBoxPhoneAdminOverlay" : "innerBoxPhoneAdmin"}> */}
+      <div className="innerBoxPhoneAdmin">
       <div onClick={()=>isSidebarPhone===true && setIsSidebarPhone(!isSidebarPhone)} className="innerBoxPhoneAdminContent">
           <div className="navPhoneAdmin">
             <div className="menuIconAdminBox">
@@ -328,19 +330,66 @@ const SingleAdmin = () => {
               className={
                 barnum === 1 ? "interactionAdmin" : "interactionAdminOff"
               }>
+            <div className="rightupperBoxAdmin">
+              <div onClick={()=>navigate("/superadmin")}>
+                <img src={chevronleft} alt="chevronleft" />
+                <p>Back</p>
+              </div>
+              <div>
+                <p>Edit</p>
+              </div>
+            </div>
             <div className="firstBoxAdminPhone">
               <div className="firstBoxTextAdminPhone">
                 <p>Hello, Admin!</p>
                 <p>Users Overview</p>
                 <p>{currentDate}</p>
               </div>
-              <div onClick={()=>setCurrentSubscriptionopen(true)} className="countdownrAdminBoxPhone">
+              <div className="countdownrAdminBoxPhone">
                 <Doughnut data={doughnutdata} /><br/>
                 <div className="countdownrAdminBoxPhoneNumber">{piechartDate}</div>
               </div>
             </div>
             <GraphWrapperPhone />
             <UserTablePhone />
+            <div className="rightSubscriptionBoxSingleAdminInner">
+              <p className="SubscriptionTextSingleAdmin">Subscription & Payment History</p>
+              {subscriptionData.length>0 ? <div className="subscriptiontableholderSingleAdmin">
+                <table className="SubscriptionTableAdmin">
+                  <thead>
+                    <tr>
+                      <th className="SubscriptionTableHeadSingleAdmin">Sr. No.</th>
+                      <th className="SubscriptionTableHeadSingleAdmin">Plan</th>
+                      <th className="SubscriptionTableHeadSingleAdmin">Status</th>
+                      <th className="SubscriptionTableHeadSingleAdmin">Price</th>
+                      <th className="SubscriptionTableHeadSingleAdmin">Invoice</th>
+                      <th className="SubscriptionTableHeadSingleAdmin">Start Date</th>
+                      <th className="SubscriptionTableHeadSingleAdmin">End Date</th>
+                      <th className="SubscriptionTableHeadSingleAdmin">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {subscriptionData && subscriptionData.map((subscription, i)=>{
+                      return <tr key={i}>
+                        <td className="SubscriptionTableBodySingleAdmin">{i+1}</td>
+                        <td className="SubscriptionTableBodySingleAdmin">{subscription.service}</td>
+                        <td className="SubscriptionTableBodySingleAdmin">{subscription.status}</td>
+                        <td className="SubscriptionTableBodySingleAdmin">{subscription.price}</td>
+                        <td className="SubscriptionTableBodySingleAdmin">{subscription.refno}</td>
+                        <td className="SubscriptionTableBodySingleAdmin">{new Date(subscription.startdate).toLocaleString().split(",")[0]}</td>
+                        <td className="SubscriptionTableBodySingleAdmin">{new Date(subscription.enddate).toLocaleString().split(",")[0]}</td>
+                        <td className={i===0?"SubscriptionTableBodySingleAdmintrue" : "SubscriptionTableBodySingleAdmin"}>{i===0? "Active" : "Expired"}</td>
+                      </tr>
+                    })}
+                  </tbody>
+                </table>
+              </div> : 
+              <div className="notfounddiv">
+                <img src={subscriptionandpayment} alt="subscriptionandpayment" />
+                <p>No subscription or payment history found</p>
+              </div>
+              }
+            </div>
           </div>
         </div>
         <div className={isSidebarPhone? "sideBarPhoneAdmin" : "sideBarPhoneAdminOff"}>
