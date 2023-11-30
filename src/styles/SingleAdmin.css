@@ -17,7 +17,7 @@
 }
 .subscriptiontableholderSingleAdmin{
     height: 250px;
-    overflow-x: hidden;
+    overflow-x: auto;
     overflow-y: auto;
     border: 1px solid #C2C2C2;
     border-radius: 8px;
