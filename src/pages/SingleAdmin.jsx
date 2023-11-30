@@ -32,7 +32,7 @@ const SingleAdmin = () => {
   const location= useLocation();
 
   useEffect(()=>{
-    dispatch(getSingleAdminData({adminId: location.pathname.split("/")[2].split(":")[1]}))
+    if(getSingleAdminData({adminId: location.pathname.split("/")[2].split(":")[1]})) dispatch(getSingleAdminData({adminId: location.pathname.split("/")[2].split(":")[1]}))
   }, [location])
 
   const adminDetails= useSelector((store)=>store.AppReducer.singleAdmin);

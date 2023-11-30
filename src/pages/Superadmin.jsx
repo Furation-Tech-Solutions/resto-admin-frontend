@@ -118,16 +118,15 @@ const Superadmin = () => {
     }
   }, [requestsupportrawdata, adminSearchInput, filterValue, userSearchData, userrawData]);
 
-  console.log({userData});
 
   return (
     <div className="outerBoxSuperAdmin">
-      <div className={isPopup || isAddAdmin? "innerBoxPhoneAdminOverlay" : "innerBoxPhoneAdmin"}>
+      <div className={isPopup || isAddAdmin? "innerBoxPhoneAdmin" : "innerBoxPhoneAdmin"}>
         <div onClick={()=>isSidebarPhone===true && setIsSidebarPhone(!isSidebarPhone)} className="innerBoxPhoneAdminContent">
           <div className="navPhoneAdmin">
             <div className="menuIconAdminBox">
               <img onClick={()=>{
-                setIsPopup(true)
+                setIsPopup(!isPopup)
                 setIsSidebarPhone(!isSidebarPhone)
               }
               } src={menu} alt="menu" />
@@ -142,7 +141,10 @@ const Superadmin = () => {
         <div className={isSidebarPhone? "sideBarPhoneAdmin" : "sideBarPhoneAdminOff"}>
           <div className="menudivsidePhone">
             <div className="menudivsidePhoneBox">
-              <img onClick={()=>setIsSidebarPhone(!isSidebarPhone)} src={menu} alt="menu" />
+              <img onClick={()=>{
+                setIsPopup(!isPopup)
+                setIsSidebarPhone(!isSidebarPhone)
+              }} src={menu} alt="menu" />
             </div>
           </div>
           <div className="ContentBoxSideBarrPhoneAdmin">
@@ -150,6 +152,7 @@ const Superadmin = () => {
                 <div
                   onClick={() => {
                     setBarnum(1)
+                    setIsPopup(false)
                     setIsSidebarPhone(!isSidebarPhone)
                   }}
                   className={
@@ -161,6 +164,7 @@ const Superadmin = () => {
                 <div
                   onClick={() => {
                     setBarnum(2)
+                    setIsPopup(false)
                     setIsSidebarPhone(!isSidebarPhone)
                   }}
                   className={

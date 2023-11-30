@@ -143,6 +143,7 @@ const Admin = () => {
 
 
 
+
   const monthlinedata= () => {
     const array= [];
     for(let i=1;i<=30;i++){
@@ -402,9 +403,9 @@ const Admin = () => {
                       return <tr key={i}>
                         <td className="FeedbackTableBodyAdmin">{i+1}</td>
                         <td className="FeedbackTableBodyAdmin">{feed.name}</td>
-                        <td className="FeedbackTableBodyAdmin">{feed.phone}</td>
+                        <td className="FeedbackTableBodyAdmin">{feed.recipient}</td>
                         <td className="FeedbackTableBodyAdmin">{feed.message}</td>
-                        <td className="FeedbackTableBodyAdmin">{feed.date}</td>
+                        <td className="FeedbackTableBodyAdmin">{new Date(feed.createdAt).toLocaleString().split(",")[0]}</td>
                       </tr>
                     })}
                   </tbody>
@@ -600,9 +601,9 @@ const Admin = () => {
                       return <tr key={i}>
                         <td className="FeedbackTableBodyAdmin">{i+1}</td>
                         <td className="FeedbackTableBodyAdmin">{feed.name}</td>
-                        <td className="FeedbackTableBodyAdmin">{feed.phone}</td>
+                        <td className="FeedbackTableBodyAdmin">{feed.recipient}</td>
                         <td className="FeedbackTableBodyAdmin">{feed.message}</td>
-                        <td className="FeedbackTableBodyAdmin">{feed.date}</td>
+                        <td className="FeedbackTableBodyAdmin">{new Date(feed.createdAt).toLocaleString().split(",")[0]}</td>
                       </tr>
                     })}
                   </tbody>

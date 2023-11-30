@@ -234,7 +234,7 @@ const getUserFeedback= (params)=>(dispatch)=>{
     dispatch(getUserFeedbackRequest());
     return axios.get(`https://what-bot.furation.tech/feedback`, {params})
     .then((res)=>{
-        dispatch(getUserFeedbackSuccess(res.data))
+        dispatch(getUserFeedbackSuccess(res.data.data))
     })
     .catch((error)=>{
         dispatch(getUserFeedbackError())
