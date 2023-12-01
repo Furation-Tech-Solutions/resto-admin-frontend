@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import menu from "../utils/Images/Admin/menu.svg";
 import noadmin from "../utils/Images/Admin/noadmin.svg";
 import { getAdminData, getAdminSearchInput, getSupportRequest, postAddAdmin } from '../Redux/AppData/action';
+import { logout } from '../Redux/AuthData/action';
 
 const Superadmin = () => {
   
