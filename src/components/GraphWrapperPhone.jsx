@@ -322,14 +322,14 @@ const GraphWrapperPhone = () => {
         <div className="thirdBoxAdminChartBoxPhone">
           {chartnumphone === 1 && (
             <div className="thirdBoxAdminWeeklyBoxPhone">
-              <p className="thirdBoxAdminWeeklyBoxPhoneText">This Week</p>
+              <p className="thirdBoxAdminWeeklyBoxPhoneText">Last 7 days</p>
               <Bar data={weeklydata} options={barOptions} />
             </div>
           )}
           {chartnumphone === 2 && (
             <div className="thirdBoxAdminMonthlyBoxPhone">
               <div className="thirdBoxAdminMonthlyBoxPhoneText">
-                <p>last 30 days</p>
+                <p>Monthly Data</p>
                 <select
                   onChange={(e) => setChooseMonth(e.target.value)}
                   value={chooseMonth}
@@ -344,6 +344,9 @@ const GraphWrapperPhone = () => {
                   <option value={currentMonth - 2}>
                     {monthObj[currentMonth - 2]}
                   </option>
+                  <option value={currentMonth - 3}>
+                    {monthObj[currentMonth - 3]}
+                  </option>
                 </select>
               </div>
               <Line data={monthlydata} options={lineOptions} />
@@ -354,7 +357,7 @@ const GraphWrapperPhone = () => {
           <img
             onClick={() => setchartnumphone(1)}
             src={chartnumphone === 1 ? chevronleftdisable : chevronright}
-            alt=""
+            alt="chevronleftright"
           />
           <div>
             <div
@@ -377,7 +380,7 @@ const GraphWrapperPhone = () => {
           <img
             onClick={() => setchartnumphone(2)}
             src={chartnumphone === 1 ? chevronleft : chevronrightdisable}
-            alt=""
+            alt="chevronleftright"
           />
         </div>
       </div>

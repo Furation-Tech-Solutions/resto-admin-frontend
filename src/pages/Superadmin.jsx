@@ -30,6 +30,11 @@ const Superadmin = () => {
 
   const [ requestSupportInput, setRequestSupportInput ] = useState("");
 
+
+  const handleLogout= () => {
+    dispatch(logout());
+  }
+
   const handleAddAdmin= () => {
     if(addbusinessName!=="" && addemail!=="" && addphone!=="" && addpassword!==""){
       const data= {
@@ -177,7 +182,7 @@ const Superadmin = () => {
                 </div>
             </div>
             <div className="ThirdBoxsideBarPhoneAdmin">
-              <div className="ThirdBoxsideBarSecondPhoneAdmin">Logout</div>
+              <div onClick={()=>handleLogout()} className="ThirdBoxsideBarSecondPhoneAdmin">Logout</div>
             </div>
           </div>
         </div>
@@ -209,7 +214,7 @@ const Superadmin = () => {
               </div>
             </div>
             <div className="leftthirdBoxSuperAdmin">
-              <div className="leftthirdBoxfirstSuperAdmin">Logout</div>
+              <div onClick={()=>handleLogout()} className="leftthirdBoxfirstSuperAdmin">Logout</div>
             </div>
           </div>
         </div>
@@ -284,7 +289,7 @@ const Superadmin = () => {
               <select onChange={(e)=>setFilterValue(e.target.value)} value={filterValue} className="rightsecondBoxSuperadminSelect" name="" id="">
                 <option value="">All time</option>
                 <option value="week">Last 7 days</option>
-                <option value="month">Last 30 days</option>
+                <option value="month">This month</option>
               </select>
             </div>
             <div className='rightthirdBoxSuperadminSupport'>

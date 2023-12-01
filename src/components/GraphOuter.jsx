@@ -262,7 +262,7 @@ const GraphOuter = () => {
           }
         >
           <div className="weeklyChartAdminText">
-            <p>last 7 days</p>
+            <p>Last 7 days</p>
           </div>
           <Bar data={weeklydata} options={barOptions} />
         </div>
@@ -272,7 +272,7 @@ const GraphOuter = () => {
           }
         >
           <div className="monthlyChartAdminText">
-            <p>last 30 days</p>
+            <p>Monthly Data</p>
             <select
               onChange={(e) => setChooseMonth(e.target.value)}
               value={chooseMonth}
@@ -286,6 +286,9 @@ const GraphOuter = () => {
               </option>
               <option value={currentMonth - 2}>
                 {monthObj[currentMonth - 2]}
+              </option>
+              <option value={currentMonth - 3}>
+                {monthObj[currentMonth - 3]}
               </option>
             </select>
           </div>

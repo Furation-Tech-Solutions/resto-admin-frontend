@@ -9,7 +9,7 @@ import chevronleft from "../utils/Images/Admin/chevronleft.svg";
 import logo from "../utils/Images/Admin/logo.svg";
 import menu from "../utils/Images/Admin/menu.svg";
 import { Doughnut } from 'react-chartjs-2';
-import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getMonthlyUniqueUser, getPaymentHistory, getSingleAdminData, getSupportRequest, getTotalUniqueUser, getUniqueUser, getUserFeedback, getUserSearchInput, getWeeklyUniqueUser, postImageSendMessage, postSendMessage, postSupportRequest } from "../Redux/AppData/action";
 import { logout } from "../Redux/AuthData/action";
@@ -185,7 +185,7 @@ const SingleAdmin = () => {
               </div>
             </div>
             <div className="leftthirdBoxSuperAdmin">
-              <div className="leftthirdBoxfirstSuperAdmin">Logout</div>
+              <div onClick={()=>handleLogout()} className="leftthirdBoxfirstSuperAdmin">Logout</div>
             </div>
           </div>
         </div>
@@ -208,9 +208,9 @@ const SingleAdmin = () => {
             </div>
             <div className="rightfirstBoxAdmin">
               <div className="textrightfirstBoxAdmin">
-                <p>Hello, Admin!</p>
-                <p>Users Overview</p>
-                <p>{currentDate}</p>
+                <p>{adminDetails.businessName}</p>
+                <p>{adminDetails.email}</p>
+                <p>{adminDetails.phone}</p>
               </div>
               <div className="countdownrightfirstBoxAdmin">
                 {/* <div className="countdownrightfirstRoundOuter">
@@ -278,7 +278,7 @@ const SingleAdmin = () => {
               <select onChange={(e)=>setFilterValue(e.target.value)} value={filterValue} className="rightsecondBoxSuperadminSelect" name="" id="">
                 <option value="">All time</option>
                 <option value="week">Last 7 days</option>
-                <option value="month">Last 30 days</option>
+                <option value="month">This month</option>
               </select>
             </div>
             <div className='rightthirdBoxSuperadminSupport'>
@@ -341,9 +341,9 @@ const SingleAdmin = () => {
             </div>
             <div className="firstBoxAdminPhone">
               <div className="firstBoxTextAdminPhone">
-                <p>Hello, Admin!</p>
-                <p>Users Overview</p>
-                <p>{currentDate}</p>
+                <p>{adminDetails.businessName}</p>
+                <p>{adminDetails.email}</p>
+                <p>{adminDetails.phone}</p>
               </div>
               <div className="countdownrAdminBoxPhone">
                 <Doughnut data={doughnutdata} /><br/>
@@ -401,7 +401,7 @@ const SingleAdmin = () => {
               <select onChange={(e)=>setFilterValue(e.target.value)} value={filterValue} className="rightsecondBoxSuperadminSelect" name="" id="">
                 <option value="">All time</option>
                 <option value="week">Last 7 days</option>
-                <option value="month">Last 30 days</option>
+                <option value="month">This month</option>
               </select>
             </div>
             <div className='rightthirdBoxSuperadminSupport'>
@@ -471,7 +471,7 @@ const SingleAdmin = () => {
                 </div>
             </div>
             <div className="ThirdBoxsideBarPhoneAdmin">
-              <div className="ThirdBoxsideBarSecondPhoneAdmin">Logout</div>
+              <div onClick={()=>handleLogout()} className="ThirdBoxsideBarSecondPhoneAdmin">Logout</div>
             </div>
           </div>
         </div>

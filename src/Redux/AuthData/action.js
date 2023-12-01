@@ -2,6 +2,7 @@
 import axios from "axios";
 import * as types from"./actionTypes";
 
+
 const login= (payload) => (dispatch) => {
     dispatch({type: types.USER_LOGIN_REQUEST});
     return axios.post("https://admin-bot.furation.tech/api/v1/admin/login", payload)
@@ -16,9 +17,15 @@ const login= (payload) => (dispatch) => {
             deployedLink: r.data.deployedLink
         }));
         dispatch({type: types.USER_LOGIN_SUCCESS, payload: {token: r.data.token,role: r.data.role}})
-        return {role : r.data.role}
+        // if(r.data.role==="superadmin"){
+        //     navigate("/superadmin");
+        // }else{
+        //     navigate("/");
+        // }
     })
-    .catch((e)=>{dispatch({type: types.USER_LOGIN_ERROR})})
+    .catch((e)=>{
+        dispatch({type: types.USER_LOGIN_ERROR})
+    })
 }
 
 const logout= () => (dispatch) => {

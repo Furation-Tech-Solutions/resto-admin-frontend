@@ -68,7 +68,7 @@ const UserTablePhone = () => {
           >
             {/* <option value="total"><img src={filter} alt="filtericon" /></option> */}
             <option value="total">Total</option>
-            <option value="monthly">Last 30 Days</option>
+            <option value="monthly">This month</option>
             <option value="weekly">Last 7 days</option>
             <option value="daily">Today</option>
           </select>

@@ -16,9 +16,9 @@ const Login = () => {
   const dispatch= useDispatch();
   const navigate= useNavigate();
 
-  // const role= useSelector((store)=>store.AuthReducer.role);
+  const role= useSelector((store)=>store.AuthReducer.role);
   const isAuthLoading= useSelector((store)=>store.AuthReducer.isAuthLoading);
-  // const isError= useSelector((store)=>store.AuthReducer.isAuthError);
+  const isError= useSelector((store)=>store.AuthReducer.isAuthError);
 
 
   const handleLogin = () =>{
@@ -36,8 +36,6 @@ const Login = () => {
       })
     }
   }
-
-
 
   const handleClickShowPassword = () => {
     setispassword((prev)=>!prev);
