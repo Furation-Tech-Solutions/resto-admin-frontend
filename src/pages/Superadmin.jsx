@@ -1,51 +1,59 @@
-import React, { useState, useEffect } from 'react'
-import "../styles/Superadmin.css"
+import React, { useState, useEffect } from "react";
+import "../styles/Superadmin.css";
 import logo from "../utils/Images/Admin/logo.svg";
 import support from "../utils/Images/Admin/support.svg";
-import { useDispatch, useSelector } from 'react-redux';
-import { AiOutlinePlus, AiOutlineSearch } from 'react-icons/ai';
-import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
+import { AiOutlinePlus, AiOutlineSearch } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 import menu from "../utils/Images/Admin/menu.svg";
 import noadmin from "../utils/Images/Admin/noadmin.svg";
-import { getAdminData, getAdminSearchInput, getSupportRequest, postAddAdmin } from '../Redux/AppData/action';
-import { logout } from '../Redux/AuthData/action';
+import {
+  getAdminData,
+  getAdminSearchInput,
+  getSupportRequest,
+  postAddAdmin,
+} from "../Redux/AppData/action";
+import { logout } from "../Redux/AuthData/action";
 
 const Superadmin = () => {
-  
-  const dispatch= useDispatch();
+  const dispatch = useDispatch();
 
-  const navigate= useNavigate();
+  const navigate = useNavigate();
 
-  const [ isPopup, setIsPopup ]= useState(false);
+  const [isPopup, setIsPopup] = useState(false);
 
-  const [ isSidebarPhone, setIsSidebarPhone ]= useState(false);
+  const [isSidebarPhone, setIsSidebarPhone] = useState(false);
 
-  const [ addbusinessName, setAddbusinessName ]= useState("");
-  const [ addemail, setAddemail ]= useState("");
-  const [ addphone, setAddphone ]= useState("");
-  const [ addpassword, setAddpassword ]= useState("");
+  const [addbusinessName, setAddbusinessName] = useState("");
+  const [addemail, setAddemail] = useState("");
+  const [addphone, setAddphone] = useState("");
+  const [addpassword, setAddpassword] = useState("");
 
-  const [ filterValue, setFilterValue ] = useState("");
+  const [filterValue, setFilterValue] = useState("");
 
-  const [ adminSearchInput, setAdminSearchInput ] = useState("");
+  const [adminSearchInput, setAdminSearchInput] = useState("");
 
-  const [ requestSupportInput, setRequestSupportInput ] = useState("");
+  const [requestSupportInput, setRequestSupportInput] = useState("");
 
-
-  const handleLogout= () => {
+  const handleLogout = () => {
     dispatch(logout());
-  }
+  };
 
-  const handleAddAdmin= () => {
-    if(addbusinessName!=="" && addemail!=="" && addphone!=="" && addpassword!==""){
-      const data= {
-        "name" : "Business",
-        "businessName": addbusinessName,
-        "email": addemail,
-        "phone": addphone,
-        "password": addpassword
+  const handleAddAdmin = () => {
+    if (
+      addbusinessName !== "" &&
+      addemail !== "" &&
+      addphone !== "" &&
+      addpassword !== ""
+    ) {
+      const data = {
+        name: "Business",
+        businessName: addbusinessName,
+        email: addemail,
+        phone: addphone,
+        password: addpassword,
       };
-      dispatch(postAddAdmin(data)).then((r)=>{
+      dispatch(postAddAdmin(data)).then((r) => {
         alert("Admin added successfully");
         setIsAddAdmin(false);
         dispatch(getAdminData());
@@ -53,89 +61,113 @@ const Superadmin = () => {
         setAddemail("");
         setAddphone("");
         setAddpassword("");
-      })
-    }else {
-      alert("Please fill all the fields.")
+      });
+    } else {
+      alert("Please fill all the fields.");
     }
-    
+
     setUserData(userrawData);
-  }
+  };
 
-  
-  const handleAdminSearchInput= (value) => {
+  const handleAdminSearchInput = (value) => {
     setAdminSearchInput(value);
-    dispatch(getAdminSearchInput({"input" : value}));
-  }
+    dispatch(getAdminSearchInput({ input: value }));
+  };
 
-  const handleRequestSupportInput= (value) => {
+  const handleRequestSupportInput = (value) => {
     setRequestSupportInput(value);
-    console.log(value);
-    dispatch(getSupportRequest({"input" : value}));
-  }
+    dispatch(getSupportRequest({ input: value }));
+  };
 
+  const [barnum, setBarnum] = useState(1);
 
-  const [barnum, setBarnum]= useState(1);
+  const [isAddAdmin, setIsAddAdmin] = useState(false);
+  const [istoggle, setIstoggle] = useState(false);
 
-  const [ isAddAdmin, setIsAddAdmin ] = useState(false);
-  const [ istoggle, setIstoggle ] = useState(false);
-
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(getAdminData());
-    dispatch(getSupportRequest({"input" : requestSupportInput}));
-    dispatch(getAdminSearchInput({"input" : adminSearchInput}));
-  }, [filterValue, isAddAdmin, adminSearchInput, requestSupportInput, dispatch]);
+    dispatch(getSupportRequest({ input: requestSupportInput }));
+    dispatch(getAdminSearchInput({ input: adminSearchInput }));
+  }, [
+    filterValue,
+    isAddAdmin,
+    adminSearchInput,
+    requestSupportInput,
+    dispatch,
+  ]);
 
-  const date= new Date();
+  const date = new Date();
 
-  const currentDate= date.toLocaleDateString();
-  
-  const requestsupportrawdata= useSelector((store)=>store.AppReducer.supportrequest);
-  
-  const userrawData= useSelector((store)=>store.AppReducer.adminData);
+  const currentDate = date.toLocaleDateString();
 
-  const userSearchData= useSelector((store)=>store.AppReducer.searchAdmin);
+  const requestsupportrawdata = useSelector(
+    (store) => store.AppReducer.supportrequest
+  );
 
-  const [ requestsupportdata, setRequestsupportdata ]= useState(requestsupportrawdata);
+  const userrawData = useSelector((store) => store.AppReducer.adminData);
 
-  const [ userData, setUserData ] = useState(userrawData);
+  const userSearchData = useSelector((store) => store.AppReducer.searchAdmin);
 
-  useEffect(()=>{
-    const date= new Date();
-    const newDate2= new Date(date);
-    if(filterValue==="week"){
-      const returnData= requestsupportrawdata?.filter((el)=>{
-        const newDate1= new Date(el.createdAt);
-        return Math.floor((newDate2- newDate1)/(1000*60*60*24))<7
-      })
+  const [requestsupportdata, setRequestsupportdata] = useState(
+    requestsupportrawdata
+  );
+
+  const [userData, setUserData] = useState(userrawData);
+
+  useEffect(() => {
+    const date = new Date();
+    const newDate2 = new Date(date);
+    if (filterValue === "week") {
+      const returnData = requestsupportrawdata?.filter((el) => {
+        const newDate1 = new Date(el.createdAt);
+        return Math.floor((newDate2 - newDate1) / (1000 * 60 * 60 * 24)) < 7;
+      });
       setRequestsupportdata(returnData);
-    }else if(filterValue==="month"){
-      const returnData= requestsupportrawdata?.filter((el)=>{
-        const newDate1= new Date(el.createdAt);
-        return Math.floor((newDate2- newDate1)/(1000*60*60*24))<30
-      })
+    } else if (filterValue === "month") {
+      const returnData = requestsupportrawdata?.filter((el) => {
+        const newDate1 = new Date(el.createdAt);
+        return Math.floor((newDate2 - newDate1) / (1000 * 60 * 60 * 24)) < 30;
+      });
       setRequestsupportdata(returnData);
-    }else{
+    } else {
       setRequestsupportdata(requestsupportrawdata);
     }
-    if(adminSearchInput===""){
+    if (adminSearchInput === "") {
       setUserData(userrawData);
-    }else {
+    } else {
       setUserData(userSearchData);
     }
-  }, [requestsupportrawdata, adminSearchInput, filterValue, userSearchData, userrawData]);
-
+  }, [
+    requestsupportrawdata,
+    adminSearchInput,
+    filterValue,
+    userSearchData,
+    userrawData,
+  ]);
 
   return (
     <div className="outerBoxSuperAdmin">
-      <div className={isPopup || isAddAdmin? "innerBoxPhoneAdmin" : "innerBoxPhoneAdmin"}>
-        <div onClick={()=>isSidebarPhone===true && setIsSidebarPhone(!isSidebarPhone)} className="innerBoxPhoneAdminContent">
+      <div
+        className={
+          isPopup || isAddAdmin ? "innerBoxPhoneAdmin" : "innerBoxPhoneAdmin"
+        }
+      >
+        <div
+          onClick={() =>
+            isSidebarPhone === true && setIsSidebarPhone(!isSidebarPhone)
+          }
+          className="innerBoxPhoneAdminContent"
+        >
           <div className="navPhoneAdmin">
             <div className="menuIconAdminBox">
-              <img onClick={()=>{
-                setIsPopup(!isPopup)
-                setIsSidebarPhone(!isSidebarPhone)
-              }
-              } src={menu} alt="menu" />
+              <img
+                onClick={() => {
+                  setIsPopup(!isPopup);
+                  setIsSidebarPhone(!isSidebarPhone);
+                }}
+                src={menu}
+                alt="menu"
+              />
             </div>
             <div className="logoAdminBox">
               <img src={logo} alt="logo" />
@@ -144,52 +176,72 @@ const Superadmin = () => {
           <div></div>
         </div>
 
-        <div className={isSidebarPhone? "sideBarPhoneAdmin" : "sideBarPhoneAdminOff"}>
+        <div
+          className={
+            isSidebarPhone ? "sideBarPhoneAdmin" : "sideBarPhoneAdminOff"
+          }
+        >
           <div className="menudivsidePhone">
             <div className="menudivsidePhoneBox">
-              <img onClick={()=>{
-                setIsPopup(!isPopup)
-                setIsSidebarPhone(!isSidebarPhone)
-              }} src={menu} alt="menu" />
+              <img
+                onClick={() => {
+                  setIsPopup(!isPopup);
+                  setIsSidebarPhone(!isSidebarPhone);
+                }}
+                src={menu}
+                alt="menu"
+              />
             </div>
           </div>
           <div className="ContentBoxSideBarrPhoneAdmin">
             <div className="SecondBoxsideBarPhoneAdmin">
-                <div
-                  onClick={() => {
-                    setBarnum(1)
-                    setIsPopup(false)
-                    setIsSidebarPhone(!isSidebarPhone)
-                  }}
-                  className={
-                    barnum === 1 ? "sidesecondfirstPhoneAdminOn" : "sidesecondfirstPhoneAdmin"
-                  }
-                >
-                  <p>Dashboard</p>
-                </div>
-                <div
-                  onClick={() => {
-                    setBarnum(2)
-                    setIsPopup(false)
-                    setIsSidebarPhone(!isSidebarPhone)
-                  }}
-                  className={
-                    barnum === 2
-                      ? "sidesecondsecondPhoneSuperAdminOn"
-                      : "sidesecondsecondPhoneAdmin"
-                  }
-                >
-                  <p>Support</p>
-                </div>
+              <div
+                onClick={() => {
+                  setBarnum(1);
+                  setIsPopup(false);
+                  setIsSidebarPhone(!isSidebarPhone);
+                }}
+                className={
+                  barnum === 1
+                    ? "sidesecondfirstPhoneAdminOn"
+                    : "sidesecondfirstPhoneAdmin"
+                }
+              >
+                <p>Dashboard</p>
+              </div>
+              <div
+                onClick={() => {
+                  setBarnum(2);
+                  setIsPopup(false);
+                  setIsSidebarPhone(!isSidebarPhone);
+                }}
+                className={
+                  barnum === 2
+                    ? "sidesecondsecondPhoneSuperAdminOn"
+                    : "sidesecondsecondPhoneAdmin"
+                }
+              >
+                <p>Support</p>
+              </div>
             </div>
             <div className="ThirdBoxsideBarPhoneAdmin">
-              <div onClick={()=>handleLogout()} className="ThirdBoxsideBarSecondPhoneAdmin">Logout</div>
+              <div
+                onClick={() => handleLogout()}
+                className="ThirdBoxsideBarSecondPhoneAdmin"
+              >
+                Logout
+              </div>
             </div>
           </div>
         </div>
-      
       </div>
-      <div className={isPopup || isAddAdmin? "innerBoxSuperAdminOverlay" : "innerBoxSuperAdmin"}>
+      <div
+        className={
+          isPopup || isAddAdmin
+            ? "innerBoxSuperAdminOverlay"
+            : "innerBoxSuperAdmin"
+        }
+      >
         <div className="leftBoxSuperAdmin">
           <div className="leftfirstBoxSuperAdmin">
             <img src={logo} alt="applogo" />
@@ -200,7 +252,9 @@ const Superadmin = () => {
               <div
                 onClick={() => setBarnum(1)}
                 className={
-                  barnum === 1 ? "leftsecondfirstSuperAdminOn" : "leftsecondfirstSuperAdmin"
+                  barnum === 1
+                    ? "leftsecondfirstSuperAdminOn"
+                    : "leftsecondfirstSuperAdmin"
                 }
               >
                 <p>Dashboard</p>
@@ -208,34 +262,57 @@ const Superadmin = () => {
               <div
                 onClick={() => setBarnum(2)}
                 className={
-                  barnum === 2 ? "leftsecondsecondSuperAdminOn" : "leftsecondsecondSuperAdmin"
+                  barnum === 2
+                    ? "leftsecondsecondSuperAdminOn"
+                    : "leftsecondsecondSuperAdmin"
                 }
               >
                 <p>Support</p>
               </div>
             </div>
             <div className="leftthirdBoxSuperAdmin">
-              <div onClick={()=>handleLogout()} className="leftthirdBoxfirstSuperAdmin">Logout</div>
+              <div
+                onClick={() => handleLogout()}
+                className="leftthirdBoxfirstSuperAdmin"
+              >
+                Logout
+              </div>
             </div>
           </div>
         </div>
-        <div className='rightBoxSuperAdmin'>
-          <div className={barnum===1 ? 'rightBoxSuperAdminDashboard' : 'rightBoxSuperAdminDashboardOff'}>
-            <div className='rightfirstBoxSuperadmin'>
-              <div className='rightfirstBoxSuperadminText'>
+        <div className="rightBoxSuperAdmin">
+          <div
+            className={
+              barnum === 1
+                ? "rightBoxSuperAdminDashboard"
+                : "rightBoxSuperAdminDashboardOff"
+            }
+          >
+            <div className="rightfirstBoxSuperadmin">
+              <div className="rightfirstBoxSuperadminText">
                 <p>Hello, Super Admin!</p>
                 <p>{currentDate}</p>
               </div>
               <div className="addadminbuttonSuperadminBox">
-                <button onClick={()=>setIsAddAdmin(true)} className="addadminbuttonSuperadmin"><AiOutlinePlus/>Add Admin</button>
+                <button
+                  onClick={() => setIsAddAdmin(true)}
+                  className="addadminbuttonSuperadmin"
+                >
+                  <AiOutlinePlus />
+                  Add Admin
+                </button>
               </div>
             </div>
-            <div className='rightsecondBoxSuperadmin'>
+            <div className="rightsecondBoxSuperadmin">
               <div className="rightsecondBoxSuperadminInputBox">
                 <AiOutlineSearch />
-                <input className="rightsecondBoxSuperadminInput" 
-                  onChange={(e)=>handleAdminSearchInput(e.target.value)}
-                  value={adminSearchInput} type="text" placeholder='Search by email or phone number' />
+                <input
+                  className="rightsecondBoxSuperadminInput"
+                  onChange={(e) => handleAdminSearchInput(e.target.value)}
+                  value={adminSearchInput}
+                  type="text"
+                  placeholder="Search by email or phone number"
+                />
               </div>
               {/* <select className="rightsecondBoxSuperadminSelect" name="" id="">
                 <option value="">Filter By</option>
@@ -244,118 +321,245 @@ const Superadmin = () => {
                 <option value="">Total</option>
               </select> */}
             </div>
-            <div className='rightthirdBoxSuperadmin'>
-              <div className='userTableSuperAdminHolder'>
-                {userData.length > 0 ? 
+            <div className="rightthirdBoxSuperadmin">
+              <div className="userTableSuperAdminHolder">
+                {userData.length > 0 ? (
                   <table className="userTableSuperAdmin">
                     <thead>
                       <tr>
                         <th className="userTableHeadSuperAdmin">Sr. No.</th>
-                        <th className="userTableHeadSuperAdmin">Business Name</th>
-                        <th className="userTableHeadSuperAdmin">Email Address</th>
-                        <th className="userTableHeadSuperAdmin">Phone Number</th>
-                        <th className="userTableHeadSuperAdmin">Subscription</th>
+                        <th className="userTableHeadSuperAdmin">
+                          Business Name
+                        </th>
+                        <th className="userTableHeadSuperAdmin">
+                          Email Address
+                        </th>
+                        <th className="userTableHeadSuperAdmin">
+                          Phone Number
+                        </th>
+                        <th className="userTableHeadSuperAdmin">
+                          Subscription
+                        </th>
                         <th className="userTableHeadSuperAdmin">Action</th>
                       </tr>
                     </thead>
                     <tbody>
-                      {userData && userData.map((user, i)=>{
-                        return <tr key={i} onClick={()=>navigate(`/superadmin/:${user.id}`)}>
-                          <td className="userTableBodySuperAdmin">{i+1}</td>
-                          <td className="userTableBodySuperAdmin">{user.businessName}</td>
-                          <td className="userTableBodySuperAdmin">{user.email}</td>
-                          <td className="userTableBodySuperAdmin">{user.phone}</td>
-                          <td className="userTableBodySuperAdmin">{user.subscriptionend!==""? Math.floor((new Date(user.subscriptionend) - new Date(date)) / (1000*60*60*24)) + " days left" : 'Renewal pending'}</td>
-                          <td className="userTableBodySuperAdmin">Edit</td>
-                        </tr>
-                      })}
+                      {userData &&
+                        userData.map((user, i) => {
+                          return (
+                            <tr
+                              key={i}
+                              onClick={() =>
+                                navigate(`/superadmin/:${user.id}`)
+                              }
+                            >
+                              <td className="userTableBodySuperAdmin">
+                                {i + 1}
+                              </td>
+                              <td className="userTableBodySuperAdmin">
+                                {user.businessName}
+                              </td>
+                              <td className="userTableBodySuperAdmin">
+                                {user.email}
+                              </td>
+                              <td className="userTableBodySuperAdmin">
+                                {user.phone}
+                              </td>
+                              <td className="userTableBodySuperAdmin">
+                                {user.subscriptionend !== ""
+                                  ? Math.floor(
+                                      (new Date(user.subscriptionend) -
+                                        new Date(date)) /
+                                        (1000 * 60 * 60 * 24)
+                                    ) + " days left"
+                                  : "Renewal pending"}
+                              </td>
+                              <td className="userTableBodySuperAdmin">Edit</td>
+                            </tr>
+                          );
+                        })}
                     </tbody>
-                  </table> 
-                  : 
+                  </table>
+                ) : (
                   <div className="notfounddiv">
                     <img src={noadmin} alt="feedback" />
                     <p>No admin found</p>
                   </div>
-                }
+                )}
               </div>
             </div>
           </div>
-          <div className={barnum===2 ? 'rightBoxSuperAdminSupport' : 'rightBoxSuperAdminSupportOff'}>
-            <div className='rightBoxSuperAdminSupportText'><p>Support</p></div>
-           <div className='rightsecondBoxSuperadmin'>
+          <div
+            className={
+              barnum === 2
+                ? "rightBoxSuperAdminSupport"
+                : "rightBoxSuperAdminSupportOff"
+            }
+          >
+            <div className="rightBoxSuperAdminSupportText">
+              <p>Support</p>
+            </div>
+            <div className="rightsecondBoxSuperadmin">
               <div className="rightsecondBoxSuperadminInputWithSelect">
                 <AiOutlineSearch size={"20px"} />
-                <input onChange={(e)=>handleRequestSupportInput(e.target.value)} value={requestSupportInput} className="rightsecondBoxSuperadminInput" type="text" placeholder='Search by email or phone number' />
+                <input
+                  onChange={(e) => handleRequestSupportInput(e.target.value)}
+                  value={requestSupportInput}
+                  className="rightsecondBoxSuperadminInput"
+                  type="text"
+                  placeholder="Search by email or phone number"
+                />
               </div>
-              <select onChange={(e)=>setFilterValue(e.target.value)} value={filterValue} className="rightsecondBoxSuperadminSelect" name="" id="">
+              <select
+                onChange={(e) => setFilterValue(e.target.value)}
+                value={filterValue}
+                className="rightsecondBoxSuperadminSelect"
+                name=""
+                id=""
+              >
                 <option value="">All time</option>
                 <option value="week">Last 7 days</option>
                 <option value="month">This month</option>
               </select>
             </div>
-            <div className='rightthirdBoxSuperadminSupport'>
-            {requestsupportdata.length>0 ? <div className='userTableSuperAdminHolder'>
-                <table className="feedbackTableSuperAdmin">
-                  <thead>
-                    <tr>
-                      <th className="feedbackTableHeadSuperAdmin">Sr. No.</th>
-                      <th className="feedbackTableHeadSuperAdmin">Name</th>
-                      <th className="feedbackTableHeadSuperAdmin">Phone Number</th>
-                      <th className="feedbackTableHeadSuperAdmin">Feedback</th>
-                      <th className="feedbackTableHeadSuperAdmin">Date</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {requestsupportdata && requestsupportdata.map((feedback, i)=>{
-                      return <tr key={i}>
-                        <td className="feedbackTableBodySuperAdmin">{i+1}</td>
-                        <td className="feedbackTableBodySuperAdmin">{feedback.businessName}</td>
-                        <td className="feedbackTableBodySuperAdmin">{feedback.phone}</td>
-                        <td className="feedbackTableBodySuperAdmin">{feedback.message}</td>
-                        <td className="feedbackTableBodySuperAdmin">{new Date(feedback.createdAt).toLocaleString()}</td>
+            <div className="rightthirdBoxSuperadminSupport">
+              {requestsupportdata.length > 0 ? (
+                <div className="userTableSuperAdminHolder">
+                  <table className="feedbackTableSuperAdmin">
+                    <thead>
+                      <tr>
+                        <th className="feedbackTableHeadSuperAdmin">Sr. No.</th>
+                        <th className="feedbackTableHeadSuperAdmin">Name</th>
+                        <th className="feedbackTableHeadSuperAdmin">
+                          Phone Number
+                        </th>
+                        <th className="feedbackTableHeadSuperAdmin">
+                          Feedback
+                        </th>
+                        <th className="feedbackTableHeadSuperAdmin">Date</th>
                       </tr>
-                    })}
-                  </tbody>
-                </table>
-              </div> : 
-              <div className="notfounddiv">
-                <img src={support} alt="support" />
-                <p>No record found</p>
-              </div>
-              }
+                    </thead>
+                    <tbody>
+                      {requestsupportdata &&
+                        requestsupportdata.map((feedback, i) => {
+                          return (
+                            <tr key={i}>
+                              <td className="feedbackTableBodySuperAdmin">
+                                {i + 1}
+                              </td>
+                              <td className="feedbackTableBodySuperAdmin">
+                                {feedback.businessName}
+                              </td>
+                              <td className="feedbackTableBodySuperAdmin">
+                                {feedback.phone}
+                              </td>
+                              <td className="feedbackTableBodySuperAdmin">
+                                {feedback.message}
+                              </td>
+                              <td className="feedbackTableBodySuperAdmin">
+                                {new Date(feedback.createdAt).toLocaleString()}
+                              </td>
+                            </tr>
+                          );
+                        })}
+                    </tbody>
+                  </table>
+                </div>
+              ) : (
+                <div className="notfounddiv">
+                  <img src={support} alt="support" />
+                  <p>No record found</p>
+                </div>
+              )}
             </div>
           </div>
         </div>
       </div>
-      <div className={ isAddAdmin? "addadmin" : "addadminOff"}>
-        <p className='addadmintext'>Add a new admin</p>
+      <div className={isAddAdmin ? "addadmin" : "addadminOff"}>
+        <p className="addadmintext">Add a new admin</p>
         <div>
-          <label className='addadminlabel'>Business Name</label><br/>
-          <input onChange={(e)=>setAddbusinessName(e.target.value)} value={addbusinessName} className='addadmininput' type="text" placeholder='Name a business' /><br/>
-          <label className='addadminlabel'>Email</label><br/>
-          <input onChange={(e)=>setAddemail(e.target.value)} value={addemail} className='addadmininput' type="email" placeholder='Enter email' /><br/>
-          <label className='addadminlabel'>Phone</label><br/>
-          <input onChange={(e)=>setAddphone(e.target.value)} value={addphone} className='addadmininput' type="number" placeholder='Enter phone number' /><br/>
-          <label className='addadminlabel'>Set a password</label><br/>
-          <input onChange={(e)=>setAddpassword(e.target.value)} value={addpassword} className='addadmininput' type="text" placeholder='Enter password' /><br/>
+          <label className="addadminlabel">Business Name</label>
+          <br />
+          <input
+            onChange={(e) => setAddbusinessName(e.target.value)}
+            value={addbusinessName}
+            className="addadmininput"
+            type="text"
+            placeholder="Name a business"
+          />
+          <br />
+          <label className="addadminlabel">Email</label>
+          <br />
+          <input
+            onChange={(e) => setAddemail(e.target.value)}
+            value={addemail}
+            className="addadmininput"
+            type="email"
+            placeholder="Enter email"
+          />
+          <br />
+          <label className="addadminlabel">Phone</label>
+          <br />
+          <input
+            onChange={(e) => setAddphone(e.target.value)}
+            value={addphone}
+            className="addadmininput"
+            type="number"
+            placeholder="Enter phone number"
+          />
+          <br />
+          <label className="addadminlabel">Set a password</label>
+          <br />
+          <input
+            onChange={(e) => setAddpassword(e.target.value)}
+            value={addpassword}
+            className="addadmininput"
+            type="text"
+            placeholder="Enter password"
+          />
+          <br />
         </div>
-        <button onClick={()=>handleAddAdmin()} className='addadminbutton'>Add Admin</button><br/>
-        <button onClick={()=>setIsAddAdmin(false)} className='addadmincancelbutton'>Cancel</button>
+        <button onClick={() => handleAddAdmin()} className="addadminbutton">
+          Add Admin
+        </button>
+        <br />
+        <button
+          onClick={() => setIsAddAdmin(false)}
+          className="addadmincancelbutton"
+        >
+          Cancel
+        </button>
       </div>
-      <div className={ istoggle? "togglesubscription" : "togglesubscriptionOff"}>
-        <p className='togglesubscriptiontext'>Are you sure you want to deactivate the subsciption?</p>
+      <div
+        className={istoggle ? "togglesubscription" : "togglesubscriptionOff"}
+      >
+        <p className="togglesubscriptiontext">
+          Are you sure you want to deactivate the subsciption?
+        </p>
         <div>
-          <label className='togglesubscriptionlabel'>Type DEACTIVATE to confirm</label><br/>
-          <input className='togglesubscriptioninput' type="text" /><br/>
-          <p className='togglesubscriptionerror'>Sorry, please enter the text exactly as displayed to confirm.</p>
+          <label className="togglesubscriptionlabel">
+            Type DEACTIVATE to confirm
+          </label>
+          <br />
+          <input className="togglesubscriptioninput" type="text" />
+          <br />
+          <p className="togglesubscriptionerror">
+            Sorry, please enter the text exactly as displayed to confirm.
+          </p>
         </div>
-        <div className='togglesubscriptionbuttonBox'>
-          <button className='togglesubscriptionbutton'>Deactivate</button><br/>
-          <button onClick={()=>setIstoggle(false)} className='togglesubscriptioncancelbutton'>Cancel</button>
+        <div className="togglesubscriptionbuttonBox">
+          <button className="togglesubscriptionbutton">Deactivate</button>
+          <br />
+          <button
+            onClick={() => setIstoggle(false)}
+            className="togglesubscriptioncancelbutton"
+          >
+            Cancel
+          </button>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Superadmin
+export default Superadmin;

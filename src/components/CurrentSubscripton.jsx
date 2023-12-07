@@ -5,21 +5,19 @@ import "../styles/Admin.css";
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, Filler, LineElement, BarElement, ArcElement, Title, Tooltip, Legend } from 'chart.js';
 
 const CurrentSubscripton = ({props}) => {
-
-  console.log(props);
-
-    ChartJS.register(
-        CategoryScale,
-        LinearScale,
-        PointElement,
-        LineElement,
-        BarElement,
-        ArcElement,
-        Filler,
-        Title,
-        Tooltip,
-        Legend
-    );
+  
+  ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    BarElement,
+    ArcElement,
+    Filler,
+    Title,
+    Tooltip,
+    Legend
+  );
     
   const doughnutdata = {
     labels: [],

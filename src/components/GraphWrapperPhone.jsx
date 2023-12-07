@@ -3,13 +3,30 @@ import chevronleft from "../utils/Images/Admin/chevron-right.svg";
 import chevronrightdisable from "../utils/Images/Admin/chevron-right-disable.svg";
 import chevronright from "../utils/Images/Admin/chevron-left.svg";
 import chevronleftdisable from "../utils/Images/Admin/chevron-left-disable.svg";
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, Filler, LineElement, BarElement, ArcElement, Title, Tooltip, Legend } from "chart.js";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  Filler,
+  LineElement,
+  BarElement,
+  ArcElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
 import { Line, Bar } from "react-chartjs-2";
 import { useDispatch, useSelector } from "react-redux";
-import { getMonthlyUniqueUser, getPaymentHistory, getTotalUniqueUser, getUniqueUser, getWeeklyUniqueUser } from "../Redux/AppData/action";
+import {
+  getMonthlyUniqueUser,
+  getPaymentHistory,
+  getTotalUniqueUser,
+  getUniqueUser,
+  getWeeklyUniqueUser,
+} from "../Redux/AppData/action";
 
 const GraphWrapperPhone = () => {
-
   ChartJS.register(
     CategoryScale,
     LinearScale,

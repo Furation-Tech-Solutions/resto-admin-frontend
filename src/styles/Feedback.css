@@ -1,160 +1,150 @@
 .outerBoxFeedback {
-    display: flex;
-    width: 100%;
-    margin-top: 40px;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  width: 100%;
+  margin-top: 40px;
+  justify-content: center;
+  align-items: center;
 }
 .innerBoxFeedback {
-    width: 30%;
-    height: 490px;
-    flex-shrink: 0;
-    border-radius: 16px;
-    border: 1px solid #CECECE;
-    background: #FBF8FF;
-    padding: 30px;
+  width: 30%;
+  height: 490px;
+  flex-shrink: 0;
+  border-radius: 16px;
+  border: 1px solid #cecece;
+  background: #fbf8ff;
+  padding: 30px;
 }
-.feedbacklogo{
-    width: 15%;
-    height: 15%;
-    flex-shrink: 0;
+.feedbacklogo {
+  width: 15%;
+  height: 15%;
+  flex-shrink: 0;
 }
-.feedbackheading{
-    color: #000000;
-    font-family: "Poppins", Arial, sans-serif;
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    text-align: center;
-    margin: 15px 0px;
+.feedbackheading {
+  color: #000000;
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-align: center;
+  margin: 15px 0px;
 }
 .formboxfeedback {
-    width: 90%;
-    text-align: left;
-    margin:auto
+  width: 90%;
+  text-align: left;
+  margin: auto;
 }
 .inputfeedback {
-    width: 95%;
-    background-color: white;
-    margin: auto;
-    border: 0.5px solid rgb(228, 219, 219);
-    border-radius: 4px;
-    outline: none;
-    margin-top: 5px;
-    text-align: left;
-    padding: 8px;
-    font-family: "Poppins", Arial, sans-serif;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  width: 95%;
+  background-color: white;
+  margin: auto;
+  border: 0.5px solid rgb(228, 219, 219);
+  border-radius: 4px;
+  outline: none;
+  margin-top: 5px;
+  text-align: left;
+  padding: 8px;
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.feedbacklabels{
-    color: #000;
-    font-family: "Poppins", Arial, sans-serif;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+.feedbacklabels {
+  color: #000;
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 .submitButton {
-    display: flex;
-    width: 100%;
-    height: 38px;
-    padding: 14px 20px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    flex-shrink: 0;
-    border-radius: 4px;
-    background: linear-gradient(287deg, #7200FF 15.07%, #FC57FF 88.56%), #000;
-    border: none;
-    margin-top: 7px;
-    color: #FFF;
-    font-family: "Poppins", Arial, sans-serif;
+  display: flex;
+  width: 100%;
+  height: 38px;
+  padding: 14px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  background: linear-gradient(287deg, #7200ff 15.07%, #fc57ff 88.56%), #000;
+  border: none;
+  margin-top: 7px;
+  color: #fff;
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+@media all and (min-width: 481px) and (max-width: 786px) {
+  .outerBoxLogin {
+    margin-top: 30px;
+  }
+  .innerBoxFeedback {
+    width: 50%;
+    height: 470px;
+  }
+  .feedbacklogo {
+    width: 17%;
+    height: 17%;
+  }
+  .feedbackheading {
+    font-size: 20px;
+    margin: 10px 0px;
+  }
+  .feedbacklabels {
+    font-size: 13px;
+  }
+  .inputfeedback {
+    padding: 7px;
+    margin-bottom: 0px;
+    font-size: 13px;
+  }
+  .submitButton {
+    height: 35px;
+    font-size: 14px;
+  }
+}
+
+@media all and (min-width: 180px) and (max-width: 480px) {
+  .outerBoxLogin {
+    margin-top: 20px;
+  }
+  .formboxfeedback {
+    width: 90%;
+  }
+  .innerBoxFeedback {
+    width: 65%;
+    height: 420px;
+  }
+  .feedbacklogo {
+    width: 17%;
+    height: 17%;
+  }
+  .feedbackheading {
     font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-}
-
-
-
-
-
-
-@media all and (min-width:481px) and (max-width:786px){
-    .outerBoxLogin{
-        margin-top: 30px;
-    }
-    .innerBoxFeedback{
-        width: 50%;
-        height: 470px;
-    }
-    .feedbacklogo{
-        width: 17%;
-        height: 17%;
-    }
-    .feedbackheading{
-        font-size: 20px;
-        margin: 10px 0px;
-    }
-    .feedbacklabels{
-        font-size: 13px;
-    }
-    .inputfeedback{
-        padding: 7px;
-        margin-bottom: 0px;
-        font-size: 13px;
-    }
-    .submitButton{
-        height: 35px;
-        font-size: 14px;
-    }
-}
-
-
-
-
-
-
-@media all and (min-width:180px) and (max-width:480px){
-    .outerBoxLogin{
-        margin-top: 20px;
-    }
-    .formboxfeedback{
-        width: 90%;
-    }
-    .innerBoxFeedback{
-        width: 65%;
-        height: 420px;
-    }
-    .feedbacklogo{
-        width: 17%;
-        height: 17%;
-    }
-    .feedbackheading{
-        font-size: 16px;
-        margin: 7px 0px;
-    }
-    .feedbacklabels{
-        font-size: 13px;
-    }
-    .inputfeedback{
-        padding: 5px;
-        margin-bottom: 0px;
-        font-size: 13px;
-    }
-    .loginforgotpassword{
-        font-size: 15px;
-    }
-    .submitButton{
-        height: 32px;
-        font-size: 14px;
-        margin-top: 5px;
-    }
+    margin: 7px 0px;
+  }
+  .feedbacklabels {
+    font-size: 13px;
+  }
+  .inputfeedback {
+    padding: 5px;
+    margin-bottom: 0px;
+    font-size: 13px;
+  }
+  .loginforgotpassword {
+    font-size: 15px;
+  }
+  .submitButton {
+    height: 32px;
+    font-size: 14px;
+    margin-top: 5px;
+  }
 }
